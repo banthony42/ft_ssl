@@ -6,7 +6,7 @@
 #    By: banthony <banthony@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/08 12:54:17 by banthony          #+#    #+#              #
-#    Updated: 2019/02/08 17:40:00 by banthony         ###   ########.fr        #
+#    Updated: 2019/02/08 18:56:43 by banthony         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -59,18 +59,19 @@ TRASH = Makefile~		\
 all: $(NAME)
 
 $(NAME): $(SRC) $(INCLUDE)
+	make -C $(LIBFT) sanit
+	gcc $(FLAGS) $(HEAD_DIR) -c $(SRC) $(DEBUG)
+	mkdir -p $(OBJ_PATH)
+	mv $(OBJ) $(OBJ_PATH)
+	gcc $(FLAGS) $(OBJ2) $(HEAD_DIR) $(LIBFT_NAME_SANIT) -o $(NAME) $(DEBUG)
+
+normal: $(SRC) $(INCLUDE)
 	make -C $(LIBFT)
 	gcc $(FLAGS) $(HEAD_DIR) -c $(SRC)
 	mkdir -p $(OBJ_PATH)
 	mv $(OBJ) $(OBJ_PATH)
 	gcc $(FLAGS) $(OBJ2) $(HEAD_DIR) $(LIBFT_NAME) -o $(NAME)
 
-debug: $(SRC) $(INCLUDE)
-	make -C $(LIBFT) sanit
-	gcc $(FLAGS) $(HEAD_DIR) -c $(SRC) $(DEBUG)
-	mkdir -p $(OBJ_PATH)
-	mv $(OBJ) $(OBJ_PATH)
-	gcc $(FLAGS) $(OBJ2) $(HEAD_DIR) $(LIBFT_NAME_SANIT) -o $(NAME) $(DEBUG)
 
 clean:
 	make clean -C $(LIBFT)

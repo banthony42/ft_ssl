@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:03:01 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/08 17:46:12 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/08 19:19:01 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ static void	usage(char *cmd)
 	ft_putstr("usage:");
 	ft_putstr(cmd);
 	ft_putendl(" command [command opts] [command args]");
+	ft_putendl("\nMessage Digest commands:");
+	ft_putendl("md5");
+	ft_putendl("sha256");
+	ft_putendl("\nTest the parser with test command:");
+	ft_putstr(cmd);
+	ft_putendl(" test [-p | -q | -r | -s | -help | -print [red | blue | green]]");
 }
 
 static void	ssl_start(int ac, char **av)
