@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:40:14 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/10 18:43:32 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/10 19:01:33 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,8 @@ int	ssl_cmd_dispatcher(int ac, char **av, t_cmd_type cmd)
 			if (ac > 2)
 			{
 				error = ssl_cmd_parser(ac, av, g_ssl_cmd_parse[cmd], &cmd_opt);
-				if (error == CMD_USAGE)
-					return (g_ssl_cmd[cmd].usage());
+				if (error == CMD_USAGE || error == PARSING_OPT_ERROR)
+					return (g_ssl_cmd[cmd].usage(av[0]));
 				if (error != PARSING_SUCCESS)
 					return (error);
 				return (g_ssl_cmd[cmd].func(ac, av, &cmd_opt));

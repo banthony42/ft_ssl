@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/10 18:41:33 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/10 19:52:21 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ typedef struct	s_cmd_opt
 	int			end;
 }				t_cmd_opt;
 
-typedef int		(*t_cmd_usage)(void);
+typedef int		(*t_cmd_usage)(char *cmd);
 typedef int		(*t_cmd_func)(int ac, char **av, t_cmd_opt *opts);
 
 /*
@@ -176,8 +176,26 @@ int				cmd_md5(int ac, char **av, t_cmd_opt *opts);
 int				cmd_sha256(int ac, char **av, t_cmd_opt *opts);
 int				cmd_test(int ac, char **av, t_cmd_opt *opts);
 
-int				usage_md5(void);
-int				usage_sha256(void);
-int				usage_test(void);
+int				usage_md5(char *exe);
+int				usage_sha256(char *exe);
+int				usage_test(char *exe);
 
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

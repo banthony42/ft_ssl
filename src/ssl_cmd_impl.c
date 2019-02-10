@@ -6,28 +6,32 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 17:38:56 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/10 18:49:33 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/10 19:34:01 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
 
-int	usage_md5(void)
+int	usage_md5(char *exe)
 {
-	ft_putendl("md5 usage");
-	return (CMD_USAGE);
+	ft_putstr(exe);
+	ft_putendl(" md5 usage");
+	return (CMD_SUCCESS);
 }
 
-int	usage_sha256(void)
+int	usage_sha256(char *exe)
 {
+	ft_putstr(exe);
 	ft_putendl("sha256 usage");
-	return (CMD_USAGE);
+	return (CMD_SUCCESS);
 }
 
-int	usage_test(void)
+int	usage_test(char *exe)
 {
-	ft_putendl("test usage");
-	return (CMD_USAGE);
+	ft_putstr(exe);
+	ft_putstr(" test [-p | -q | -r | -s | -help | -print [red | blue | green]]");
+	ft_putendl(" | -arg [value1 | value2 | valueX]]");
+	return (CMD_SUCCESS);
 }
 
 int	cmd_md5(int ac, char **av, t_cmd_opt *opts)
