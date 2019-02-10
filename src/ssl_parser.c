@@ -6,105 +6,128 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 17:39:03 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/10 13:49:56 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/10 18:50:16 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
 
-/*
-**	Gestion d'erreur restante
-**	./ft_ssl -print red -print
-**	./ft_ssl -p -z -print red
-**	./ft_ssl -print red -nimportequoi
-*/
-static int check_arg(char **arg, char **entry, int entry_c, size_t *shift)
+static size_t	ft_strchrcount(const char *src, int c)
 {
-	int i;
-	char **value;
+	int		i;
+	size_t	count;
 
-	if (ft_tablen(arg) < 2 || entry_c < 2)
-		return (ARG_NOTFOUND);
-	if (ft_strncmp(entry[0], arg[0], ft_strlen(entry[0])))
-		return (ARG_NOTFOUND);
-	if (ft_strlen(entry[0]) != ft_strlen(arg[0]))
-		return (ARG_NOTFOUND);
-	if (!(value = ft_strsplit(arg[1], ';')))
-		return (ARG_ERROR);
+	count = 0;
 	i = -1;
-	*shift += ft_tablen(value);
-	while (value[++i])
-	{
-		if (!ft_strncmp(entry[1], value[i], ft_strlen(entry[1])))
-		{
-			if (ft_strlen(entry[1]) == ft_strlen(value[i]))
-			{
-				ft_freetab(value);
-				return (i);
-			}
-		}
-	}
-	ft_freetab(value);
-	return (ARG_VALUE_NOTFOUND);
+	if (!src || c < 0)
+		return (count);
+	while (src[++i] != '\0')
+		if (src[i] == c)
+			count++;
+	if (src[i] == c)
+		count++;
+	return (count);
 }
 
-static int ssl_cmd_parse_arg(int ac, char **av, t_parsing_param param, t_cmd_opt *opt)
+static int		ssl_parse_param_values(char *entry, int index,
+								t_cmd_opt *opt, t_parsing_param param)
 {
 	int		i;
-	int		error;
-	size_t	i_arg;
-	char	**arg;
 	size_t	shift;
+	char	**values;
+	size_t	entry_len;
 
-	i = 0;
-	arg = NULL;
-	while (av[++i] && i < ac)
-	{
-		i_arg = 0;
-		shift = 0;
-		while (i_arg < param.opts_arg_len)
+	i = -1;
+	shift = 0;
+	entry_len = ft_strlen(entry);
+	if (!(values = ft_strsplit(param.opts_arg[index].values, ';')))
+		return (PARSING_FAILURE);
+	while (++i < index)
+		shift += ft_strchrcount(param.opts_arg[i].values, ';') + 1;
+	i = -1;
+	while (values[++i])
+		if (!(ft_strncmp(entry, values[i], entry_len)))
 		{
-			if (!(arg = ft_strsplit(param.opts_arg[i_arg].str, ':')))
-				return (CMD_PARSING_FAILURE);
-			error = check_arg(arg, &av[i], ac - i, &shift);
-			ft_freetab(arg);
-			if (error == ARG_ERROR || error == ARG_VALUE_NOTFOUND)
-				return (CMD_PARSING_FAILURE);
-			else if (error != ARG_NOTFOUND)
+			if (entry_len == ft_strlen(values[i]))
 			{
-				(i_arg == 0) ? (opt->opts_arg_flag |= (1 << error))
-						: (opt->opts_arg_flag |= 1 << (shift + (size_t)error));
-				break ;
+				opt->opts_param_flag |= (1 << (shift + (size_t)i));
+				return (PARSING_SUCCESS);
 			}
-			i_arg++;
 		}
-	}
-	return (CMD_PARSING_SUCCESS);
+	ft_freetab(values);
+	return (PARSING_OPT_ERROR);
 }
 
-int	ssl_cmd_parser(int ac, char **av, t_parsing_param param, t_cmd_opt *opt)
+static int		ssl_parse_param_options(char *entry, int index,
+								t_cmd_opt *opt, t_parsing_param param)
 {
 	int		i;
+	size_t	entry_len;
+
+	i = -1;
+	entry_len = ft_strlen(entry);
+	if (index >= 0)
+		return (ssl_parse_param_values(entry, index, opt, param));
+	while (index < 0 && ++i < (int)param.opts_arg_len)
+		if (!ft_strncmp(entry, param.opts_arg[i].key, entry_len))
+		{
+			if (entry_len == ft_strlen(param.opts_arg[i].key))
+				return (i);
+		}
+	return (PARSING_OPT_ERROR);
+}
+
+static int		ssl_parse_options(char *entry, char **options,
+								t_cmd_opt *opt, t_parsing_param param)
+{
+	int		i;
+	size_t	entry_len;
+
+	i = -1;
+	if (entry[0] != '-')
+		return (PARSING_NOTAN_OPT);
+	entry_len = ft_strlen(entry);
+	while (options[++i])
+	{
+		if (!ft_strncmp(entry, options[i], entry_len))
+		{
+			if (ft_strlen(options[i]) == entry_len)
+			{
+				opt->opts_flag |= (1 << i);
+				return (PARSING_SUCCESS);
+			}
+		}
+	}
+	if (param.opts_with_arg == true)
+		return (ssl_parse_param_options(entry, -1, opt, param));
+	return (PARSING_OPT_ERROR);
+}
+
+int				ssl_cmd_parser(int ac, char **av, t_parsing_param param,
+								t_cmd_opt *opt)
+{
+	int		i;
+	int		status;
 	char	**options;
 
-	i = 0;
-	if (!(options = ft_strsplit(param.opts, ';')))
-		return (CMD_PARSING_FAILURE);
-	while (av[++i] && i < ac)
+	if (!(options = ft_strsplit(param.opts, ';')) || !opt || !av)
+		return (PARSING_FAILURE);
+	opt->end = 0;
+	i = 1;
+	status = PARSING_FAILURE;
+	while (++i < ac && av[i] && opt->end == 0)
 	{
-		opt->end = -1;
-		while (options[++opt->end] && i < ac)
-			if (!ft_strncmp(av[i], options[opt->end], ft_strlen(av[i])))
-			{
-				if (ft_strlen(options[opt->end]) == ft_strlen(av[i]))
-				{
-					opt->opts_flag |= (1 << opt->end);
-					break ;
-				}
-			}
+		if (status >= 0)
+			status = ssl_parse_param_options(av[i], status, opt, param);
+		else if ((status = ssl_parse_options(av[i], options, opt, param)) >= 0)
+			continue ;
+		if (status == PARSING_OPT_ERROR || status == PARSING_FAILURE)
+			break ;
+		else if (status == PARSING_NOTAN_OPT)
+			opt->end = i;
 	}
 	ft_freetab(options);
-	if (param.opts_with_arg == true)
-		return (ssl_cmd_parse_arg(ac, av, param, opt));
-	return (CMD_PARSING_SUCCESS);
+	(status >= 0) ? (status = PARSING_OPT_ERROR) : (status += 0);
+	(status == PARSING_NOTAN_OPT) ? (status = PARSING_SUCCESS) : (status += 0);
+	return (status);
 }

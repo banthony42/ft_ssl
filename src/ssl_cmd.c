@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:40:14 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/08 17:44:22 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/10 18:43:32 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,16 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 		.opts = TEST_OPTS,
 		.opts_len = sizeof(TEST_OPTS) - 1,
 		.opts_with_arg = true,
-		.opts_arg[0] = { .str = TEST_ARG_PRINT, .len = sizeof(TEST_ARG_PRINT)},
-		.opts_arg[1] = { .str = TEST_ARG_X, .len = sizeof(TEST_ARG_X)},
+		.opts_arg[0] =
+		{
+			.key = TEST_OPT_PRINT_KEY,
+			.values = TEST_OPT_PRINT_VALUES
+		},
+		.opts_arg[1] =
+		{
+			.key = TEST_OPT_ARG_KEY,
+			.values = TEST_OPT_ARG_VALUES
+		},
 		.opts_arg_len = 2,
 	}
 };
@@ -72,9 +80,9 @@ static const t_cmd g_ssl_cmd[NB_CMD] = {
 /*
 **	Si le seul arguments est le nom de la commande, (ac == 2)
 **	Le comportement dependera de la commande. (voir ssl_cmd_impl.c)
-**	Soit STDIN est lu pour obtenir une entree utilisateur.
-**	Soit l'usage de la commande est affichee.
-**	Dans le cas ou STDIN est lu, il est trop tard pour passer des options.
+**	Soit STDIN sera lu pour obtenir une entree utilisateur.
+**	Soit l'usage de la commande sera affichee.
+**	Dans le cas ou STDIN est lu, il sera trop tard pour passer des options.
 */
 
 int	ssl_cmd_dispatcher(int ac, char **av, t_cmd_type cmd)
@@ -93,7 +101,7 @@ int	ssl_cmd_dispatcher(int ac, char **av, t_cmd_type cmd)
 				error = ssl_cmd_parser(ac, av, g_ssl_cmd_parse[cmd], &cmd_opt);
 				if (error == CMD_USAGE)
 					return (g_ssl_cmd[cmd].usage());
-				if (error != CMD_PARSING_SUCCESS)
+				if (error != PARSING_SUCCESS)
 					return (error);
 				return (g_ssl_cmd[cmd].func(ac, av, &cmd_opt));
 			}
