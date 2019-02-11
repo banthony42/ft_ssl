@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ssl_cmd.c                                          :+:      :+:    :+:   */
+/*   ssl_cmd_dispatcher.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:40:14 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/10 19:01:33 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/11 18:34:09 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int	ssl_cmd_dispatcher(int ac, char **av, t_cmd_type cmd)
 	t_cmd_opt	cmd_opt;
 
 	entry_cmd_len = ft_strlen(av[1]);
+	ft_memset(&cmd_opt, 0, sizeof(cmd_opt));
 	if (!ft_strncmp(av[1], g_ssl_cmd[cmd].name, entry_cmd_len))
 	{
 		if (entry_cmd_len == g_ssl_cmd[cmd].len)

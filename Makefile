@@ -6,7 +6,7 @@
 #    By: banthony <banthony@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/08 12:54:17 by banthony          #+#    #+#              #
-#    Updated: 2019/02/08 18:56:43 by banthony         ###   ########.fr        #
+#    Updated: 2019/02/11 18:45:09 by banthony         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -21,9 +21,11 @@ PATH_HEAD = ./include/
 HEADER_FILE = ft_ssl.h	\
 
 SRC_FILE +=	main.c
-SRC_FILE +=	ssl_cmd.c
-SRC_FILE += ssl_cmd_impl.c
+SRC_FILE +=	ssl_cmd_dispatcher.c
 SRC_FILE += ssl_parser.c
+SRC_FILE += ssl_cmd_md5.c
+SRC_FILE += ssl_cmd_sha256.c
+SRC_FILE += ssl_cmd_test.c
 
 SRC = $(SRC_FILE:%c=$(PATH_SRC)%c)
 INCLUDE = $(HEADER_FILE:%h=$(PATH_HEAD)%h)

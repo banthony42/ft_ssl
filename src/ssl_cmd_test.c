@@ -1,30 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ssl_cmd_impl.c                                     :+:      :+:    :+:   */
+/*   ssl_cmd_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/08 17:38:56 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/10 19:34:01 by banthony         ###   ########.fr       */
+/*   Created: 2019/02/11 18:35:46 by banthony          #+#    #+#             */
+/*   Updated: 2019/02/11 18:42:42 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
-
-int	usage_md5(char *exe)
-{
-	ft_putstr(exe);
-	ft_putendl(" md5 usage");
-	return (CMD_SUCCESS);
-}
-
-int	usage_sha256(char *exe)
-{
-	ft_putstr(exe);
-	ft_putendl("sha256 usage");
-	return (CMD_SUCCESS);
-}
 
 int	usage_test(char *exe)
 {
@@ -34,57 +20,23 @@ int	usage_test(char *exe)
 	return (CMD_SUCCESS);
 }
 
-int	cmd_md5(int ac, char **av, t_cmd_opt *opts)
+static void decimal_to_binary(int n)
 {
-	if (!opts)
-	{
-		ft_putendl("md5 - read stdin");
-		return (0);
-	}
-	ft_putendl("MD5");
-	(void)ac;
-	(void)av;
-	return (CMD_SUCCESS);
-}
-
-int	cmd_sha256(int ac, char **av, t_cmd_opt *opts)
-{
-	if (!opts)
-	{
-		ft_putendl("sha256 - read stdin");
-		return (0);
-	}
-	ft_putendl("SHA256");
-	(void)ac;
-	(void)av;
-	return (CMD_SUCCESS);
-}
-
-static char *decimal_to_binary(int n)
-{
-	int c, d, count;char *pointer;
+	int 	c;
+	int		count;
+	char	result[33];
 
 	count = 0;
-	pointer = ft_strnew(32+1);
-
-	if (pointer == NULL)
-		return (NULL);
-
+	ft_memset(result, 0, 33);
 	for (c = 31 ; c >= 0 ; c--)
 	{
-		d = n >> c;
-
-		if (d & 1)
-			*(pointer+count) = 1 + '0';
+		if ((n >> c) & 1)
+			result[31 - c] = '1';
 		else
-			*(pointer+count) = 0 + '0';
-
+			result[31 - c] = '0';
 		count++;
 	}
-	*(pointer+count) = '\0';
-	ft_putendl(pointer);
-	ft_strdel(&pointer);
-	return  pointer;
+	ft_putendl(result);
 }
 
 static void	display_options(t_cmd_opt *opts)
@@ -125,6 +77,8 @@ static void display_param_options(t_cmd_opt *opts)
 
 int	cmd_test(int ac, char **av, t_cmd_opt *opts)
 {
+	int i;
+
 	if (!opts)
 	{
 		ft_putendl("test - read stdin");
@@ -140,11 +94,15 @@ int	cmd_test(int ac, char **av, t_cmd_opt *opts)
 		ft_putendlcol(SH_YELLOW, " none");
 		return (CMD_SUCCESS);
 	}
-	while (opts->end < ac)
+	i = 0;
+	while (i < ac)
 	{
-		ft_putstrcol(SH_YELLOW, av[opts->end]);
-		ft_putchar(';');
-		opts->end++;
+		if (i >= opts->end)
+			ft_putstrcol(SH_GREEN, av[i]);
+		else
+			ft_putstrcol(SH_YELLOW, av[i]);
+		ft_putchar('|');
+		i++;
 	}
 	ft_putchar('\n');
 	return (CMD_SUCCESS);

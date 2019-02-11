@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/10 19:52:21 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/11 18:55:10 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 # include "libft.h"
 # include "utils.h"
 # include <stdint.h>
+# include <unistd.h>
 
+# define MAXBYTE 4
 /*
 **	MD5 options & MASK
 */
