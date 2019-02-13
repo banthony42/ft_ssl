@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/11 18:55:10 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/19 19:40:49 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "utils.h"
 # include <stdint.h>
 # include <unistd.h>
+# include <fcntl.h>
 
 # define MAXBYTE 4
 /*
@@ -78,6 +79,7 @@ typedef enum	e_cmd_status
 	CMD_SUCCESS = 0,
 	CMD_MISMATCH = -1,
 	CMD_USAGE = -2,
+	CMD_ERROR = -3,
 	PARSING_SUCCESS = -10,
 	PARSING_FAILURE = -11,
 	PARSING_NOTAN_OPT = -12,
@@ -162,6 +164,14 @@ typedef struct	s_cmd
 	t_cmd_usage	usage;
 }				t_cmd;
 
+
+/*
+**	General
+*/
+char	*read_cat(int fd);
+char	*read_file(char *path);
+int		find_key(char **av, int ac, char *key);
+
 /*
 **	Fonction ssl
 */
@@ -183,21 +193,3 @@ int				usage_sha256(char *exe);
 int				usage_test(char *exe);
 
 #endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -6,35 +6,38 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 18:35:46 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/11 18:42:42 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/19 20:01:31 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
 
-int	usage_test(char *exe)
+int			usage_test(char *exe)
 {
 	ft_putstr(exe);
-	ft_putstr(" test [-p | -q | -r | -s | -help | -print [red | blue | green]]");
+	ft_putstr(" test [-p | -q | -r | -s | -help");
+	ft_putstr(" | -print [red | blue | green]]");
 	ft_putendl(" | -arg [value1 | value2 | valueX]]");
 	return (CMD_SUCCESS);
 }
 
-static void decimal_to_binary(int n)
+static void	decimal_to_binary(int n)
 {
-	int 	c;
+	int		c;
 	int		count;
 	char	result[33];
 
 	count = 0;
 	ft_memset(result, 0, 33);
-	for (c = 31 ; c >= 0 ; c--)
+	c = 31;
+	while (c >= 0)
 	{
 		if ((n >> c) & 1)
 			result[31 - c] = '1';
 		else
 			result[31 - c] = '0';
 		count++;
+		c--;
 	}
 	ft_putendl(result);
 }
@@ -56,7 +59,7 @@ static void	display_options(t_cmd_opt *opts)
 		ft_putendlcol(SH_PINK, "HELP");
 }
 
-static void display_param_options(t_cmd_opt *opts)
+static void	display_param_options(t_cmd_opt *opts)
 {
 	ft_putendl("----------- Options Parametrable -----------");
 	ft_print_memory(&opts->opts_param_flag, sizeof(uint32_t));
@@ -75,16 +78,12 @@ static void display_param_options(t_cmd_opt *opts)
 		ft_putendlcol(SH_PINK, "VALUEX");
 }
 
-int	cmd_test(int ac, char **av, t_cmd_opt *opts)
+int			cmd_test(int ac, char **av, t_cmd_opt *opts)
 {
 	int i;
 
 	if (!opts)
-	{
-		ft_putendl("test - read stdin");
 		return (0);
-	}
-	(void)ac;
 	display_options(opts);
 	display_param_options(opts);
 	ft_putendl("-------------- Arg for command -------------");
@@ -94,15 +93,14 @@ int	cmd_test(int ac, char **av, t_cmd_opt *opts)
 		ft_putendlcol(SH_YELLOW, " none");
 		return (CMD_SUCCESS);
 	}
-	i = 0;
-	while (i < ac)
+	i = -1;
+	while (++i < ac)
 	{
 		if (i >= opts->end)
 			ft_putstrcol(SH_GREEN, av[i]);
 		else
 			ft_putstrcol(SH_YELLOW, av[i]);
 		ft_putchar('|');
-		i++;
 	}
 	ft_putchar('\n');
 	return (CMD_SUCCESS);

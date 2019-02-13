@@ -6,12 +6,11 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:03:01 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/11 19:05:46 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/19 19:55:22 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
-
 
 static void	usage(char *cmd)
 {
@@ -46,8 +45,6 @@ static void	ssl_start(int ac, char **av)
 	usage(av[0]);
 }
 
-// Gestion basique de la lecture sur STDIN
-
 int			main(int ac, char **av)
 {
 	int		ret;
@@ -63,7 +60,7 @@ int			main(int ac, char **av)
 		if ((ret = get_next_line(STDIN_FILENO, &line)) < 0)
 		{
 			ft_putendlcol(SH_RED, "GNL ERROR");
-			break;
+			break ;
 		}
 		exe_with_entry = ft_strjoin("./ft_ssl ", line);
 		user_entry = ft_strsplit(exe_with_entry, ' ');
