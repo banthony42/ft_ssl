@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/19 19:40:49 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/20 20:35:10 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,14 @@
 
 # include "libft.h"
 # include "utils.h"
+# include "message_digest.h"
+# include <math.h>
+# include <stdlib.h>
 # include <stdint.h>
 # include <unistd.h>
 # include <fcntl.h>
+
+#include <stdio.h>
 
 # define MAXBYTE 4
 /*

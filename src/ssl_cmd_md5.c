@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 18:44:23 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/19 20:17:16 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/20 20:41:12 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,51 @@ int			usage_md5(char *exe)
 }
 
 /*
+static uint32_t function_f(uint32_t b, uint32_t c, uint32_t d)
+{
+	return ((b & c) | (~b & d));
+}
+
+static uint32_t function_g(uint32_t b, uint32_t c, uint32_t d)
+{
+	return ((b & d) | (c & ~d));
+}
+
+static uint32_t function_h(uint32_t b, uint32_t c, uint32_t d)
+{
+	return (b ^ c ^ d);
+}
+
+static uint32_t function_i(uint32_t b, uint32_t c, uint32_t d)
+{
+	return (c ^ (b | ~d));
+}
+*/
+
+/*
 **	Code here the hash algorithm
 */
 
 static char	*md5_digest(char *entry)
 {
 	(void)entry;
+	t_md5	md5;
+	int		i;
+
+	i = -1;
+	ft_putendl("---- Pour rappel ----");
+	printf("sizeof(char): %ld octet - sizeof(uint32_t): %ld octet\n", sizeof(char), sizeof(uint32_t));
+	printf("entry:%s\n", entry);
+	printf("sizeof(entry): %ld octet - %ld bit\n", ft_strlen(entry), ft_strlen(entry) * 8);
+	ft_memset(&md5, 0, sizeof(md5));
+	// Constante de sinus
+	while (++i < 63)
+		md5.sin_const[i] = (int)(4294967296 * abs(sin(i)));
+	// Initialisation des registres
+	md5.register_a = 0x01234567;
+	md5.register_b = 0x89ABCDEF;
+	md5.register_c = 0xFEDCBA98;
+	md5.register_d = 0x76543210;
 	return (ft_strdup("3ba35f1ea0d170cb3b9a752e3360286c"));
 }
 
@@ -38,7 +77,13 @@ static void	md5_display_output(char *md5_result, char *entry,
 	{
 		ft_putstr(md5_result);
 		ft_putstr(" ");
-		ft_putendl(entry);
+		if (is_str)
+			ft_putchar('"');
+		ft_putstr(entry);
+		if (is_str)
+			ft_putstr("\"\n");
+		else
+			ft_putchar('\n');
 	}
 	else
 	{
@@ -69,7 +114,7 @@ static int	browse_argv(int ac, char **av, t_cmd_opt *opts, int i_str)
 	{
 		if (i != i_str)
 		{
-			if (!(read_file(av[i])))
+			if (!(entry = read_file(av[i])))
 				continue ;
 			md5_result = md5_digest(entry);
 			if (close(fd) < 0)
@@ -122,6 +167,7 @@ int			cmd_md5(int ac, char **av, t_cmd_opt *opts)
 		i_str = find_key(av, ac, "-s");
 	if (i_str < 0)
 		i_str = -2;
-	browse_argv(ac, av, opts, i_str + 1);
+	if (opts->end)
+		browse_argv(ac, av, opts, i_str + 1);
 	return (CMD_SUCCESS);
 }
