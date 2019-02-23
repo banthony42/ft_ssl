@@ -6,7 +6,7 @@
 #    By: banthony <banthony@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/08 12:54:17 by banthony          #+#    #+#              #
-#    Updated: 2019/02/19 19:54:47 by banthony         ###   ########.fr        #
+#    Updated: 2019/02/23 13:38:24 by banthony         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -27,6 +27,9 @@ SRC_FILE += ssl_utils.c
 SRC_FILE += ssl_cmd_md5.c
 SRC_FILE += ssl_cmd_sha256.c
 SRC_FILE += ssl_cmd_test.c
+SRC_FILE += bits_operations.c
+SRC_FILE += md5_hash.c
+SRC_FILE += md5_function.c
 
 SRC = $(SRC_FILE:%c=$(PATH_SRC)%c)
 INCLUDE = $(HEADER_FILE:%h=$(PATH_HEAD)%h)

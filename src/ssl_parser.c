@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 17:39:03 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/11 18:29:00 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/25 20:10:15 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int		ssl_parse_param_values(char *entry, int index,
 		{
 			if (entry_len == ft_strlen(values[i]))
 			{
-				opt->opts_param_flag |= (1 << (shift + (size_t)i));
+				opt->opts_pflag |= (1 << (shift + (size_t)i));
 				return (PARSING_SUCCESS);
 			}
 		}

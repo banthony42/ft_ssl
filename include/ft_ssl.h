@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/20 20:35:10 by abara            ###   ########.fr       */
+/*   Updated: 2019/02/25 20:36:31 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 
 #include <stdio.h>
 
-# define MAXBYTE 4
+# define MAXBYTE 4096
+
 /*
 **	MD5 options & MASK
 */
@@ -33,6 +34,19 @@
 # define MD5_Q_MASK 1 << 1
 # define MD5_R_MASK 1 << 2
 # define MD5_S_MASK 1 << 3
+
+# define MD5_OPT_ARG_VERBOSE_KEY "-verbose"
+# define MD5_OPT_ARG_VERBOSE_VALUES "padding;block;all"
+# define MD5_OPT_ARG_DUMP_KEY "-dump"
+# define MD5_OPT_ARG_DUMP_VALUES "padding;block;all"
+
+# define MD5_OARG_V_PAD 1
+# define MD5_OARG_V_BLOCK 1 << 1
+# define MD5_OARG_V_ALL 1 << 2
+
+# define MD5_OARG_D_PAD 1 << 3
+# define MD5_OARG_D_BLOCK 1 << 4
+# define MD5_OARG_D_ALL 1 << 5
 
 /*
 **	SHA256 options & MASK
@@ -146,7 +160,7 @@ typedef struct	s_parsing_param
 typedef struct	s_cmd_opt
 {
 	uint32_t	opts_flag;
-	uint32_t	opts_param_flag;
+	uint32_t	opts_pflag;
 	int			end;
 }				t_cmd_opt;
 
@@ -173,9 +187,14 @@ typedef struct	s_cmd
 /*
 **	General
 */
-char	*read_cat(int fd);
-char	*read_file(char *path);
-int		find_key(char **av, int ac, char *key);
+
+char			*itoa_base_uint32(uint32_t value, int base);
+unsigned char	*read_cat(int fd, size_t *size);
+unsigned char	*read_file(char *path, size_t *size);
+int				find_key(char **av, int ac, char *key);
+void			encode64_lendian(size_t size, char *octet);
+uint32_t		swap_uint32(uint32_t val);
+uint32_t		rotate_left(uint32_t value, uint32_t shift);
 
 /*
 **	Fonction ssl

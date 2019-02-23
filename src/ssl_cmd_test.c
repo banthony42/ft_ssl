@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 18:35:46 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/19 20:01:31 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/25 20:10:00 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,19 @@ static void	display_options(t_cmd_opt *opts)
 static void	display_param_options(t_cmd_opt *opts)
 {
 	ft_putendl("----------- Options Parametrable -----------");
-	ft_print_memory(&opts->opts_param_flag, sizeof(uint32_t));
-	decimal_to_binary((int)opts->opts_param_flag);
-	if (opts->opts_param_flag & TEST_PRINT_RED_MASK)
+	ft_print_memory(&opts->opts_pflag, sizeof(uint32_t));
+	decimal_to_binary((int)opts->opts_pflag);
+	if (opts->opts_pflag & TEST_PRINT_RED_MASK)
 		ft_putendlcol(SH_RED, "PRINT RED");
-	if (opts->opts_param_flag & TEST_PRINT_GREEN_MASK)
+	if (opts->opts_pflag & TEST_PRINT_GREEN_MASK)
 		ft_putendlcol(SH_GREEN, "PRINT GREEN");
-	if (opts->opts_param_flag & TEST_PRINT_BLUE_MASK)
+	if (opts->opts_pflag & TEST_PRINT_BLUE_MASK)
 		ft_putendlcol(SH_BLUE, "PRINT BLUE");
-	if (opts->opts_param_flag & TEST_ARG_VALUE1_MASK)
+	if (opts->opts_pflag & TEST_ARG_VALUE1_MASK)
 		ft_putendlcol(SH_PINK, "VALUE1");
-	if (opts->opts_param_flag & TEST_ARG_VALUE2_MASK)
+	if (opts->opts_pflag & TEST_ARG_VALUE2_MASK)
 		ft_putendlcol(SH_PINK, "VALUE2");
-	if (opts->opts_param_flag & TEST_ARG_VALUEX_MASK)
+	if (opts->opts_pflag & TEST_ARG_VALUEX_MASK)
 		ft_putendlcol(SH_PINK, "VALUEX");
 }
 
