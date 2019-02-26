@@ -29,6 +29,11 @@ uint32_t	rotate_left(uint32_t value, uint32_t shift)
 	return ((value << shift) | (value >> (32 - shift)));
 }
 
+uint32_t	rotate_right(uint32_t value, uint32_t shift)
+{
+	return ((value >> shift) | (value << (32 - shift)));
+}
+
 uint32_t	swap_uint32(uint32_t val)
 {
 	val = ((val << 8) & 0xFF00FF00) | ((val >> 8) & 0xFF00FF);
