@@ -70,6 +70,15 @@ uint32_t		md5_func_i(uint32_t b, uint32_t c, uint32_t d);
 **	************************ SHA256 ************************
 */
 
+# define HASH_CONST_SHA_A 0x6a09e667
+# define HASH_CONST_SHA_B 0xbb67ae85
+# define HASH_CONST_SHA_C 0x3c6e7372
+# define HASH_CONST_SHA_D 0xa54ff53a
+# define HASH_CONST_SHA_E 0x510e527f
+# define HASH_CONST_SHA_F 0x9b05688c
+# define HASH_CONST_SHA_G 0x1f83d9ab
+# define HASH_CONST_SHA_H 0x5be0cd19
+
 typedef enum	s_sha256_register
 {
 	SHA256_A,
@@ -92,6 +101,9 @@ typedef struct	s_sha256
 	size_t		zero_padding;
 	size_t		block;
 	uint32_t	flags;
+	uint32_t	Wt[64];
+	uint32_t	tmp1;
+	uint32_t	tmp2;
 	char		pad[4];
 }				t_sha256;
 
@@ -99,5 +111,11 @@ typedef struct	s_sha256
 **	SHA256 function & hash
 */
 char			*sha256_digest(unsigned char *entry, size_t entry_size, uint32_t flags);
+uint32_t		sha256_func_ch(uint32_t x, uint32_t y, uint32_t z);
+uint32_t		sha256_func_maj(uint32_t x, uint32_t y, uint32_t z);
+uint32_t		sha256_func_sum0(uint32_t x);
+uint32_t		sha256_func_sum1(uint32_t x);
+uint32_t		sha256_func_sig0(uint32_t x);
+uint32_t		sha256_func_sig1(uint32_t x);
 
 #endif

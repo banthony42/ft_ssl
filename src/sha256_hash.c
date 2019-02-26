@@ -12,6 +12,26 @@
 
 #include "message_digest.h"
 
+static const uint32_t g_primary_int[64] =
+{
+    0x428a2f98,	0x71374491,	0xb5c0fbcf,	0xe9b5dba5,
+    0x3956c25b,	0x59f111f1,	0x923f82a4,	0xab1c5ed5,
+    0xd807aa98,	0x12835b01,	0x243185be,	0x550c7dc3,
+    0x72be5d74,	0x80deb1fe,	0x9bdc06a7,	0xc19bf174,
+    0xe49b69c1,	0xefbe4786,	0x0fc19dc6,	0x240ca1cc,
+    0x2de92c6f,	0x4a7484aa,	0x5cb0a9dc,	0x76f988da,
+    0x983e5152,	0xa831c66d,	0xb00327c8,	0xbf597fc7,
+    0xc6e00bf3,	0xd5a79147,	0x06ca6351,	0x14292967,
+    0x27b70a85,	0x2e1b2138,	0x4d2c6dfc,	0x53380d13,
+    0x650a7354,	0x766a0abb,	0x81c2c92e,	0x92722c85,
+    0xa2bfe8a1,	0xa81a664b,	0xc24b8b70,	0xc76c51a3,
+    0xd192e819,	0xd6990624,	0xf40e3585,	0x106aa070,
+    0x19a4c116,	0x1e376c08,	0x2748774c,	0x34b0bcb5,
+    0x391c0cb3,	0x4ed8aa4a,	0x5b9cca4f,	0x682e6ff3,
+    0x748f82ee,	0x78a5636f,	0x84c87814,	0x8cc70208,
+    0x90befffa,	0xa4506ceb,	0xbef9a3f7,	0xc67178f2
+};
+
 static void		sha256_verbose(t_sha256 sha256)
 {
 	if (sha256.flags & SHA256_OARG_V_PAD || sha256.flags & SHA256_OARG_V_ALL)
@@ -53,7 +73,7 @@ static t_bool	sha256_padding(unsigned char *entry, t_sha256 *sha256, size_t entr
 }
 
 
-static void		sha256_init_loop(t_sha256 *sha256, uint32_t (*hash_register)[N_INDEX],
+static void		sha256_init_loop(t_sha256 *sha256,
 							size_t bloc, uint32_t (*word)[16])
 {
 	int i;
@@ -79,35 +99,53 @@ static void		sha256_init_loop(t_sha256 *sha256, uint32_t (*hash_register)[N_INDE
 	// update hash_register here
 }
 
-/*
-static void		sha256_main_loop(uint32_t (*word)[16],
-								uint32_t (*hash_r)[MD5_N_REGISTER], int i)
+
+static void		sha256_main_loop(t_sha256 *sha256,
+							uint32_t (*hash_register)[SHA256_N_REGISTER], uint32_t (*word)[16])
 {
-	t_md5_data md5_data;
+	int i;
 
-	md5_data.f = 0;
-	md5_data.i_w = (uint32_t)i;
-	if (0 <= i && i <= 15)
-		md5_data.f = md5_func_f((*hash_r)[MD5_B], (*hash_r)[MD5_C], (*hash_r)[MD5_D]);
-	else if (16 <= i && i <= 31)
+	i = -1;
+	while (++i < 16)
+		sha256->Wt[i] = (*word)[i];
+	i--;
+	while (++i < 64)
+		sha256->Wt[i] = sha256_func_sig1(sha256->Wt[i - 2]) + sha256->Wt[i -7]
+		+ sha256_func_sig0(sha256->Wt[i - 15]) + sha256->Wt[i - 16];
+		sha256->hash[SHA256_A] = (*hash_register)[SHA256_A];
+		sha256->hash[SHA256_B] = (*hash_register)[SHA256_B];
+		sha256->hash[SHA256_C] = (*hash_register)[SHA256_C];
+		sha256->hash[SHA256_D] = (*hash_register)[SHA256_D];
+		sha256->hash[SHA256_E] = (*hash_register)[SHA256_E];
+		sha256->hash[SHA256_F] = (*hash_register)[SHA256_F];
+		sha256->hash[SHA256_G] = (*hash_register)[SHA256_G];
+		sha256->hash[SHA256_H] = (*hash_register)[SHA256_H];
+	i = -1;
+	while (++i < 64)
 	{
-		md5_data.f = md5_func_g((*hash_r)[MD5_B], (*hash_r)[MD5_C], (*hash_r)[MD5_D]);
-		md5_data.i_w = (5 * i + 1) % 16;
+		sha256->tmp1 = sha256->hash[SHA256_H] + sha256_func_sig1(sha256->hash[SHA256_E]) + sha256_func_ch(sha256->hash[SHA256_E], sha256->hash[SHA256_F], sha256->hash[SHA256_G])
+		+ g_primary_int[i] + sha256->Wt[i];
+		sha256->tmp2 = sha256_func_sig0(sha256->hash[SHA256_A]) + sha256_func_maj(sha256->hash[SHA256_A], sha256->hash[SHA256_B], sha256->hash[SHA256_C]);
+		sha256->hash[SHA256_H] = sha256->hash[SHA256_G];
+		sha256->hash[SHA256_G] = sha256->hash[SHA256_F];
+		sha256->hash[SHA256_F] = sha256->hash[SHA256_E];
+		sha256->hash[SHA256_E] = sha256->hash[SHA256_D] + sha256->tmp1;
+		sha256->hash[SHA256_D] = sha256->hash[SHA256_C];
+		sha256->hash[SHA256_C] = sha256->hash[SHA256_B];
+		sha256->hash[SHA256_B] = sha256->hash[SHA256_A];
+		sha256->hash[SHA256_A] = sha256->tmp1 + sha256->tmp2;
 	}
-	else if (32 <= i && i <= 47)
-	{
-		md5_data.f = md5_func_h((*hash_r)[MD5_B], (*hash_r)[MD5_C], (*hash_r)[MD5_D]);
-		md5_data.i_w = (3 * i + 5) % 16;
-	}
-	else if (48 <= i && i <= 63)
-	{
-		md5_data.f = md5_func_i((*hash_r)[MD5_B], (*hash_r)[MD5_C], (*hash_r)[MD5_D]);
-		md5_data.i_w = (7 * i) % 16;
-	}
-	md5_compute(word, hash_r, md5_data, i);
-	}*/
+	(*hash_register)[SHA256_A] += sha256->hash[SHA256_A];
+	(*hash_register)[SHA256_B] += sha256->hash[SHA256_B];
+	(*hash_register)[SHA256_C] += sha256->hash[SHA256_C];
+	(*hash_register)[SHA256_D] += sha256->hash[SHA256_D];
+	(*hash_register)[SHA256_E] += sha256->hash[SHA256_E];
+	(*hash_register)[SHA256_F] += sha256->hash[SHA256_F];
+	(*hash_register)[SHA256_G] += sha256->hash[SHA256_G];
+	(*hash_register)[SHA256_H] += sha256->hash[SHA256_H];
+}
 
-static char		*sha256_concat_hash(t_sha256 sha256)
+static char		*sha256_concat_hash(t_sha256 sha256, uint32_t (*hash_register)[SHA256_N_REGISTER])
 {
 	(void)sha256;
 	return (ft_strdup("CHAT256"));
@@ -120,7 +158,16 @@ char			*sha256_digest(unsigned char *entry, size_t entry_size,
 	uint32_t	word[16];
 	uint32_t	hash_register[SHA256_N_REGISTER];
 	size_t		block;
+	int i;
 
+	hash_register[SHA256_A] = HASH_CONST_SHA_A;
+	hash_register[SHA256_B] = HASH_CONST_SHA_B;
+	hash_register[SHA256_C] = HASH_CONST_SHA_C;
+	hash_register[SHA256_D] = HASH_CONST_SHA_D;
+	hash_register[SHA256_E] = HASH_CONST_SHA_E;
+	hash_register[SHA256_F] = HASH_CONST_SHA_F;
+	hash_register[SHA256_G] = HASH_CONST_SHA_G;
+	hash_register[SHA256_H] = HASH_CONST_SHA_H;
 	block = 0;
 	ft_memset(&sha256, 0, sizeof(sha256));
 	sha256.flags = flags;
@@ -128,10 +175,12 @@ char			*sha256_digest(unsigned char *entry, size_t entry_size,
 		return (NULL);
 	while (block < sha256.block)
 	{
-		//	sha256_init_loop
+		sha256_init_loop(&sha256, block, &word);
+		sha256_main_loop(&sha256, &hash_register, &word);
 		block++;
 	}
-	(void)hash_register;
-	(void)word;
-	return (sha256_concat_hash(sha256));
+	i = -1;
+	while (++i < 8)
+		printf("%08x", sha256.hash[i]);
+	return (sha256_concat_hash(sha256, &hash_register));
 }

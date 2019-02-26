@@ -31,6 +31,7 @@ SRC_FILE += bits_operations.c
 SRC_FILE += md5_hash.c
 SRC_FILE += md5_function.c
 SRC_FILE += sha256_hash.c
+SRC_FILE += sha256_function.c
 
 
 SRC = $(SRC_FILE:%c=$(PATH_SRC)%c)
