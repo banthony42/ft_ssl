@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 13:05:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/25 19:51:11 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/26 19:56:27 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,14 @@ static t_bool	md5_padding(unsigned char *entry, t_md5 *md5, size_t entry_size)
 	encode64_lendian(md5->entry_size_b, &md5->input[(md5->padding_size >> 3)]);
 	if (md5->flags & MD5_OARG_D_PAD || md5->flags & MD5_OARG_D_ALL)
 		ft_print_memory(md5->input, (md5->padding_size + 64) >> 3);
-	md5->hash[A] = HASH_CONST_A;
-	md5->hash[B] = HASH_CONST_B;
-	md5->hash[C] = HASH_CONST_C;
-	md5->hash[D] = HASH_CONST_D;
+	md5->hash[MD5_A] = HASH_CONST_A;
+	md5->hash[MD5_B] = HASH_CONST_B;
+	md5->hash[MD5_C] = HASH_CONST_C;
+	md5->hash[MD5_D] = HASH_CONST_D;
 	return (true);
 }
 
-static void		md5_init_loop(t_md5 *md5, uint32_t (*hash_register)[N_INDEX],
+static void		md5_init_loop(t_md5 *md5, uint32_t (*hash_register)[MD5_N_REGISTER],
 							size_t bloc, uint32_t (*word)[16])
 {
 	int i;
@@ -92,34 +92,34 @@ static void		md5_init_loop(t_md5 *md5, uint32_t (*hash_register)[N_INDEX],
 			ft_print_memory(&(*word)[i], sizeof(uint32_t));
 		}
 	}
-	(*hash_register)[A] = md5->hash[A];
-	(*hash_register)[B] = md5->hash[B];
-	(*hash_register)[C] = md5->hash[C];
-	(*hash_register)[D] = md5->hash[D];
+	(*hash_register)[MD5_A] = md5->hash[MD5_A];
+	(*hash_register)[MD5_B] = md5->hash[MD5_B];
+	(*hash_register)[MD5_C] = md5->hash[MD5_C];
+	(*hash_register)[MD5_D] = md5->hash[MD5_D];
 }
 
 static void		md5_main_loop(uint32_t (*word)[16],
-								uint32_t (*hash_r)[N_INDEX], int i)
+								uint32_t (*hash_r)[MD5_N_REGISTER], int i)
 {
 	t_md5_data md5_data;
 
 	md5_data.f = 0;
 	md5_data.i_w = (uint32_t)i;
 	if (0 <= i && i <= 15)
-		md5_data.f = md5_func_f((*hash_r)[B], (*hash_r)[C], (*hash_r)[D]);
+		md5_data.f = md5_func_f((*hash_r)[MD5_B], (*hash_r)[MD5_C], (*hash_r)[MD5_D]);
 	else if (16 <= i && i <= 31)
 	{
-		md5_data.f = md5_func_g((*hash_r)[B], (*hash_r)[C], (*hash_r)[D]);
+		md5_data.f = md5_func_g((*hash_r)[MD5_B], (*hash_r)[MD5_C], (*hash_r)[MD5_D]);
 		md5_data.i_w = (5 * i + 1) % 16;
 	}
 	else if (32 <= i && i <= 47)
 	{
-		md5_data.f = md5_func_h((*hash_r)[B], (*hash_r)[C], (*hash_r)[D]);
+		md5_data.f = md5_func_h((*hash_r)[MD5_B], (*hash_r)[MD5_C], (*hash_r)[MD5_D]);
 		md5_data.i_w = (3 * i + 5) % 16;
 	}
 	else if (48 <= i && i <= 63)
 	{
-		md5_data.f = md5_func_i((*hash_r)[B], (*hash_r)[C], (*hash_r)[D]);
+		md5_data.f = md5_func_i((*hash_r)[MD5_B], (*hash_r)[MD5_C], (*hash_r)[MD5_D]);
 		md5_data.i_w = (7 * i) % 16;
 	}
 	md5_compute(word, hash_r, md5_data, i);
@@ -134,7 +134,7 @@ static char		*md5_concat_hash(t_md5 md5)
 	i = -1;
 	hash_str = NULL;
 	ft_memset(&footprint, 0, 128 + 1);
-	while (++i < N_INDEX)
+	while (++i < MD5_N_REGISTER)
 	{
 		hash_str = itoa_base_uint32(swap_uint32(md5.hash[i]), 16);
 		ft_strncpy(&footprint[i * 8], hash_str, 8);
@@ -148,7 +148,7 @@ char			*md5_digest(unsigned char *entry, size_t entry_size,
 {
 	t_md5		md5;
 	uint32_t	word[16];
-	uint32_t	hash_register[N_INDEX];
+	uint32_t	hash_register[MD5_N_REGISTER];
 	size_t		block;
 	int			i;
 
@@ -163,10 +163,10 @@ char			*md5_digest(unsigned char *entry, size_t entry_size,
 		i = -1;
 		while (++i < 64)
 			md5_main_loop(&word, &hash_register, i);
-		md5.hash[A] += hash_register[A];
-		md5.hash[B] += hash_register[B];
-		md5.hash[C] += hash_register[C];
-		md5.hash[D] += hash_register[D];
+		md5.hash[MD5_A] += hash_register[MD5_A];
+		md5.hash[MD5_B] += hash_register[MD5_B];
+		md5.hash[MD5_C] += hash_register[MD5_C];
+		md5.hash[MD5_D] += hash_register[MD5_D];
 		block++;
 	}
 	return (md5_concat_hash(md5));

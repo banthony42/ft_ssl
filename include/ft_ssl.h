@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/25 20:36:31 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/26 19:54:36 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,19 @@
 # define SHA256_Q_MASK 1 << 1
 # define SHA256_R_MASK 1 << 2
 # define SHA256_S_MASK 1 << 3
+
+# define SHA256_OPT_ARG_VERBOSE_KEY "-verbose"
+# define SHA256_OPT_ARG_VERBOSE_VALUES "padding;block;all"
+# define SHA256_OPT_ARG_DUMP_KEY "-dump"
+# define SHA256_OPT_ARG_DUMP_VALUES "padding;block;all"
+
+# define SHA256_OARG_V_PAD 1
+# define SHA256_OARG_V_BLOCK 1 << 1
+# define SHA256_OARG_V_ALL 1 << 2
+
+# define SHA256_OARG_D_PAD 1 << 3
+# define SHA256_OARG_D_BLOCK 1 << 4
+# define SHA256_OARG_D_ALL 1 << 5
 
 /*
 **	test options & MASK
@@ -195,6 +208,7 @@ int				find_key(char **av, int ac, char *key);
 void			encode64_lendian(size_t size, char *octet);
 uint32_t		swap_uint32(uint32_t val);
 uint32_t		rotate_left(uint32_t value, uint32_t shift);
+uint32_t		rotate_right(uint32_t value, uint32_t shift);
 
 /*
 **	Fonction ssl

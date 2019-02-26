@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 13:01:53 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/25 19:55:31 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/26 19:45:06 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,16 @@ uint32_t	md5_func_i(uint32_t b, uint32_t c, uint32_t d)
 }
 
 void		md5_compute(uint32_t (*word)[16],
-						uint32_t (*hash_r)[N_INDEX], t_md5_data data, int i)
+						uint32_t (*hash_r)[MD5_N_REGISTER], t_md5_data data, int i)
 {
 	uint32_t tmp;
 
-	tmp = (*hash_r)[D];
-	(*hash_r)[D] = (*hash_r)[C];
-	(*hash_r)[C] = (*hash_r)[B];
-	(*hash_r)[B] = rotate_left(
-					((*hash_r)[A] + data.f + g_sin_int[i] + (*word)[data.i_w]),
+	tmp = (*hash_r)[MD5_D];
+	(*hash_r)[MD5_D] = (*hash_r)[MD5_C];
+	(*hash_r)[MD5_C] = (*hash_r)[MD5_B];
+	(*hash_r)[MD5_B] = rotate_left(
+					((*hash_r)[MD5_A] + data.f + g_sin_int[i] + (*word)[data.i_w]),
 					g_shifter[i])
-					+ (*hash_r)[B];
-	(*hash_r)[A] = tmp;
+					+ (*hash_r)[MD5_B];
+	(*hash_r)[MD5_A] = tmp;
 }

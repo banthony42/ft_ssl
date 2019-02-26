@@ -6,18 +6,18 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 19:54:21 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/25 20:29:13 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/26 18:32:25 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
 
-char		*itoa_base_uint32(uint32_t value, int base)
+char			*itoa_base_uint32(uint32_t value, int base)
 {
-	uint32_t val;
-	uint32_t i;
-	uint32_t len;
-	char *numb;
+	uint32_t	val;
+	uint32_t	i;
+	uint32_t	len;
+	char		*numb;
 
 	i = 0;
 	val = value;
@@ -33,12 +33,13 @@ char		*itoa_base_uint32(uint32_t value, int base)
 			numb[len - i] = (char)((val % (unsigned int)base) + '0');
 		else
 			numb[len - i] = (char)((val % (unsigned int)base) + ('a' - 10));
-		val = val / (unsigned int)base; i++;
+		val = val / (unsigned int)base;
+		i++;
 	}
 	return (numb);
 }
 
-int		find_key(char **av, int ac, char *key)
+int				find_key(char **av, int ac, char *key)
 {
 	int i;
 
@@ -56,7 +57,7 @@ int		find_key(char **av, int ac, char *key)
 **	copy byte from dest, and copy byte from buf into new ptr.
 */
 
-static void			*ft_memjoin(void *dst, void *src, size_t dst_size,
+static void		*ft_memjoin(void *dst, void *src, size_t dst_size,
 							size_t src_size)
 {
 	unsigned char *tmp;
@@ -68,7 +69,7 @@ static void			*ft_memjoin(void *dst, void *src, size_t dst_size,
 	return ((void*)tmp);
 }
 
-static void			ft_memjoin_replace(void **dst, void *src, size_t *dst_size,
+static void		ft_memjoin_replace(void **dst, void *src, size_t *dst_size,
 									size_t src_size)
 {
 	void *tmp;
@@ -103,12 +104,10 @@ unsigned char	*read_cat(int fd, size_t *size)
 		ft_putendl("read_cat: error fd < 0");
 		return (NULL);
 	}
-	int i =0;
 	while (ret)
 	{
 		if ((ret = read(fd, buf, MAXBYTE - 1)) <= 0)
 			break ;
-		ft_putnbrendl(i++);
 		buf[ret] = '\0';
 		ft_memjoin_replace((void**)&file, buf, size, (size_t)ret + 1);
 	}
@@ -117,7 +116,7 @@ unsigned char	*read_cat(int fd, size_t *size)
 
 unsigned char	*read_file(char *path, size_t *size)
 {
-	int		fd;
+	int				fd;
 	unsigned char	*file;
 
 	fd = 0;

@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:40:14 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/25 19:35:20 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/26 19:50:13 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,18 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 		.cmd = SHA256,
 		.opts = SHA256_OPTS,
 		.opts_len = sizeof(SHA256_OPTS) - 1,
-		.opts_with_arg = false,
+		.opts_with_arg = true,
+		.opts_arg[0] =
+		{
+			.key = SHA256_OPT_ARG_VERBOSE_KEY,
+			.values = SHA256_OPT_ARG_VERBOSE_VALUES,
+		},
+		.opts_arg[1] =
+		{
+			.key = SHA256_OPT_ARG_DUMP_KEY,
+			.values = SHA256_OPT_ARG_DUMP_VALUES,
+		},
+		.opts_arg_len = 2,
 	},
 	[TEST] =
 	{
