@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 13:32:14 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/23 15:43:27 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/27 19:51:15 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,19 @@ void		encode64_lendian(size_t size, char *octet)
 	octet[5] = (char)(((size) & 0x0000ff0000000000ULL) >> 40);
 	octet[6] = (char)(((size) & 0x00ff000000000000ULL) >> 48);
 	octet[7] = (char)(((size) & 0xff00000000000000ULL) >> 56);
+}
+
+static uint64_t swap_uint64( uint64_t val )
+{
+	val = ((val << 8) & 0xFF00FF00FF00FF00ULL ) | ((val >> 8) & 0x00FF00FF00FF00FFULL );
+	val = ((val << 16) & 0xFFFF0000FFFF0000ULL ) | ((val >> 16) & 0x0000FFFF0000FFFFULL );
+	return (val << 32) | (val >> 32);
+}
+
+void		encode64_bendian(size_t size, char *octet)
+{
+	uint64_t tmp = swap_uint64(size);
+	ft_memcpy(octet, &tmp, sizeof(uint64_t));
 }
 
 uint32_t	rotate_left(uint32_t value, uint32_t shift)

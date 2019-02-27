@@ -6,15 +6,11 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 19:01:21 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/26 19:02:43 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/27 18:50:56 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "message_digest.h"
-
-/*
-** Lookup table,
-*/
 
 uint32_t	sha256_func_ch(uint32_t x, uint32_t y, uint32_t z)
 {

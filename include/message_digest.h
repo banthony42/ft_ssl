@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 18:40:34 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/26 19:48:43 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/27 18:22:16 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,14 @@ uint32_t		md5_func_i(uint32_t b, uint32_t c, uint32_t d);
 **	************************ SHA256 ************************
 */
 
-# define HASH_CONST_SHA_A 0x6a09e667
-# define HASH_CONST_SHA_B 0xbb67ae85
-# define HASH_CONST_SHA_C 0x3c6e7372
-# define HASH_CONST_SHA_D 0xa54ff53a
-# define HASH_CONST_SHA_E 0x510e527f
-# define HASH_CONST_SHA_F 0x9b05688c
-# define HASH_CONST_SHA_G 0x1f83d9ab
-# define HASH_CONST_SHA_H 0x5be0cd19
+# define HASH_CONST_SHA_A 0x6a09e667//0x6a09e667
+# define HASH_CONST_SHA_B 0xbb67ae85//0xbb67ae85
+# define HASH_CONST_SHA_C 0x3c6ef372//0x3c6ef372
+# define HASH_CONST_SHA_D 0xa54ff53a//0xa54ff53a
+# define HASH_CONST_SHA_E 0x510e527f//0x510e527f
+# define HASH_CONST_SHA_F 0x9b05688c//0x9b05688c
+# define HASH_CONST_SHA_G 0x1f83d9ab//0x1f83d9ab
+# define HASH_CONST_SHA_H 0x5be0cd19//0x5be0cd19
 
 typedef enum	s_sha256_register
 {

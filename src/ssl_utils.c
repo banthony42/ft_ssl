@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 19:54:21 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/26 18:32:25 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/27 20:19:02 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ unsigned char	*read_cat(int fd, size_t *size)
 	unsigned char	*file;
 	unsigned char	buf[MAXBYTE];
 
+	int i = -1;
 	ret = 1;
 	file = NULL;
 	if (fd < 0)
@@ -106,6 +107,7 @@ unsigned char	*read_cat(int fd, size_t *size)
 	}
 	while (ret)
 	{
+		ft_putnbrendl(++i);
 		if ((ret = read(fd, buf, MAXBYTE - 1)) <= 0)
 			break ;
 		buf[ret] = '\0';

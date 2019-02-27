@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/26 19:54:36 by banthony         ###   ########.fr       */
+/*   Updated: 2019/02/27 20:20:04 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 #include <stdio.h>
 
-# define MAXBYTE 4096
+# define MAXBYTE 3754996
 
 /*
 **	MD5 options & MASK
@@ -206,6 +206,7 @@ unsigned char	*read_cat(int fd, size_t *size);
 unsigned char	*read_file(char *path, size_t *size);
 int				find_key(char **av, int ac, char *key);
 void			encode64_lendian(size_t size, char *octet);
+void			encode64_bendian(size_t size, char *octet);
 uint32_t		swap_uint32(uint32_t val);
 uint32_t		rotate_left(uint32_t value, uint32_t shift);
 uint32_t		rotate_right(uint32_t value, uint32_t shift);
