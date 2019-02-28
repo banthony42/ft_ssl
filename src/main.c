@@ -19,7 +19,9 @@ static void	usage(char *cmd)
 	ft_putendl(" command [command opts] [command args]");
 	ft_putendl("\nMessage Digest commands:");
 	ft_putendl("md5");
+	ft_putendl("sha224");
 	ft_putendl("sha256");
+	ft_putendl("sha512");
 	ft_putendl("\nTest the parser with test command:");
 	ft_putstr(cmd);
 	ft_putstr(" test [-p | -q | -r | -s | -help | -print [red | blue | green]");

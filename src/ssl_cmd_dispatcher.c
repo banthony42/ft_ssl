@@ -34,6 +34,24 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 		},
 		.opts_arg_len = 2,
 	},
+	[SHA224] =
+	{
+		.cmd = SHA224,
+		.opts = SHA224_OPTS,
+		.opts_len = sizeof(SHA224_OPTS) - 1,
+		.opts_with_arg = true,
+		.opts_arg[0] =
+		{
+			.key = SHA224_OPT_ARG_VERBOSE_KEY,
+			.values = SHA224_OPT_ARG_VERBOSE_VALUES,
+		},
+		.opts_arg[1] =
+		{
+			.key = SHA224_OPT_ARG_DUMP_KEY,
+			.values = SHA224_OPT_ARG_DUMP_VALUES,
+		},
+		.opts_arg_len = 2,
+	},
 	[SHA256] =
 	{
 		.cmd = SHA256,
@@ -49,6 +67,24 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 		{
 			.key = SHA256_OPT_ARG_DUMP_KEY,
 			.values = SHA256_OPT_ARG_DUMP_VALUES,
+		},
+		.opts_arg_len = 2,
+	},
+	[SHA512] =
+	{
+		.cmd = SHA512,
+		.opts = SHA512_OPTS,
+		.opts_len = sizeof(SHA512_OPTS) - 1,
+		.opts_with_arg = true,
+		.opts_arg[0] =
+		{
+			.key = SHA512_OPT_ARG_VERBOSE_KEY,
+			.values = SHA512_OPT_ARG_VERBOSE_VALUES,
+		},
+		.opts_arg[1] =
+		{
+			.key = SHA512_OPT_ARG_DUMP_KEY,
+			.values = SHA512_OPT_ARG_DUMP_VALUES,
 		},
 		.opts_arg_len = 2,
 	},
@@ -83,12 +119,26 @@ static const t_cmd g_ssl_cmd[NB_CMD] = {
 		.func = cmd_md5,
 		.usage = usage_md5,
 	},
+	[SHA224] =
+	{
+		.name = "sha224",
+		.len = sizeof("sha224") - 1,
+		.func = cmd_sha224,
+		.usage = usage_sha224,
+	},
 	[SHA256] =
 	{
 		.name = "sha256",
 		.len = sizeof("sha256") - 1,
 		.func = cmd_sha256,
 		.usage = usage_sha256,
+	},
+	[SHA512] =
+	{
+		.name = "sha512",
+		.len = sizeof("sha512") - 1,
+		.func = cmd_sha512,
+		.usage = usage_sha512,
 	},
 	[TEST] =
 	{

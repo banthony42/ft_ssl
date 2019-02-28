@@ -49,6 +49,28 @@
 # define MD5_OARG_D_ALL 1 << 5
 
 /*
+**	SHA224 options & MASK
+*/
+# define SHA224_OPTS "-p;-q;-r;-s"
+# define SHA224_P_MASK 1
+# define SHA224_Q_MASK 1 << 1
+# define SHA224_R_MASK 1 << 2
+# define SHA224_S_MASK 1 << 3
+
+# define SHA224_OPT_ARG_VERBOSE_KEY "-verbose"
+# define SHA224_OPT_ARG_VERBOSE_VALUES "padding;block;all"
+# define SHA224_OPT_ARG_DUMP_KEY "-dump"
+# define SHA224_OPT_ARG_DUMP_VALUES "padding;block;all"
+
+# define SHA224_OARG_V_PAD 1
+# define SHA224_OARG_V_BLOCK 1 << 1
+# define SHA224_OARG_V_ALL 1 << 2
+
+# define SHA224_OARG_D_PAD 1 << 3
+# define SHA224_OARG_D_BLOCK 1 << 4
+# define SHA224_OARG_D_ALL 1 << 5
+
+/*
 **	SHA256 options & MASK
 */
 # define SHA256_OPTS "-p;-q;-r;-s"
@@ -69,6 +91,28 @@
 # define SHA256_OARG_D_PAD 1 << 3
 # define SHA256_OARG_D_BLOCK 1 << 4
 # define SHA256_OARG_D_ALL 1 << 5
+
+/*
+**	SHA512 options & MASK
+*/
+# define SHA512_OPTS "-p;-q;-r;-s"
+# define SHA512_P_MASK 1
+# define SHA512_Q_MASK 1 << 1
+# define SHA512_R_MASK 1 << 2
+# define SHA512_S_MASK 1 << 3
+
+# define SHA512_OPT_ARG_VERBOSE_KEY "-verbose"
+# define SHA512_OPT_ARG_VERBOSE_VALUES "padding;block;all"
+# define SHA512_OPT_ARG_DUMP_KEY "-dump"
+# define SHA512_OPT_ARG_DUMP_VALUES "padding;block;all"
+
+# define SHA512_OARG_V_PAD 1
+# define SHA512_OARG_V_BLOCK 1 << 1
+# define SHA512_OARG_V_ALL 1 << 2
+
+# define SHA512_OARG_D_PAD 1 << 3
+# define SHA512_OARG_D_BLOCK 1 << 4
+# define SHA512_OARG_D_ALL 1 << 5
 
 /*
 **	test options & MASK
@@ -126,7 +170,9 @@ typedef enum	e_cmd_status
 typedef enum	e_cmd_type
 {
 	MD5,
+	SHA224,
 	SHA256,
+	SHA512,
 	TEST,
 	NB_CMD,
 }				t_cmd_type;
@@ -202,14 +248,18 @@ typedef struct	s_cmd
 */
 
 char			*itoa_base_uint32(uint32_t value, int base);
+char			*itoa_base_uint64(uint64_t value, int base);
 unsigned char	*read_cat(int fd, size_t *size);
 unsigned char	*read_file(char *path, size_t *size);
 int				find_key(char **av, int ac, char *key);
 void			encode64_lendian(size_t size, char *octet);
 void			encode64_bendian(size_t size, char *octet);
 uint32_t		swap_uint32(uint32_t val);
+uint64_t		swap_uint64(uint64_t val);
 uint32_t		rotate_left(uint32_t value, uint32_t shift);
 uint32_t		rotate_right(uint32_t value, uint32_t shift);
+uint64_t		rotate_left_64(uint64_t value, uint64_t shift);
+uint64_t		rotate_right_64(uint64_t value, uint64_t shift);
 
 /*
 **	Fonction ssl
@@ -224,11 +274,15 @@ int				ssl_cmd_parser(int ac, char **av, t_parsing_param param
 */
 
 int				cmd_md5(int ac, char **av, t_cmd_opt *opts);
+int				cmd_sha224(int ac, char **av, t_cmd_opt *opts);
 int				cmd_sha256(int ac, char **av, t_cmd_opt *opts);
+int				cmd_sha512(int ac, char **av, t_cmd_opt *opts);
 int				cmd_test(int ac, char **av, t_cmd_opt *opts);
 
 int				usage_md5(char *exe);
+int				usage_sha224(char *exe);
 int				usage_sha256(char *exe);
+int				usage_sha512(char *exe);
 int				usage_test(char *exe);
 
 #endif

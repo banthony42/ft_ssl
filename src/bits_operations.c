@@ -24,7 +24,7 @@ void		encode64_lendian(size_t size, char *octet)
 	octet[7] = (char)(((size) & 0xff00000000000000ULL) >> 56);
 }
 
-static uint64_t swap_uint64( uint64_t val )
+uint64_t	swap_uint64(uint64_t val)
 {
 	val = ((val << 8) & 0xFF00FF00FF00FF00ULL ) | ((val >> 8) & 0x00FF00FF00FF00FFULL );
 	val = ((val << 16) & 0xFFFF0000FFFF0000ULL ) | ((val >> 16) & 0x0000FFFF0000FFFFULL );
@@ -45,6 +45,11 @@ uint32_t	rotate_left(uint32_t value, uint32_t shift)
 uint32_t	rotate_right(uint32_t value, uint32_t shift)
 {
 	return ((value >> shift) | (value << (32 - shift)));
+}
+
+uint64_t	rotate_right_64(uint64_t value, uint64_t shift)
+{
+	return ((value >> shift) | (value << (64 - shift)));
 }
 
 uint32_t	swap_uint32(uint32_t val)
