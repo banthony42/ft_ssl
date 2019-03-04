@@ -96,7 +96,7 @@ static void		sha512_init_loop(t_sha512 *sha512,
 	}
 	while (++i < 16)
 	{
-		ft_memcpy(&(*word)[i], &sha512->input[(bloc * 64) + ((size_t)i * 4)],
+		ft_memcpy(&(*word)[i], &sha512->input[(bloc * 64) + ((size_t)i * 8)],
 					sizeof(uint64_t));
 		// in big endian
 		(*word)[i] = swap_uint64((*word)[i]);
@@ -170,6 +170,8 @@ static char		*sha512_concat_hash(t_sha512 sha512)
 	while (++i < SHA512_N_REGISTER)
 	{
 		hash_str = itoa_base_uint64(sha512.hash[i], 16);
+		printf("%s\n", hash_str);
+		printf("%08llx\n", sha512.hash[i]);
 		ft_strncpy(&footprint[i * 16], hash_str, 16);
 		ft_strdel(&hash_str);
 	}
