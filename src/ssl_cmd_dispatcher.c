@@ -70,6 +70,24 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 		},
 		.opts_arg_len = 2,
 	},
+	[SHA384] =
+	{
+		.cmd = SHA384,
+		.opts = SHA384_OPTS,
+		.opts_len = sizeof(SHA384_OPTS) - 1,
+		.opts_with_arg = true,
+		.opts_arg[0] =
+		{
+			.key = SHA384_OPT_ARG_VERBOSE_KEY,
+			.values = SHA384_OPT_ARG_VERBOSE_VALUES,
+		},
+		.opts_arg[1] =
+		{
+			.key = SHA384_OPT_ARG_DUMP_KEY,
+			.values = SHA384_OPT_ARG_DUMP_VALUES,
+		},
+		.opts_arg_len = 2,
+	},
 	[SHA512] =
 	{
 		.cmd = SHA512,
@@ -132,6 +150,13 @@ static const t_cmd g_ssl_cmd[NB_CMD] = {
 		.len = sizeof("sha256") - 1,
 		.func = cmd_sha256,
 		.usage = usage_sha256,
+	},
+	[SHA384] =
+	{
+		.name = "sha384",
+		.len = sizeof("sha384") - 1,
+		.func = cmd_sha384,
+		.usage = usage_sha384,
 	},
 	[SHA512] =
 	{

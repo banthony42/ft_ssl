@@ -93,6 +93,28 @@
 # define SHA256_OARG_D_ALL 1 << 5
 
 /*
+**	SHA384 options & MASK
+*/
+# define SHA384_OPTS "-p;-q;-r;-s"
+# define SHA384_P_MASK 1
+# define SHA384_Q_MASK 1 << 1
+# define SHA384_R_MASK 1 << 2
+# define SHA384_S_MASK 1 << 3
+
+# define SHA384_OPT_ARG_VERBOSE_KEY "-verbose"
+# define SHA384_OPT_ARG_VERBOSE_VALUES "padding;block;all"
+# define SHA384_OPT_ARG_DUMP_KEY "-dump"
+# define SHA384_OPT_ARG_DUMP_VALUES "padding;block;all"
+
+# define SHA384_OARG_V_PAD 1
+# define SHA384_OARG_V_BLOCK 1 << 1
+# define SHA384_OARG_V_ALL 1 << 2
+
+# define SHA384_OARG_D_PAD 1 << 3
+# define SHA384_OARG_D_BLOCK 1 << 4
+# define SHA384_OARG_D_ALL 1 << 5
+
+/*
 **	SHA512 options & MASK
 */
 # define SHA512_OPTS "-p;-q;-r;-s"
@@ -172,6 +194,7 @@ typedef enum	e_cmd_type
 	MD5,
 	SHA224,
 	SHA256,
+	SHA384,
 	SHA512,
 	TEST,
 	NB_CMD,
@@ -276,12 +299,14 @@ int				ssl_cmd_parser(int ac, char **av, t_parsing_param param
 int				cmd_md5(int ac, char **av, t_cmd_opt *opts);
 int				cmd_sha224(int ac, char **av, t_cmd_opt *opts);
 int				cmd_sha256(int ac, char **av, t_cmd_opt *opts);
+int				cmd_sha384(int ac, char **av, t_cmd_opt *opts);
 int				cmd_sha512(int ac, char **av, t_cmd_opt *opts);
 int				cmd_test(int ac, char **av, t_cmd_opt *opts);
 
 int				usage_md5(char *exe);
 int				usage_sha224(char *exe);
 int				usage_sha256(char *exe);
+int				usage_sha384(char *exe);
 int				usage_sha512(char *exe);
 int				usage_test(char *exe);
 

@@ -171,6 +171,58 @@ uint32_t		sha256_func_sig0(uint32_t x);
 uint32_t		sha256_func_sig1(uint32_t x);
 
 /*
+**	************************ SHA384 ************************
+*/
+
+# define HASH_CONST_SHA384_A 0xcbbb9d5dc1059ed8//0xcbbb9d5dc1059ed8
+# define HASH_CONST_SHA384_B 0x629a292a367cd507//0x629a292a367cd507
+# define HASH_CONST_SHA384_C 0x9159015a3070dd17//0x9159015a3070dd17
+# define HASH_CONST_SHA384_D 0x152fecd8f70e5939//0x152fecd8f70e5939
+# define HASH_CONST_SHA384_E 0x67332667ffc00b31//0x67332667ffc00b31
+# define HASH_CONST_SHA384_F 0x8eb44a8768581511//0x8eb44a8768581511
+# define HASH_CONST_SHA384_G 0xdb0c2e0d64f98fa7//0xdb0c2e0d64f98fa7
+# define HASH_CONST_SHA384_H 0x47b5481dbefa4fa4//0x47b5481dbefa4fa4
+
+typedef enum	s_sha384_register
+{
+	SHA384_A,
+	SHA384_B,
+	SHA384_C,
+	SHA384_D,
+	SHA384_E,
+	SHA384_F,
+	SHA384_G,
+	SHA384_H,
+	SHA384_N_REGISTER,
+}				t_sha384_register;
+
+typedef struct	s_sha384
+{
+	uint64_t	hash[SHA384_N_REGISTER];
+	uint64_t	Wt[80];
+	uint64_t	tmp1;
+	uint64_t	tmp2;
+	char		*input;
+	size_t		entry_size_b;
+	size_t		padding_size;
+	size_t		zero_padding;
+	size_t		block;
+	uint32_t	flags;
+	char		pad[4];
+}				t_sha384;
+
+/*
+**	SHA384 function & hash
+*/
+char			*sha384_digest(unsigned char *entry, size_t entry_size, uint32_t flags);
+uint64_t		sha384_func_ch(uint64_t x, uint64_t y, uint64_t z);
+uint64_t		sha384_func_maj(uint64_t x, uint64_t y, uint64_t z);
+uint64_t		sha384_func_sum0(uint64_t x);
+uint64_t		sha384_func_sum1(uint64_t x);
+uint64_t		sha384_func_sig0(uint64_t x);
+uint64_t		sha384_func_sig1(uint64_t x);
+
+/*
 **	************************ SHA512 ************************
 */
 

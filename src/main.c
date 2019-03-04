@@ -21,6 +21,7 @@ static void	usage(char *cmd)
 	ft_putendl("md5");
 	ft_putendl("sha224");
 	ft_putendl("sha256");
+	ft_putendl("sha384");
 	ft_putendl("sha512");
 	ft_putendl("\nTest the parser with test command:");
 	ft_putstr(cmd);
