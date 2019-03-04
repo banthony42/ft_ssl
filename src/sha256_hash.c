@@ -6,34 +6,34 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 18:59:43 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/27 20:15:53 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/04 20:25:56 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "message_digest.h"
 
 /*
-** Lookup table,
+** Lookup table, ajout table pour sha512
 */
 
 static const uint32_t g_primary_int[64] =
 {
-    0x428a2f98,	0x71374491,	0xb5c0fbcf,	0xe9b5dba5,
-    0x3956c25b,	0x59f111f1,	0x923f82a4,	0xab1c5ed5,
-    0xd807aa98,	0x12835b01,	0x243185be,	0x550c7dc3,
-    0x72be5d74,	0x80deb1fe,	0x9bdc06a7,	0xc19bf174,
-    0xe49b69c1,	0xefbe4786,	0x0fc19dc6,	0x240ca1cc,
-    0x2de92c6f,	0x4a7484aa,	0x5cb0a9dc,	0x76f988da,
-    0x983e5152,	0xa831c66d,	0xb00327c8,	0xbf597fc7,
-    0xc6e00bf3,	0xd5a79147,	0x06ca6351,	0x14292967,
-    0x27b70a85,	0x2e1b2138,	0x4d2c6dfc,	0x53380d13,
-    0x650a7354,	0x766a0abb,	0x81c2c92e,	0x92722c85,
-    0xa2bfe8a1,	0xa81a664b,	0xc24b8b70,	0xc76c51a3,
-    0xd192e819,	0xd6990624,	0xf40e3585,	0x106aa070,
-    0x19a4c116,	0x1e376c08,	0x2748774c,	0x34b0bcb5,
-    0x391c0cb3,	0x4ed8aa4a,	0x5b9cca4f,	0x682e6ff3,
-    0x748f82ee,	0x78a5636f,	0x84c87814,	0x8cc70208,
-    0x90befffa,	0xa4506ceb,	0xbef9a3f7,	0xc67178f2
+	0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,
+	0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
+	0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3,
+	0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
+	0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc,
+	0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
+	0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7,
+	0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
+	0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13,
+	0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
+	0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3,
+	0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
+	0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5,
+	0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
+	0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208,
+	0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
 };
 
 static void		sha256_verbose(t_sha256 sha256)
@@ -54,7 +54,8 @@ static void		sha256_verbose(t_sha256 sha256)
 	}
 }
 
-static t_bool	sha256_padding(unsigned char *entry, t_sha256 *sha256, size_t entry_size)
+static t_bool	sha256_padding(unsigned char *entry, t_sha256 *sha256,
+								size_t entry_size)
 {
 	sha256->entry_size_b = entry_size * 8;
 	sha256->padding_size = sha256->entry_size_b + 1;
@@ -71,7 +72,7 @@ static t_bool	sha256_padding(unsigned char *entry, t_sha256 *sha256, size_t entr
 	encode64_bendian(sha256->entry_size_b, &sha256->input[(sha256->padding_size >> 3)]);
 	if (sha256->flags & SHA256_OARG_D_PAD || sha256->flags & SHA256_OARG_D_ALL)
 		ft_print_memory(sha256->input, (sha256->padding_size + 64) >> 3);
-	// init hash values
+	// dispatcher here for each sha algo
 	sha256->hash[SHA256_A] = HASH_CONST_SHA_A;
 	sha256->hash[SHA256_B] = HASH_CONST_SHA_B;
 	sha256->hash[SHA256_C] = HASH_CONST_SHA_C;
@@ -167,6 +168,7 @@ static char		*sha256_concat_hash(t_sha256 sha256)
 	i = -1;
 	hash_str = NULL;
 	ft_memset(&footprint, 0, 256 + 1);
+	// dispatcher sha concat
 	while (++i < SHA256_N_REGISTER)
 	{
 		hash_str = itoa_base_uint32(sha256.hash[i], 16);

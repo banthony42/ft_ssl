@@ -1,0 +1,6486 @@
+################################################################################
+#####                     Test script - Hash functions                     #####
+################################################################################
+
+============ ./ft_ssl md5 ===========
+OK [32m1(B[mOK [32m2(B[mOK [32m3(B[mOK [32m4(B[mOK [32m5(B[mOK [32m6(B[mOK [32m7(B[mOK [32m8(B[mOK [32m9(B[mOK [32m10(B[mOK [32m11(B[mOK [32m12(B[mOK [32m13(B[mOK [32m14(B[mOK [32m15(B[mOK [32m16(B[mOK [32m17(B[mOK [32m18(B[mOK [32m19(B[mOK [32m20(B[mOK [32m21(B[mOK [32m22(B[mOK [32m23(B[mOK [32m24(B[mOK [32m25(B[mOK [32m26(B[mOK [32m27(B[mOK [32m28(B[mOK [32m29(B[mOK [32m30(B[mOK [32m31(B[mOK [32m32(B[mOK [32m33(B[mOK [32m34(B[mOK [32m35(B[mOK [32m36(B[mOK [32m37(B[mOK [32m38(B[mOK [32m39(B[mOK [32m40(B[mOK [32m41(B[mOK [32m42(B[mOK [32m43(B[mOK [32m44(B[mOK [32m45(B[mOK [32m46(B[mOK [32m47(B[mOK [32m48(B[mOK [32m49(B[mOK [32m50(B[mOK [32m51(B[mOK [32m52(B[mOK [32m53(B[mOK [32m54(B[mOK [32m55(B[mOK [32m56(B[mOK [32m57(B[mOK [32m58(B[mOK [32m59(B[mOK [32m60(B[mOK [32m61(B[mOK [32m62(B[mOK [32m63(B[mOK [32m64(B[mOK [32m65(B[mOK [32m66(B[mOK [32m67(B[mOK [32m68(B[mOK [32m69(B[mOK [32m70(B[mOK [32m71(B[mOK [32m72(B[mOK [32m73(B[mOK [32m74(B[mOK [32m75(B[mOK [32m76(B[mOK [32m77(B[mOK [32m78(B[mOK [32m79(B[mOK [32m80(B[mOK [32m81(B[mOK [32m82(B[mOK [32m83(B[mOK [32m84(B[mOK [32m85(B[mOK [32m86(B[mOK [32m87(B[mOK [32m88(B[mOK [32m89(B[mOK [32m90(B[mOK [32m91(B[mOK [32m92(B[mOK [32m93(B[mOK [32m94(B[mOK [32m95(B[mOK [32m96(B[mOK [32m97(B[mOK [32m98(B[mOK [32m99(B[mOK [32m100(B[mOK [32m101(B[mOK [32m102(B[mOK [32m103(B[mOK [32m104(B[mOK [32m105(B[mOK [32m106(B[mOK [32m107(B[mOK [32m108(B[mOK [32m109(B[mOK [32m110(B[mOK [32m111(B[mOK [32m112(B[m
+============ ./ft_ssl md4 ===========
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8c5b220bf6f482881a90287a64aea150
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+711988b9f581af648ff6470facfcd2a4
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c2b0e4e9145c70766ad7694c468254c7
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+34d274ac17d3aa557748da2ba2b4fabb
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+98e9f6d871727281c462e567879f04ed
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8c5b220bf6f482881a90287a64aea150
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+2a30e8bf4f1f55a01db67eab6b21eb93
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8b259be2f830bb2faf9c675c1557dc8f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+b72a2db09ef4290d633c6e23e2fb1852
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8c5b220bf6f482881a90287a64aea150
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+37981a6871a6e2a0713a0059cc90eeb3
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+85f6a2c3e7419dd6cc20d44c1eb20720
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+289a05625a4fdd93c7d98a3abfbf3728
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+693abf4517b62e4348e73d9987379741
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+a86aaf7f391e54a0a3dc848703b14623
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+7eec1f480cbc775c4a33d22c973b2bad
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8c5b220bf6f482881a90287a64aea150
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8c5b220bf6f482881a90287a64aea150
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+060601cef24dff0d9d923bebef7e1498
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f26ba9d6355ca33890b1fc4254725eff
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c7f1f308bc361cd301894b6c097749b4
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+4198712f0a3fe303e1c7fe644740ba1d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+adbaaa0a6bab6a201035cc33975bb8e6
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d6044791ee294fb2728fe20deb326e6f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8be5bb4066adedb3bfa585c6bc756249
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+fe06d244c7b2ae234e8fe1a3fd56bfd1
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+7e230a5597c34de64f370233225c6a9e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+9612fc6cf8a30699a6dbaf2192008cd2
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+fa4ac533073ac62065fa7943a03b1b06
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+045e28959e6fe29ebdeb99df413d523d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+79499f2028f084462f256e4cb808beb4
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+80cbf9b4ec505c6d8fb8637d60d36119
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+b1dd926a7d018592dd81b3e0ada91dda
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8c5b220bf6f482881a90287a64aea150
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8c5b220bf6f482881a90287a64aea150
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+104cedb75bb210d2b1d35a6a04470ab6
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+4f3f2be9969fb0f93094f0900604a91e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+a82ed170c49a7ed635b08f6ef7b964e7
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+cf5531808f879ec6dbb45e7e6153ab21
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+6c30f86b3825c9a1a31d34c9f44626d7
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+b9b003ea9d70ae8078e7e316f555a88d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+11982cb17b6b97f94382d604ee6d3a83
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+85c6c097325acd523a9fcbad5e8eba23
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+5fd73b1c6463422ecd244d09a6cf7d6c
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+44be891834a1901d4c4e6fd18a7f04c3
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+e1bb8efc57b5e570df31bb01466d40be
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8c5b220bf6f482881a90287a64aea150
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8c5b220bf6f482881a90287a64aea150
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c21661dbc683d9381ca698634909587d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+efd34ae66613409c3909fa551dfec1ff
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+61f0ee685acda0e3e27f89070397c57c
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+88ef404a54d30b53845813b210fa4365
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+0f96701444c99074bce06ce1a9d94a3d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+452bbc3325e4ed98ece8f6043eaddba7
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f61f017ac32df6e9cfd295ca2eb27b34
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c384987802ea9e7f77db42b86feac856
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8c5b220bf6f482881a90287a64aea150
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8c5b220bf6f482881a90287a64aea150
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+ed749efa12ff44f18d29dc910a571d5b
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+4d9af6a0eac040c4ab52f83892cc2a50
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+059cd1693ae49b77aa5ff0d8901b626a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+74c2e5cf824709c6826769079f081e5e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+7fc2705d98fa0336f0b7be78b6b17346
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+49bd78693a300893988dc46364a10e15
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+4f49a3deba69053d7d53fb88c6ddefe9
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d8baff68d7217c4e0dd1d69e60e3cc07
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+e282be3de1b032cc5751aac3f73e50b7
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8c5b220bf6f482881a90287a64aea150
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8c5b220bf6f482881a90287a64aea150
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+962776f76b54b86875e494b9648da0ac
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+04e4cd944b4360367ca95c89007d725f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+4f452ab87f1973db7f5c51218de03984
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+1f7aad7b3a90f4f4f45c6010e6d3ffcf
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+9d986f1df36f9e54d619cab1c9e7d799
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+378cc50df6eb358eebf691ea6c53685d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+7e438f33768c8fee8d825c933f042f10
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+110c04ba329b6d88af0cfc5f9e820348
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+9d0262aa556ab6930dbb229e542b6488
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d29b491ce7e2241b6a8e9aabf145453d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d2dc70ddf47d67a9f44df1822ccd791b
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+464836a29dfdf7ad184661796c8ba4e8
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+ca75eb107ccd77642f379fbc3f20e194
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d9bbaa2ce69367635a315f290cc8211d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+4f82822be4022e2e8d0eae1abd1c1db1
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c8482940d5cd22e60c788034dd5db9c4
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+909fd543da9c9e48cb797dd33cfd5a4e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+0e83346d24348af52d664fb50b417ac4
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+6cbdb88c0a592e66fd2fb435230223bd
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+be1143910a01fccc92b7016406d68025
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+70000d4a2c67889e55a17578750454aa
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c46c9ca457ed3dd9c3eb212a1e5c2821
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+3dede6992eac4b9ef21fae28eab8d2b6
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+621113757f99dae4788d1ed1730d19f7
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+68cc03154f5f9e823436f66af46e6935
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+6d6ae2ba72e0f2d167bd6361f901fdbd
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+1626c1ed850a7fdeaceac5666f37eef3
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+857cf5f27d2be52cad3ab9f8c9fd3647
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+446a334f45a0bac45767b2938acfeda4
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+5ad3ea230b54ae61b578fc7208c504f3
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+4c04abf7f23da3965398a584e24d8c97
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+322c8fe87f2b1f73fdf06bcd0d85c49f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+9468d10f65041be2ca796a23c5f9f014
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+712448e48eb557fd4751b7a7d5ca0473
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+fe8a0607ff94e46568d2b34658ff33d0
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+2c2f4642829d0b09e236dcb1580a16c4
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+238cb991f01ff291aae52c484e287354
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+e12a9b5f229c150c64ffd107dd1d769a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f093463d1a942695221fc80e68ed74cc
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+df29565c9af2857e6cbee55bef86a822
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+429d09eae81eba8dac31032e3064abcd
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+fc3535ddb55d7001cd96879852960c8a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+79a66044039af7e7b375fb652db0037f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+============ ./ft_ssl sha256 ===========
+OK [32m1(B[mOK [32m2(B[mOK [32m3(B[mOK [32m4(B[mOK [32m5(B[mOK [32m6(B[mOK [32m7(B[mOK [32m8(B[mOK [32m9(B[mOK [32m10(B[mOK [32m11(B[mOK [32m12(B[mOK [32m13(B[mOK [32m14(B[mOK [32m15(B[mOK [32m16(B[mOK [32m17(B[mOK [32m18(B[mOK [32m19(B[mOK [32m20(B[mOK [32m21(B[mOK [32m22(B[mOK [32m23(B[mOK [32m24(B[mOK [32m25(B[mOK [32m26(B[mOK [32m27(B[mOK [32m28(B[mOK [32m29(B[mOK [32m30(B[mOK [32m31(B[mOK [32m32(B[mOK [32m33(B[mOK [32m34(B[mOK [32m35(B[mOK [32m36(B[mOK [32m37(B[mOK [32m38(B[mOK [32m39(B[mOK [32m40(B[mOK [32m41(B[mOK [32m42(B[mOK [32m43(B[mOK [32m44(B[mOK [32m45(B[mOK [32m46(B[mOK [32m47(B[mOK [32m48(B[mOK [32m49(B[mOK [32m50(B[mOK [32m51(B[mOK [32m52(B[mOK [32m53(B[mOK [32m54(B[mOK [32m55(B[mOK [32m56(B[mOK [32m57(B[mOK [32m58(B[mOK [32m59(B[mOK [32m60(B[mOK [32m61(B[mOK [32m62(B[mOK [32m63(B[mOK [32m64(B[mOK [32m65(B[mOK [32m66(B[mOK [32m67(B[mOK [32m68(B[mOK [32m69(B[mOK [32m70(B[mOK [32m71(B[mOK [32m72(B[mOK [32m73(B[mOK [32m74(B[mOK [32m75(B[mOK [32m76(B[mOK [32m77(B[mOK [32m78(B[mOK [32m79(B[mOK [32m80(B[mOK [32m81(B[mOK [32m82(B[mOK [32m83(B[mOK [32m84(B[mOK [32m85(B[mOK [32m86(B[mOK [32m87(B[mOK [32m88(B[mOK [32m89(B[mOK [32m90(B[mOK [32m91(B[mOK [32m92(B[mOK [32m93(B[mOK [32m94(B[mOK [32m95(B[mOK [32m96(B[mOK [32m97(B[mOK [32m98(B[mOK [32m99(B[mOK [32m100(B[mOK [32m101(B[mOK [32m102(B[mOK [32m103(B[mOK [32m104(B[mOK [32m105(B[mOK [32m106(B[mOK [32m107(B[mOK [32m108(B[mOK [32m109(B[mOK [32m110(B[mOK [32m111(B[mOK [32m112(B[m
+============ ./ft_ssl sha1 ===========
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+adc83b19e793491b1c6ea0fd8b46cd9f32e592fc
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+22825de5cc21c77eecb1ffb6ddf6f61588272b4a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+0c71f9298083a5349b2bd0815e7707792d57ac3c
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+85eaf309016ddce200442d9e3311da81e694e208
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+402a2106f040c2b89774faa4d5d508e657e42a59
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+adc83b19e793491b1c6ea0fd8b46cd9f32e592fc
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+6539ec404b1228a9b050c4d2ca4b36f9fc37070e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+5154fe4810f69f04c61d8e58b1071d5adb27818a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c2d76cf2eb0b9955466543bdf4cb7fa5a27c71b6
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+adc83b19e793491b1c6ea0fd8b46cd9f32e592fc
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+75c2ee2a43a6f5e876e5f93f8265e7053640bbdf
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+011a9b3884e3a73d420d6e207eed748632fd4bc1
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c6a0c565cd4ca010325a745255221e8bfead278f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f8dda950cf5afb9205f179bd65254b201290215f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8917a1cd102e6f89ed5cc4f85bf4d36fd3ea9341
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+ba427d7091a5b257a046ec51c13bf8bfdf0ba727
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+adc83b19e793491b1c6ea0fd8b46cd9f32e592fc
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+adc83b19e793491b1c6ea0fd8b46cd9f32e592fc
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+b1ff3b91c3325b85d0be86cd0c39c07e07bbbfcb
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+28593e21e71ee4bfe5b8f46a8e2bbc97433af44b
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+0860c7a6593702196e81509a1dda77ea9d760479
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+ae5f9b98ff1c19e5074379d7455880f06bb7e876
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+efeb5bfb85badc8c1b39b50ce24bedeeabde1408
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f0cd67e7c2723e24993fd6f403098bbe0bccf780
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+a467af3a40b68fdf54f25f2a303a08556fb65103
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+3246d91db24fa0335eccf63b9ab2fb749cd03ebf
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+df043ceee0207b674f18e04efdbafae7a00f8003
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+110bc26873d41896ed111a4e935d5f184e32967d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+0deda33e054f216cd18f57c3555e29078c4462dd
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+ae1d49a40b0b7e1198b62d2e337cabbcb31aca5a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+312d3667af53f1b2e7d1c5d7317590ffbfb8428e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+df9d6c27d11dd5c4e44ee1b335032a5507d9aacf
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+eb9aa3f95156cc1be13b4d36d3476aaf6e3e132a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+adc83b19e793491b1c6ea0fd8b46cd9f32e592fc
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+adc83b19e793491b1c6ea0fd8b46cd9f32e592fc
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+0f3b5cbadf800f562b050ac4a2ddbe9328bffcd9
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+efc142547ec07a2cc7ca7b16761aa83e5397e89b
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+5551f253f5cf65cd0f49759e48ec9eb86cdf8f84
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+ca3d7d00082ea2c821f973c06e9aa1358c7f2d8e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+a843c9bfe41bb3f8d815dc3d7f2a4c3a68924256
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f7389e36143f657fa8659f3211e1a9b6f47dfd7e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+589f5f38df65f5eed04751ae46228829f0386229
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+745a0ec7c1dd3ab7ff1972ad6fd9c22c5fa1fb77
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+7cf29e2cea222aca0c39e5ad839b7d2a41617db7
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+fcf45a9d748e3eb37395612f7a2338b208419274
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c1992beb14e53c30caad2f857fcb66081f337b90
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+adc83b19e793491b1c6ea0fd8b46cd9f32e592fc
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+adc83b19e793491b1c6ea0fd8b46cd9f32e592fc
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8d66cd749189edce5c71cd0add1fad06059cb3a5
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+b59f595414d974fd1c544d845ea1be049b9f79a8
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+0064531fae685a2776282138fe37fe500bf0ff47
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+86318c712ad16a17a1cc70962a366617ff390946
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+7d1182b054ac091b0a1df0ba93957c495d2ebd3f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+64bdf2b081a6589388f9dd0892946cdaa6987f54
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+2886a072d402ac6288d810786ba27c2d58cb7842
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d188a82b19dfe20b62f9da46c88a879e5200eefd
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+adc83b19e793491b1c6ea0fd8b46cd9f32e592fc
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+adc83b19e793491b1c6ea0fd8b46cd9f32e592fc
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+183cb429f34cfb246fb5f70725f546bee1c9cd34
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+73ae7f8edb5a09a52d837fdd308f3ca8c4661089
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+5c6314e6afa0a5e2c1463aaba760f09362edf242
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+45e60746a89356489665349483c64644306d8bb1
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d223f88d9423693355ad17923ff04b11bd23af62
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+315e833c43c7db6818b4006bb6e1f4270ca8cb4e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+e1905d678a340c424f1d1845bbcd1074acd8103d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+917ab2e23c289a904c651f75bf5a129ab3ff97c6
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+ad36ab3b6331ddd26ba63a2aa4a654bf5dd9e97d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+adc83b19e793491b1c6ea0fd8b46cd9f32e592fc
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+adc83b19e793491b1c6ea0fd8b46cd9f32e592fc
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+80ab0a5ce9566289ac9417df4739d1c66ce878ac
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bcdf6b9679312798fa11511cc1e2f955709550cf
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+98df6d3b24ca4be6d2182b35858428c1e89d9258
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+3641f1c760239717cc53a1d1fcf7363093f81cb3
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+e4f76b5ceade97d47cc99f4564685c8cef0557d0
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+3f0a768e73b37f77d7a2894e9f1d925e3d4d271a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c81449c2935ffddd2d2beab9eb82222e0297a762
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+e7f16f9dfe3e2ab695f860d4431783b61f115e92
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+1ee5c8afae743564d66d693e7749849bc6b8c3ae
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+efeffeffa27f8ed83d6f7415d830593dbe0009ce
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+7acc05ac25e3c08bd249983860e2b8d11039142a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c251878c426449705e34f01333348d78f9d1f344
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+ff6db341701439b684db35a450a1ac722eff6b9a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+66ac44288f6b545f1a27b285c2845ed1e44b5376
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+a063927b0ead511d9d4c5c7906adcaf9c0886c3a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8977ea34f894280805aa79b7ba139e4b41a6f4a0
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+35cfdbaf96a3014fb21d2a011404d0bf0d8d8c9f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+0080c5d8b3f82bcb0d171521d6389e4db588b1aa
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8b25b2e9cc01f03cada2374b790370226b75dcef
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+707f6471c429f4e975707f6be8cf9a5e56887102
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+2ef1a9af6c1469b6c8f47e643edfe9de7d452b29
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d4b921208b394e11f4b654907d91f0eafa380504
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+6fefec64a691d0157fd06d6ee6c4ac3500c52c80
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+961011d6fe451351841fa03a971f2829f0f54a9c
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+1b69118097885ec384ba92f5803e026a6fb137a9
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+fd914453f12de92e92acc388b85948c5635ea617
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+2522ef041e932bc8f5ef37f07872fb2716825ca5
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d8db9d68bdd3085b21d85fa4364c31323118d434
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+b346701f16483b826bd0a581f20b7d48d3bd9103
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+3c4aba851402613fc6fb2edec560969c685b9cbf
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+232e7b009e573fb4b317e3641c8655813170b293
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+989f2b9ed52e0feb38735b75b73c1af0f2eddb30
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+683559f966e967105d35ee886f89722741a1a159
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+1ba76762f67fd1a7cad9896e0c1bcc95b310d1a5
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+a4219fd989fe2ab36950fbe51587d57393110acd
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d91c9cb6ae9a98a4bcdff9a7a8160a4fa8c46082
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+22af5442e17dad937d0eec75e9896aa2373e03d2
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+af9c6a2d095b5251eb8ea0f154d693ea560eb62c
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f8ad6fde67f4eac9fa4708d8425d77d7569c3c7b
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+9cfc13b64ffe98229d29b39efbfe0df407a1f9ec
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+b3cea3a008d3c4f849c9f8c7769fe493f9dbc18d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+60089bc4b2441567a13639d72554101f3c50225f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+7416c9ef62485ec2eaacdcdf2c7b507938ee239e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+============ ./ft_ssl sha224 ===========
+OK [32m1(B[mOK [32m2(B[mOK [32m3(B[mOK [32m4(B[mOK [32m5(B[mOK [32m6(B[mOK [32m7(B[mOK [32m8(B[mOK [32m9(B[mOK [32m10(B[mOK [32m11(B[mOK [32m12(B[mOK [32m13(B[mOK [32m14(B[mOK [32m15(B[mOK [32m16(B[mOK [32m17(B[mOK [32m18(B[mOK [32m19(B[mOK [32m20(B[mOK [32m21(B[mOK [32m22(B[mOK [32m23(B[mOK [32m24(B[mOK [32m25(B[mOK [32m26(B[mOK [32m27(B[mOK [32m28(B[mOK [32m29(B[mOK [32m30(B[mOK [32m31(B[mOK [32m32(B[mOK [32m33(B[mOK [32m34(B[mOK [32m35(B[mOK [32m36(B[mOK [32m37(B[mOK [32m38(B[mOK [32m39(B[mOK [32m40(B[mOK [32m41(B[mOK [32m42(B[mOK [32m43(B[mOK [32m44(B[mOK [32m45(B[mOK [32m46(B[mOK [32m47(B[mOK [32m48(B[mOK [32m49(B[mOK [32m50(B[mOK [32m51(B[mOK [32m52(B[mOK [32m53(B[mOK [32m54(B[mOK [32m55(B[mOK [32m56(B[mOK [32m57(B[mOK [32m58(B[mOK [32m59(B[mOK [32m60(B[mOK [32m61(B[mOK [32m62(B[mOK [32m63(B[mOK [32m64(B[mOK [32m65(B[mOK [32m66(B[mOK [32m67(B[mOK [32m68(B[mOK [32m69(B[mOK [32m70(B[mOK [32m71(B[mOK [32m72(B[mOK [32m73(B[mOK [32m74(B[mOK [32m75(B[mOK [32m76(B[mOK [32m77(B[mOK [32m78(B[mOK [32m79(B[mOK [32m80(B[mOK [32m81(B[mOK [32m82(B[mOK [32m83(B[mOK [32m84(B[mOK [32m85(B[mOK [32m86(B[mOK [32m87(B[mOK [32m88(B[mOK [32m89(B[mOK [32m90(B[mOK [32m91(B[mOK [32m92(B[mOK [32m93(B[mOK [32m94(B[mOK [32m95(B[mOK [32m96(B[mOK [32m97(B[mOK [32m98(B[mOK [32m99(B[mOK [32m100(B[mOK [32m101(B[mOK [32m102(B[mOK [32m103(B[mOK [32m104(B[mOK [32m105(B[mOK [32m106(B[mOK [32m107(B[mOK [32m108(B[mOK [32m109(B[mOK [32m110(B[mOK [32m111(B[mOK [32m112(B[m
+============ ./ft_ssl sha384 ===========
+OK [32m1(B[mOK [32m2(B[mOK [32m3(B[mOK [32m4(B[mOK [32m5(B[mOK [32m6(B[mOK [32m7(B[mOK [32m8(B[mOK [32m9(B[mOK [32m10(B[mOK [32m11(B[mOK [32m12(B[mOK [32m13(B[mOK [32m14(B[mOK [32m15(B[mOK [32m16(B[mOK [32m17(B[mOK [32m18(B[mOK [32m19(B[mOK [32m20(B[mOK [32m21(B[mOK [32m22(B[mOK [32m23(B[mOK [32m24(B[mOK [32m25(B[mOK [32m26(B[mOK [32m27(B[mOK [32m28(B[mOK [32m29(B[mOK [32m30(B[mOK [32m31(B[mOK [32m32(B[mOK [32m33(B[mOK [32m34(B[mOK [32m35(B[mOK [32m36(B[mOK [32m37(B[mOK [32m38(B[mOK [32m39(B[mOK [32m40(B[mOK [32m41(B[mOK [32m42(B[mOK [32m43(B[mOK [32m44(B[mOK [32m45(B[mOK [32m46(B[mOK [32m47(B[mOK [32m48(B[mOK [32m49(B[mOK [32m50(B[mOK [32m51(B[mOK [32m52(B[mOK [32m53(B[mOK [32m54(B[mOK [32m55(B[mOK [32m56(B[mOK [32m57(B[mOK [32m58(B[mOK [32m59(B[mOK [32m60(B[mOK [32m61(B[mOK [32m62(B[mOK [32m63(B[mOK [32m64(B[mOK [32m65(B[mOK [32m66(B[mOK [32m67(B[mOK [32m68(B[mOK [32m69(B[mOK [32m70(B[mOK [32m71(B[mOK [32m72(B[mOK [32m73(B[mOK [32m74(B[mOK [32m75(B[mOK [32m76(B[mOK [32m77(B[mOK [32m78(B[mOK [32m79(B[mOK [32m80(B[mOK [32m81(B[mOK [32m82(B[mOK [32m83(B[mOK [32m84(B[mOK [32m85(B[mOK [32m86(B[mOK [32m87(B[mOK [32m88(B[m
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+967f20e9c6516f4868d0729a11ec70986d76e7bd826a594b592186506ecad83d771140e2e4983ef76f5dad6d091c2d42
+78bc499c5dd432899239137993b062e8dbcb71d8c66824ab6c4ae4bf95551063fc82ca6815f40ba2d012c2e7d7de5631
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+6e8a98ed34d6b1c935915e4957b59ab77f0952e9af48eca73b817f4e48618f373e5e8c1a523a729688cf501c44045dfd
+977ce130e4de61531ac3f14046923185a3d5233c072119cf19c58a2cef6249e3612bb443d0f5f68f73ebdac18919c2f8
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c5b46fdf96074b1c7b92d70d4fa1fe4f656bf98f9d7f7a62861a78fb5a5ef2fc9cfd6844a93c62f46f1f050458931ab5
+568897b6103a458cf8503d482033a67f73cc45104c08a83339dc89b090dda42961dbba0bf8ccd592a46ca4e46085342d
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+cec87e9b62b0f7017ec58c397e69ecffeca1ff70fd237266828f4456b0f30ec16ffbe6def4411b07a354636113f5f945
+1408b7d2cede57add377302a4cac06abf05712dc26870f6ed9f8b4dd335924baa8a1a4b4256b9462a547d36d3c44e03a
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+eeaa0ef203bbd688be2ab5b66b8ed3f64288db20cf2b551fd6747ee60b425b576186669d5c05100d980985e602267cc6
+320921b4eac5769365b86b836b968ecd0c8326591dcd2ea382eacfc38d7e57e9d081831cab774235af3b2530506b345d
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+1ec51077ce4564f6047982ff2d83541052558dbf596e141d71cb541c2e6344516b35da6f7f4246c38a7955b68031abd8
+4e4935ce04da107094973193f9f6f17045746c5c48bc6743178aa6021468e2594b15329614cee0e03007baecf259cbe0
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+77078f55f98b9d1df93f33d2a5df641f444230db88d721b86bca4cf1bf64985cfaa36ed1b809e6b7adb77e8609bb39ad
+4e4935ce04da107094973193f9f6f17045746c5c48bc6743178aa6021468e2594b15329614cee0e03007baecf259cbe0
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+670c37035466890a1206f95e74adad99028c1de8c0b39a78a62a44d3f6603e0c9627e231ccfd793f418ed7a43166290d
+4e4935ce04da107094973193f9f6f17045746c5c48bc6743178aa6021468e2594b15329614cee0e03007baecf259cbe0
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bc173d7b51c7b714cd6c61e8937ebf4559af5f466842fa7e496137842440c5b2c343d6bda466aebb99e8a2ff95a3c900
+c52ab45832d2d8c2e18cd809046095a21184332d0693b17e0c3d68ff6fe7c31dec2bf08740bfacdb2103fcfe8c50035e
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f891ec751485a7e3a51bda7e6d4a8ae18f946aef050068be7ac6b5dedff1f68cb12d758ac37f1e30c778a802d0dc55d8
+27f0c8733b2346d2244318ac923d1e5c04c8fdfd320765975fc1c3306ac4d6bfefaa6d78aaff0ceab1649e0ecd266293
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+44b94d3b9c6eeaf492467580966c499a450a1aefc934a33cfee7e5fc41a19f2f5f62efc7bd4a7d64af273a3bcb63fa0c
+27f0c8733b2346d2244318ac923d1e5c04c8fdfd320765975fc1c3306ac4d6bfefaa6d78aaff0ceab1649e0ecd266293
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+4696057ffd556d85e70fc54b1157020cd9cd04b9c3e9e7a96c9a2b7960ec1ee5241a9cb494f8e784b5f585553a114010
+27f0c8733b2346d2244318ac923d1e5c04c8fdfd320765975fc1c3306ac4d6bfefaa6d78aaff0ceab1649e0ecd266293
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f140fb49d3bba8777ae7396e04bf60a630f21e4d96640fcafa63b0bda9ce0c6258456dd9f23bc237cc5f1b57c8e0f8ec
+27f0c8733b2346d2244318ac923d1e5c04c8fdfd320765975fc1c3306ac4d6bfefaa6d78aaff0ceab1649e0ecd266293
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+17d0231c0d2927a3984c393b03144e7e111a111da06e524288ac402218e68741762dedd0f9279ea62f2296d4b33ed60a
+27f0c8733b2346d2244318ac923d1e5c04c8fdfd320765975fc1c3306ac4d6bfefaa6d78aaff0ceab1649e0ecd266293
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bbb378bc6adb1aaa0e2971a391af7854ee6be59b6a20d4bbde118675337095277cf6ac88cc887b1349acdaf3b64bf94c
+27f0c8733b2346d2244318ac923d1e5c04c8fdfd320765975fc1c3306ac4d6bfefaa6d78aaff0ceab1649e0ecd266293
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+585768f5cc76a7db82bf83ca5327357d24188a4c193e13bbc9bf92ae80cef91e5492294c3aaf15bbae53f52bfdebe676
+27f0c8733b2346d2244318ac923d1e5c04c8fdfd320765975fc1c3306ac4d6bfefaa6d78aaff0ceab1649e0ecd266293
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+fecc9b68b613a5cbf8a7c05c2331fd778ef96ed8ce94a33a5a700b4c9c949415e66d09b733dfb5bc71d5f13eab9d11d5
+bbebb94d68c24b717f73ed00817d7b435a8ab8061fe5acd7cf880ab73b8d9c270f8a84c404550e34a66325f606a60c42
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+df2a6c2e3651f82dae3245d41ac0029f131df2c2c9fc73c20da9801168b707b9aec86c893086f3d5c68b75ca93c335e7
+bbebb94d68c24b717f73ed00817d7b435a8ab8061fe5acd7cf880ab73b8d9c270f8a84c404550e34a66325f606a60c42
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+3f6994b55c4323e0570e97d57ce6ad9a7cb030276e4a668f6bc6f9e6e29d08c435d0a8015a80ebeeaf469fac56bccc44
+bbebb94d68c24b717f73ed00817d7b435a8ab8061fe5acd7cf880ab73b8d9c270f8a84c404550e34a66325f606a60c42
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+6df90878869e8db1c1fb37d0310bc025b9cc79529f41b604ab778b4b0e192475030aad67711f9db571d0541c97087282
+bbebb94d68c24b717f73ed00817d7b435a8ab8061fe5acd7cf880ab73b8d9c270f8a84c404550e34a66325f606a60c42
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+53d14376d394bb23369ab988d63f0cf65495c6b3433ef47c2b1ad18f83c0da38f98fdfc0501c5d6338b8d0047ef3166d
+bbebb94d68c24b717f73ed00817d7b435a8ab8061fe5acd7cf880ab73b8d9c270f8a84c404550e34a66325f606a60c42
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+e14fa79c2cc7ed36dbe1cfae1524b2690451e34437c939bdafd4ccd929f08abc96fb673538a6efa9d364d75d3d381ab6
+bbebb94d68c24b717f73ed00817d7b435a8ab8061fe5acd7cf880ab73b8d9c270f8a84c404550e34a66325f606a60c42
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+0dc56052e65954ae57331e8c1fe8618c3eb7b2d717fc6a595134c088ab67e69da2269845fc7e0a91819cf3db2c3c2590
+bbebb94d68c24b717f73ed00817d7b435a8ab8061fe5acd7cf880ab73b8d9c270f8a84c404550e34a66325f606a60c42
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+822a81c11f301a90bd7ce63cd1b70f1c29fc9cbd56dfcb2c15174692f5cfeeab70f328a635a6907b677556cd79f37d5a
+6568c7b3aaa24e104221fb5d9cadc746c3f581aa08cf00a7dd647c9a77ea2d9018b3d172b627fa642d44e9864d8fd347
+
+============ ./ft_ssl sha512 ===========
+OK [32m1(B[mOK [32m2(B[mOK [32m3(B[mOK [32m4(B[mOK [32m5(B[mOK [32m6(B[mOK [32m7(B[mOK [32m8(B[mOK [32m9(B[mOK [32m10(B[mOK [32m11(B[mOK [32m12(B[mOK [32m13(B[mOK [32m14(B[mOK [32m15(B[mOK [32m16(B[mOK [32m17(B[mOK [32m18(B[mOK [32m19(B[mOK [32m20(B[mOK [32m21(B[mOK [32m22(B[mOK [32m23(B[mOK [32m24(B[mOK [32m25(B[mOK [32m26(B[mOK [32m27(B[mOK [32m28(B[mOK [32m29(B[mOK [32m30(B[mOK [32m31(B[mOK [32m32(B[mOK [32m33(B[mOK [32m34(B[mOK [32m35(B[mOK [32m36(B[mOK [32m37(B[mOK [32m38(B[mOK [32m39(B[mOK [32m40(B[mOK [32m41(B[mOK [32m42(B[mOK [32m43(B[mOK [32m44(B[mOK [32m45(B[mOK [32m46(B[mOK [32m47(B[mOK [32m48(B[mOK [32m49(B[mOK [32m50(B[mOK [32m51(B[mOK [32m52(B[mOK [32m53(B[mOK [32m54(B[mOK [32m55(B[mOK [32m56(B[mOK [32m57(B[mOK [32m58(B[mOK [32m59(B[mOK [32m60(B[mOK [32m61(B[mOK [32m62(B[mOK [32m63(B[mOK [32m64(B[mOK [32m65(B[mOK [32m66(B[mOK [32m67(B[mOK [32m68(B[mOK [32m69(B[mOK [32m70(B[mOK [32m71(B[mOK [32m72(B[mOK [32m73(B[mOK [32m74(B[mOK [32m75(B[mOK [32m76(B[mOK [32m77(B[mOK [32m78(B[mOK [32m79(B[mOK [32m80(B[mOK [32m81(B[mOK [32m82(B[mOK [32m83(B[mOK [32m84(B[mOK [32m85(B[mOK [32m86(B[mOK [32m87(B[mOK [32m88(B[m
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+b5062626bd075cdc8e612f03e7a79118b6495c8a60ceb23d01f29efbdadcd2e72a03d9dac68c10107fbb009b2bb0ca592e07f11288a28034a11a04399effb095
+0ca4dd39da367f92fd3d2fcda6a3cf0344a098abc4beb154187974bacf8273769bf98ab67b3a739f59581d8c5a8f66314d61773c0240fc0df6c75f9727fb2fb8
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+2cf1d4e48a95d575cb0d08f5542a7b3c3b7a130ce33513af93a001ce17c952bd4f3b30e40cbbab22d10ccc5e96081519db55e932db278ec1f669e498cbbb001a
+e76e89e5766df8f41aeb472267f3524c68ff8e473d693fb89c5f8d30d1e865fea8793f40caa86e00654695cff8efd5b0098c7fe5ab75e22f6805f67b7a460f69
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+00335b0367b5f5c4b6805ecbfeed16d8e023c0e9fcf1d55915d72b06c1b7b66c850cff69ed776528bf367a274b93ace7d6737d5e8fb6a16fb6837704072598c1
+4ef9a252e0e25d15e330eaae3351ab75dcf8c42b6c7aa3cf40e5dd3988c1b376b6939589922e104bd302efe548b4f76ff23a129652502f67bfe1cb244c85ee66
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+4e4a63bd0247f4a24ffe72e0f60dfef8e78abb1f2e9f75e456d5abe21b0f5771f803d8f1d11070f41e121af97d0bfd7d8fb1ad9a22b2f553da74ea937253a7c1
+d1722e08a0e28f73728c72db6772209865bd53a2597e8d90330eb45e83713e094001e7746ae825e3e3856f18a8c5350f0cd318ba69b2afa9be4cdea4d0dde195
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+5d2906e0e083c5d017e27c229962b94fd55dbfb88bcb5cd90c5d938282dc35aa418c87c1e16ffdf9d60d4758fcb6dd411b6209f9e7add06d392461be91d3c815
+6ed8da5051c3deff45b7ccbc7555417a9a14436e36ef29256bbc72517241fdc1238756b38f5468df6540315c09fcdbe0a55152411d58ae702644cb88f81bf95d
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+31082359cd34242e0036f72c44b746c29e0160d311907c4960b351465514872a2bf565d7d29736321f74cb9f65df317740886504dc5f0f35a2a0ad55e18f25f9
+5d3386dbc3575712ba2a4379a62935bcc6d8baab5753e585e92984ef97f56d1e1d81efebdf0d9a305d9f38912cd65f27b3e98bf88c9c656f2aa02f3473f5da17
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+5566ab7050f939b282ea64ffc0c5e2ef0f4b242c3aa154886d74159f99958e5dd022c864a2bc327e4cd6ec949367f57e469127177e63b9ca8da3c8ad7f1c52ca
+5d3386dbc3575712ba2a4379a62935bcc6d8baab5753e585e92984ef97f56d1e1d81efebdf0d9a305d9f38912cd65f27b3e98bf88c9c656f2aa02f3473f5da17
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+79e04d7969d8eb2d5dae18f4cbb5d1027b30735ec4aef38d509f3bc14d3fcfdcd0387ab7b457b72188634ad12a0a0fd8247a6f429049508aadcdf60436979480
+5d3386dbc3575712ba2a4379a62935bcc6d8baab5753e585e92984ef97f56d1e1d81efebdf0d9a305d9f38912cd65f27b3e98bf88c9c656f2aa02f3473f5da17
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+496908eb51f01a9e59de1115b34a141a710f8f51038367563da5ef2020e9b4b8999318400a136a8ab9e33d780e68ab31c82ac429041a5fc7f8cd8aa0d3926512
+d0cfb74b26907cc59ea3a7f90cceb4af5afdf2b9828aad0958a80743f807cf79233cd0a0aa4b5e7224abc264eb69badb8d5b3d6224390eda41856ff25581670e
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+119784c8ecc5fb986d0c4985ba084e54319a09c569443723b31e35cfb196beac1256922724dac541cafbcebbf3a7947a0de4867b69dc7095f293fbce6668f60e
+e029c48e0134e2f7332bbfdb0fc75fdedafa4f282ca26eea9b4f11efd8e22e9e5b24d22be705102a3061ac9dccc13165631dab7ca2bff18dbe5a20ba35237128
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f37f52cd582504364996663ee4146795196d3bdb08861eb060c0600011037c5db315b954b48e4da108fd6242d65fcccf6a9d8be922acb36543ed8d9736babab2
+e029c48e0134e2f7332bbfdb0fc75fdedafa4f282ca26eea9b4f11efd8e22e9e5b24d22be705102a3061ac9dccc13165631dab7ca2bff18dbe5a20ba35237128
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+28328e798431bf4b6bd1d4ee300f1dd48f05fff313084739ba05a45c71b0d858973c4aafb9874fddd9be4055a7636ca849678c5b15793a3912cd4237897b8105
+e029c48e0134e2f7332bbfdb0fc75fdedafa4f282ca26eea9b4f11efd8e22e9e5b24d22be705102a3061ac9dccc13165631dab7ca2bff18dbe5a20ba35237128
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+587f4a5080e0202da471d85e00923911f1635f9fc8e6117e851d1cf7c60c331057c2742d928119813b194a6021aa237ff20a789996cab7fce993aa75c20c1faa
+e029c48e0134e2f7332bbfdb0fc75fdedafa4f282ca26eea9b4f11efd8e22e9e5b24d22be705102a3061ac9dccc13165631dab7ca2bff18dbe5a20ba35237128
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+ea5d7686543eed806cae009cc0c086e9224cdaeedd5c7310fb35d0314ac535520d8b4da77a1e57f5233941f4587c81d027ee23b07b36f63b8a28b9e66609e0c0
+e029c48e0134e2f7332bbfdb0fc75fdedafa4f282ca26eea9b4f11efd8e22e9e5b24d22be705102a3061ac9dccc13165631dab7ca2bff18dbe5a20ba35237128
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+5c76aebad888dc6197c113f56acb3f31080ca4832ea8f5c560f5a4bd698f967fb38471f74462946a36a8f9bc5d2dd01edcc5b0db40177818da2c39a0f2d982af
+e029c48e0134e2f7332bbfdb0fc75fdedafa4f282ca26eea9b4f11efd8e22e9e5b24d22be705102a3061ac9dccc13165631dab7ca2bff18dbe5a20ba35237128
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bfd38b31c0a87051832c318ac5fc005f42742f9e2654de8a5dc7fa7f9b4ef20dbbdf22b15754674b3da318d7de69f29f5ce3bdfbf6a7946a0686f8fa2f26dcf8
+e029c48e0134e2f7332bbfdb0fc75fdedafa4f282ca26eea9b4f11efd8e22e9e5b24d22be705102a3061ac9dccc13165631dab7ca2bff18dbe5a20ba35237128
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+1bddda9bc150edfc16513561bac3b15557a4eeec09ec4ea8a7f3b0672cd66a53b332faee8ba50dfb9a3eb57a03a0e5c61ea4175865f03438766c7c096b4005d2
+67e174dc1589f1b4558bbb9bfb7fd58cb3e38cc4494efbded3fc9d9c1d692da7dc1dccb9e765497a2d355281d3b841021a7d06cc466fd7e3975ae807e2bac930
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d6516d7128dc79f743f156d804bf7bc7e5b37c03c6a769fa239a16b304e051e659833ce49659672ba9a787d651c7f12607a9efce2f069835f4ab8172dc1238f0
+67e174dc1589f1b4558bbb9bfb7fd58cb3e38cc4494efbded3fc9d9c1d692da7dc1dccb9e765497a2d355281d3b841021a7d06cc466fd7e3975ae807e2bac930
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+9a0257bbddeff2d03f50f2f32b5cc6d7b456f37bee69cfc3e92c8cf5526854d3792a0939afe567c443388b9447f9b34a52f4f5eacf7442596ccda07e5dcab9ff
+67e174dc1589f1b4558bbb9bfb7fd58cb3e38cc4494efbded3fc9d9c1d692da7dc1dccb9e765497a2d355281d3b841021a7d06cc466fd7e3975ae807e2bac930
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+baada278760ad41a854ccc8503b1093627c1121c1e34e757d5a31409899bb8dfa4f98c26af5c2f0317e446981dbba73780a6ec68837cf5ab657b9296c9b20d20
+67e174dc1589f1b4558bbb9bfb7fd58cb3e38cc4494efbded3fc9d9c1d692da7dc1dccb9e765497a2d355281d3b841021a7d06cc466fd7e3975ae807e2bac930
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+50d379e07897752d4c44b5d42c92f870fdb2c1f0c9608c239dff63f8694359f4bd2981e213bea70fdaa8e7be53bd4fbcdcc55fa265911d928002be2059f37f0b
+67e174dc1589f1b4558bbb9bfb7fd58cb3e38cc4494efbded3fc9d9c1d692da7dc1dccb9e765497a2d355281d3b841021a7d06cc466fd7e3975ae807e2bac930
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8841e30fd20d41cb87fa001e33beedad7b9ffe43925aa4cbf6936649c6c37109ec0fce76553f351a718219b0ce346cab228d01e536332fcd90fe942d3bbbdcaa
+67e174dc1589f1b4558bbb9bfb7fd58cb3e38cc4494efbded3fc9d9c1d692da7dc1dccb9e765497a2d355281d3b841021a7d06cc466fd7e3975ae807e2bac930
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+16e9d3669710682d9c233c0bd84b4a3d1d0467735b4238ef892915d36fed9748c7b3edc653587adaa954fa1548ae55a7f4a51ee70189cc429d4709e8a3d427b6
+67e174dc1589f1b4558bbb9bfb7fd58cb3e38cc4494efbded3fc9d9c1d692da7dc1dccb9e765497a2d355281d3b841021a7d06cc466fd7e3975ae807e2bac930
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+a411a001b885f1b3f855a38adddaadab0f1259dfe0c396918cb983cc7c6ab25fbbafe06b172a0202353590072929366a95a5222933664ecb13057e882c2699a6
+50e478c4dd30582f2c666d92e00c6c08bcb506ee7c146fd87d432689d656bbc23fd689aec1433b9cbbe98affc2e3837ab5df10dccd14063b2a10a5d8ecb7c75d
+
+============ ./ft_ssl sha512_224 ===========
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bba8292cc455595f768816333c6eb3099d9c712885159cc004a9f73f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c623ec7e7b1cf07f6f77de56632399e5bc531b7df803060969665b9a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+2d8a59b11c1c7e176744c6138a808e654fa3881d91755c90cdbd9095
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+1ce9cb1ec8916f97c0e2113ca8d10d5792848220bd42d6390433dd9b
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+3d4af1966fdb8d483039c8e007da80f563fcef83fd6b45c810908980
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bba8292cc455595f768816333c6eb3099d9c712885159cc004a9f73f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+3e1e48e7c864220325c7b2961e2dc1c918674010780187d330d2c04e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+85c5a74f0d4a09d54dce5ef4a8be9f1a7c0455309dca7ff1bcb20e57
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+83d3e969cf3b156ac61bbcc8f9c0afb427d0fd9f1b7724e31d7a099b
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bba8292cc455595f768816333c6eb3099d9c712885159cc004a9f73f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d3acf459eda6366e837bfb73026085a8c14342f8210f697e3405b920
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+6114cf6d669144e5004ccf6cbd9af1b1357c0085cf5fb25db62974da
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bbbd59b6228c1cd8a567b7e26b316e4eeba63a3973246da0d25959d8
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+77bcd4e9adb9d2b110268bc8a580d5cd4e35fdfbe7c0161990dc296e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d0e7900d033c7e18c568ecbaad8098d9d1dbc7f72ac4898c0d0e71d8
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f81bc83c7626a21c2106dc3775560fb25683d1679c9eb05372ba98f6
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bba8292cc455595f768816333c6eb3099d9c712885159cc004a9f73f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bba8292cc455595f768816333c6eb3099d9c712885159cc004a9f73f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+0035982a91ee30d069840ee04bf6dda7e27afa18ac4b968486e834ab
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+5b4c8bffb03ff38cb5c1190a0d466977e1b96db4a194e90680946d42
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+e7fbf993bb4b3a03769ff63487d2e1591ab69a8f8de01a72def989b1
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+66ecac787d353a673940f00f947eedc5e009f431d2a516fe107c2db8
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+021b62c421bd28cf2881db8fe1335181c8e3e30c956eb268cca0ad9c
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+2d3170561ce596e9e1d33e935ef5be6597aeff8286c478fea07322cf
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d723e22266ea0fd0280ee0edbe8e300e9ac2c86399d93e457e95f508
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f871fd1260524c09e563b1275556e0d3357717781f93495418a84106
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+169cb93350fa0ce615967f8e38b96c766296213ac65d65d765859bc6
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+9f800b70c6e4549b57c898f348c3dfa49f5bfb85ad48207725733c4c
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c7ff37095bd2980650b9609ce012265a2661e7ebf19c26a086b1ba8a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+7df8a539006a25165fe290cc98d7a5fa6cd3f58e042ae56b76a854d3
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+0820f62828f43d526a75f1462033325ad5bfab0d16c376039c405379
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+55b4eac1ad00f3ad6274acf56d7ee54388599c727a9691a2d5e9d562
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+aa0d465c972e1e08b6c4f6c23c588f4a1fece66a5aef515ec1642a36
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bba8292cc455595f768816333c6eb3099d9c712885159cc004a9f73f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bba8292cc455595f768816333c6eb3099d9c712885159cc004a9f73f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+393265e3e404796bf66eed619b68b7783849a611ccf233d979377a17
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+388fdf150203408ba51b33140ac4938fc988a62087ae91b052b742ae
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+b67dd1e5e72f6068b97d6cc189a6f09a2bd032ba6e4964cf26b97482
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+cf6d759a50df0181de61642c7acd0036402604ba6ff49aa11c9d3d97
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+990b4aade4daffda1a0a610ee2d6c30f499c193716e2e39f34c1569b
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+7c28d7af964763e331b3bdddc67ab3b7f85f10abaacbaa735a5c0f48
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+de21779a635a76793ef1b52dd0beac9eae4e67a4726342066f4f3596
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8e4fd7e01ce1627dddce6b0124f6acb1412542c4c729f7df45f2040e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+1b5630c5a96685b104743eebd8fe8b0ce80e2c09c79b396ce40f6a9f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+65fbda48314257619e72af9fabfcf2868a6b23a885e2f0c930778df6
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+afb03ae9379109c6c8211f55acc12f466a8c0d9a57cced2d76b4686d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bba8292cc455595f768816333c6eb3099d9c712885159cc004a9f73f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bba8292cc455595f768816333c6eb3099d9c712885159cc004a9f73f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+31553fd7fac8fc1d5afc49019b929d474a3cc9ab0a37a8666432a7dc
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+56288e0d3a7580f6dd85571f95334685107cb75dc2d08f9ece51f933
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+4e5e664e94164fbe952b20460a35d30bcbf8200bec72d31835227882
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+19f5c56ea75c719bb6682c31f2b9dbe3a66762b60efc927c2f450c75
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f57fa82558cb96cf25cdf1e97ed7e8aad14f66085a0fd62a8f364646
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+3663cb14ba65926427ff3b425376c83ca8de957a015b6689484f6528
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+792755a5f05ddbadcae37c34f18d1cfac9a6f42a8e6bca4e97a45aed
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+5fffcc17c14c6f04e398afdff1f2ba121a9fbdb8857848f49f841448
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bba8292cc455595f768816333c6eb3099d9c712885159cc004a9f73f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bba8292cc455595f768816333c6eb3099d9c712885159cc004a9f73f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+376f9f2efce443872ea21623803cc3ed1b720855cb65170aff90d799
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+2dbedbec5877ff7709d2e4419834a01354d951c0229f5a132e10985e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+36b20d447d319bf6eb16cfc07a4fef277ce4135b01b215cd1847c0f4
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+3c17d4528f8a0af0bb51bb39cc5d5fc113e34e5ee2fa7495166f0ffa
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f87917beba6ab9ad7fdd7e7398b6de196ef6b7422edb5d8944c5a53d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+e77997c17c50ed94f1f0a0de80d12157a22b4a2d270dbb6b48b12bc9
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+82420afe00e6755976fd08af47c44517d6af9ea72d08ce0b3ce556ae
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+1764126b57eaca2d0d17d98733872bc930b2fbda5e1b696f06a8a240
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+63b1f05aa6cc1ab36e7d3ba4a338771a11408e1fd6bb628ce8fe654f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bba8292cc455595f768816333c6eb3099d9c712885159cc004a9f73f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bba8292cc455595f768816333c6eb3099d9c712885159cc004a9f73f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+217f8a0015eeb5527fa422cedd036e83ea795f1ab10ea5e3ae379398
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+ee0cd9c08fe36712fdf7e78185c1214f3d112cbf633738bf9057779e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+77a9bfbd8993562d3acc35ad5bae0d2e3b4e2d36e88fea505464ed1f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+eb92efc8e7940e378c00eacb38f7d5ebe7da9252f155206580a0a1cf
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+a1bbbcc951c417539efc5d42ffad191a05d3b95c18d92dc11209da38
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+010c903ef1a56ea107e88dcbce08e08b05fe6f1e4a7348efc4ad6a3c
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+ff2b58ca704dd50f9a53e88564398927e46ef75ddbf9b88893ccbc09
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+bdc62ffd7951452b9a10fe484722b0b0924e54fb60f341bda8ec82f6
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+fe48108f01fde089ed465446fad82d6ff3c867f95647b2284644efeb
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+cb0f94fcba4ea977f4b0588a0a463c114b4b4e07763253fc6fbb5270
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+deb62d31f06c0a14cc2ceea31b79fcbb12fe5ee776f46538e1cd4273
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+42dee8f8fd8e05991456df516b113b0bc2f9d00902430e64f90aeeb4
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8e4338fc155c3b14a9581ebbad03b68b56fdf4e525db87e0c8e54d39
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+cf0e9ae2b44574985107e72f80c512afbaecc6e0c5b8a8b0263a0ad6
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+b4c10360695f35a98edc35630e97f9370d6dcab0eb2e2bc202d74414
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+6bdcc921305c9941fb86b97c3aa7e412afc5ca5da7bf4bc12adbfb73
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+87b6f8a2d0152f0be3ab9e0a778bb9c7272c14092078e5e874df671f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+90c4ad9e10f8ef6c9d4a826ed9fa97199a4246dd3331f2b396d3dbef
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+76dbd60fe6aba1e2491a17ff365996955d8e21b0ce269cd05fda677a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+ab3db9a3f26e608651edc6bd5d0fbb6e8a5a19c2914f966d0d748803
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+66c3e1c895ae2ac3330d9a4c95c3eb706114a77456550b7b789d5027
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+6e7b1ba4a00e11bf4cf0dfd46461a62b13cbec954dfa8e2782665b41
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f0e9d4db878837ee092b60b2dbb91d5ac38f2a7382f16ae4e7128b65
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c4589e4ac60ceeb7570987b392f42f84d0419c5f05041b043f65f538
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+e123c408290ec99906c68eab11188ebd53282168ae3a7fd943ff6637
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+44219829f738389934a1a3371b8258fae6477962fe6b102a51565c28
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+01463be725e29562f2175c96ca143d689c7e2e3a0378c4f062e37752
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+9fdf0de7993c80396130f49eda3520424f72e386af4094640078e0a0
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c5f4b1755f3ff1825a0bd3278071d5cabb47b3e2476cfcff2b908f01
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f805b0ec7cf5b14ba5e45665d4644b34fc0b23ab1a5145481dbe247d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+39cdbaafc9efc0c485fa2a68f5d3c5c01fdda6cf45084d656fa3fb13
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d4a5444bbf2b149c9b9b8ecc3a6fe590a286e7785aff52e32953d4c1
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d585ffafa02cdaa5e5d5a6df71c75afd67d10bcd917d5d46d50a10d9
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+1792db460f09c1d8666fdd3642cf919b0b6bdaef1fe9f09821598dc3
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+4a06d92179f171e089be27bf7f615f0354bab7c8e72f89030eddba68
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+aabe8afe12899b797bcce131d2882163236a22174032fd9be15aecb8
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+3cfc4e2adf8c6d307ed00ce81c0ad2a3b177ea0b66b7c86a0570278f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+686e44458c1dfd2bc6b77d52541899192406e88f4d3a02a4bd3a164a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+84f1bb6a43484cca57e7c0738ceaf85b09fa8e26543c7783bc9f1e9d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+95803e15be15f822089fa1c3bedab08c8204ea73a730cfa7d57cc17b
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+34075c84a96d39197206fb44243cff6b4eacf685daa672e36a8b161d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+06336914f8dc390efc9ccdc95e6f395f5a624c06af1afbbd853d133f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+52f5a6456cbc254bcf3feebd2e5c333e3955893d104ef2243a17bdec
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+============ ./ft_ssl sha512_256 ===========
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+03fe1ceaa32b17bff9a713f0693ac8f75c568be3cf50d90199cc436ab1bfde74
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c9c648cd6a5a7b0bcb6c0bbdebf57a67845543197cbb23f752ce433902ec29b6
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+b061daf88c506d1c5f44dee5840283a7bc9fd5db9705de37d9a31982dc66878a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+1edf0b58cbed6a838b2634fe6c255e67e7a155b8dd0a442008c28d9c4609f40a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+209da0ae876a5c1ed8114e60a4c252f79f9aa9031e2e6ce1bf060d9c7e7cc6c0
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+03fe1ceaa32b17bff9a713f0693ac8f75c568be3cf50d90199cc436ab1bfde74
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+892aeca681e1619cb96ad3acfd13e9cbd472bdc8654838e8b19d95eb5c8730db
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f446efe045416d2dd48208c80627088cb3ee33140f9baf75fbd8a399323fe587
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+92d62da98d33caa855ecddaa7b3e0b52356e49cea502498b260d82ad093181e3
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+03fe1ceaa32b17bff9a713f0693ac8f75c568be3cf50d90199cc436ab1bfde74
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c6e85e21a0ee6e52c1c73a32d5abce7ff9e2dd02e31686abeccdd22c921c4ad9
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+b1b33604954c93c06dc41c34a87a38e079ecaf6a8c9ff590dd1a1f5af4d5d9bc
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+e2e03dd2f6f520180ed8d8017edebe1e249e67ea963522de522242b747c8b63e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+6adebc53fa10e5c250abdd528e8e77a2ce9394e13bef71b6c7682e9554306e97
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8a4e99023ad3faff3a59e09bb49f7eaaee98b3196e67f6765fa41b0ee1fb65b9
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+4403005ce53c78d2eab0690e1d7f89a23d94034dae32fc0d25b0eb318d0f620e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+03fe1ceaa32b17bff9a713f0693ac8f75c568be3cf50d90199cc436ab1bfde74
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+03fe1ceaa32b17bff9a713f0693ac8f75c568be3cf50d90199cc436ab1bfde74
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+69276c3b9638294ea7fa83398890f6bc5d0957d49d39822121a46b1739d2695a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+97f57243b9e9b217230243dfaf579c082a4f6d2ae5245ed5e5405a128e308a22
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d9db36aa807b9c0383d02e58bac1d0afe05aebcfc6f427e70fce6d95f49d0f77
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8695a6d05b43bd595e0a52dbe4a099781e5bed49044e32f9b61a10df53bed567
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+685502c398563f48e0838d3c37699e053d259385f242bae80d0c5e39d9c7a75f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+daa80069eb460c625db23d584ee7b8046f77b627d9801da7092b96c577a45b75
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+13f545bc9ecd4c309b80b66243cf535791707ac6f00d3dac91577ea152612e88
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f10dd770015022b1e876cb2b2d2965641688dfb40d332fdca7cb9c2a58a48e2f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+9f41293414a48eaee797950485c842c4b7b3c6f7ff1963670d9bc32632d339c9
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+07b32c5a0c69d6c5c93d7d3c3caf31c7051a7c4b2064855c8f22bd6ac186e081
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+ee1fc787ae16b7449acc511d4f905a43a6f854120ea227855a2385c0e265e307
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+0e0e3cfb4765db80bdb59de53fb4fb1ebe24835c5b77195fbd89482d90b0c673
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+85fde990201bc6b13ca50dbce594704a95ef923162440b8c046c256ad20bd468
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+13df55b321671f66f82b8389b1b0845b4413d708cfebaf55083d56873f7c601b
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+b08eb0760568af41a9da6b1f8a47e8139ea20a8391cecab075de9b2f19fd26f7
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+03fe1ceaa32b17bff9a713f0693ac8f75c568be3cf50d90199cc436ab1bfde74
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+03fe1ceaa32b17bff9a713f0693ac8f75c568be3cf50d90199cc436ab1bfde74
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+a43e31ca24ca2338c79c3b118b484be45a9d2367ddfe988c0455be2f7c4b9b3a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f02c97d4b752b6763467d42d8c688fd90981432774bb2aa47782896ae2e83d48
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c73895af37580341302c6bc0f0a0b41a531d92892a45d9088cf521a499455d83
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+a7c546c2b5e37fdebd023e8b90347fb81450a638fb726c6949737bd5dcad6529
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+f77d30827ed8197b45e7a970b94bc701c6f083ab4e3237923936cd9c2c4e3123
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+474393456f2c13120537dba1e4a5491c18cb341cf2b42fefe8c5e440f0b18276
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+ccea3e27a1ddd5f733a1b60ce999a04216de56e2f33e53810bc9daad27be26a2
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+cd3fb8bc2e3d460fba43b16ebb4c9bc5a982c7c03d8a0d8736c11f239098ddd5
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+65da1815c460a325bbc2e6074ea37399ae4c7708e568d15b764c3d4880aeabe6
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+3bb48a6ea1ec363072875ae56e4abc3579e7a0d22141e68c28a5c251d945d8b0
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c6b7fb3fa45dfe8a3be69d71aa7be7bf0c6955aefef58ff14930b53c16af6cc1
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+03fe1ceaa32b17bff9a713f0693ac8f75c568be3cf50d90199cc436ab1bfde74
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+03fe1ceaa32b17bff9a713f0693ac8f75c568be3cf50d90199cc436ab1bfde74
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+df86d7ca2c9457e67ecd5b57b8bc44ddc295563d6699357788b8a3d573abad37
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+e4af7bbe78531dd0b4818c74779cbfbecaf123a487905fdcae148f81422c7e55
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c3b3066fd23f393244554c99b75534c393b16adde247619ae625541256735bde
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c684491f7494366d9481619190e97d1c4a178fd42d9e1f8713c6019829942420
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+18c33e8b2404527d6c4c698f5a5cbb7c21b7ea708b7571ea26d8d90c1ee0d028
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8f8d12ae098803fd9064f8a54070a559155d07f56c73d973694ef0514cfca7f8
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d12f45caef8c12ebb489ffec2920167afca1c6081262140d97a181bb7fd5ba86
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+46cde045c6bedfffa0c1e76f851adec9df7dfbf5e55aaba3c56444d33ba54a7e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+03fe1ceaa32b17bff9a713f0693ac8f75c568be3cf50d90199cc436ab1bfde74
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+03fe1ceaa32b17bff9a713f0693ac8f75c568be3cf50d90199cc436ab1bfde74
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+362863243acbf2af6d0a4d4257290589aef9bc1ee9d174672968047f5850298a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d8d38deaa866185cfb186c9120457726935de5890d55ad4d3a8cc3b6baba1294
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+6ec99900c6674181e6c50e72f338ea571f6e28d67e822f537eecb8e0f24e0dc7
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+3379a63c267cc9d711e9ebc01c6967500b3686c6782281b479331c61c8d5710d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+32dc95a6fbf0c2c649d840403d6a21e0cc176f27ccd7d008d681d0e3cd5a8ba7
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+b584fa901ce8d9e324ad17d8f8b7219d9603322d55271de0832fd121c0044177
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+9750bd01a682bcfe30861ad996c08de14dbff773e29a7b2ed10239a34180f5be
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+4f35a34e2b921b18706b6e0203c3bcb2c271544ec6ba4eac0f428d9ca050a095
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+0f823d13c884a71144e9fa167dbf95cba518e28faa76693dd9446bae7143fa59
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+03fe1ceaa32b17bff9a713f0693ac8f75c568be3cf50d90199cc436ab1bfde74
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+03fe1ceaa32b17bff9a713f0693ac8f75c568be3cf50d90199cc436ab1bfde74
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+3b6d0c0d6d481d52ae74cc420c012868ac0c3fb5a5348a00ab5468c28a5160ac
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8a969c69f3f75f271d1a9a135e9f207aabe9e6664bbc8a37e55e509775028b5c
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d479ea2f3329b4ff1e88ed2e49e9ea9680e0fd0c4113d73eea805c49b2a6e5a4
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+2250f83483ff4cb8f38d13c27fe1fd814ce268f8b4be43519f9cd48291b2a7a1
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+2e4ad4e4fbe992564a9a0397b5dd0e21fc4528c5605ce84ffa970f1cf8bf035c
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+0b8094b639714ce39dd34c526ad1dea549895fb5ae0452af1e7bc55cbbc9a848
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+0433467c14b08a26c605b310bca733ded12697b47bb60a491c4925bc472e895a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+e69316ee8b8e318b26bc7556dedc094443b2e058ad15206fa5eb07aa82303539
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+1521e99811c96cdeedb28c7ca8b2ad9a9799c82760d19542634212731c624a35
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+1d38adcac84982d10442d6e2af603d9c2b67a55fd0caec1d89989862c975d4fa
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+befe23274bc5f4eb2bf682107260ca03f9adbceb6da4ddd12428b4772a909ae7
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+962f7e77ef270187077d11f3041dcda3424c13e1cb96e4a4ced21c8901a449cd
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+219a83f982a8d69bc73ec11426398f6a7d576cc56f1ec2f1e2755948bc1a349f
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d17203bd8640658ec57814ce35e41cf7aaaf9b8477f746b3348b7d4055fd66b4
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+fb93b88917f4aec9c29ec83b96bf99047a98da923be3dd8d924bb24b215fdaa3
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+7710d2efbf14ba4a3bce471c6982a95bdacb8e35137f920eea5ca70ebc8369b4
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+0f9c592a64f32415bc6ddde1f817581025bf9dbdc52b4b45e2ff00581ba8c812
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+b73d6f5b26477d9588f801fa0c4c4452f36b5bef5155d5737751bbc83fd685a5
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+6b6e7f5e1b96afa4f8b76b1f87e5b1de246f03b8a0f5fc10830dbc38c0169375
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+76c4dca5e75a977568e8194c20fd0094e68db19783f1c572cc53c772432abbea
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+41ce0a23ee6f75e451dceb09d63f5646cb242aab8093a0bac91802e9a8472030
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8a4355f4196493b6f6059dd8c055ab86a912ec57566f93317193ef9ce73e5dde
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+106fb3b8b1a966fa8bde93acac7eafaf1be0e48dfbc86ae6f6fcedb51a4f6c6a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+e9b44f05562380cc076886fbb1df3c53ca4d95f031ebcc0118a30ea9d91ce39a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+8516880248815e36bd33fc363f8db35550445163cd3cd1d8a6b91807a8a7fbdd
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+af48403bfa059ca2d71e9ce483e3686166bd4c7d6b186410b3687a3430d79392
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+270b3dff85dcc171b2bf36c3ee4546fa6edf5e9fdb63530a696e43022cb0b2d4
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+d31c6898ed60b8490a54ad484cfa8937abf804410f5eeeff853b68131410f9a8
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+b6e13d53fd46d73f11dd6ba70d3e92209be1039c1cab54b5c2e47d3da945dc87
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+20a4c5eb3d340e1bf483ed26a531e9b82f97e54782ee3faa0165b97d9e1fed90
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+3b2cea1e43a9883026b2109464bd49fad35f02342c175ae884e311d9265ff911
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+df3114c0f6359f1a2baad32285c610f875eb036a7a6fa8f1bcaadc5e78178176
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+1cf842eda19862ced0de48ca0e85924f6485368a41dbd58dafba6d319e225356
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+045d6234743301283b5259d70cb4e737fd24664043940d64f75d1ab340efafe3
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+c6605476e9bf790d85e3522fa6207e4d1317c6424e1f36ee1a390abc5eb95f7a
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+78854757d39ac239a2d967d1aeef44ad59f9e5487e6c6c35f62e4ac04a1ae882
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+a20bfd24b53466b424337dd36b565e229c85286c035e85520d98e9197ec5efea
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+9eae9f7a493e1eb881a1cbcc870362975386da272e59ee817bbcc2c25cad774d
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+b35dc53013c4e569b2f0260dc15a3c9ef59b9f3be0928de637f7dee22b122591
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+0cbedca8662eff69799c813aa7a067f412e0c54f5b7976b9ecd194baacd8919e
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+034f39a3b8f6ba3cdeceb6be75cdd5ca2b62b27ed26a6b18e765eb7342b74e79
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+9903bec173fb183fbd01c98d5de0d67b53f37bb5bedc5ef1360bf2e939e532d3
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+
+Failed on : /var/folders/zz/zyxvpxvq6csfxvn_n0001sfw000fbq/T/tmp.ivBFYqri
+b7a5de92550ac901b2c6413c943a5b7ca69370bbbb82236e4f1ccf5d075e0a64
+usage:./ft_ssl command [command opts] [command args]
+
+Message Digest commands:
+md5
+sha224
+sha256
+sha384
+sha512
+
+Test the parser with test command:
+./ft_ssl test [-p | -q | -r | -s | -help | -print [red | blue | green] | -arg [value1 | value2 | valueX]]
+

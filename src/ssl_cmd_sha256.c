@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 19:56:20 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/26 19:43:10 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/04 18:40:29 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,16 @@ static void	sha256_display_output(char *sha256_result, char *entry,
 	}
 }
 
-static int	browse_argv(int ac, char **av, t_cmd_opt *opts, int i_str)
+static int	browse_argv(int ac, char **av, t_cmd_opt *opt, int i_str)
 {
 	int				i;
-	char			*sha256_result;
+	char			*sha256_dig;
 	unsigned char	*entry;
 	size_t			entry_size;
 
-	if (!opts)
+	if (!opt)
 		return (CMD_SUCCESS);
-	i = opts->end - 1;
+	i = opt->end - 1;
 	entry = NULL;
 	while (++i < ac)
 	{
@@ -68,13 +68,13 @@ static int	browse_argv(int ac, char **av, t_cmd_opt *opts, int i_str)
 		{
 			if (!(entry = read_file(av[i], &entry_size)))
 				continue ;
-			sha256_result = sha256_digest(entry, entry_size, opts->opts_pflag);
+			sha256_dig = sha256_digest(entry, entry_size, opt->opts_pflag);
 		}
 		else
-			sha256_result = sha256_digest((unsigned char*)av[i],
-				ft_strlen(av[i]), opts->opts_pflag);
-		sha256_display_output(sha256_result, av[i], opts->opts_flag, !(i != i_str));
-		ft_strdel(&sha256_result);
+			sha256_dig = sha256_digest((unsigned char*)av[i],
+				ft_strlen(av[i]), opt->opts_pflag);
+		sha256_display_output(sha256_dig, av[i], opt->opts_flag, !(i != i_str));
+		ft_strdel(&sha256_dig);
 		ft_memdel((void**)&entry);
 	}
 	return (CMD_SUCCESS);

@@ -1,0 +1,18 @@
+SHA:
+
+diff sha256 - sha224: constantes & concat n-1 (224)
+
+diff sha256 - sha512: constante 64bits & constantes int 64bits & 80 tour de boucles au lieu de 64
+diff sha512 - sha384: constantes & concat n-2 (384)
+
+
+creer un fichier ssl_cmd_sha.c
+	=> ajouter un dispatcher contenant chaque digest du sha
+
+creer un fichier sha_hash.c
+	=> Partir du sha256 ou 512
+		(512 car l'utilisation de variable 64bits ne sera peut etre pas
+		incompatible avec un algo necessitant des variables 32 bits)
+	=> Ajouter des dispatcher pour gerer tout les sha
+
+verifier que tout marche avec la commande sha avant de delete quoi que ce soit

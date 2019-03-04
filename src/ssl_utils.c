@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 19:54:21 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/27 20:19:02 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/04 19:04:56 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ char			*itoa_base_uint32(uint32_t value, int base)
 	return (numb);
 }
 
+
+// check avec nm version
 char			*itoa_base_uint64(uint64_t value, int base)
 {
 	uint64_t	val;
@@ -124,7 +126,6 @@ unsigned char	*read_cat(int fd, size_t *size)
 	unsigned char	*file;
 	unsigned char	buf[MAXBYTE];
 
-	int i = -1;
 	ret = 1;
 	file = NULL;
 	if (fd < 0)
@@ -134,7 +135,6 @@ unsigned char	*read_cat(int fd, size_t *size)
 	}
 	while (ret)
 	{
-		ft_putnbrendl(++i);
 		if ((ret = read(fd, buf, MAXBYTE - 1)) <= 0)
 			break ;
 		buf[ret] = '\0';
