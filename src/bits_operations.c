@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 13:32:14 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/27 19:51:15 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/10 14:28:00 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ uint32_t	rotate_right(uint32_t value, uint32_t shift)
 	return ((value >> shift) | (value << (32 - shift)));
 }
 
-uint64_t	rotate_right_64(uint64_t value, uint64_t shift)
+uint64_t	rotate_r_64(uint64_t value, uint64_t shift)
 {
 	return ((value >> shift) | (value << (64 - shift)));
 }

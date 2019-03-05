@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/27 20:20:04 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/10 14:55:58 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "libft.h"
 # include "utils.h"
-# include "message_digest.h"
 # include <math.h>
 # include <stdlib.h>
 # include <stdint.h>
@@ -47,6 +46,29 @@
 # define MD5_OARG_D_PAD 1 << 3
 # define MD5_OARG_D_BLOCK 1 << 4
 # define MD5_OARG_D_ALL 1 << 5
+
+/*
+**	SHA options & MASK
+*/
+# define SHA_OPTS "-p;-q;-r;-s"
+# define SHA_P_MASK 1
+# define SHA_Q_MASK 1 << 1
+# define SHA_R_MASK 1 << 2
+# define SHA_S_MASK 1 << 3
+
+# define SHA_OPT_ARG_VERBOSE_KEY "-verbose"
+# define SHA_OPT_ARG_VERBOSE_VALUES "padding;block;all"
+# define SHA_OPT_ARG_DUMP_KEY "-dump"
+# define SHA_OPT_ARG_DUMP_VALUES "padding;block;all"
+
+# define SHA_OARG_V_PAD 1
+# define SHA_OARG_V_BLOCK 1 << 1
+# define SHA_OARG_V_ALL 1 << 2
+
+# define SHA_OARG_D_PAD 1 << 3
+# define SHA_OARG_D_BLOCK 1 << 4
+# define SHA_OARG_D_ALL 1 << 5
+
 
 /*
 **	SHA224 options & MASK
@@ -241,13 +263,14 @@ typedef struct	s_parsing_param
 */
 typedef struct	s_cmd_opt
 {
+	t_cmd_type	cmd;	// update comment
 	uint32_t	opts_flag;
 	uint32_t	opts_pflag;
 	int			end;
 }				t_cmd_opt;
 
-typedef int		(*t_cmd_usage)(char *cmd);
-typedef int		(*t_cmd_func)(int ac, char **av, t_cmd_opt *opts);
+typedef int		(*t_cmd_usage)(char *exe, char *cmd_name);
+typedef int		(*t_cmd_func)(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
 
 /*
 **	Definit une commande:
@@ -281,13 +304,13 @@ uint32_t		swap_uint32(uint32_t val);
 uint64_t		swap_uint64(uint64_t val);
 uint32_t		rotate_left(uint32_t value, uint32_t shift);
 uint32_t		rotate_right(uint32_t value, uint32_t shift);
-uint64_t		rotate_left_64(uint64_t value, uint64_t shift);
-uint64_t		rotate_right_64(uint64_t value, uint64_t shift);
+uint64_t		rotate_r_64(uint64_t value, uint64_t shift);
 
 /*
 **	Fonction ssl
 */
 
+char			*ssl_get_cmd_name(t_cmd_type cmd, t_bool toupper);
 int				ssl_cmd_dispatcher(int ac, char **av, t_cmd_type cmd);
 int				ssl_cmd_parser(int ac, char **av, t_parsing_param param
 									, t_cmd_opt *opt);
@@ -296,18 +319,31 @@ int				ssl_cmd_parser(int ac, char **av, t_parsing_param param
 **	Commandes
 */
 
-int				cmd_md5(int ac, char **av, t_cmd_opt *opts);
-int				cmd_sha224(int ac, char **av, t_cmd_opt *opts);
-int				cmd_sha256(int ac, char **av, t_cmd_opt *opts);
-int				cmd_sha384(int ac, char **av, t_cmd_opt *opts);
-int				cmd_sha512(int ac, char **av, t_cmd_opt *opts);
-int				cmd_test(int ac, char **av, t_cmd_opt *opts);
+int				cmd_md5(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
+int				cmd_sha(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt);
+int				cmd_sha384(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
+int				cmd_sha512(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
+int				cmd_test(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
 
-int				usage_md5(char *exe);
-int				usage_sha224(char *exe);
-int				usage_sha256(char *exe);
-int				usage_sha384(char *exe);
-int				usage_sha512(char *exe);
-int				usage_test(char *exe);
+int				usage_md5(char *exe, char *cmd_name);
+int				usage_sha(char *exe, char *cmd_name);
+int				usage_sha384(char *exe, char *cmd_name);
+int				usage_sha512(char *exe, char *cmd_name);
+int				usage_test(char *exe, char *cmd_name);
 
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

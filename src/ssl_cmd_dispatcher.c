@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:40:14 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/26 19:50:13 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/10 14:58:10 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,29 +141,29 @@ static const t_cmd g_ssl_cmd[NB_CMD] = {
 	{
 		.name = "sha224",
 		.len = sizeof("sha224") - 1,
-		.func = cmd_sha224,
-		.usage = usage_sha224,
+		.func = cmd_sha,
+		.usage = usage_sha,
 	},
 	[SHA256] =
 	{
 		.name = "sha256",
 		.len = sizeof("sha256") - 1,
-		.func = cmd_sha256,
-		.usage = usage_sha256,
+		.func = cmd_sha,
+		.usage = usage_sha,
 	},
 	[SHA384] =
 	{
 		.name = "sha384",
 		.len = sizeof("sha384") - 1,
-		.func = cmd_sha384,
-		.usage = usage_sha384,
+		.func = cmd_sha,
+		.usage = usage_sha,
 	},
 	[SHA512] =
 	{
 		.name = "sha512",
 		.len = sizeof("sha512") - 1,
-		.func = cmd_sha512,
-		.usage = usage_sha512,
+		.func = cmd_sha,
+		.usage = usage_sha,
 	},
 	[TEST] =
 	{
@@ -194,18 +194,53 @@ int	ssl_cmd_dispatcher(int ac, char **av, t_cmd_type cmd)
 	{
 		if (entry_cmd_len == g_ssl_cmd[cmd].len)
 		{
+			cmd_opt.cmd = cmd;
 			if (ac > 2)
 			{
 				error = ssl_cmd_parser(ac, av, g_ssl_cmd_parse[cmd], &cmd_opt);
 				if (error == CMD_USAGE || error == PARSING_OPT_ERROR)
-					return (g_ssl_cmd[cmd].usage(av[0]));
+					return (g_ssl_cmd[cmd].usage(av[0], g_ssl_cmd[cmd].name));
 				if (error != PARSING_SUCCESS)
 					return (error);
-				return (g_ssl_cmd[cmd].func(ac, av, &cmd_opt));
+				return (g_ssl_cmd[cmd].func(ac, av, cmd, &cmd_opt));
 			}
 			else
-				return (g_ssl_cmd[cmd].func(ac, av, NULL));
+				return (g_ssl_cmd[cmd].func(ac, av, cmd, NULL));
 		}
 	}
 	return (CMD_MISMATCH);
 }
+
+char	*ssl_get_cmd_name(t_cmd_type cmd, t_bool toupper)
+{
+	char	*name;
+	size_t	i;
+
+	i = 0;
+	name = NULL;
+	if (toupper)
+	{
+		if (!(name = ft_strdup(g_ssl_cmd[cmd].name)))
+			return (NULL);
+		while (i < g_ssl_cmd[cmd].len)
+		{
+			name[i] = (char)ft_toupper((int)name[i]);
+			i++;
+		}
+		return (name);
+	}
+	return (g_ssl_cmd[cmd].name);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
