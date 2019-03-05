@@ -6,16 +6,19 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 19:56:20 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/26 19:43:10 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/10 10:55:40 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
+#include "message_digest.h"
 
-int			usage_sha512(char *exe)
+int			usage_sha512(char *exe, char *cmd_name)
 {
 	ft_putstr(exe);
-	ft_putstr(" sha512 [-p | -q | -r | -s");
+    ft_putstr(" ");
+    ft_putstr(cmd_name);
+	ft_putstr(" [-p | -q | -r | -s");
 	ft_putstr(" | -verbose [padding | block | all]");
 	ft_putendl(" | -dump [padding | block | all]]");
 	return (CMD_SUCCESS);
@@ -97,12 +100,13 @@ static void	hash_stdin(t_cmd_opt *opt, char *entry, size_t size)
 	ft_strdel(&result);
 }
 
-int			cmd_sha512(int ac, char **av, t_cmd_opt *opt)
+int			cmd_sha512(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 {
 	char	*entry;
 	int		i_str;
 	size_t	size;
 
+	(void)cmd;
 	i_str = -2;
 	entry = NULL;
 	if (!opt || (opt && !opt->end) || (opt && (opt->opts_flag & SHA512_P_MASK)))

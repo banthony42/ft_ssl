@@ -1,60 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ssl_cmd_sha256.c                                   :+:      :+:    :+:   */
+/*   ssl_cmd_sha.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 19:56:20 by banthony          #+#    #+#             */
-/*   Updated: 2019/03/04 18:40:29 by banthony         ###   ########.fr       */
+/*   Created: 2019/03/10 10:25:35 by banthony          #+#    #+#             */
+/*   Updated: 2019/03/10 15:00:47 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
+#include "message_digest.h"
 
-int			usage_sha256(char *exe)
+int			usage_sha(char *exe, char *cmd_name)
 {
 	ft_putstr(exe);
-	ft_putstr(" sha256 [-p | -q | -r | -s");
+	ft_putstr(" ");
+	ft_putstr(cmd_name);
+	ft_putstr(" [-p | -q | -r | -s");
 	ft_putstr(" | -verbose [padding | block | all]");
 	ft_putendl(" | -dump [padding | block | all]]");
 	return (CMD_SUCCESS);
 }
 
-static void	sha256_display_output(char *sha256_result, char *entry,
-								uint32_t opt, int is_str)
+static void	sha_display_output(char *sha_result, char *entry,
+								t_cmd_opt *opt, int is_str)
 {
-	if (opt & SHA256_Q_MASK)
-		ft_putendl(sha256_result);
-	else if (opt & SHA256_R_MASK)
+	char	*cmd_name;
+
+	cmd_name = ssl_get_cmd_name(opt->cmd, true);
+	if (opt->opts_flag & SHA_Q_MASK)
+		ft_putendl(sha_result);
+	else if (opt->opts_flag & SHA_R_MASK)
 	{
-		ft_putstr(sha256_result);
+		ft_putstr(sha_result);
 		ft_putstr(" ");
-		if (is_str)
-			ft_putchar('"');
+		(is_str) ? (ft_putchar('"')) : ((void)is_str);
 		ft_putstr(entry);
-		if (is_str)
-			ft_putstr("\"\n");
-		else
-			ft_putchar('\n');
+		(is_str) ? (ft_putstr("\"\n")) : (ft_putchar('\n'));
 	}
 	else
 	{
-		ft_putstr("SHA256(");
-		if (is_str)
-			ft_putchar('"');
+		if (cmd_name)
+			ft_putstr(cmd_name);
+		ft_putstr("(");
+		(is_str) ? (ft_putchar('"')) : ((void)is_str);
 		ft_putstr(entry);
-		if (is_str)
-			ft_putchar('"');
+		(is_str) ? (ft_putchar('"')) : ((void)is_str);
 		ft_putstr(")= ");
-		ft_putendl(sha256_result);
+		ft_putendl(sha_result);
 	}
+	ft_strdel(&cmd_name);
 }
 
 static int	browse_argv(int ac, char **av, t_cmd_opt *opt, int i_str)
 {
 	int				i;
-	char			*sha256_dig;
+	char			*sha_dig;
 	unsigned char	*entry;
 	size_t			entry_size;
 
@@ -68,36 +71,36 @@ static int	browse_argv(int ac, char **av, t_cmd_opt *opt, int i_str)
 		{
 			if (!(entry = read_file(av[i], &entry_size)))
 				continue ;
-			sha256_dig = sha256_digest(entry, entry_size, opt->opts_pflag);
+			sha_dig = sha_dispatcher(opt->cmd, entry, entry_size, opt);
 		}
 		else
-			sha256_dig = sha256_digest((unsigned char*)av[i],
-				ft_strlen(av[i]), opt->opts_pflag);
-		sha256_display_output(sha256_dig, av[i], opt->opts_flag, !(i != i_str));
-		ft_strdel(&sha256_dig);
+			sha_dig = sha_dispatcher(opt->cmd, (unsigned char*)av[i],
+				ft_strlen(av[i]), opt);
+		sha_display_output(sha_dig, av[i], opt, !(i != i_str));
+		ft_strdel(&sha_dig);
 		ft_memdel((void**)&entry);
 	}
 	return (CMD_SUCCESS);
 }
 
-static void	hash_stdin(t_cmd_opt *opt, char *entry, size_t size)
+static void	hash_stdin(t_cmd_type cmd, t_cmd_opt *opt, char *entry, size_t size)
 {
 	char	*result;
 
 	result = NULL;
-	if (opt && opt->opts_flag & SHA256_P_MASK)
+	if (opt && opt->opts_flag & SHA_P_MASK)
 		ft_putstr(entry);
 	if (opt)
-		result = sha256_digest((unsigned char*)entry, size, opt->opts_pflag);
+		result = sha_dispatcher(cmd, (unsigned char*)entry, size, opt);
 	else
-		result = sha256_digest((unsigned char*)entry, size, 0);
+		result = sha_dispatcher(cmd, (unsigned char*)entry, size, NULL);
 	if (!ft_strchr(entry, '\n'))
 		ft_putchar('\n');
 	ft_putendl(result);
 	ft_strdel(&result);
 }
 
-int			cmd_sha256(int ac, char **av, t_cmd_opt *opt)
+int			cmd_sha(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 {
 	char	*entry;
 	int		i_str;
@@ -105,18 +108,21 @@ int			cmd_sha256(int ac, char **av, t_cmd_opt *opt)
 
 	i_str = -2;
 	entry = NULL;
-	if (!opt || (opt && !opt->end) || (opt && (opt->opts_flag & SHA256_P_MASK)))
+	if (!opt || (opt && !opt->end) || (opt && (opt->opts_flag & SHA_P_MASK)))
 	{
 		if (!(entry = (char*)read_cat(STDIN_FILENO, &size)))
 			return (CMD_ERROR);
-		hash_stdin(opt, entry, size);
+		hash_stdin(cmd, opt, entry, size);
 		ft_strdel(&entry);
 	}
-	if (opt && (opt->opts_flag & SHA256_S_MASK))
+	if (opt && (opt->opts_flag & SHA_S_MASK))
 		i_str = find_key(av, ac, "-s");
 	if (i_str < 0)
 		i_str = -2;
 	if (opt && opt->end)
+	{
+		opt->cmd = cmd;
 		browse_argv(ac, av, opt, i_str + 1);
+	}
 	return (CMD_SUCCESS);
 }

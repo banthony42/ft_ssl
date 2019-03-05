@@ -6,16 +6,19 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 18:44:23 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/26 19:43:26 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/10 10:54:47 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
+#include "message_digest.h"
 
-int			usage_md5(char *exe)
+int			usage_md5(char *exe, char *cmd_name)
 {
 	ft_putstr(exe);
-	ft_putstr(" md5 [-p | -q | -r | -s");
+    ft_putstr(" ");
+    ft_putstr(cmd_name);
+	ft_putstr(" [-p | -q | -r | -s");
 	ft_putstr(" | -verbose [padding | block | all]");
 	ft_putendl(" | -dump [padding | block | all]]");
 	return (CMD_SUCCESS);
@@ -97,12 +100,13 @@ static void	hash_stdin(t_cmd_opt *opt, char *entry, size_t size)
 	ft_strdel(&result);
 }
 
-int			cmd_md5(int ac, char **av, t_cmd_opt *opt)
+int			cmd_md5(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 {
 	char	*entry;
 	int		i_str;
 	size_t	size;
 
+	(void)cmd;
 	i_str = -2;
 	entry = NULL;
 	if (!opt || (opt && !opt->end) || (opt && (opt->opts_flag & MD5_P_MASK)))

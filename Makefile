@@ -6,7 +6,7 @@
 #    By: banthony <banthony@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/08 12:54:17 by banthony          #+#    #+#              #
-#    Updated: 2019/02/26 19:39:56 by banthony         ###   ########.fr        #
+#    Updated: 2019/03/10 13:38:46 by banthony         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -25,23 +25,17 @@ SRC_FILE +=	ssl_cmd_dispatcher.c
 SRC_FILE += ssl_parser.c
 SRC_FILE += ssl_utils.c
 SRC_FILE += ssl_cmd_md5.c
-SRC_FILE += ssl_cmd_sha224.c
-SRC_FILE += ssl_cmd_sha256.c
-SRC_FILE += ssl_cmd_sha384.c
-SRC_FILE += ssl_cmd_sha512.c
 SRC_FILE += ssl_cmd_test.c
 SRC_FILE += bits_operations.c
 SRC_FILE += md5_hash.c
 SRC_FILE += md5_function.c
-SRC_FILE += sha224_hash.c
-SRC_FILE += sha224_function.c
-SRC_FILE += sha256_hash.c
-SRC_FILE += sha256_function.c
-SRC_FILE += sha384_hash.c
-SRC_FILE += sha384_function.c
-SRC_FILE += sha512_hash.c
-SRC_FILE += sha512_function.c
 
+SRC_FILE += sha_dispatcher.c
+SRC_FILE += ssl_cmd_sha.c
+SRC_FILE += sha_hash_32.c
+SRC_FILE += sha_function_32.c
+SRC_FILE += sha_hash_64.c
+SRC_FILE += sha_function_64.c
 
 SRC = $(SRC_FILE:%c=$(PATH_SRC)%c)
 INCLUDE = $(HEADER_FILE:%h=$(PATH_HEAD)%h)
@@ -57,6 +51,12 @@ LIBFT_NAME = -L $(LIBFT) -lft
 LIBFT_NAME_SANIT = -L $(LIBFT) -lft_sanit
 
 ifeq ($(UNAME), Linux)
+MLX_LIB = ./minilibx_linux/
+HEAD_DIR = -I ./include -I $(LIBFT)
+FLAGS = -Wall -Wextra -Werror
+endif
+
+ifeq ($(UNAME), CYGWIN_NT-6.1)
 MLX_LIB = ./minilibx_linux/
 HEAD_DIR = -I ./include -I $(LIBFT)
 FLAGS = -Wall -Wextra -Werror

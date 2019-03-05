@@ -6,16 +6,18 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 18:35:46 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/25 20:10:00 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/10 10:55:55 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
 
-int			usage_test(char *exe)
+int			usage_test(char *exe, char *cmd_name)
 {
 	ft_putstr(exe);
-	ft_putstr(" test [-p | -q | -r | -s | -help");
+    ft_putstr(" ");
+    ft_putstr(cmd_name);
+	ft_putstr(" [-p | -q | -r | -s");
 	ft_putstr(" | -print [red | blue | green]]");
 	ft_putendl(" | -arg [value1 | value2 | valueX]]");
 	return (CMD_SUCCESS);
@@ -78,10 +80,11 @@ static void	display_param_options(t_cmd_opt *opts)
 		ft_putendlcol(SH_PINK, "VALUEX");
 }
 
-int			cmd_test(int ac, char **av, t_cmd_opt *opts)
+int			cmd_test(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts)
 {
 	int i;
 
+	(void)cmd;
 	if (!opts)
 		return (0);
 	display_options(opts);

@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 18:40:34 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/27 18:22:16 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/10 14:44:59 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,24 @@ uint32_t		md5_func_h(uint32_t b, uint32_t c, uint32_t d);
 uint32_t		md5_func_i(uint32_t b, uint32_t c, uint32_t d);
 
 /*
-**	************************ SHA224 ************************
+**	************************ SHA ************************
 */
 
+/*
+**	SHA256 Init register
+*/
+# define HASH_CONST_SHA256_A 0x6a09e667//0x6a09e667
+# define HASH_CONST_SHA256_B 0xbb67ae85//0xbb67ae85
+# define HASH_CONST_SHA256_C 0x3c6ef372//0x3c6ef372
+# define HASH_CONST_SHA256_D 0xa54ff53a//0xa54ff53a
+# define HASH_CONST_SHA256_E 0x510e527f//0x510e527f
+# define HASH_CONST_SHA256_F 0x9b05688c//0x9b05688c
+# define HASH_CONST_SHA256_G 0x1f83d9ab//0x1f83d9ab
+# define HASH_CONST_SHA256_H 0x5be0cd19//0x5be0cd19
+
+/*
+**	SHA224 Init register
+*/
 # define HASH_CONST_SHA224_A 0xc1059ed8//0xc1059ed8
 # define HASH_CONST_SHA224_B 0x367cd507//0x367cd507
 # define HASH_CONST_SHA224_C 0x3070dd17//0x3070dd17
@@ -79,101 +94,9 @@ uint32_t		md5_func_i(uint32_t b, uint32_t c, uint32_t d);
 # define HASH_CONST_SHA224_G 0x64f98fa7//0x64f98fa7
 # define HASH_CONST_SHA224_H 0xbefa4fa4//0xbefa4fa4
 
-typedef enum	s_sha224_register
-{
-	SHA224_A,
-	SHA224_B,
-	SHA224_C,
-	SHA224_D,
-	SHA224_E,
-	SHA224_F,
-	SHA224_G,
-	SHA224_H,
-	SHA224_N_REGISTER,
-}				t_sha224_register;
-
-typedef struct	s_sha224
-{
-	uint32_t	hash[SHA224_N_REGISTER];
-	char		*input;
-	size_t		entry_size_b;
-	size_t		padding_size;
-	size_t		zero_padding;
-	size_t		block;
-	uint32_t	flags;
-	uint32_t	Wt[64];
-	uint32_t	tmp1;
-	uint32_t	tmp2;
-	char		pad[4];
-}				t_sha224;
-
 /*
-**	SHA224 function & hash
+**	SHA384 Init register
 */
-char			*sha224_digest(unsigned char *entry, size_t entry_size, uint32_t flags);
-uint32_t		sha224_func_ch(uint32_t x, uint32_t y, uint32_t z);
-uint32_t		sha224_func_maj(uint32_t x, uint32_t y, uint32_t z);
-uint32_t		sha224_func_sum0(uint32_t x);
-uint32_t		sha224_func_sum1(uint32_t x);
-uint32_t		sha224_func_sig0(uint32_t x);
-uint32_t		sha224_func_sig1(uint32_t x);
-
-/*
-**	************************ SHA256 ************************
-*/
-
-# define HASH_CONST_SHA_A 0x6a09e667//0x6a09e667
-# define HASH_CONST_SHA_B 0xbb67ae85//0xbb67ae85
-# define HASH_CONST_SHA_C 0x3c6ef372//0x3c6ef372
-# define HASH_CONST_SHA_D 0xa54ff53a//0xa54ff53a
-# define HASH_CONST_SHA_E 0x510e527f//0x510e527f
-# define HASH_CONST_SHA_F 0x9b05688c//0x9b05688c
-# define HASH_CONST_SHA_G 0x1f83d9ab//0x1f83d9ab
-# define HASH_CONST_SHA_H 0x5be0cd19//0x5be0cd19
-
-typedef enum	s_sha256_register
-{
-	SHA256_A,
-	SHA256_B,
-	SHA256_C,
-	SHA256_D,
-	SHA256_E,
-	SHA256_F,
-	SHA256_G,
-	SHA256_H,
-	SHA256_N_REGISTER,
-}				t_sha256_register;
-
-typedef struct	s_sha256
-{
-	uint32_t	hash[SHA256_N_REGISTER];
-	char		*input;
-	size_t		entry_size_b;
-	size_t		padding_size;
-	size_t		zero_padding;
-	size_t		block;
-	uint32_t	flags;
-	uint32_t	Wt[64];
-	uint32_t	tmp1;
-	uint32_t	tmp2;
-	char		pad[4];
-}				t_sha256;
-
-/*
-**	SHA256 function & hash
-*/
-char			*sha256_digest(unsigned char *entry, size_t entry_size, uint32_t flags);
-uint32_t		sha256_func_ch(uint32_t x, uint32_t y, uint32_t z);
-uint32_t		sha256_func_maj(uint32_t x, uint32_t y, uint32_t z);
-uint32_t		sha256_func_sum0(uint32_t x);
-uint32_t		sha256_func_sum1(uint32_t x);
-uint32_t		sha256_func_sig0(uint32_t x);
-uint32_t		sha256_func_sig1(uint32_t x);
-
-/*
-**	************************ SHA384 ************************
-*/
-
 # define HASH_CONST_SHA384_A 0xcbbb9d5dc1059ed8//0xcbbb9d5dc1059ed8
 # define HASH_CONST_SHA384_B 0x629a292a367cd507//0x629a292a367cd507
 # define HASH_CONST_SHA384_C 0x9159015a3070dd17//0x9159015a3070dd17
@@ -183,49 +106,9 @@ uint32_t		sha256_func_sig1(uint32_t x);
 # define HASH_CONST_SHA384_G 0xdb0c2e0d64f98fa7//0xdb0c2e0d64f98fa7
 # define HASH_CONST_SHA384_H 0x47b5481dbefa4fa4//0x47b5481dbefa4fa4
 
-typedef enum	s_sha384_register
-{
-	SHA384_A,
-	SHA384_B,
-	SHA384_C,
-	SHA384_D,
-	SHA384_E,
-	SHA384_F,
-	SHA384_G,
-	SHA384_H,
-	SHA384_N_REGISTER,
-}				t_sha384_register;
-
-typedef struct	s_sha384
-{
-	uint64_t	hash[SHA384_N_REGISTER];
-	uint64_t	Wt[80];
-	uint64_t	tmp1;
-	uint64_t	tmp2;
-	char		*input;
-	size_t		entry_size_b;
-	size_t		padding_size;
-	size_t		zero_padding;
-	size_t		block;
-	uint32_t	flags;
-	char		pad[4];
-}				t_sha384;
-
 /*
-**	SHA384 function & hash
+**	SHA512 Init register
 */
-char			*sha384_digest(unsigned char *entry, size_t entry_size, uint32_t flags);
-uint64_t		sha384_func_ch(uint64_t x, uint64_t y, uint64_t z);
-uint64_t		sha384_func_maj(uint64_t x, uint64_t y, uint64_t z);
-uint64_t		sha384_func_sum0(uint64_t x);
-uint64_t		sha384_func_sum1(uint64_t x);
-uint64_t		sha384_func_sig0(uint64_t x);
-uint64_t		sha384_func_sig1(uint64_t x);
-
-/*
-**	************************ SHA512 ************************
-*/
-
 # define HASH_CONST_SHA512_A 0x6a09e667f3bcc908//0x6a09e667f3bcc908
 # define HASH_CONST_SHA512_B 0xbb67ae8584caa73b//0xbb67ae8584caa73b
 # define HASH_CONST_SHA512_C 0x3c6ef372fe94f82b//0x3c6ef372fe94f82b
@@ -235,22 +118,65 @@ uint64_t		sha384_func_sig1(uint64_t x);
 # define HASH_CONST_SHA512_G 0x1f83d9abfb41bd6b//0x1f83d9abfb41bd6b
 # define HASH_CONST_SHA512_H 0x5be0cd19137e2179//0x5be0cd19137e2179
 
-typedef enum	s_sha512_register
+typedef enum		e_sha_algo
 {
-	SHA512_A,
-	SHA512_B,
-	SHA512_C,
-	SHA512_D,
-	SHA512_E,
-	SHA512_F,
-	SHA512_G,
-	SHA512_H,
-	SHA512_N_REGISTER,
-}				t_sha512_register;
+	SHA_224,
+	SHA_256,
+	SHA_384,
+	SHA_512,
+	NB_SHA,
+}					t_sha_algo;
 
-typedef struct	s_sha512
+typedef enum		e_sha_func
 {
-	uint64_t	hash[SHA512_N_REGISTER];
+	CH,
+	MAJ,
+	SUM0,
+	SUM1,
+	SIG0,
+	SIG1,
+}					t_sha_func;
+
+typedef char	*(*t_sha_digest)(t_cmd_type cmd, unsigned char *entry, size_t entry_size, uint32_t flags);
+
+typedef struct		s_sha
+{
+	t_cmd_type		cmd;
+	char			padd[4];
+	t_sha_digest	digest_func;
+}					t_sha;
+
+typedef enum	s_sha_register_32
+{
+	SHA_A,
+	SHA_B,
+	SHA_C,
+	SHA_D,
+	SHA_E,
+	SHA_F,
+	SHA_G,
+	SHA_H,
+	SHA_N_REGISTER,
+}				t_sha_register_32;
+
+typedef struct	s_sha_32
+{
+	uint32_t	hash[SHA_N_REGISTER];
+	char		*input;
+	size_t		entry_size_b;
+	size_t		padding_size;
+	size_t		zero_padding;
+	size_t		block;
+	uint32_t	flags;
+	uint32_t	Wt[64];
+	uint32_t	tmp1;
+	uint32_t	tmp2;
+	char		pad[4];
+}				t_sha_32;
+
+typedef struct	s_sha_64
+{
+	uint64_t	hash[SHA_N_REGISTER];
 	uint64_t	Wt[80];
 	uint64_t	tmp1;
 	uint64_t	tmp2;
@@ -261,17 +187,26 @@ typedef struct	s_sha512
 	size_t		block;
 	uint32_t	flags;
 	char		pad[4];
-}				t_sha512;
+}				t_sha_64;
 
-/*
-**	SHA512 function & hash
-*/
-char			*sha512_digest(unsigned char *entry, size_t entry_size, uint32_t flags);
-uint64_t		sha512_func_ch(uint64_t x, uint64_t y, uint64_t z);
-uint64_t		sha512_func_maj(uint64_t x, uint64_t y, uint64_t z);
-uint64_t		sha512_func_sum0(uint64_t x);
-uint64_t		sha512_func_sum1(uint64_t x);
-uint64_t		sha512_func_sig0(uint64_t x);
-uint64_t		sha512_func_sig1(uint64_t x);
+typedef union	s_sha_struct
+{
+	t_sha_32	sha32;
+	t_sha_64	sha64;
+}				t_sha_struct;
+
+char			*sha_dispatcher(t_cmd_type cmd, unsigned char *entry, size_t entry_size, t_cmd_opt *opt);
+void			sha32_verbose(t_sha_32 sha);
+void			sha64_verbose(t_sha_64 sha);
+
+char			*sha_32_digest(t_cmd_type cmd, unsigned char *entry, size_t entry_size, uint32_t flags);
+uint32_t		sha_32_func_tri(t_sha_func func, uint32_t x, uint32_t y, uint32_t z);
+uint32_t		sha_32_func_mono(t_sha_func func, uint32_t x);
+void			sha_32_core(t_sha_32 *sha, uint32_t (*hash)[SHA_N_REGISTER]);
+
+char			*sha_64_digest(t_cmd_type cmd, unsigned char *entry, size_t entry_size, uint32_t flags);
+uint64_t		sha_64_func_tri(t_sha_func func, uint64_t x, uint64_t y, uint64_t z);
+uint64_t		sha_64_func_mono(t_sha_func func, uint64_t x);
+void			sha_64_core(t_sha_64 *sha, uint64_t (*hash)[SHA_N_REGISTER]);
 
 #endif
