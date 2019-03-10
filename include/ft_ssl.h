@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/03/10 14:55:58 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/10 19:11:35 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -300,6 +300,7 @@ unsigned char	*read_file(char *path, size_t *size);
 int				find_key(char **av, int ac, char *key);
 void			encode64_lendian(size_t size, char *octet);
 void			encode64_bendian(size_t size, char *octet);
+void			encode128_bendian(uint128_t size, char *octet);
 uint32_t		swap_uint32(uint32_t val);
 uint64_t		swap_uint64(uint64_t val);
 uint32_t		rotate_left(uint32_t value, uint32_t shift);

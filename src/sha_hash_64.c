@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/10 12:55:01 by banthony          #+#    #+#             */
-/*   Updated: 2019/03/10 14:46:58 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/10 19:15:27 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,19 @@ static t_bool	sha_padding(unsigned char *entry, t_sha_64 *sha,
 {
 	sha->entry_size_b = entry_size * 8;
 	sha->padding_size = sha->entry_size_b + 1;
-	while ((sha->padding_size % 1024) != 960)
+	while ((sha->padding_size % 1024) != 896)
 		sha->padding_size++;
 	sha->zero_padding = sha->padding_size - sha->entry_size_b - 1;
-	sha->block = (sha->padding_size + 64) / 1024;
+	sha->block = (sha->padding_size + 128) / 1024;
 	sha64_verbose(*sha);
-	if (!(sha->input = (char*)ft_memalloc((sha->padding_size + 64) >> 3)))
+	if (!(sha->input = (char*)ft_memalloc((sha->padding_size + 128) >> 3)))
 		return (false);
-	ft_memset(sha->input, 0, (sha->padding_size + 64) >> 3);
+	ft_memset(sha->input, 0, (sha->padding_size + 128) >> 3);
 	ft_memcpy(sha->input, entry, entry_size);
 	sha->input[entry_size] = (char)128;
-	encode64_bendian(sha->entry_size_b, &sha->input[(sha->padding_size >> 3)]);
+	encode128_bendian(sha->entry_size_b, &sha->input[(sha->padding_size >> 3)]);
 	if (sha->flags & SHA_OARG_D_PAD || sha->flags & SHA_OARG_D_ALL)
-		ft_print_memory(sha->input, (sha->padding_size + 64) >> 3);
+		ft_print_memory(sha->input, (sha->padding_size + 128) >> 3);
 	return (true);
 }
 
