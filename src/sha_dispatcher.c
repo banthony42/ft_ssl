@@ -34,6 +34,16 @@ static const t_sha g_sha[NB_SHA] = {
 		.cmd = SHA512,
 		.digest_func = sha_64_digest,
 	},
+	[SHA_512_256] =
+	{
+		.cmd = SHA512_256,
+		.digest_func = sha_64_digest,
+	},
+	[SHA_512_224] =
+	{
+		.cmd = SHA512_224,
+		.digest_func = sha_64_digest,
+	},
 };
 
 void		sha32_verbose(t_sha_32 sha)

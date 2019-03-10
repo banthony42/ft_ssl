@@ -26,8 +26,8 @@ SHA1_META="openssl sha -sha1,./ft_ssl sha1"
 SHA224_META="openssl sha -sha224,./ft_ssl sha224"
 SHA384_META="openssl sha -sha384,./ft_ssl sha384"
 SHA512_META="openssl sha -sha512,./ft_ssl sha512"
-SHA512224_META="shasum -a 512224,./ft_ssl sha512_224"
-SHA512256_META="shasum -a 512256,./ft_ssl sha512_256"
+SHA512_224_META="shasum -a 512_224,./ft_ssl sha512_224"
+SHA512_256_META="shasum -a 512_256,./ft_ssl sha512_256"
 
 # You may have to change the option of base64 for decrypt (differs in versions)
 BASE64="base64,base64 -d,./ft_ssl base64,./ft_ssl base64 -d,1"
@@ -35,7 +35,7 @@ BASE64_URL="base64 | tr '+/' '-_', tr -- '-_' '+/' | base64 -d,./ft_ssl base64_u
 
 # FIXME you can change this if you don't handle such features
 
-HASH_META="${MD5_META};${MD4_META};${SHA256_META};${SHA1_META};${SHA224_META};${SHA384_META};${SHA512_META};${SHA512224_META};${SHA512256_META};"
+HASH_META="${MD5_META};${MD4_META};${SHA256_META};${SHA1_META};${SHA224_META};${SHA384_META};${SHA512_META};${SHA512_224_META};${SHA512_256_META};"
 MODES_META="des-ecb;des-cbc;des-cfb;des-ofb;"
 BASE64_META="${BASE64};${BASE64_URL};"
 

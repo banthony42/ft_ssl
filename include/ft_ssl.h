@@ -159,6 +159,49 @@
 # define SHA512_OARG_D_ALL 1 << 5
 
 /*
+**	SHA512_224 options & MASK
+*/
+# define SHA512_224_OPTS "-p;-q;-r;-s"
+# define SHA512_224_P_MASK 1
+# define SHA512_224_Q_MASK 1 << 1
+# define SHA512_224_R_MASK 1 << 2
+# define SHA512_224_S_MASK 1 << 3
+
+# define SHA512_224_OPT_ARG_VERBOSE_KEY "-verbose"
+# define SHA512_224_OPT_ARG_VERBOSE_VALUES "padding;block;all"
+# define SHA512_224_OPT_ARG_DUMP_KEY "-dump"
+# define SHA512_224_OPT_ARG_DUMP_VALUES "padding;block;all"
+
+# define SHA512_224_OARG_V_PAD 1
+# define SHA512_224_OARG_V_BLOCK 1 << 1
+# define SHA512_224_OARG_V_ALL 1 << 2
+
+# define SHA512_224_OARG_D_PAD 1 << 3
+# define SHA512_224_OARG_D_BLOCK 1 << 4
+# define SHA512_224_OARG_D_ALL 1 << 5
+/*
+**	SHA512_256 options & MASK
+*/
+# define SHA512_256_OPTS "-p;-q;-r;-s"
+# define SHA512_256_P_MASK 1
+# define SHA512_256_Q_MASK 1 << 1
+# define SHA512_256_R_MASK 1 << 2
+# define SHA512_256_S_MASK 1 << 3
+
+# define SHA512_256_OPT_ARG_VERBOSE_KEY "-verbose"
+# define SHA512_256_OPT_ARG_VERBOSE_VALUES "padding;block;all"
+# define SHA512_256_OPT_ARG_DUMP_KEY "-dump"
+# define SHA512_256_OPT_ARG_DUMP_VALUES "padding;block;all"
+
+# define SHA512_256_OARG_V_PAD 1
+# define SHA512_256_OARG_V_BLOCK 1 << 1
+# define SHA512_256_OARG_V_ALL 1 << 2
+
+# define SHA512_256_OARG_D_PAD 1 << 3
+# define SHA512_256_OARG_D_BLOCK 1 << 4
+# define SHA512_256_OARG_D_ALL 1 << 5
+
+/*
 **	test options & MASK
 **	Options simples -[OptionName]
 */
@@ -218,6 +261,8 @@ typedef enum	e_cmd_type
 	SHA256,
 	SHA384,
 	SHA512,
+	SHA512_224,
+	SHA512_256,
 	TEST,
 	NB_CMD,
 }				t_cmd_type;

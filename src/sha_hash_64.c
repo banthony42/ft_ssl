@@ -37,6 +37,26 @@ static const uint64_t g_sha_64_init[NB_CMD][8] = {
 		HASH_CONST_SHA384_G,
 		HASH_CONST_SHA384_H,
 	},
+	[SHA512_256] = {
+		HASH_CONST_SHA512_256_A,
+		HASH_CONST_SHA512_256_B,
+		HASH_CONST_SHA512_256_C,
+		HASH_CONST_SHA512_256_D,
+		HASH_CONST_SHA512_256_E,
+		HASH_CONST_SHA512_256_F,
+		HASH_CONST_SHA512_256_G,
+		HASH_CONST_SHA512_256_H,
+	},
+	[SHA512_224] = {
+		HASH_CONST_SHA512_224_A,
+		HASH_CONST_SHA512_224_B,
+		HASH_CONST_SHA512_224_C,
+		HASH_CONST_SHA512_224_D,
+		HASH_CONST_SHA512_224_E,
+		HASH_CONST_SHA512_224_F,
+		HASH_CONST_SHA512_224_G,
+		HASH_CONST_SHA512_224_H,
+	},
 };
 
 static t_bool	sha_padding(unsigned char *entry, t_sha_64 *sha,
@@ -126,10 +146,20 @@ static char		*sha_64_concat_hash(t_sha_64 sha, t_cmd_type cmd)
 	nb_register = SHA_N_REGISTER;
 	if (cmd == SHA384)
 		nb_register -= 2;
+	if (cmd == SHA512_224 || cmd == SHA512_256)
+		nb_register -= 4;
 	while (++i < nb_register)
 	{
-		hash_str = itoa_base_uint64(sha.hash[i], 16);
-		ft_strncpy(&footprint[i * 16], hash_str, 16);
+		if (cmd == SHA512_224 && i == 3)
+		{
+			hash_str = itoa_base_uint32((uint32_t)swap_uint64(sha.hash[i]), 16);
+			ft_strncpy(&footprint[i * 16], hash_str, 16);
+		}
+		else
+		{
+			hash_str = itoa_base_uint64(sha.hash[i], 16);
+			ft_strncpy(&footprint[i * 16], hash_str, 16);
+		}
 		ft_strdel(&hash_str);
 	}
 	return (ft_strdup(footprint));

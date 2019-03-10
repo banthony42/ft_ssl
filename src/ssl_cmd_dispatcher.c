@@ -106,6 +106,42 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 		},
 		.opts_arg_len = 2,
 	},
+	[SHA512_256] =
+	{
+		.cmd = SHA512_256,
+		.opts = SHA512_256_OPTS,
+		.opts_len = sizeof(SHA512_256_OPTS) - 1,
+		.opts_with_arg = true,
+		.opts_arg[0] =
+		{
+			.key = SHA512_256_OPT_ARG_VERBOSE_KEY,
+			.values = SHA512_256_OPT_ARG_VERBOSE_VALUES,
+		},
+		.opts_arg[1] =
+		{
+			.key = SHA512_256_OPT_ARG_DUMP_KEY,
+			.values = SHA512_256_OPT_ARG_DUMP_VALUES,
+		},
+		.opts_arg_len = 2,
+	},
+	[SHA512_224] =
+	{
+		.cmd = SHA512_224,
+		.opts = SHA512_224_OPTS,
+		.opts_len = sizeof(SHA512_224_OPTS) - 1,
+		.opts_with_arg = true,
+		.opts_arg[0] =
+		{
+			.key = SHA512_224_OPT_ARG_VERBOSE_KEY,
+			.values = SHA512_224_OPT_ARG_VERBOSE_VALUES,
+		},
+		.opts_arg[1] =
+		{
+			.key = SHA512_224_OPT_ARG_DUMP_KEY,
+			.values = SHA512_224_OPT_ARG_DUMP_VALUES,
+		},
+		.opts_arg_len = 2,
+	},
 	[TEST] =
 	{
 		.cmd = TEST,
@@ -162,6 +198,20 @@ static const t_cmd g_ssl_cmd[NB_CMD] = {
 	{
 		.name = "sha512",
 		.len = sizeof("sha512") - 1,
+		.func = cmd_sha,
+		.usage = usage_sha,
+	},
+	[SHA512_256] =
+	{
+		.name = "sha512_256",
+		.len = sizeof("sha512_256") - 1,
+		.func = cmd_sha,
+		.usage = usage_sha,
+	},
+	[SHA512_224] =
+	{
+		.name = "sha512_224",
+		.len = sizeof("sha512_224") - 1,
 		.func = cmd_sha,
 		.usage = usage_sha,
 	},

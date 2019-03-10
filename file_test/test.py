@@ -16,13 +16,17 @@ SHA256 = ["./ft_ssl", "sha256"]
 SHA224 = ["./ft_ssl", "sha224"]
 SHA384 = ["./ft_ssl", "sha384"]
 SHA512 = ["./ft_ssl", "sha512"]
+SHA512_224 = ["./ft_ssl", "sha512_224"]
+SHA512_256 = ["./ft_ssl", "sha512_256"]
 SHA256BASE = ["openssl", "sha", "-sha256"]
 SHA224BASE = ["openssl", "sha", "-sha224"]
 SHA384BASE = ["openssl", "sha", "-sha384"]
 SHA512BASE = ["openssl", "sha", "-sha512"]
+SHA512_224BASE = ["shasum", "-a", "512_224"]
+SHA512_256BASE = ["shasum", "-a", "512_256"]
 
-ALGOS = [MD5, SHA256, SHA224, SHA384, SHA512]
-BASEALGOS = [MD5BASE, SHA256BASE, SHA224BASE, SHA384BASE, SHA512BASE]
+ALGOS = [MD5, SHA256, SHA224, SHA384, SHA512, SHA512_224, SHA512_256]
+BASEALGOS = [MD5BASE, SHA256BASE, SHA224BASE, SHA384BASE, SHA512BASE, SHA512_224BASE, SHA512_256BASE]
 
 SUCCESS = 0
 TOTAL = 0
@@ -108,7 +112,7 @@ def apply_command(commands, algos, bases):
 
 def main():
 
-    os.system("norminette **/**.[ch]")
+    # os.system("norminette **/**.[ch]")
     os.system("make")
     os.system("echo -n \"And above all,\" > file")
 
