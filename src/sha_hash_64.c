@@ -135,25 +135,26 @@ static void		sha_64_main_loop(t_sha_64 *sha,
 
 static char		*sha_64_concat_hash(t_sha_64 sha, t_cmd_type cmd)
 {
-	char	footprint[512 + 1];
-	char	*hash_str;
-	int		i;
-	int		nb_register;
+	uint32_t	reg32; 
+	char		footprint[512 + 1];
+	char		*hash_str;
+	int			i;
+	int			nb_register;
 
 	i = -1;
 	hash_str = NULL;
 	ft_memset(&footprint, 0, 512 + 1);
 	nb_register = SHA_N_REGISTER;
-	if (cmd == SHA384)
-		nb_register -= 2;
-	if (cmd == SHA512_224 || cmd == SHA512_256)
-		nb_register -= 4;
+	(cmd == SHA384) ? (nb_register -= 2) : ((void)i);
+	(cmd == SHA512_224 || cmd == SHA512_256) ? (nb_register -= 4) : ((void)i);
 	while (++i < nb_register)
 	{
 		if (cmd == SHA512_224 && i == 3)
 		{
-			hash_str = itoa_base_uint32((uint32_t)swap_uint64(sha.hash[i]), 16);
-			ft_strncpy(&footprint[i * 16], hash_str, 16);
+			uint64_t test = (uint64_t)((sha.hash[i]<< 32) | (sha.hash[i] >> 32));
+			ft_memcpy(&reg32, &test, sizeof(uint32_t));
+			hash_str = itoa_base_uint32(reg32, 16);
+			ft_strncpy(&footprint[i * 16], hash_str, 8);
 		}
 		else
 		{
