@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/10 10:25:46 by banthony          #+#    #+#             */
-/*   Updated: 2019/03/10 17:07:19 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/12 20:21:27 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,24 @@
 
 static const uint32_t g_sha_32_init[NB_CMD][8] = {
 	[SHA256] = {
-		HASH_CONST_SHA256_A,
-		HASH_CONST_SHA256_B,
-		HASH_CONST_SHA256_C,
-		HASH_CONST_SHA256_D,
-		HASH_CONST_SHA256_E,
-		HASH_CONST_SHA256_F,
-		HASH_CONST_SHA256_G,
-		HASH_CONST_SHA256_H,
+		0x6a09e667,
+		0xbb67ae85,
+		0x3c6ef372,
+		0xa54ff53a,
+		0x510e527f,
+		0x9b05688c,
+		0x1f83d9ab,
+		0x5be0cd19
 	},
 	[SHA224] = {
-		HASH_CONST_SHA224_A,
-		HASH_CONST_SHA224_B,
-		HASH_CONST_SHA224_C,
-		HASH_CONST_SHA224_D,
-		HASH_CONST_SHA224_E,
-		HASH_CONST_SHA224_F,
-		HASH_CONST_SHA224_G,
-		HASH_CONST_SHA224_H,
+		0xc1059ed8,
+		0x367cd507,
+		0x3070dd17,
+		0xf70e5939,
+		0xffc00b31,
+		0x68581511,
+		0x64f98fa7,
+		0xbefa4fa4
 	},
 };
 
@@ -91,11 +91,11 @@ static void		sha_32_main_loop(t_sha_32 *sha,
 
 	t = -1;
 	while (++t < 16)
-		sha->Wt[t] = (*word)[t];
+		sha->wt[t] = (*word)[t];
 	t--;
 	while (++t < 64)
-		sha->Wt[t] = sha_32_func_mono(SIG1, sha->Wt[t - 2]) + sha->Wt[t - 7]
-			+ sha_32_func_mono(SIG0, sha->Wt[t - 15]) + sha->Wt[t - 16];
+		sha->wt[t] = sha_32_func_mono(SIG1, sha->wt[t - 2]) + sha->wt[t - 7]
+			+ sha_32_func_mono(SIG0, sha->wt[t - 15]) + sha->wt[t - 16];
 	ft_memcpy(hash, &sha->hash, sizeof(uint32_t) * SHA_N_REGISTER);
 	sha_32_core(sha, hash);
 	sha->hash[SHA_A] += (*hash)[SHA_A];
@@ -123,7 +123,7 @@ static char		*sha_32_concat_hash(t_sha_32 sha, t_cmd_type cmd)
 		nb_register--;
 	while (++i < nb_register)
 	{
-		hash_str = itoa_base_uint32(sha.hash[i], 16);
+		hash_str = ft_itoa_base_uint32(sha.hash[i], 16);
 		ft_strncpy(&footprint[i * 8], hash_str, 8);
 		ft_strdel(&hash_str);
 	}

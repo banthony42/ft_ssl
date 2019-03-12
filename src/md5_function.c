@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 13:01:53 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/26 19:45:06 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/12 20:29:11 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 **	Valeurs de decalage binaire
 */
 
-static const uint32_t g_shifter[64] =
-{
+static const uint32_t g_shifter[64] = {
 	7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22,
 	5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20,
 	4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23,
@@ -28,8 +27,7 @@ static const uint32_t g_shifter[64] =
 ** Lookup table, Partie entiere des sinus d'un int
 */
 
-static const uint32_t g_sin_int[64] =
-{
+static const uint32_t g_sin_int[64] = {
 	0xd76aa478, 0xe8c7b756, 0x242070db, 0xc1bdceee,
 	0xf57c0faf, 0x4787c62a, 0xa8304613, 0xfd469501,
 	0x698098d8, 0x8b44f7af, 0xffff5bb1, 0x895cd7be,
@@ -69,7 +67,8 @@ uint32_t	md5_func_i(uint32_t b, uint32_t c, uint32_t d)
 }
 
 void		md5_compute(uint32_t (*word)[16],
-						uint32_t (*hash_r)[MD5_N_REGISTER], t_md5_data data, int i)
+						uint32_t (*hash_r)[MD5_N_REGISTER],
+						t_md5_data data, int i)
 {
 	uint32_t tmp;
 
@@ -77,8 +76,8 @@ void		md5_compute(uint32_t (*word)[16],
 	(*hash_r)[MD5_D] = (*hash_r)[MD5_C];
 	(*hash_r)[MD5_C] = (*hash_r)[MD5_B];
 	(*hash_r)[MD5_B] = rotate_left(
-					((*hash_r)[MD5_A] + data.f + g_sin_int[i] + (*word)[data.i_w]),
-					g_shifter[i])
+					((*hash_r)[MD5_A] + data.f + g_sin_int[i]
+					+ (*word)[data.i_w]), g_shifter[i])
 					+ (*hash_r)[MD5_B];
 	(*hash_r)[MD5_A] = tmp;
 }

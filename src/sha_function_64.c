@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/10 12:55:05 by banthony          #+#    #+#             */
-/*   Updated: 2019/03/10 14:24:05 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/12 20:30:03 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 ** Lookup table,
 */
 
-static const uint64_t g_sha_64_k[80] =
-{
+static const uint64_t g_sha_64_k[80] = {
 	0x428a2f98d728ae22, 0x7137449123ef65cd, 0xb5c0fbcfec4d3b2f,
 	0xe9b5dba58189dbbc, 0x3956c25bf348b538, 0x59f111f1b605d019,
 	0x923f82a4af194f9b, 0xab1c5ed5da6d8118, 0xd807aa98a3030242,
@@ -79,7 +78,7 @@ void		sha_64_core(t_sha_64 *sha,
 	{
 		sha->tmp1 = (*hash)[SHA_H] + sha_64_func_mono(SUM1, (*hash)[SHA_E])
 		+ sha_64_func_tri(CH, (*hash)[SHA_E], (*hash)[SHA_F], (*hash)[SHA_G])
-		+ g_sha_64_k[t] + sha->Wt[t];
+		+ g_sha_64_k[t] + sha->wt[t];
 		sha->tmp2 = sha_64_func_mono(SUM0, (*hash)[SHA_A])
 		+ sha_64_func_tri(MAJ, (*hash)[SHA_A], (*hash)[SHA_B], (*hash)[SHA_C]);
 		(*hash)[SHA_H] = (*hash)[SHA_G];

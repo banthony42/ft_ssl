@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/10 10:57:56 by banthony          #+#    #+#             */
-/*   Updated: 2019/03/10 14:29:45 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/12 20:21:46 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void		sha_32_core(t_sha_32 *sha,
 	{
 		sha->tmp1 = (*hash)[SHA_H] + sha_32_func_mono(SUM1, (*hash)[SHA_E])
 		+ sha_32_func_tri(CH, (*hash)[SHA_E], (*hash)[SHA_F], (*hash)[SHA_G])
-		+ g_sha_32_k[t] + sha->Wt[t];
+		+ g_sha_32_k[t] + sha->wt[t];
 		sha->tmp2 = sha_32_func_mono(SUM0, (*hash)[SHA_A])
 		+ sha_32_func_tri(MAJ, (*hash)[SHA_A], (*hash)[SHA_B], (*hash)[SHA_C]);
 		(*hash)[SHA_H] = (*hash)[SHA_G];

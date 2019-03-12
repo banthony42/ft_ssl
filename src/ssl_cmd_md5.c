@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 18:44:23 by banthony          #+#    #+#             */
-/*   Updated: 2019/03/10 10:54:47 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/12 19:01:11 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 int			usage_md5(char *exe, char *cmd_name)
 {
 	ft_putstr(exe);
-    ft_putstr(" ");
-    ft_putstr(cmd_name);
+	ft_putstr(" ");
+	ft_putstr(cmd_name);
 	ft_putstr(" [-p | -q | -r | -s");
 	ft_putstr(" | -verbose [padding | block | all]");
 	ft_putendl(" | -dump [padding | block | all]]");
@@ -43,13 +43,13 @@ static void	md5_display_output(char *md5_result, char *entry,
 	}
 	else
 	{
-		ft_putstr("MD5(");
+		ft_putstr("MD5 (");
 		if (is_str)
 			ft_putchar('"');
 		ft_putstr(entry);
 		if (is_str)
 			ft_putchar('"');
-		ft_putstr(")= ");
+		ft_putstr(") = ");
 		ft_putendl(md5_result);
 	}
 }

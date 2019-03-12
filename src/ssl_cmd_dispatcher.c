@@ -6,155 +6,132 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:40:14 by banthony          #+#    #+#             */
-/*   Updated: 2019/03/10 14:58:10 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/12 20:27:31 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
+#include "message_digest.h"
 
 /*
 **	Structure de parametre pour le parser, pour chaque commande.
 */
 static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
-	[MD5] =
-	{
+	[MD5] = {
 		.cmd = MD5,
 		.opts = MD5_OPTS,
 		.opts_len = sizeof(MD5_OPTS) - 1,
 		.opts_with_arg = true,
-		.opts_arg[0] =
-		{
+		.opts_arg[0] = {
 			.key = MD5_OPT_ARG_VERBOSE_KEY,
 			.values = MD5_OPT_ARG_VERBOSE_VALUES,
 		},
-		.opts_arg[1] =
-		{
+		.opts_arg[1] = {
 			.key = MD5_OPT_ARG_DUMP_KEY,
 			.values = MD5_OPT_ARG_DUMP_VALUES,
 		},
 		.opts_arg_len = 2,
 	},
-	[SHA224] =
-	{
+	[SHA224] = {
 		.cmd = SHA224,
-		.opts = SHA224_OPTS,
-		.opts_len = sizeof(SHA224_OPTS) - 1,
+		.opts = SHA_OPTS,
+		.opts_len = sizeof(SHA_OPTS) - 1,
 		.opts_with_arg = true,
-		.opts_arg[0] =
-		{
-			.key = SHA224_OPT_ARG_VERBOSE_KEY,
-			.values = SHA224_OPT_ARG_VERBOSE_VALUES,
+		.opts_arg[0] = {
+			.key = SHA_OPT_ARG_VERBOSE_KEY,
+			.values = SHA_OPT_ARG_VERBOSE_VALUES,
 		},
-		.opts_arg[1] =
-		{
-			.key = SHA224_OPT_ARG_DUMP_KEY,
-			.values = SHA224_OPT_ARG_DUMP_VALUES,
+		.opts_arg[1] = {
+			.key = SHA_OPT_ARG_DUMP_KEY,
+			.values = SHA_OPT_ARG_DUMP_VALUES,
 		},
 		.opts_arg_len = 2,
 	},
-	[SHA256] =
-	{
+	[SHA256] = {
 		.cmd = SHA256,
-		.opts = SHA256_OPTS,
-		.opts_len = sizeof(SHA256_OPTS) - 1,
+		.opts = SHA_OPTS,
+		.opts_len = sizeof(SHA_OPTS) - 1,
 		.opts_with_arg = true,
-		.opts_arg[0] =
-		{
-			.key = SHA256_OPT_ARG_VERBOSE_KEY,
-			.values = SHA256_OPT_ARG_VERBOSE_VALUES,
+		.opts_arg[0] = {
+			.key = SHA_OPT_ARG_VERBOSE_KEY,
+			.values = SHA_OPT_ARG_VERBOSE_VALUES,
 		},
-		.opts_arg[1] =
-		{
-			.key = SHA256_OPT_ARG_DUMP_KEY,
-			.values = SHA256_OPT_ARG_DUMP_VALUES,
+		.opts_arg[1] = {
+			.key = SHA_OPT_ARG_DUMP_KEY,
+			.values = SHA_OPT_ARG_DUMP_VALUES,
 		},
 		.opts_arg_len = 2,
 	},
-	[SHA384] =
-	{
+	[SHA384] = {
 		.cmd = SHA384,
-		.opts = SHA384_OPTS,
-		.opts_len = sizeof(SHA384_OPTS) - 1,
+		.opts = SHA_OPTS,
+		.opts_len = sizeof(SHA_OPTS) - 1,
 		.opts_with_arg = true,
-		.opts_arg[0] =
-		{
-			.key = SHA384_OPT_ARG_VERBOSE_KEY,
-			.values = SHA384_OPT_ARG_VERBOSE_VALUES,
+		.opts_arg[0] = {
+			.key = SHA_OPT_ARG_VERBOSE_KEY,
+			.values = SHA_OPT_ARG_VERBOSE_VALUES,
 		},
-		.opts_arg[1] =
-		{
-			.key = SHA384_OPT_ARG_DUMP_KEY,
-			.values = SHA384_OPT_ARG_DUMP_VALUES,
+		.opts_arg[1] = {
+			.key = SHA_OPT_ARG_DUMP_KEY,
+			.values = SHA_OPT_ARG_DUMP_VALUES,
 		},
 		.opts_arg_len = 2,
 	},
-	[SHA512] =
-	{
+	[SHA512] = {
 		.cmd = SHA512,
-		.opts = SHA512_OPTS,
-		.opts_len = sizeof(SHA512_OPTS) - 1,
+		.opts = SHA_OPTS,
+		.opts_len = sizeof(SHA_OPTS) - 1,
 		.opts_with_arg = true,
-		.opts_arg[0] =
-		{
-			.key = SHA512_OPT_ARG_VERBOSE_KEY,
-			.values = SHA512_OPT_ARG_VERBOSE_VALUES,
+		.opts_arg[0] = {
+			.key = SHA_OPT_ARG_VERBOSE_KEY,
+			.values = SHA_OPT_ARG_VERBOSE_VALUES,
 		},
-		.opts_arg[1] =
-		{
-			.key = SHA512_OPT_ARG_DUMP_KEY,
-			.values = SHA512_OPT_ARG_DUMP_VALUES,
+		.opts_arg[1] = {
+			.key = SHA_OPT_ARG_DUMP_KEY,
+			.values = SHA_OPT_ARG_DUMP_VALUES,
 		},
 		.opts_arg_len = 2,
 	},
-	[SHA512_256] =
-	{
+	[SHA512_256] = {
 		.cmd = SHA512_256,
-		.opts = SHA512_256_OPTS,
-		.opts_len = sizeof(SHA512_256_OPTS) - 1,
+		.opts = SHA_OPTS,
+		.opts_len = sizeof(SHA_OPTS) - 1,
 		.opts_with_arg = true,
-		.opts_arg[0] =
-		{
-			.key = SHA512_256_OPT_ARG_VERBOSE_KEY,
-			.values = SHA512_256_OPT_ARG_VERBOSE_VALUES,
+		.opts_arg[0] = {
+			.key = SHA_OPT_ARG_VERBOSE_KEY,
+			.values = SHA_OPT_ARG_VERBOSE_VALUES,
 		},
-		.opts_arg[1] =
-		{
-			.key = SHA512_256_OPT_ARG_DUMP_KEY,
-			.values = SHA512_256_OPT_ARG_DUMP_VALUES,
+		.opts_arg[1] = {
+			.key = SHA_OPT_ARG_DUMP_KEY,
+			.values = SHA_OPT_ARG_DUMP_VALUES,
 		},
 		.opts_arg_len = 2,
 	},
-	[SHA512_224] =
-	{
+	[SHA512_224] = {
 		.cmd = SHA512_224,
-		.opts = SHA512_224_OPTS,
-		.opts_len = sizeof(SHA512_224_OPTS) - 1,
+		.opts = SHA_OPTS,
+		.opts_len = sizeof(SHA_OPTS) - 1,
 		.opts_with_arg = true,
-		.opts_arg[0] =
-		{
-			.key = SHA512_224_OPT_ARG_VERBOSE_KEY,
-			.values = SHA512_224_OPT_ARG_VERBOSE_VALUES,
+		.opts_arg[0] = {
+			.key = SHA_OPT_ARG_VERBOSE_KEY,
+			.values = SHA_OPT_ARG_VERBOSE_VALUES,
 		},
-		.opts_arg[1] =
-		{
-			.key = SHA512_224_OPT_ARG_DUMP_KEY,
-			.values = SHA512_224_OPT_ARG_DUMP_VALUES,
+		.opts_arg[1] = {
+			.key = SHA_OPT_ARG_DUMP_KEY,
+			.values = SHA_OPT_ARG_DUMP_VALUES,
 		},
 		.opts_arg_len = 2,
 	},
-	[TEST] =
-	{
+	[TEST] = {
 		.cmd = TEST,
 		.opts = TEST_OPTS,
 		.opts_len = sizeof(TEST_OPTS) - 1,
 		.opts_with_arg = true,
-		.opts_arg[0] =
-		{
+		.opts_arg[0] = {
 			.key = TEST_OPT_PRINT_KEY,
 			.values = TEST_OPT_PRINT_VALUES
 		},
-		.opts_arg[1] =
-		{
+		.opts_arg[1] = {
 			.key = TEST_OPT_ARG_KEY,
 			.values = TEST_OPT_ARG_VALUES
 		},
@@ -166,57 +143,49 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 **	Stucture des commandes disponible, utile au dispatcher.
 */
 static const t_cmd g_ssl_cmd[NB_CMD] = {
-	[MD5] =
-	{
+	[MD5] = {
 		.name = "md5",
 		.len = sizeof("md5") - 1,
 		.func = cmd_md5,
 		.usage = usage_md5,
 	},
-	[SHA224] =
-	{
+	[SHA224] = {
 		.name = "sha224",
 		.len = sizeof("sha224") - 1,
 		.func = cmd_sha,
 		.usage = usage_sha,
 	},
-	[SHA256] =
-	{
+	[SHA256] = {
 		.name = "sha256",
 		.len = sizeof("sha256") - 1,
 		.func = cmd_sha,
 		.usage = usage_sha,
 	},
-	[SHA384] =
-	{
+	[SHA384] = {
 		.name = "sha384",
 		.len = sizeof("sha384") - 1,
 		.func = cmd_sha,
 		.usage = usage_sha,
 	},
-	[SHA512] =
-	{
+	[SHA512] = {
 		.name = "sha512",
 		.len = sizeof("sha512") - 1,
 		.func = cmd_sha,
 		.usage = usage_sha,
 	},
-	[SHA512_256] =
-	{
+	[SHA512_256] = {
 		.name = "sha512_256",
 		.len = sizeof("sha512_256") - 1,
 		.func = cmd_sha,
 		.usage = usage_sha,
 	},
-	[SHA512_224] =
-	{
+	[SHA512_224] = {
 		.name = "sha512_224",
 		.len = sizeof("sha512_224") - 1,
 		.func = cmd_sha,
 		.usage = usage_sha,
 	},
-	[TEST] =
-	{
+	[TEST] = {
 		.name = "test",
 		.len = sizeof("test") - 1,
 		.func = cmd_test,
@@ -232,7 +201,7 @@ static const t_cmd g_ssl_cmd[NB_CMD] = {
 **	Dans le cas ou STDIN est lu, il sera trop tard pour passer des options.
 */
 
-int	ssl_cmd_dispatcher(int ac, char **av, t_cmd_type cmd)
+int		ssl_cmd_dispatcher(int ac, char **av, t_cmd_type cmd)
 {
 	size_t		entry_cmd_len;
 	int			error;
@@ -282,15 +251,17 @@ char	*ssl_get_cmd_name(t_cmd_type cmd, t_bool toupper)
 	return (g_ssl_cmd[cmd].name);
 }
 
+void	sha_512_224_last_hash(char (*footprint)[512 + 1], uint64_t hash)
+{
+	uint32_t	reg32;
+	uint64_t	swapped_hash;
+	char		*hash_str;
 
-
-
-
-
-
-
-
-
-
-
-
+	hash_str = NULL;
+	swapped_hash = (uint64_t)((hash << 32) | (hash >> 32));
+	ft_memcpy(&reg32, &swapped_hash, sizeof(uint32_t));
+	hash_str = ft_itoa_base_uint32(reg32, 16);
+	ft_strncpy(&(*footprint)[3 * 16], hash_str, 8);
+	(*footprint)[(3 * 16) + 8] = '\0';
+	ft_strdel(&hash_str);
+}

@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 18:35:46 by banthony          #+#    #+#             */
-/*   Updated: 2019/03/10 10:55:55 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/12 18:59:50 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int			usage_test(char *exe, char *cmd_name)
 {
 	ft_putstr(exe);
-    ft_putstr(" ");
-    ft_putstr(cmd_name);
+	ft_putstr(" ");
+	ft_putstr(cmd_name);
 	ft_putstr(" [-p | -q | -r | -s");
 	ft_putstr(" | -print [red | blue | green]]");
 	ft_putendl(" | -arg [value1 | value2 | valueX]]");

@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/10 12:55:01 by banthony          #+#    #+#             */
-/*   Updated: 2019/03/10 19:15:27 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/12 20:21:10 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,44 +18,44 @@
 
 static const uint64_t g_sha_64_init[NB_CMD][8] = {
 	[SHA512] = {
-		HASH_CONST_SHA512_A,
-		HASH_CONST_SHA512_B,
-		HASH_CONST_SHA512_C,
-		HASH_CONST_SHA512_D,
-		HASH_CONST_SHA512_E,
-		HASH_CONST_SHA512_F,
-		HASH_CONST_SHA512_G,
-		HASH_CONST_SHA512_H,
+		0x6a09e667f3bcc908,
+		0xbb67ae8584caa73b,
+		0x3c6ef372fe94f82b,
+		0xa54ff53a5f1d36f1,
+		0x510e527fade682d1,
+		0x9b05688c2b3e6c1f,
+		0x1f83d9abfb41bd6b,
+		0x5be0cd19137e2179
 	},
 	[SHA384] = {
-		HASH_CONST_SHA384_A,
-		HASH_CONST_SHA384_B,
-		HASH_CONST_SHA384_C,
-		HASH_CONST_SHA384_D,
-		HASH_CONST_SHA384_E,
-		HASH_CONST_SHA384_F,
-		HASH_CONST_SHA384_G,
-		HASH_CONST_SHA384_H,
+		0xcbbb9d5dc1059ed8,
+		0x629a292a367cd507,
+		0x9159015a3070dd17,
+		0x152fecd8f70e5939,
+		0x67332667ffc00b31,
+		0x8eb44a8768581511,
+		0xdb0c2e0d64f98fa7,
+		0x47b5481dbefa4fa4
 	},
 	[SHA512_256] = {
-		HASH_CONST_SHA512_256_A,
-		HASH_CONST_SHA512_256_B,
-		HASH_CONST_SHA512_256_C,
-		HASH_CONST_SHA512_256_D,
-		HASH_CONST_SHA512_256_E,
-		HASH_CONST_SHA512_256_F,
-		HASH_CONST_SHA512_256_G,
-		HASH_CONST_SHA512_256_H,
+		0x22312194fc2bf72c,
+		0x9f555fa3c84c64c2,
+		0x2393b86b6f53b151,
+		0x963877195940eabd,
+		0x96283ee2a88effe3,
+		0xbe5e1e2553863992,
+		0x2b0199fc2c85b8aa,
+		0x0eb72ddc81c52ca2
 	},
 	[SHA512_224] = {
-		HASH_CONST_SHA512_224_A,
-		HASH_CONST_SHA512_224_B,
-		HASH_CONST_SHA512_224_C,
-		HASH_CONST_SHA512_224_D,
-		HASH_CONST_SHA512_224_E,
-		HASH_CONST_SHA512_224_F,
-		HASH_CONST_SHA512_224_G,
-		HASH_CONST_SHA512_224_H,
+		0x8c3d37c819544da2,
+		0x73e1996689dcd4d6,
+		0x1dfab7ae32ff9c82,
+		0x679dd514582f9fcf,
+		0x0f6d2b697bd44da8,
+		0x77e36f7304c48942,
+		0x3f9d85a86a1d36c8,
+		0x1112e6ad91d692a1
 	},
 };
 
@@ -114,12 +114,12 @@ static void		sha_64_main_loop(t_sha_64 *sha,
 
 	t = -1;
 	while (++t < 16)
-		sha->Wt[t] = (*word)[t];
+		sha->wt[t] = (*word)[t];
 	t--;
 	while (++t < 80)
 	{
-		sha->Wt[t] = sha_64_func_mono(SIG1, sha->Wt[t - 2]) + sha->Wt[t - 7]
-		+ sha_64_func_mono(SIG0, sha->Wt[t - 15]) + sha->Wt[t - 16];
+		sha->wt[t] = sha_64_func_mono(SIG1, sha->wt[t - 2]) + sha->wt[t - 7]
+		+ sha_64_func_mono(SIG0, sha->wt[t - 15]) + sha->wt[t - 16];
 	}
 	ft_memcpy(hash, &sha->hash, sizeof(uint64_t) * SHA_N_REGISTER);
 	sha_64_core(sha, hash);
@@ -135,7 +135,6 @@ static void		sha_64_main_loop(t_sha_64 *sha,
 
 static char		*sha_64_concat_hash(t_sha_64 sha, t_cmd_type cmd)
 {
-	uint32_t	reg32; 
 	char		footprint[512 + 1];
 	char		*hash_str;
 	int			i;
@@ -145,24 +144,16 @@ static char		*sha_64_concat_hash(t_sha_64 sha, t_cmd_type cmd)
 	hash_str = NULL;
 	ft_memset(&footprint, 0, 512 + 1);
 	nb_register = SHA_N_REGISTER;
-	(cmd == SHA384) ? (nb_register -= 2) : ((void)i);
-	(cmd == SHA512_224 || cmd == SHA512_256) ? (nb_register -= 4) : ((void)i);
+	(cmd == SHA384) ? (nb_register -= 2) : (i += 0);
+	(cmd == SHA512_224 || cmd == SHA512_256) ? (nb_register -= 4) : (i += 0);
 	while (++i < nb_register)
 	{
-		if (cmd == SHA512_224 && i == 3)
-		{
-			uint64_t test = (uint64_t)((sha.hash[i]<< 32) | (sha.hash[i] >> 32));
-			ft_memcpy(&reg32, &test, sizeof(uint32_t));
-			hash_str = itoa_base_uint32(reg32, 16);
-			ft_strncpy(&footprint[i * 16], hash_str, 8);
-		}
-		else
-		{
-			hash_str = itoa_base_uint64(sha.hash[i], 16);
-			ft_strncpy(&footprint[i * 16], hash_str, 16);
-		}
+		hash_str = ft_itoa_base_uint64(sha.hash[i], 16);
+		ft_strncpy(&footprint[i * 16], hash_str, 16);
 		ft_strdel(&hash_str);
 	}
+	if (cmd == SHA512_224)
+		sha_512_224_last_hash(&footprint, sha.hash[3]);
 	return (ft_strdup(footprint));
 }
 

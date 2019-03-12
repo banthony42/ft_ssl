@@ -6,7 +6,7 @@
 #    By: banthony <banthony@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/08 12:54:17 by banthony          #+#    #+#              #
-#    Updated: 2019/03/10 13:38:46 by banthony         ###   ########.fr        #
+#    Updated: 2019/03/12 19:11:48 by banthony         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -30,6 +30,8 @@ SRC_FILE += bits_operations.c
 SRC_FILE += md5_hash.c
 SRC_FILE += md5_function.c
 
+SRC_FILE += encode.c
+SRC_FILE += verbose.c
 SRC_FILE += sha_dispatcher.c
 SRC_FILE += ssl_cmd_sha.c
 SRC_FILE += sha_hash_32.c

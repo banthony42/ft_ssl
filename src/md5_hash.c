@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 13:05:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/27 20:05:57 by banthony         ###   ########.fr       */
+/*   Updated: 2019/03/12 19:24:08 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,6 @@
 **	L'encodage se fait en little-endian
 **	Afichage de l'input final si on es en mode verbose
 */
-
-static void		md5_verbose(t_md5 md5)
-{
-	if (md5.flags & MD5_OARG_V_PAD || md5.flags & MD5_OARG_V_ALL)
-	{
-		ft_putstrcol(SH_YELLOW, "padding:");
-		ft_putnbrendl((int)md5.padding_size);
-		ft_putstrcol(SH_YELLOW, "pad with zero:");
-		ft_putnbrendl((int)md5.zero_padding);
-		ft_putstrcol(SH_YELLOW, "Total:");
-		ft_putnbrendl((int)md5.padding_size + 64);
-	}
-	if (md5.flags & MD5_OARG_V_BLOCK || md5.flags & MD5_OARG_V_ALL)
-	{
-		ft_putstr("Number of block:");
-		ft_putnbrendl((int)md5.block);
-	}
-}
 
 static t_bool	md5_padding(unsigned char *entry, t_md5 *md5, size_t entry_size)
 {
@@ -69,8 +51,9 @@ static t_bool	md5_padding(unsigned char *entry, t_md5 *md5, size_t entry_size)
 	return (true);
 }
 
-static void		md5_init_loop(t_md5 *md5, uint32_t (*hash_register)[MD5_N_REGISTER],
-							size_t bloc, uint32_t (*word)[16])
+static void		md5_init_loop(t_md5 *md5,
+								uint32_t (*hash_register)[MD5_N_REGISTER],
+								size_t bloc, uint32_t (*word)[16])
 {
 	int i;
 
@@ -99,30 +82,30 @@ static void		md5_init_loop(t_md5 *md5, uint32_t (*hash_register)[MD5_N_REGISTER]
 }
 
 static void		md5_main_loop(uint32_t (*word)[16],
-								uint32_t (*hash_r)[MD5_N_REGISTER], int i)
+								uint32_t (*hash)[MD5_N_REGISTER], int i)
 {
 	t_md5_data md5_data;
 
 	md5_data.f = 0;
 	md5_data.i_w = (uint32_t)i;
 	if (0 <= i && i <= 15)
-		md5_data.f = md5_func_f((*hash_r)[MD5_B], (*hash_r)[MD5_C], (*hash_r)[MD5_D]);
+		md5_data.f = md5_func_f((*hash)[MD5_B], (*hash)[MD5_C], (*hash)[MD5_D]);
 	else if (16 <= i && i <= 31)
 	{
-		md5_data.f = md5_func_g((*hash_r)[MD5_B], (*hash_r)[MD5_C], (*hash_r)[MD5_D]);
+		md5_data.f = md5_func_g((*hash)[MD5_B], (*hash)[MD5_C], (*hash)[MD5_D]);
 		md5_data.i_w = (5 * i + 1) % 16;
 	}
 	else if (32 <= i && i <= 47)
 	{
-		md5_data.f = md5_func_h((*hash_r)[MD5_B], (*hash_r)[MD5_C], (*hash_r)[MD5_D]);
+		md5_data.f = md5_func_h((*hash)[MD5_B], (*hash)[MD5_C], (*hash)[MD5_D]);
 		md5_data.i_w = (3 * i + 5) % 16;
 	}
 	else if (48 <= i && i <= 63)
 	{
-		md5_data.f = md5_func_i((*hash_r)[MD5_B], (*hash_r)[MD5_C], (*hash_r)[MD5_D]);
+		md5_data.f = md5_func_i((*hash)[MD5_B], (*hash)[MD5_C], (*hash)[MD5_D]);
 		md5_data.i_w = (7 * i) % 16;
 	}
-	md5_compute(word, hash_r, md5_data, i);
+	md5_compute(word, hash, md5_data, i);
 }
 
 static char		*md5_concat_hash(t_md5 md5)
@@ -136,7 +119,7 @@ static char		*md5_concat_hash(t_md5 md5)
 	ft_memset(&footprint, 0, 128 + 1);
 	while (++i < MD5_N_REGISTER)
 	{
-		hash_str = itoa_base_uint32(swap_uint32(md5.hash[i]), 16);
+		hash_str = ft_itoa_base_uint32(swap_uint32(md5.hash[i]), 16);
 		ft_strncpy(&footprint[i * 8], hash_str, 8);
 		ft_strdel(&hash_str);
 	}
