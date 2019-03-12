@@ -100,6 +100,7 @@ unsigned char	*read_file(char *path, size_t *size)
 	}
 	if ((fd = open(path, O_RDONLY)) < 0)
 	{
+		ft_putstr("ft_ssl: ");
 		ft_putstr(path);
 		ft_putendl(" : no such file or directory");
 		return (NULL);
