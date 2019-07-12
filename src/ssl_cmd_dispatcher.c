@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:40:14 by banthony          #+#    #+#             */
-/*   Updated: 2019/03/12 20:27:31 by banthony         ###   ########.fr       */
+/*   Updated: 2019/07/12 16:27:48 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,12 +135,18 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 			.key = TEST_OPT_ARG_KEY,
 			.values = TEST_OPT_ARG_VALUES
 		},
-		.opts_arg_len = 2,
+		.opts_arg[2] = {
+			.key = TEST_OPT_STR_FROM_USER,
+			.values = NULL
+		},
+		.opts_arg_len = 3,
 	}
 };
 
 /*
 **	Stucture des commandes disponible, utile au dispatcher.
+**	(Nom de la commande, taille de la string,
+**	fonction d'entree, fonction d'usage)
 */
 static const t_cmd g_ssl_cmd[NB_CMD] = {
 	[MD5] = {

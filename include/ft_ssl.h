@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/03/12 20:20:13 by banthony         ###   ########.fr       */
+/*   Updated: 2019/07/12 16:34:21 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@
 # include <unistd.h>
 # include <fcntl.h>
 
-# define MAXBYTE 3754996
+/*
+**	Maximum byte to use in read
+*/
+# define MAXBYTE 8192
 
 /*
 **	MD5 options & MASK
@@ -80,10 +83,19 @@
 # define TEST_HELP_MASK 1 << 4
 
 /*
+**	Important si vous utiliser le meme nom qu'une option simple qui
+**	existe deja, l'option parametrable du meme nom sera ignoree.
+**
 **	Options parametrable -[OptionName] [parametre]
 **	Definir l'option (ex:-print) puis les valeurs possible pour le parametre
 **	(ex:red;green;blue) Les valeurs doivent etre separe par un ;
+**
+**	Il est aussi possible de prendre une entree utilisateur:
+**	-[OptionName] [StringFromUser]
+**	Pour cela il suffit d'ajouter '?' juste apres le tiret.
 */
+
+# define TEST_OPT_STR_FROM_USER "-#string"
 # define TEST_OPT_PRINT_KEY "-print"
 # define TEST_OPT_PRINT_VALUES "red;green;blue"
 # define TEST_OPT_ARG_KEY "-arg"
@@ -138,6 +150,9 @@ typedef enum	e_cmd_type
 **	Les champs key et value sont rempli a la compilation avec une grammaire.
 **	Les grammaire sont definit plus haut.
 **	(ex:TEST_OPT_PRINT_KEY & TEST_OPT_PRINT_VALUES)
+**
+**	Aussi utilise pour les entree utilisateurs.
+**	(Voir struct: t_cmd_opt, champ: str_from_user)
 */
 typedef struct	s_opt_arg
 {
@@ -179,6 +194,7 @@ typedef struct	s_cmd_opt
 	uint32_t	opts_flag;
 	uint32_t	opts_pflag;
 	int			end;
+	t_opt_arg	*str_from_user;
 }				t_cmd_opt;
 
 typedef int		(*t_cmd_usage)(char *exe, char *cmd_name);

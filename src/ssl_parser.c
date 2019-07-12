@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 17:39:03 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/25 20:10:15 by banthony         ###   ########.fr       */
+/*   Updated: 2019/07/12 16:43:30 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ static int		ssl_parse_param_values(char *entry, int index,
 	i = -1;
 	shift = 0;
 	entry_len = ft_strlen(entry);
+	ft_putendlcol(SH_GREEN, entry);
+	if (ft_strchr(entry, (int)'#') != NULL && param.opts_arg[index].values == NULL)
+		ft_putendlcol(SH_RED, "PUT HERE IMPL OF str_from_user");
 	if (!(values = ft_strsplit(param.opts_arg[index].values, ';')))
 		return (PARSING_FAILURE);
 	while (++i < index)
