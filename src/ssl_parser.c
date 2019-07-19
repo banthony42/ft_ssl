@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 17:39:03 by banthony          #+#    #+#             */
-/*   Updated: 2019/07/19 12:02:15 by abara            ###   ########.fr       */
+/*   Updated: 2019/07/19 17:57:55 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ static int		ssl_parse_param_values(char *entry, int index,
 		t_opt_arg new_arg;
 		new_arg.key = param.opts_arg[index].key;
 		new_arg.values = entry;
-		if (!opt->str_from_user)
-			opt->str_from_user = ft_lstnew(&new_arg, sizeof(new_arg));
+		if (!opt->flag_with_input)
+			opt->flag_with_input = ft_lstnew(&new_arg, sizeof(new_arg));
 		else
-			ft_lstadd(&opt->str_from_user, ft_lstnew(&new_arg, sizeof(new_arg)));
+			ft_lstadd(&opt->flag_with_input, ft_lstnew(&new_arg, sizeof(new_arg)));
 		ft_freetab(values);
 		return (PARSING_SUCCESS);
 	}

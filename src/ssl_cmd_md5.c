@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 18:44:23 by banthony          #+#    #+#             */
-/*   Updated: 2019/07/19 13:07:32 by abara            ###   ########.fr       */
+/*   Updated: 2019/07/19 16:59:30 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int			cmd_md5(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 	(void)cmd;
 	i_str = -2;
 	entry = NULL;
-	if (!opt || (opt && !opt->end) || (opt && (opt->opts_flag & MD5_P_MASK)))
+	if (!opt || !opt->end || opt->opts_flag & MD5_P_MASK)
 	{
 		if (!(entry = (char*)read_cat(STDIN_FILENO, &size)))
 			return (CMD_ERROR);

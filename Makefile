@@ -6,7 +6,7 @@
 #    By: banthony <banthony@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/08 12:54:17 by banthony          #+#    #+#              #
-#    Updated: 2019/07/19 13:17:25 by abara            ###   ########.fr        #
+#    Updated: 2019/07/19 16:20:15 by abara            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -21,12 +21,13 @@ PATH_HEAD = ./include/
 HEADER_FILE = ft_ssl.h	\
 
 SRC_FILE +=	main.c
-SRC_FILE +=	ssl_cmd_dispatcher.c
+SRC_FILE +=	ssl_dispatcher.c
 SRC_FILE += ssl_parser.c
 SRC_FILE += ssl_utils.c
 SRC_FILE += ssl_cmd_md5.c
 SRC_FILE += ssl_cmd_sha.c
 SRC_FILE += ssl_cmd_base64.c
+SRC_FILE += ssl_cmd_man.c
 SRC_FILE += ssl_cmd_test.c
 SRC_FILE += bits_operations.c
 SRC_FILE += md5_hash.c

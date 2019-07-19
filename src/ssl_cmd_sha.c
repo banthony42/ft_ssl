@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/10 10:25:35 by banthony          #+#    #+#             */
-/*   Updated: 2019/03/10 18:59:48 by banthony         ###   ########.fr       */
+/*   Updated: 2019/07/19 16:19:03 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int			cmd_sha(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 
 	i_str = -2;
 	entry = NULL;
-	if (!opt || (opt && !opt->end) || (opt && (opt->opts_flag & SHA_P_MASK)))
+	if (!opt || !opt->end || opt->opts_flag & SHA_P_MASK)
 	{
 		if (!(entry = (char*)read_cat(STDIN_FILENO, &size)))
 			return (CMD_ERROR);

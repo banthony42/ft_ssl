@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/07/19 13:12:55 by abara            ###   ########.fr       */
+/*   Updated: 2019/07/19 17:54:09 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <fcntl.h>
 
 /*
-**	Maximum byte to use in read
+**	Nombre de bit maximum a lire avec read
 */
 # define MAXBYTE 8192
 
@@ -48,11 +48,12 @@
 **
 **	Il est aussi possible de prendre une entree utilisateur:
 **	-[OptionName] [StringFromUser]
-**	Pour cela il suffit d'ajouter '?' juste apres le tiret.
+**	Pour cela il suffit d'utiliser OPT_FROM_USER dans le champ value des parametre de parsing.
 */
 
+# define OPT_FROM_USER "??"
+
 # define TEST_OPT_STR_KEY "-string"
-# define TEST_OPT_USER_ENTRY "??"
 # define TEST_OPT_PRINT_KEY "-print"
 # define TEST_OPT_PRINT_VALUES "red;green;blue"
 # define TEST_OPT_ARG_KEY "-arg"
@@ -89,6 +90,7 @@ typedef enum	e_cmd_status
 **	SHA256	- ./ft_ssl sha256	- hashage sha256
 **	SHAXXX	- ./ft_ssl shaXXX	- hashage shaXXX
 **	BASE64	- ./ft_ssl base64	- cryptage base64
+**	MAN		- ./ft_ssl man [cmd]- Show man for cmd
 **	TEST	- ./ft_ssl test		- test du parseur
 */
 typedef enum	e_cmd_type
@@ -101,6 +103,7 @@ typedef enum	e_cmd_type
 	SHA512_224,
 	SHA512_256,
 	BASE64,
+	MAN,
 	TEST,
 	NB_CMD,
 }				t_cmd_type;
@@ -153,7 +156,7 @@ typedef struct	s_cmd_opt
 	t_cmd_type	cmd;
 	uint32_t	opts_flag;
 	uint32_t	opts_pflag;
-	t_list		*str_from_user;
+	t_list		*flag_with_input;
 	int			end;
 }				t_cmd_opt;
 
@@ -212,6 +215,7 @@ int				cmd_sha(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt);
 int				cmd_sha384(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
 int				cmd_sha512(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
 int				cmd_base64(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
+int				cmd_man(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
 int				cmd_test(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
 
 int				usage_md5(char *exe, char *cmd_name);
@@ -219,6 +223,7 @@ int				usage_sha(char *exe, char *cmd_name);
 int				usage_sha384(char *exe, char *cmd_name);
 int				usage_sha512(char *exe, char *cmd_name);
 int				usage_base64(char *exe, char *cmd_name);
+int				usage_man(char *exe, char *cmd_name);
 int				usage_test(char *exe, char *cmd_name);
 
 #endif

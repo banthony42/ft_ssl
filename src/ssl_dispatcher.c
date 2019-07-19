@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ssl_cmd_dispatcher.c                               :+:      :+:    :+:   */
+/*   ssl_dispatcher.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abara <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/08 13:40:14 by banthony          #+#    #+#             */
-/*   Updated: 2019/07/19 13:13:32 by abara            ###   ########.fr       */
+/*   Created: 2019/07/19 16:20:23 by abara             #+#    #+#             */
+/*   Updated: 2019/07/19 18:12:28 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,9 +127,16 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 		.cmd = BASE64,
 		.opts = BASE64_OPTS,
 		.opts_len = sizeof(BASE64_OPTS) -1,
-		.opts_with_arg = false,
-		.opts_arg = {{0}},
-		.opts_arg_len = 0,
+		.opts_with_arg = true,
+		.opts_arg[0] = {
+			.key = BASE64_INPUT_FILE_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[1] = {
+			.key = BASE64_OUTPUT_FILE_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg_len = 2,
 	},
 	[TEST] = {
 		.cmd = TEST,
@@ -146,9 +153,17 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 		},
 		.opts_arg[2] = {
 			.key = TEST_OPT_STR_KEY,
-			.values = TEST_OPT_USER_ENTRY
+			.values = OPT_FROM_USER,
 		},
 		.opts_arg_len = 3,
+	},
+	[MAN] = {
+		.cmd = TEST,
+		.opts = "",
+		.opts_len = 0,
+		.opts_with_arg = false,
+		.opts_arg = {{0}},
+		.opts_arg_len = 0,
 	}
 };
 
@@ -211,6 +226,12 @@ static const t_cmd g_ssl_cmd[NB_CMD] = {
 		.len = sizeof("test") - 1,
 		.func = cmd_test,
 		.usage = usage_test,
+	},
+	[MAN] = {
+		.name = "man",
+		.len = sizeof("man") - 1,
+		.func = cmd_man,
+		.usage = usage_man,
 	}
 };
 
@@ -239,11 +260,11 @@ int		ssl_cmd_dispatcher(int ac, char **av, t_cmd_type cmd)
 			{
 				error = ssl_cmd_parser(ac, av, g_ssl_cmd_parse[cmd], &cmd_opt);
 				if (error == CMD_USAGE || error == PARSING_OPT_ERROR) {
-					ft_lstdel(&cmd_opt.str_from_user, free_cmd_opt);
+					ft_lstdel(&cmd_opt.flag_with_input, free_cmd_opt);
 					return (g_ssl_cmd[cmd].usage(av[0], g_ssl_cmd[cmd].name));
 				}
 				if (error != PARSING_SUCCESS) {
-					ft_lstdel(&cmd_opt.str_from_user, free_cmd_opt);
+					ft_lstdel(&cmd_opt.flag_with_input, free_cmd_opt);
 					return (error);
 				}
 				return (g_ssl_cmd[cmd].func(ac, av, cmd, &cmd_opt));
