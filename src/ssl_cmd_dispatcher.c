@@ -6,12 +6,13 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:40:14 by banthony          #+#    #+#             */
-/*   Updated: 2019/07/12 16:27:48 by banthony         ###   ########.fr       */
+/*   Updated: 2019/07/19 13:13:32 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
 #include "message_digest.h"
+#include "cipher_commands.h"
 
 /*
 **	Structure de parametre pour le parser, pour chaque commande.
@@ -122,6 +123,14 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 		},
 		.opts_arg_len = 2,
 	},
+	[BASE64] = {
+		.cmd = BASE64,
+		.opts = BASE64_OPTS,
+		.opts_len = sizeof(BASE64_OPTS) -1,
+		.opts_with_arg = false,
+		.opts_arg = {{0}},
+		.opts_arg_len = 0,
+	},
 	[TEST] = {
 		.cmd = TEST,
 		.opts = TEST_OPTS,
@@ -136,8 +145,8 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 			.values = TEST_OPT_ARG_VALUES
 		},
 		.opts_arg[2] = {
-			.key = TEST_OPT_STR_FROM_USER,
-			.values = NULL
+			.key = TEST_OPT_STR_KEY,
+			.values = TEST_OPT_USER_ENTRY
 		},
 		.opts_arg_len = 3,
 	}
@@ -191,6 +200,12 @@ static const t_cmd g_ssl_cmd[NB_CMD] = {
 		.func = cmd_sha,
 		.usage = usage_sha,
 	},
+	[BASE64] = {
+		.name = "base64",
+		.len = sizeof("base64") - 1,
+		.func = cmd_base64,
+		.usage = usage_base64,
+	},
 	[TEST] = {
 		.name = "test",
 		.len = sizeof("test") - 1,
@@ -223,10 +238,14 @@ int		ssl_cmd_dispatcher(int ac, char **av, t_cmd_type cmd)
 			if (ac > 2)
 			{
 				error = ssl_cmd_parser(ac, av, g_ssl_cmd_parse[cmd], &cmd_opt);
-				if (error == CMD_USAGE || error == PARSING_OPT_ERROR)
+				if (error == CMD_USAGE || error == PARSING_OPT_ERROR) {
+					ft_lstdel(&cmd_opt.str_from_user, free_cmd_opt);
 					return (g_ssl_cmd[cmd].usage(av[0], g_ssl_cmd[cmd].name));
-				if (error != PARSING_SUCCESS)
+				}
+				if (error != PARSING_SUCCESS) {
+					ft_lstdel(&cmd_opt.str_from_user, free_cmd_opt);
 					return (error);
+				}
 				return (g_ssl_cmd[cmd].func(ac, av, cmd, &cmd_opt));
 			}
 			else

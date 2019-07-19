@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/07/12 16:34:21 by banthony         ###   ########.fr       */
+/*   Updated: 2019/07/19 13:12:55 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,50 +25,6 @@
 **	Maximum byte to use in read
 */
 # define MAXBYTE 8192
-
-/*
-**	MD5 options & MASK
-*/
-# define MD5_OPTS "-p;-q;-r;-s"
-# define MD5_P_MASK 1
-# define MD5_Q_MASK 1 << 1
-# define MD5_R_MASK 1 << 2
-# define MD5_S_MASK 1 << 3
-
-# define MD5_OPT_ARG_VERBOSE_KEY "-verbose"
-# define MD5_OPT_ARG_VERBOSE_VALUES "padding;block;all"
-# define MD5_OPT_ARG_DUMP_KEY "-dump"
-# define MD5_OPT_ARG_DUMP_VALUES "padding;block;all"
-
-# define MD5_OARG_V_PAD 1
-# define MD5_OARG_V_BLOCK 1 << 1
-# define MD5_OARG_V_ALL 1 << 2
-
-# define MD5_OARG_D_PAD 1 << 3
-# define MD5_OARG_D_BLOCK 1 << 4
-# define MD5_OARG_D_ALL 1 << 5
-
-/*
-**	SHA options & MASK
-*/
-# define SHA_OPTS "-p;-q;-r;-s"
-# define SHA_P_MASK 1
-# define SHA_Q_MASK 1 << 1
-# define SHA_R_MASK 1 << 2
-# define SHA_S_MASK 1 << 3
-
-# define SHA_OPT_ARG_VERBOSE_KEY "-verbose"
-# define SHA_OPT_ARG_VERBOSE_VALUES "padding;block;all"
-# define SHA_OPT_ARG_DUMP_KEY "-dump"
-# define SHA_OPT_ARG_DUMP_VALUES "padding;block;all"
-
-# define SHA_OARG_V_PAD 1
-# define SHA_OARG_V_BLOCK 1 << 1
-# define SHA_OARG_V_ALL 1 << 2
-
-# define SHA_OARG_D_PAD 1 << 3
-# define SHA_OARG_D_BLOCK 1 << 4
-# define SHA_OARG_D_ALL 1 << 5
 
 /*
 **	test options & MASK
@@ -95,7 +51,8 @@
 **	Pour cela il suffit d'ajouter '?' juste apres le tiret.
 */
 
-# define TEST_OPT_STR_FROM_USER "-#string"
+# define TEST_OPT_STR_KEY "-string"
+# define TEST_OPT_USER_ENTRY "??"
 # define TEST_OPT_PRINT_KEY "-print"
 # define TEST_OPT_PRINT_VALUES "red;green;blue"
 # define TEST_OPT_ARG_KEY "-arg"
@@ -128,8 +85,10 @@ typedef enum	e_cmd_status
 }				t_cmd_status;
 
 /*
-**	MD5		- ./ft_ssl md5		- cryptage md5
-**	SHA256	- ./ft_ssl sha256	- cryptage sha256
+**	MD5		- ./ft_ssl md5		- hashage md5
+**	SHA256	- ./ft_ssl sha256	- hashage sha256
+**	SHAXXX	- ./ft_ssl shaXXX	- hashage shaXXX
+**	BASE64	- ./ft_ssl base64	- cryptage base64
 **	TEST	- ./ft_ssl test		- test du parseur
 */
 typedef enum	e_cmd_type
@@ -141,6 +100,7 @@ typedef enum	e_cmd_type
 	SHA512,
 	SHA512_224,
 	SHA512_256,
+	BASE64,
 	TEST,
 	NB_CMD,
 }				t_cmd_type;
@@ -193,8 +153,8 @@ typedef struct	s_cmd_opt
 	t_cmd_type	cmd;
 	uint32_t	opts_flag;
 	uint32_t	opts_pflag;
+	t_list		*str_from_user;
 	int			end;
-	t_opt_arg	*str_from_user;
 }				t_cmd_opt;
 
 typedef int		(*t_cmd_usage)(char *exe, char *cmd_name);
@@ -224,6 +184,7 @@ typedef struct	s_cmd
 unsigned char	*read_cat(int fd, size_t *size);
 unsigned char	*read_file(char *path, size_t *size);
 int				find_key(char **av, int ac, char *key);
+void			free_cmd_opt(void *opt, size_t opt_size);
 void			encode64_lendian(size_t size, char *octet);
 void			encode64_bendian(size_t size, char *octet);
 void			encode128_bendian(size_t size, char *octet);
@@ -250,12 +211,14 @@ int				cmd_md5(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
 int				cmd_sha(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt);
 int				cmd_sha384(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
 int				cmd_sha512(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
+int				cmd_base64(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
 int				cmd_test(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
 
 int				usage_md5(char *exe, char *cmd_name);
 int				usage_sha(char *exe, char *cmd_name);
 int				usage_sha384(char *exe, char *cmd_name);
 int				usage_sha512(char *exe, char *cmd_name);
+int				usage_base64(char *exe, char *cmd_name);
 int				usage_test(char *exe, char *cmd_name);
 
 #endif

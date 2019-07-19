@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 17:39:03 by banthony          #+#    #+#             */
-/*   Updated: 2019/07/12 16:43:30 by banthony         ###   ########.fr       */
+/*   Updated: 2019/07/19 12:02:15 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,19 @@ static int		ssl_parse_param_values(char *entry, int index,
 	i = -1;
 	shift = 0;
 	entry_len = ft_strlen(entry);
-	ft_putendlcol(SH_GREEN, entry);
-	if (ft_strchr(entry, (int)'#') != NULL && param.opts_arg[index].values == NULL)
-		ft_putendlcol(SH_RED, "PUT HERE IMPL OF str_from_user");
 	if (!(values = ft_strsplit(param.opts_arg[index].values, ';')))
 		return (PARSING_FAILURE);
+	if (ft_tablen(values) == 1 && !ft_strncmp(values[0], "??", ft_strlen(values[0]))) {
+		t_opt_arg new_arg;
+		new_arg.key = param.opts_arg[index].key;
+		new_arg.values = entry;
+		if (!opt->str_from_user)
+			opt->str_from_user = ft_lstnew(&new_arg, sizeof(new_arg));
+		else
+			ft_lstadd(&opt->str_from_user, ft_lstnew(&new_arg, sizeof(new_arg)));
+		ft_freetab(values);
+		return (PARSING_SUCCESS);
+	}
 	while (++i < index)
 		shift += ft_strchrcount(param.opts_arg[i].values, ';') + 1;
 	i = -1;
@@ -54,6 +62,7 @@ static int		ssl_parse_param_values(char *entry, int index,
 			if (entry_len == ft_strlen(values[i]))
 			{
 				opt->opts_pflag |= (1 << (shift + (size_t)i));
+				ft_freetab(values);
 				return (PARSING_SUCCESS);
 			}
 		}

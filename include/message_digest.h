@@ -6,15 +6,59 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 18:40:34 by banthony          #+#    #+#             */
-/*   Updated: 2019/03/12 20:15:32 by banthony         ###   ########.fr       */
+/*   Updated: 2019/07/19 12:48:02 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MESSAGE_DIGEST_H
 # define MESSAGE_DIGEST_H
 
-# include <stdint.h>
 # include "ft_ssl.h"
+
+/*
+**	MD5 options & MASK
+*/
+
+# define MD5_OPTS "-p;-q;-r;-s"
+# define MD5_P_MASK 1
+# define MD5_Q_MASK 1 << 1
+# define MD5_R_MASK 1 << 2
+# define MD5_S_MASK 1 << 3
+
+# define MD5_OPT_ARG_VERBOSE_KEY "-verbose"
+# define MD5_OPT_ARG_VERBOSE_VALUES "padding;block;all"
+# define MD5_OPT_ARG_DUMP_KEY "-dump"
+# define MD5_OPT_ARG_DUMP_VALUES "padding;block;all"
+
+# define MD5_OARG_V_PAD 1
+# define MD5_OARG_V_BLOCK 1 << 1
+# define MD5_OARG_V_ALL 1 << 2
+
+# define MD5_OARG_D_PAD 1 << 3
+# define MD5_OARG_D_BLOCK 1 << 4
+# define MD5_OARG_D_ALL 1 << 5
+
+/*
+**	SHA options & MASK
+*/
+# define SHA_OPTS "-p;-q;-r;-s"
+# define SHA_P_MASK 1
+# define SHA_Q_MASK 1 << 1
+# define SHA_R_MASK 1 << 2
+# define SHA_S_MASK 1 << 3
+
+# define SHA_OPT_ARG_VERBOSE_KEY "-verbose"
+# define SHA_OPT_ARG_VERBOSE_VALUES "padding;block;all"
+# define SHA_OPT_ARG_DUMP_KEY "-dump"
+# define SHA_OPT_ARG_DUMP_VALUES "padding;block;all"
+
+# define SHA_OARG_V_PAD 1
+# define SHA_OARG_V_BLOCK 1 << 1
+# define SHA_OARG_V_ALL 1 << 2
+
+# define SHA_OARG_D_PAD 1 << 3
+# define SHA_OARG_D_BLOCK 1 << 4
+# define SHA_OARG_D_ALL 1 << 5
 
 /*
 **	************************ MD5 ************************

@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:03:01 by banthony          #+#    #+#             */
-/*   Updated: 2019/02/22 12:39:44 by banthony         ###   ########.fr       */
+/*   Updated: 2019/07/19 12:38:28 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,16 @@ static void	usage(char *cmd)
 {
 	ft_putstr("usage:");
 	ft_putstr(cmd);
-	ft_putendl(" command [command opts] [command args]");
+	ft_putendl(" command [command opts] [command args]\n");
+	ft_putendl("Standard commands:");
+	ft_putendl("man [command]\t(wip)\n");
 	ft_putendl("\nMessage Digest commands:");
-	ft_putendl("md5");
-	ft_putendl("sha224");
-	ft_putendl("sha256");
-	ft_putendl("sha384");
-	ft_putendl("sha512");
-	ft_putendl("sha512_224");
-	ft_putendl("sha512_256");
-	ft_putendl("\nTest the parser with test command:");
-	ft_putstr(cmd);
-	ft_putstr(" test [-p | -q | -r | -s | -help | -print [red | blue | green]");
-	ft_putendl(" | -arg [value1 | value2 | valueX]]");
+	ft_putendl("md5\nsha224\nsha256\nsha384\nsha512");
+	ft_putendl("sha512_224\nsha512_256\n");
+	ft_putendl("Cipher commmands:");
+	ft_putendl("base64\t(wip)\ndes\t(wip)\ndes-ecb\t(wip)\ndec-cbc\t(wip)");
+	ft_putendl("\nTest the parser:");
+	ft_putendl("test");
 }
 
 static void	ssl_start(int ac, char **av)

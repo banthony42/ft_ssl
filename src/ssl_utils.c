@@ -6,11 +6,17 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 19:54:21 by banthony          #+#    #+#             */
-/*   Updated: 2019/03/12 19:23:36 by banthony         ###   ########.fr       */
+/*   Updated: 2019/07/19 11:51:32 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
+
+void		free_cmd_opt(void *opt, size_t opt_size)
+{
+	ft_memdel(&opt);
+	(void)opt_size;
+}
 
 int				find_key(char **av, int ac, char *key)
 {

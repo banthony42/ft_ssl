@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/10 10:25:46 by banthony          #+#    #+#             */
-/*   Updated: 2019/03/12 20:21:27 by banthony         ###   ########.fr       */
+/*   Updated: 2019/07/19 12:46:23 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ static char		*sha_32_concat_hash(t_sha_32 sha, t_cmd_type cmd)
 		ft_strncpy(&footprint[i * 8], hash_str, 8);
 		ft_strdel(&hash_str);
 	}
+	ft_strdel(&sha.input);
 	return (ft_strdup(footprint));
 }
 
