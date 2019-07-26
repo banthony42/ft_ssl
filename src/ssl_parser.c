@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 17:39:03 by banthony          #+#    #+#             */
-/*   Updated: 2019/07/19 17:57:55 by abara            ###   ########.fr       */
+/*   Updated: 2019/07/26 13:59:03 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,44 @@ static size_t	ft_strchrcount(const char *src, int c)
 	return (count);
 }
 
+/*
+**	Iterate on the list, passing all element to the condition function.
+**	The new element will be added only if all condition calls return true.
+*/
+static t_bool	ft_lstadd_if(t_list **alst, t_list *new,
+							 t_bool (*condition)(t_list *elem, t_list *new))
+{
+	t_list *lst;
+
+	if (!alst || !new)
+		return false;
+	lst = *alst;
+	while (lst != NULL)
+	{
+		if (!condition(lst, new))
+			return false;
+		lst = lst->next;
+	}
+	ft_lstadd(alst, new);
+	return true;
+}
+
+static t_bool	key_is_not_contain(t_list *elem, t_list *new)
+{
+	t_opt_arg *new_pair;
+	t_opt_arg *elem_pair;
+
+	if (!elem || !new)
+		return false;
+	if (!elem->content || !new->content)
+		return false;
+	elem_pair = (t_opt_arg*)(elem->content);
+	new_pair = (t_opt_arg*)(new->content);
+	if (elem_pair->key != new_pair->key)
+		return true;
+	return false;
+}
+
 static int		ssl_parse_param_values(char *entry, int index,
 								t_cmd_opt *opt, t_parsing_param param)
 {
@@ -42,17 +80,32 @@ static int		ssl_parse_param_values(char *entry, int index,
 	entry_len = ft_strlen(entry);
 	if (!(values = ft_strsplit(param.opts_arg[index].values, ';')))
 		return (PARSING_FAILURE);
-	if (ft_tablen(values) == 1 && !ft_strncmp(values[0], "??", ft_strlen(values[0]))) {
-		t_opt_arg new_arg;
+
+	// ********* *************
+	t_opt_arg new_arg;
+	t_list *new;
+	// opt from user tablen will be always equal to 1
+	if (ft_tablen(values) == 1 && !ft_strncmp(values[0], OPT_FROM_USER, ft_strlen(values[0])))
+	{
+		ft_freetab(values);
 		new_arg.key = param.opts_arg[index].key;
 		new_arg.values = entry;
+		new = ft_lstnew(&new_arg, sizeof(new_arg));
 		if (!opt->flag_with_input)
-			opt->flag_with_input = ft_lstnew(&new_arg, sizeof(new_arg));
+			opt->flag_with_input = new;
 		else
-			ft_lstadd(&opt->flag_with_input, ft_lstnew(&new_arg, sizeof(new_arg)));
-		ft_freetab(values);
+		{
+			// WARN: two key with different value is considere as error
+			if (!ft_lstadd_if(&opt->flag_with_input, new, key_is_not_contain))
+			{
+				ft_lstdelone(&new, free_cmd_opt);
+				return (PARSING_OPT_ERROR);
+			}
+		}
 		return (PARSING_SUCCESS);
 	}
+	// ********* *************
+
 	while (++i < index)
 		shift += ft_strchrcount(param.opts_arg[i].values, ';') + 1;
 	i = -1;

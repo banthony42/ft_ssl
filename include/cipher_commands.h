@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 12:40:36 by abara             #+#    #+#             */
-/*   Updated: 2019/07/19 18:02:28 by abara            ###   ########.fr       */
+/*   Updated: 2019/07/26 14:53:19 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,7 @@ typedef struct		s_base64
 	int				in_fd;
 	int				out_fd;
 }					t_base64;
+
+void				base64_cipher(t_base64 b64, char *entry);
 
 #endif

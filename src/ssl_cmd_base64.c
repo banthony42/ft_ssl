@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 13:06:48 by abara             #+#    #+#             */
-/*   Updated: 2019/07/19 18:50:57 by abara            ###   ########.fr       */
+/*   Updated: 2019/07/26 15:09:05 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int			usage_base64(char *exe, char *cmd_name)
 	return (CMD_SUCCESS);
 }
 
+/*
 static void display_flag_with_input(t_list *opt_elem)
 {
 	t_opt_arg *flag_with_input;
@@ -32,33 +33,77 @@ static void display_flag_with_input(t_list *opt_elem)
 	ft_putstrcol(SH_GREEN, " VALUE:");
 	ft_putendl(flag_with_input->values);
 }
+*/
 
-int			base64_end(t_cmd_opt *opt, int error)
+int			base64_end(t_base64 b64, t_cmd_opt *opt, int error, char *mess)
 {
-	ft_lstdel(&opt->flag_with_input, free_cmd_opt);
+	if (mess)
+		ft_putendl(mess);
+	if (opt)
+		ft_lstdel(&opt->flag_with_input, free_cmd_opt);
+	if (b64.in_fd != STDIN_FILENO && b64.in_fd > 0)
+		ft_close(b64.in_fd);
+	if (b64.out_fd != STDOUT_FILENO && b64.out_fd > 0)
+		ft_close(b64.out_fd);
 	return (error);
 }
 
-static void	ft_lstiter_with(t_list *lst, void *data, void (*f)(t_list *elem, void *data))
+/*
+**	Iteration on t_list while function return true.
+*/
+static void	ft_lstiter_with(t_list *lst, void *data, t_bool (*f)(t_list *elem, void *data))
 {
 	while (lst != NULL)
 	{
-		f(lst, data);
+		if (f(lst, data) == false)
+			break;
 		lst = lst->next;
 	}
 }
 
-void		define_in_out(t_list *flag_input, void *base64_data)
+static int open_file(const char *file, int flags, char *error)
+{
+	int fd;
+
+	if ((fd = open(file, flags, S_IRWXU)) < 0)
+		ft_putendl(error);
+	return fd;
+}
+
+t_bool		define_input(t_list *flag_input, void *base64_data)
 {
 	t_base64	*b64;
-	t_opt_arg	*key_value;
+	t_opt_arg	*flag;
 
 	if (!flag_input || !base64_data)
-		return ;
+		return false;
 	b64 = (t_base64*)base64_data;
-	key_value = (t_opt_arg*)flag_input->content;
-	(void)key_value;
-	(void)b64;
+	flag = (t_opt_arg*)flag_input->content;
+	if (!flag->key || !flag->values)
+		return false;
+	if (!ft_strcmp(flag->key, BASE64_INPUT_FILE_KEY))
+		b64->in_fd = open_file(flag->values, O_RDONLY, "No such file or directory");
+	if (b64->in_fd < 0)
+		return false;
+	return true;
+}
+
+t_bool		define_output(t_list *flag_input, void *base64_data)
+{
+	t_base64	*b64;
+	t_opt_arg	*flag;
+
+	if (!flag_input || !base64_data)
+		return false;
+	b64 = (t_base64*)base64_data;
+	flag = (t_opt_arg*)flag_input->content;
+	if (!flag->key || !flag->values || b64->in_fd < 0)
+		return false;
+	if (!ft_strcmp(flag->key, BASE64_OUTPUT_FILE_KEY))
+		b64->out_fd = open_file(flag->values, O_CREAT | O_EXCL | O_RDWR, "File already exist");
+	if (b64->out_fd < 0)
+		return false;
+	return true;
 }
 
 int			cmd_base64(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
@@ -67,30 +112,29 @@ int			cmd_base64(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 	char		*entry;
 	size_t		size;
 
+	(void)cmd;
 	entry = NULL;
 	ft_memset(&base64, 0, sizeof(base64));
 	base64.out_fd = STDOUT_FILENO;
 	if (opt && opt->opts_flag & B64_DECODE_MASK)
 		base64.cipher_mode = DECODE;
 	if (opt && opt->flag_with_input)
-		ft_lstiter_with(opt->flag_with_input, &base64, define_in_out);
-	// Check opt->str_from_user: eventuel fichier input/output
-	// si input == fichier valide, ne pas lire STDIN
-	// si invalide erreur
-	// si output file, faire un open et utiliser cet fd en sortie
-	// si file existe erreur
+	{
+		if (opt->end > 0 && (ac - 1) > opt->end)
+			return base64_end(base64, opt, CMD_ERROR, "base64 command take only one argument.");
+		ft_lstiter_with(opt->flag_with_input, &base64, define_input);
+		ft_lstiter_with(opt->flag_with_input, &base64, define_output);
+	}
+	if (base64.in_fd < 0 || base64.out_fd < 0)
+		return base64_end(base64, opt, CMD_ERROR, NULL);
 	if (!opt || !opt->end)
 	{
-		if (!(entry = (char*)read_cat(STDIN_FILENO, &size)))
-			return base64_end(opt, CMD_ERROR);
+		if (!(entry = (char*)read_cat(base64.in_fd, &size)))
+			return base64_end(base64, opt, CMD_ERROR, "Can't read input.");
+		base64_cipher(base64, entry);
 		ft_strdel(&entry);
+		return base64_end(base64, opt, CMD_SUCCESS, NULL);
 	}
-	ft_putendlcol(SH_GREEN, av[opt->end]);
-	ft_lstiter(opt->flag_with_input, display_flag_with_input);
-	ft_lstdel(&opt->flag_with_input, free_cmd_opt);
-	(void)ac;
-	(void)av;
-	(void)cmd;
-	(void)opt;
-	return (CMD_SUCCESS);
+	base64_cipher(base64, av[opt->end]);
+	return base64_end(base64, opt, CMD_SUCCESS, NULL);
 }
