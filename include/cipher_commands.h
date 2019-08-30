@@ -55,6 +55,20 @@ typedef struct		s_base64
 	int				out_fd;
 }					t_base64;
 
+#define CODE_MASK 0b00111111
+
+typedef union s_block
+{
+	struct 
+	{
+		unsigned int code_a : 6;
+		unsigned int code_b : 6;
+		unsigned int code_c : 6;
+		unsigned int code_d : 6;
+	};
+	unsigned char block[3];
+}			t_block;
+
 void				base64_cipher(t_base64 b64, char *entry);
 
 #endif
