@@ -1,25 +1,26 @@
 # ft_ssl
 
-usage:./ft_ssl command [command opts] [command args]
+#### usage:./ft_ssl command [command opts] [command args]
+<br>
 
-Standard commands:
-man [command]	(wip)
+#### Standard commands:
+man [command]	(wip)<br>
 
+#### Message Digest commands:
+md5<br>
+sha224<br>
+sha256<br>
+sha384<br>
+sha512<br>
+sha512_224<br>
+sha512_256<br>
 
-Message Digest commands:
-md5
-sha224
-sha256
-sha384
-sha512
-sha512_224
-sha512_256
+#### Cipher commmands:
+base64	(wip)<br>
+des	(wip)<br>
+des-ecb	(wip)<br>
+dec-cbc	(wip)<br>
+<br>
 
-Cipher commmands:
-base64	(wip)
-des	(wip)
-des-ecb	(wip)
-dec-cbc	(wip)
-
-Test the parser:
-test
+#### Test the parser:
+test<br>
