@@ -30,8 +30,8 @@ SHA512_224_META="shasum -a 512_224,./ft_ssl sha512_224"
 SHA512_256_META="shasum -a 512_256,./ft_ssl sha512_256"
 
 # You may have to change the option of base64 for decrypt (differs in versions)
-BASE64="base64,base64 -d,./ft_ssl base64,./ft_ssl base64 -d,1"
-BASE64_URL="base64 | tr '+/' '-_', tr -- '-_' '+/' | base64 -d,./ft_ssl base64_url,./ft_ssl base64_url -d,1"
+BASE64="base64,base64 -D,./ft_ssl base64,./ft_ssl base64 -d,1"
+BASE64_URL="base64 | tr '+/' '-_', tr -- '-_' '+/' | base64 -D,./ft_ssl base64_url,./ft_ssl base64_url -d,1"
 
 # FIXME you can change this if you don't handle such features
 

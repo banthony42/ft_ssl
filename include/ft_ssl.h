@@ -103,6 +103,7 @@ typedef enum	e_cmd_type
 	SHA512_224,
 	SHA512_256,
 	BASE64,
+	BASE64_URL,
 	MAN,
 	TEST,
 	NB_CMD,
@@ -156,8 +157,8 @@ typedef struct	s_cmd_opt
 	t_cmd_type	cmd;
 	uint32_t	opts_flag;
 	uint32_t	opts_pflag;
-	t_list		*flag_with_input;
 	int			end;
+	t_list		*flag_with_input;
 }				t_cmd_opt;
 
 typedef int		(*t_cmd_usage)(char *exe, char *cmd_name);

@@ -35,7 +35,7 @@ static void display_flag_with_input(t_list *opt_elem)
 }
 */
 
-int			base64_end(t_base64 b64, t_cmd_opt *opt, int error, char *mess)
+static int			base64_end(t_base64 b64, t_cmd_opt *opt, int error, char *mess)
 {
 	if (mess)
 		ft_putendl(mess);
@@ -70,7 +70,7 @@ static int open_file(const char *file, int flags, char *error)
 	return fd;
 }
 
-t_bool		define_input(t_list *flag_input, void *base64_data)
+static t_bool		define_input(t_list *flag_input, void *base64_data)
 {
 	t_base64	*b64;
 	t_opt_arg	*flag;
@@ -88,7 +88,7 @@ t_bool		define_input(t_list *flag_input, void *base64_data)
 	return true;
 }
 
-t_bool		define_output(t_list *flag_input, void *base64_data)
+static t_bool		define_output(t_list *flag_input, void *base64_data)
 {
 	t_base64	*b64;
 	t_opt_arg	*flag;
@@ -112,7 +112,8 @@ int			cmd_base64(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 	char		*entry;
 	size_t		size;
 
-	(void)cmd;
+
+	base64.b64_url = (cmd == BASE64_URL) ? true : false;
 	entry = NULL;
 	ft_memset(&base64, 0, sizeof(base64));
 	base64.out_fd = STDOUT_FILENO;

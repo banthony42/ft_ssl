@@ -12,10 +12,15 @@
 
 #include "ft_ssl.h"
 
-static void	usage(char *cmd)
+static void	usage(char **argv)
 {
+	// Use this line to see the entire command.
+	// ft_putendl("=== <DEBUG> ===")
+	// ft_printtab(argv, ft_putstr, "|");
+	// ft_putendl("=== < END > ====")
+	
 	ft_putstr("usage:");
-	ft_putstr(cmd);
+	ft_putstr(argv[0]);
 	ft_putendl(" command [command opts] [command args]\n");
 	ft_putendl("Standard commands:");
 	ft_putendl("man [command]\t(wip)\n");
@@ -44,7 +49,7 @@ static void	ssl_start(int ac, char **av)
 		}
 		cmd++;
 	}
-	usage(av[0]);
+	usage(av);
 }
 
 int			main(int ac, char **av)

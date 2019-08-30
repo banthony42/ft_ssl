@@ -12,82 +12,131 @@
 
 #include "cipher_commands.h"
 
-/*
-	  0 000000 A           17 010001 R           34 100010 i           51 110011 z
-      1 000001 B           18 010010 S           35 100011 j           52 110100 0
-      2 000010 C           19 010011 T           36 100100 k           53 110101 1
-      3 000011 D           20 010100 U           37 100101 l           54 110110 2
-      4 000100 E           21 010101 V           38 100110 m           55 110111 3
-      5 000101 F           22 010110 W           39 100111 n           56 111000 4
-      6 000110 G           23 010111 X           40 101000 o           57 111001 5
-      7 000111 H           24 011000 Y           41 101001 p           58 111010 6
-      8 001000 I           25 011001 Z           42 101010 q           59 111011 7
-      9 001001 J           26 011010 a           43 101011 r           60 111100 8
-     10 001010 K           27 011011 b           44 101100 s           61 111101 9
-     11 001011 L           28 011100 c           45 101101 t           62 111110 +
-     12 001100 M           29 011101 d           46 101110 u           63 111111 /
-     13 001101 N           30 011110 e           47 101111 v
-     14 001110 O           31 011111 f           48 110000 w        (complément) =
-     15 001111 P           32 100000 g           49 110001 x
-     16 010000 Q           33 100001 h           50 110010 y
-*/
-void	base64_cipher(t_base64 b64, char *entry)
-{
-	char	*output;
-	int		entry_len;
-	int		padding;
-
-	if (!entry)
-		return ;
+static const char g_base64_table[65] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+static const char g_base64_url_table[65] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
 
 	// If file input and entry are both present,
 	// determine which data will be ciphered.
-	ft_putendl_fd(entry, b64.out_fd);
 
-	entry_len = ft_strlen(entry);
-	if ((padding = (entry_len * 8) % 24) == 8)
-		padding = 4;
-	else if (padding == 16)
-		padding = 2;
-	else
-		padding = 0;
-	
-	ft_putnbrendl(entry_len);
-	int out_len = ( ( (entry_len * 8) + padding) / 6);
-	ft_putnbrendl(out_len);
+static void encode_b64(char *entry, size_t entry_len, unsigned char padding, t_base64 b64)
+{
+	char			*end;
+	char			*output;
+	unsigned char	newline_counter;
+	char table[65] = {0};
 
-	if (!(output = ft_strnew(out_len)))
-		return ;	
-
-	ft_strncpy(output, entry, entry_len);
-
-	ft_print_memory(output, out_len);
-
-	int i = 0;
-	t_block block_reader;
-	ft_putendl("============");
-	while (i < out_len)
+	(b64.b64_url == true) ? ft_strncpy(table, g_base64_url_table, 65) : ft_strncpy(table, g_base64_table, 65);
+	newline_counter = 0;
+	output = entry;
+	end = entry + entry_len;
+	while ((end - output) >= 3)
 	{
-		ft_memcpy(&block_reader.block, &output[0], 3);
-		// block_reader.block_1 = (unsigned char)output[i];
-		// block_reader.block_2 = (unsigned char)output[i + 1];
-		// block_reader.block_3 = (unsigned char)output[i + 2];
-
-		unsigned char test;
-		ft_memcpy(&test, &output[0], 1);
-		ft_putnbrendl(test >> 2);
-		ft_putnbrendl(test & CODE_MASK);
-		ft_putnbrendl(test);
-		ft_putendl("============");
-
-		ft_putnbrendl(block_reader.code_a);
-		ft_putnbrendl(block_reader.code_b);
-		ft_putnbrendl(block_reader.code_c);
-		ft_putnbrendl(block_reader.code_d);
-	
-		ft_putendl("============");
-
-		break;
+		if (newline_counter >= 63) {
+			ft_putchar_fd('\n', b64.out_fd);
+			newline_counter = 0;
+		}
+		ft_putchar_fd(table[output[0] >> 2], b64.out_fd);
+		ft_putchar_fd(table[((output[0] & 0x03) << 4) | output[1] >> 4], b64.out_fd);
+		ft_putchar_fd(table[((output[1] & 0xf ) << 2) | output[2] >> 6], b64.out_fd);
+		ft_putchar_fd(table[((output[2] & 0x3f))], b64.out_fd);
+		newline_counter += 4;
+		output += 3;
 	}
-	ft_strdel(&output);
+	// Read 12 bits and add "=="
+	if (padding == 4)
+	{
+		ft_putchar_fd(table[output[0] >> 2], b64.out_fd);
+		ft_putchar_fd(table[((output[0] & 0x03) << 4) | output[1] >> 4], b64.out_fd);
+		ft_putstr_fd("==", b64.out_fd);
+	}
+	// Read 18 bits and add "="
+	if (padding == 2)
+	{
+		ft_putchar_fd(table[output[0] >> 2], b64.out_fd);
+		ft_putchar_fd(table[((output[0] & 0x03) << 4) | output[1] >> 4], b64.out_fd);
+		ft_putchar_fd(table[((output[1] & 0xf ) << 2) | output[2] >> 6], b64.out_fd);
+		ft_putchar_fd('=', b64.out_fd);
+	}
+	ft_putchar_fd('\n', b64.out_fd);
+}
+
+	//	Block of 3 octet, split into 4 field of 6 bits :
+	//	0b011000|11		'c'
+	//	0b0110|1111		'o'
+	//	0b01|110101		'u'
+	//
+	//	Give us :
+	//
+	//	00|011000	24	'Y'
+	//	00|110110	54	'2'
+	//	00|111101	61	'9'
+	//	00|110101	53	'1'
+
+// 00|000010	'C'
+// 00|100000	'g'
+// 000000000	'='
+// 000000000	'='
+
+// 00001010 00000000 00000000 00000000
+
+static void decode_b64(char *entry, size_t entry_len, t_base64 b64)
+{
+	// Have to parse base 64 string, foreach block of 4 char, encode 24 bits.
+	// ft_putstr("==[");
+	// ft_putstr(entry);
+	// ft_putendl("]==");
+	char table[65] = {0};
+
+	(b64.b64_url == true) ? ft_strncpy(table, g_base64_url_table, 65) : ft_strncpy(table, g_base64_table, 65);
+
+	// Build of the decode table, to transform char into index of g_base64_table
+	int base64_decode_table[255];
+	ft_memset(base64_decode_table,'#', sizeof(base64_decode_table));
+	int j = -1;
+	while (++j < (int)sizeof(table))
+		base64_decode_table[(int)table[j]] = j;
+	base64_decode_table['='] = 0;
+
+	size_t i = 0;
+	char block[5] = {0};
+	while (i < entry_len)
+	{
+		ft_strncat(block, &entry[i], 1);
+		if (ft_strlen(block) >= 4){
+			int ib64_0 = base64_decode_table[(int)block[0]];
+			int ib64_1 = base64_decode_table[(int)block[1]];
+			int ib64_2 = base64_decode_table[(int)block[2]];
+			int ib64_3 = base64_decode_table[(int)block[3]];
+
+			ft_putchar_fd((char)((ib64_0 << 2) | (ib64_1 ) >> 4), b64.out_fd);
+			ft_putchar_fd((char)((ib64_1 << 4) | (ib64_2 ) >> 2), b64.out_fd);
+			ft_putchar_fd((char)((ib64_2 << 6) | (ib64_3 ) ), b64.out_fd);
+			ft_memset(block, 0, 4);
+		}
+		i++;
+	}
+	// Last block with padding treatment
+	// ft_putendl(block);
+}
+
+void	base64_cipher(t_base64 b64, char *entry)
+{
+	size_t			entry_len;
+	unsigned char	padding;
+
+	if (!entry)
+		return ;
+	entry_len = ft_strlen(entry);
+	if (b64.cipher_mode == ENCODE)
+	{
+		if ((padding = (entry_len * 8) % 24) == 8)
+			padding = 4;
+		else if (padding == 16)
+			padding = 2;
+		else
+			padding = 0;
+		encode_b64(entry, entry_len, padding, b64);
+	}
+	else if (b64.cipher_mode == DECODE)
+		decode_b64(entry, entry_len, b64);
 }
