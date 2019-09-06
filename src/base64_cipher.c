@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 14:21:32 by abara             #+#    #+#             */
-/*   Updated: 2019/09/05 21:16:20 by banthony         ###   ########.fr       */
+/*   Updated: 2019/09/06 14:22:16 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,6 @@ static const char g_base64_table[65] =
 
 static const char g_base64_url_table[65] =
 "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
-
-// TODO check the following comment
-
-/*
-**	If file input and entry are both present,
-**	determine which data will be ciphered.
-**
-**	Have to handle invalid character in decode mode, example: '.'
-**
-**	Maybe we need to store out[i] and shift bit using the storage variable.
-**	to fix the issue with the file_error_1.
-*/
 
 /*
 **	If padding == 4:
@@ -84,19 +72,52 @@ static void	encode_b64(char *entry, char padding, t_base64 b64, char table[65])
 {
 	char			*end;
 	char			*out;
+	unsigned char	buf[3];
 
 	out = entry;
 	end = entry + ft_strlen(entry);
 	while ((end - out) >= 3)
 	{
-		ft_putchar_fd(table[out[0] >> 2], b64.out);
-		ft_putchar_fd(table[((out[0] & 0x03) << 4) | out[1] >> 4], b64.out);
-		ft_putchar_fd(table[((out[1] & 0xf) << 2) | out[2] >> 6], b64.out);
-		ft_putchar_fd(table[((out[2] & 0x3f))], b64.out);
+		buf[0] = (unsigned char)out[0];
+		buf[1] = (unsigned char)out[1];
+		buf[2] = (unsigned char)out[2];
+		ft_putchar_fd(table[buf[0] >> 2], b64.out);
+		ft_putchar_fd(table[((buf[0] & 0x03) << 4) | buf[1] >> 4], b64.out);
+		ft_putchar_fd(table[((buf[1] & 0xf) << 2) | buf[2] >> 6], b64.out);
+		ft_putchar_fd(table[((buf[2] & 0x3f))], b64.out);
 		out += 3;
 	}
 	encode_b64_end(padding, out, b64, table);
 	ft_putchar_fd('\n', b64.out);
+}
+
+/*
+**	Return true if all character in the entry, are present in the base64 table.
+**	Return false otherwise.
+*/
+
+static t_bool	is_valid_ciphering(t_bool is_base64_url, char *entry)
+{
+	int			i;
+	int			len;
+	const char	*table;
+
+	if (entry == NULL)
+		return (false);
+	i = -1;
+	len = (int)ft_strlen(entry);
+	table = (is_base64_url == true) ? g_base64_url_table : g_base64_table;
+	if (table == NULL)
+		return false;
+	while (++i < len)
+	{
+		if (!ft_strchr(table, (int)entry[i]))
+		{
+			ft_putendl("Invalid character in input stream.");
+			return (false);
+		}
+	}
+	return (true);
 }
 
 /*
@@ -122,6 +143,8 @@ static void	decode_b64(char *entry, t_base64 b64, int b64_decode[255])
 	size_t			len;
 	t_decode_block	block;
 
+	if (!is_valid_ciphering(b64.b64_url, entry))
+		return ;
 	i = 0;
 	len = ft_strlen(entry);
 	ft_memset(&block, 0, sizeof(block));
