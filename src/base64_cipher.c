@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 14:21:32 by abara             #+#    #+#             */
-/*   Updated: 2019/09/06 14:22:16 by banthony         ###   ########.fr       */
+/*   Updated: 2019/09/06 14:58:42 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,10 +111,12 @@ static t_bool	is_valid_ciphering(t_bool is_base64_url, char *entry)
 		return false;
 	while (++i < len)
 	{
-		if (!ft_strchr(table, (int)entry[i]))
+		if (!ft_isalnum((int)entry[i]))
 		{
+			if (entry[i] == '=' || entry[i] == ' ' || entry[i] == '\n')
+				continue;
 			ft_putendl("Invalid character in input stream.");
-			return (false);
+			return (true);
 		}
 	}
 	return (true);

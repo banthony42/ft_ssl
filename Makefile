@@ -6,7 +6,7 @@
 #    By: banthony <banthony@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/08 12:54:17 by banthony          #+#    #+#              #
-#    Updated: 2019/07/26 14:24:14 by abara            ###   ########.fr        #
+#    Updated: 2019/09/06 15:52:08 by banthony         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -55,18 +55,19 @@ LIBFT_NAME = -L $(LIBFT) -lft
 LIBFT_NAME_SANIT = -L $(LIBFT) -lft_sanit
 
 ifeq ($(UNAME), Linux)
-MLX_LIB = ./minilibx_linux/
+LIB = -lncurses
 HEAD_DIR = -I ./include -I $(LIBFT)
 FLAGS = -Wall -Wextra -Werror
 endif
 
 ifeq ($(UNAME), CYGWIN_NT-6.1)
-MLX_LIB = ./minilibx_linux/
+LIB = -lncurses
 HEAD_DIR = -I ./include -I $(LIBFT)
 FLAGS = -Wall -Wextra -Werror
 endif
 
 ifeq ($(UNAME), Darwin)
+LIB = -lncurses
 HEAD_DIR = -I ./include -I $(LIBFT)
 FLAGS = -Wall -Wextra -Werror -Weverything
 endif
@@ -85,14 +86,14 @@ $(NAME): $(SRC) $(INCLUDE)
 	gcc $(FLAGS) $(HEAD_DIR) -c $(SRC) $(DEBUG)
 	mkdir -p $(OBJ_PATH)
 	mv $(OBJ) $(OBJ_PATH)
-	gcc $(FLAGS) $(OBJ2) $(HEAD_DIR) $(LIBFT_NAME_SANIT) -o $(NAME) $(DEBUG)
+	gcc $(FLAGS) -o $(NAME) $(OBJ2) $(HEAD_DIR) $(LIBFT_NAME_SANIT) $(LIB) $(DEBUG)
 
 normal: $(SRC) $(INCLUDE)
 	make -C $(LIBFT)
-	gcc $(FLAGS) $(HEAD_DIR) -c $(SRC)
+	gcc $(FLAGS) $(HEAD_DIR) $(LIB) -c $(SRC)
 	mkdir -p $(OBJ_PATH)
 	mv $(OBJ) $(OBJ_PATH)
-	gcc $(FLAGS) $(OBJ2) $(HEAD_DIR) $(LIBFT_NAME) -o $(NAME)
+	gcc $(FLAGS) $(OBJ2) $(HEAD_DIR) $(LIBFT_NAME) -o $(NAME) $(LIB)
 
 
 clean:

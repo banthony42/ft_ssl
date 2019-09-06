@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/09/05 21:09:12 by banthony         ###   ########.fr       */
+/*   Updated: 2019/09/06 16:39:59 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdint.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include "man.h"
 
 /*
 **	Nombre de bit maximum a lire avec read

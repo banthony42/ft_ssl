@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   man.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/08 14:22:09 by banthony          #+#    #+#             */
-/*   Updated: 2019/09/06 16:39:35 by banthony         ###   ########.fr       */
+/*   Created: 2019/09/06 16:39:22 by banthony          #+#    #+#             */
+/*   Updated: 2019/09/06 16:41:11 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#ifndef		MAN_H
+# define	MAN_H
 
-typedef enum	e_bool
+#include <ncurses.h>
+
+# define BORDER_COLOR 1
+
+typedef struct	s_vector2
 {
-	false,
-	true,
-}				t_bool;
+	int x;
+	int y;
+}				t_vector2;
 
 #endif
