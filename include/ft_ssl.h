@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/09/06 16:39:59 by banthony         ###   ########.fr       */
+/*   Updated: 2019/09/13 10:34:44 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,9 @@ typedef enum	e_cmd_type
 	SHA512_256,
 	BASE64,
 	BASE64_URL,
+	DES,
+	DES_ECB,
+	DES_CBC,
 	MAN,
 	TEST,
 	NB_CMD,
@@ -217,6 +220,7 @@ int				cmd_sha(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt);
 int				cmd_sha384(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
 int				cmd_sha512(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
 int				cmd_base64(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
+int				cmd_des(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
 int				cmd_man(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
 int				cmd_test(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts);
 
@@ -225,6 +229,7 @@ int				usage_sha(char *exe, char *cmd_name);
 int				usage_sha384(char *exe, char *cmd_name);
 int				usage_sha512(char *exe, char *cmd_name);
 int				usage_base64(char *exe, char *cmd_name);
+int				usage_des(char *exe, char *cmd_name);
 int				usage_man(char *exe, char *cmd_name);
 int				usage_test(char *exe, char *cmd_name);
 

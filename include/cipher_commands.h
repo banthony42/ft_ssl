@@ -16,32 +16,31 @@
 # include "ft_ssl.h"
 
 /*
-**	************************ BASE64 ************************
-*/
-
-/*
-**	BASE64 options & MASK
-*/
-
-# define BASE64_OPTS "-d;-e"
-# define B64_DECODE_MASK 1
-# define B64_ENCODE_MASK 1 << 1
-
-/*
-**	Option avec entree utilisateur
-*/
-
-# define BASE64_INPUT_FILE_KEY "-i"
-# define BASE64_OUTPUT_FILE_KEY "-o"
-
-/*
 **	Definit si un algorithme de chiffrage doit decoder ou encoder.
 */
 typedef enum		e_cipher_mode
 {
-	ENCODE,
-	DECODE,
+	CIPHER_ENCODE,
+	CIPHER_DECODE,
 }					t_cipher_mode;
+
+/*
+**	Default ciphering options.
+*/
+# define CIPHER_OPTION_MODE "-d;-e"
+# define CIPHER_DECODE_MASK 1
+# define CIPHER_ENCODE_MASK 1 << 1
+
+# define CIPHER_INPUT_FILE_KEY "-i"
+# define CIPHER_OUTPUT_FILE_KEY "-o"
+
+/*
+**	************************ BASE64 ************************
+*/
+
+/*
+**	base64 command only use default ciphering options.
+*/
 
 /*
 **	cipher_mode: Mode de fonctionnement (Encodage ou Decodage)
@@ -66,5 +65,15 @@ typedef struct		s_decode_block
 }					t_decode_block;
 
 void				base64_cipher(t_base64 b64, char *entry);
+
+/*
+**	************************ DES FAMILY ************************
+*/
+
+# define DES_OPTS "-a;-d;-e"
+# define DES_HEXAKEY_KEY "-k"
+# define DES_PASS_KEY "-p"
+# define DES_SALT_KEY "-s"
+# define DES_INIT_VECTOR_KEY "-v"
 
 #endif

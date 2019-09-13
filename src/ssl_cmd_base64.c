@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 13:06:48 by abara             #+#    #+#             */
-/*   Updated: 2019/09/05 19:42:50 by banthony         ###   ########.fr       */
+/*   Updated: 2019/09/13 10:59:26 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ static t_bool		define_input(t_list *flag_input, void *base64_data)
 	flag = (t_opt_arg*)flag_input->content;
 	if (!flag->key || !flag->values)
 		return false;
-	if (!ft_strcmp(flag->key, BASE64_INPUT_FILE_KEY))
-		b64->in = open_file(flag->values, O_RDONLY, "No such file or directory");
-	if (b64->in < 0)
+	if (!ft_strcmp(flag->key, CIPHER_INPUT_FILE_KEY))
+		b64->in_fd = open_file(flag->values, O_RDONLY, "No such file or directory");
+	if (b64->in_fd < 0)
 		return false;
 	return true;
 }
@@ -99,9 +99,9 @@ static t_bool		define_output(t_list *flag_input, void *base64_data)
 	flag = (t_opt_arg*)flag_input->content;
 	if (!flag->key || !flag->values || b64->in < 0)
 		return false;
-	if (!ft_strcmp(flag->key, BASE64_OUTPUT_FILE_KEY))
-		b64->out = open_file(flag->values, O_CREAT | O_EXCL | O_RDWR, "File already exist");
-	if (b64->out < 0)
+	if (!ft_strcmp(flag->key, CIPHER_OUTPUT_FILE_KEY))
+		b64->out_fd = open_file(flag->values, O_CREAT | O_EXCL | O_RDWR, "File already exist");
+	if (b64->out_fd < 0)
 		return false;
 	return true;
 }
@@ -116,9 +116,9 @@ int			cmd_base64(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 	base64.b64_url = (cmd == BASE64_URL) ? true : false;
 	entry = NULL;
 	ft_memset(&base64, 0, sizeof(base64));
-	base64.out = STDOUT_FILENO;
-	if (opt && opt->opts_flag & B64_DECODE_MASK)
-		base64.cipher_mode = DECODE;
+	base64.out_fd = STDOUT_FILENO;
+	if (opt && opt->opts_flag & CIPHER_DECODE_MASK)
+		base64.cipher_mode = CIPHER_DECODE;
 	if (opt && opt->flag_with_input)
 	{
 		if (opt->end > 0 && (ac - 1) > opt->end)
