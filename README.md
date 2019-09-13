@@ -1,7 +1,26 @@
 # ft_ssl
 
-Message Digest:
-    md5, sha256, sha224, sha384, sha512, sha512_224, sha512_256
+#### usage:./ft_ssl command [command opts] [command args]
+<br>
 
-Test du parseur:
-    test
+#### Standard commands:
+man [command]	(wip)<br>
+
+#### Message Digest commands:
+md5<br>
+sha224<br>
+sha256<br>
+sha384<br>
+sha512<br>
+sha512_224<br>
+sha512_256<br>
+
+#### Cipher commmands:
+base64	(wip)<br>
+des	(wip)<br>
+des-ecb	(wip)<br>
+dec-cbc	(wip)<br>
+<br>
+
+#### Test the parser:
+test<br>

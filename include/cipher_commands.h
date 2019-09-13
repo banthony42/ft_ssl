@@ -6,12 +6,12 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 12:40:36 by abara             #+#    #+#             */
-/*   Updated: 2019/07/26 14:53:19 by abara            ###   ########.fr       */
+/*   Updated: 2019/09/13 11:07:05 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		CIPHER_COMMANDS_H
-# define	CIPHER_COMMANDS_H
+#ifndef CIPHER_COMMANDS_H
+# define CIPHER_COMMANDS_H
 
 # include "ft_ssl.h"
 
@@ -51,23 +51,19 @@ typedef enum		e_cipher_mode
 typedef struct		s_base64
 {
 	t_cipher_mode	cipher_mode;
-	int				in_fd;
-	int				out_fd;
+	t_bool			b64_url;
+	int				in;
+	int				out;
 }					t_base64;
 
-#define CODE_MASK 0b00111111
-
-typedef union s_block
+typedef struct		s_decode_block
 {
-	struct 
-	{
-		unsigned int code_a : 6;
-		unsigned int code_b : 6;
-		unsigned int code_c : 6;
-		unsigned int code_d : 6;
-	};
-	unsigned char block[3];
-}			t_block;
+	char			char_array[8];
+	int				i_0;
+	int				i_1;
+	int				i_2;
+	int				i_3;
+}					t_decode_block;
 
 void				base64_cipher(t_base64 b64, char *entry);
 

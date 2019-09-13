@@ -6,19 +6,24 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:03:01 by banthony          #+#    #+#             */
-/*   Updated: 2019/07/19 12:38:28 by abara            ###   ########.fr       */
+/*   Updated: 2019/09/06 15:21:46 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
 
-static void	usage(char *cmd)
+static void	usage(char **argv)
 {
+	// Use this line to see the entire command.
+//	ft_putendl("=== <DEBUG> ===");
+//	 ft_printtab(argv, ft_putstr, "|");
+//	 ft_putendl("=== < END > ====");
+
 	ft_putstr("usage:");
-	ft_putstr(cmd);
+	ft_putstr(argv[0]);
 	ft_putendl(" command [command opts] [command args]\n");
 	ft_putendl("Standard commands:");
-	ft_putendl("man [command]\t(wip)\n");
+	ft_putendl("man [command]\t(wip)");
 	ft_putendl("\nMessage Digest commands:");
 	ft_putendl("md5\nsha224\nsha256\nsha384\nsha512");
 	ft_putendl("sha512_224\nsha512_256\n");
@@ -44,7 +49,7 @@ static void	ssl_start(int ac, char **av)
 		}
 		cmd++;
 	}
-	usage(av[0]);
+	usage(av);
 }
 
 int			main(int ac, char **av)

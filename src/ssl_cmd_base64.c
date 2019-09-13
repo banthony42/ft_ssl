@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 13:06:48 by abara             #+#    #+#             */
-/*   Updated: 2019/07/26 15:09:05 by abara            ###   ########.fr       */
+/*   Updated: 2019/09/05 19:42:50 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,16 @@ static void display_flag_with_input(t_list *opt_elem)
 }
 */
 
-int			base64_end(t_base64 b64, t_cmd_opt *opt, int error, char *mess)
+static int			base64_end(t_base64 b64, t_cmd_opt *opt, int error, char *mess)
 {
 	if (mess)
 		ft_putendl(mess);
 	if (opt)
 		ft_lstdel(&opt->flag_with_input, free_cmd_opt);
-	if (b64.in_fd != STDIN_FILENO && b64.in_fd > 0)
-		ft_close(b64.in_fd);
-	if (b64.out_fd != STDOUT_FILENO && b64.out_fd > 0)
-		ft_close(b64.out_fd);
+	if (b64.in != STDIN_FILENO && b64.in > 0)
+		ft_close(b64.in);
+	if (b64.out != STDOUT_FILENO && b64.out > 0)
+		ft_close(b64.out);
 	return (error);
 }
 
@@ -70,7 +70,7 @@ static int open_file(const char *file, int flags, char *error)
 	return fd;
 }
 
-t_bool		define_input(t_list *flag_input, void *base64_data)
+static t_bool		define_input(t_list *flag_input, void *base64_data)
 {
 	t_base64	*b64;
 	t_opt_arg	*flag;
@@ -82,13 +82,13 @@ t_bool		define_input(t_list *flag_input, void *base64_data)
 	if (!flag->key || !flag->values)
 		return false;
 	if (!ft_strcmp(flag->key, BASE64_INPUT_FILE_KEY))
-		b64->in_fd = open_file(flag->values, O_RDONLY, "No such file or directory");
-	if (b64->in_fd < 0)
+		b64->in = open_file(flag->values, O_RDONLY, "No such file or directory");
+	if (b64->in < 0)
 		return false;
 	return true;
 }
 
-t_bool		define_output(t_list *flag_input, void *base64_data)
+static t_bool		define_output(t_list *flag_input, void *base64_data)
 {
 	t_base64	*b64;
 	t_opt_arg	*flag;
@@ -97,11 +97,11 @@ t_bool		define_output(t_list *flag_input, void *base64_data)
 		return false;
 	b64 = (t_base64*)base64_data;
 	flag = (t_opt_arg*)flag_input->content;
-	if (!flag->key || !flag->values || b64->in_fd < 0)
+	if (!flag->key || !flag->values || b64->in < 0)
 		return false;
 	if (!ft_strcmp(flag->key, BASE64_OUTPUT_FILE_KEY))
-		b64->out_fd = open_file(flag->values, O_CREAT | O_EXCL | O_RDWR, "File already exist");
-	if (b64->out_fd < 0)
+		b64->out = open_file(flag->values, O_CREAT | O_EXCL | O_RDWR, "File already exist");
+	if (b64->out < 0)
 		return false;
 	return true;
 }
@@ -112,10 +112,11 @@ int			cmd_base64(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 	char		*entry;
 	size_t		size;
 
-	(void)cmd;
+
+	base64.b64_url = (cmd == BASE64_URL) ? true : false;
 	entry = NULL;
 	ft_memset(&base64, 0, sizeof(base64));
-	base64.out_fd = STDOUT_FILENO;
+	base64.out = STDOUT_FILENO;
 	if (opt && opt->opts_flag & B64_DECODE_MASK)
 		base64.cipher_mode = DECODE;
 	if (opt && opt->flag_with_input)
@@ -125,11 +126,11 @@ int			cmd_base64(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 		ft_lstiter_with(opt->flag_with_input, &base64, define_input);
 		ft_lstiter_with(opt->flag_with_input, &base64, define_output);
 	}
-	if (base64.in_fd < 0 || base64.out_fd < 0)
+	if (base64.in < 0 || base64.out < 0)
 		return base64_end(base64, opt, CMD_ERROR, NULL);
 	if (!opt || !opt->end)
 	{
-		if (!(entry = (char*)read_cat(base64.in_fd, &size)))
+		if (!(entry = (char*)read_cat(base64.in, &size)))
 			return base64_end(base64, opt, CMD_ERROR, "Can't read input.");
 		base64_cipher(base64, entry);
 		ft_strdel(&entry);

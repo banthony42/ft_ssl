@@ -138,6 +138,21 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 		},
 		.opts_arg_len = 2,
 	},
+	[BASE64_URL] = {
+		.cmd = BASE64_URL,
+		.opts = BASE64_OPTS,
+		.opts_len = sizeof(BASE64_OPTS) -1,
+		.opts_with_arg = true,
+		.opts_arg[0] = {
+			.key = BASE64_INPUT_FILE_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[1] = {
+			.key = BASE64_OUTPUT_FILE_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg_len = 2,
+	},
 	[TEST] = {
 		.cmd = TEST,
 		.opts = TEST_OPTS,
@@ -162,7 +177,7 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 		.opts = "",
 		.opts_len = 0,
 		.opts_with_arg = false,
-		.opts_arg = {{0}},
+		.opts_arg = {{NULL, NULL}},
 		.opts_arg_len = 0,
 	}
 };
@@ -218,6 +233,12 @@ static const t_cmd g_ssl_cmd[NB_CMD] = {
 	[BASE64] = {
 		.name = "base64",
 		.len = sizeof("base64") - 1,
+		.func = cmd_base64,
+		.usage = usage_base64,
+	},
+	[BASE64_URL] = {
+		.name = "base64_url",
+		.len = sizeof("base64_url") - 1,
 		.func = cmd_base64,
 		.usage = usage_base64,
 	},
