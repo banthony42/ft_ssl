@@ -6,7 +6,7 @@
 #    By: banthony <banthony@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/08 12:54:17 by banthony          #+#    #+#              #
-#    Updated: 2019/09/06 15:52:08 by banthony         ###   ########.fr        #
+#    Updated: 2019/09/13 10:33:43 by abara            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -27,6 +27,7 @@ SRC_FILE += ssl_utils.c
 SRC_FILE += ssl_cmd_md5.c
 SRC_FILE += ssl_cmd_sha.c
 SRC_FILE += ssl_cmd_base64.c
+SRC_FILE += ssl_cmd_des.c
 SRC_FILE += ssl_cmd_man.c
 SRC_FILE += ssl_cmd_test.c
 SRC_FILE += bits_operations.c

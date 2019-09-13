@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 14:21:32 by abara             #+#    #+#             */
-/*   Updated: 2019/07/26 14:53:09 by abara            ###   ########.fr       */
+/*   Updated: 2019/09/13 12:16:31 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ void	base64_cipher(t_base64 b64, char *entry)
 		padding = 2;
 	else
 		padding = 0;
-	
+
 	ft_putnbrendl(entry_len);
 	int out_len = ( ( (entry_len * 8) + padding) / 6);
 	ft_putnbrendl(out_len);
 
 	if (!(output = ft_strnew(out_len)))
-		return ;	
+		return ;
 
 	ft_strncpy(output, entry, entry_len);
 
@@ -84,7 +84,7 @@ void	base64_cipher(t_base64 b64, char *entry)
 		ft_putnbrendl(block_reader.code_b);
 		ft_putnbrendl(block_reader.code_c);
 		ft_putnbrendl(block_reader.code_d);
-	
+
 		ft_putendl("============");
 
 		break;
