@@ -6,7 +6,7 @@
 /*   By: abara <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 16:20:23 by abara             #+#    #+#             */
-/*   Updated: 2019/07/19 18:12:28 by abara            ###   ########.fr       */
+/*   Updated: 2019/09/13 11:58:48 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,33 +125,64 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 	},
 	[BASE64] = {
 		.cmd = BASE64,
-		.opts = BASE64_OPTS,
-		.opts_len = sizeof(BASE64_OPTS) -1,
+		.opts = CIPHER_OPTION_MODE,
+		.opts_len = sizeof(CIPHER_OPTION_MODE) -1,
 		.opts_with_arg = true,
 		.opts_arg[0] = {
-			.key = BASE64_INPUT_FILE_KEY,
+			.key = CIPHER_INPUT_FILE_KEY,
 			.values = OPT_FROM_USER,
 		},
 		.opts_arg[1] = {
-			.key = BASE64_OUTPUT_FILE_KEY,
+			.key = CIPHER_OUTPUT_FILE_KEY,
 			.values = OPT_FROM_USER,
 		},
 		.opts_arg_len = 2,
 	},
 	[BASE64_URL] = {
 		.cmd = BASE64_URL,
-		.opts = BASE64_OPTS,
-		.opts_len = sizeof(BASE64_OPTS) -1,
+		.opts = CIPHER_OPTION_MODE,
+		.opts_len = sizeof(CIPHER_OPTION_MODE) -1,
 		.opts_with_arg = true,
 		.opts_arg[0] = {
-			.key = BASE64_INPUT_FILE_KEY,
+			.key = CIPHER_INPUT_FILE_KEY,
 			.values = OPT_FROM_USER,
 		},
 		.opts_arg[1] = {
-			.key = BASE64_OUTPUT_FILE_KEY,
+			.key = CIPHER_OUTPUT_FILE_KEY,
 			.values = OPT_FROM_USER,
 		},
 		.opts_arg_len = 2,
+	},
+	[DES] = {
+		.cmd = DES,
+		.opts = DES_OPTS,
+		.opts_len = sizeof(DES_OPTS) -1,
+		.opts_with_arg = true,
+		.opts_arg[0] = {
+			.key = CIPHER_INPUT_FILE_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[1] = {
+			.key = CIPHER_OUTPUT_FILE_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[2] = {
+			.key = DES_HEXAKEY_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[3] = {
+			.key = DES_PASS_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[4] = {
+			.key = DES_SALT_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[5] = {
+			.key = DES_INIT_VECTOR_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg_len = 6,
 	},
 	[TEST] = {
 		.cmd = TEST,
@@ -241,6 +272,12 @@ static const t_cmd g_ssl_cmd[NB_CMD] = {
 		.len = sizeof("base64_url") - 1,
 		.func = cmd_base64,
 		.usage = usage_base64,
+	},
+	[DES] = {
+		.name = "des",
+		.len = sizeof("des") - 1,
+		.func = cmd_des,
+		.usage = usage_des,
 	},
 	[TEST] = {
 		.name = "test",
