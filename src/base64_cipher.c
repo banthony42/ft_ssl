@@ -6,88 +6,193 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 14:21:32 by abara             #+#    #+#             */
-/*   Updated: 2019/09/13 12:16:31 by abara            ###   ########.fr       */
+/*   Updated: 2019/09/13 12:01:59 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cipher_commands.h"
 
+static const char g_base64_table[65] =
+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+static const char g_base64_url_table[65] =
+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+
 /*
-	  0 000000 A           17 010001 R           34 100010 i           51 110011 z
-      1 000001 B           18 010010 S           35 100011 j           52 110100 0
-      2 000010 C           19 010011 T           36 100100 k           53 110101 1
-      3 000011 D           20 010100 U           37 100101 l           54 110110 2
-      4 000100 E           21 010101 V           38 100110 m           55 110111 3
-      5 000101 F           22 010110 W           39 100111 n           56 111000 4
-      6 000110 G           23 010111 X           40 101000 o           57 111001 5
-      7 000111 H           24 011000 Y           41 101001 p           58 111010 6
-      8 001000 I           25 011001 Z           42 101010 q           59 111011 7
-      9 001001 J           26 011010 a           43 101011 r           60 111100 8
-     10 001010 K           27 011011 b           44 101100 s           61 111101 9
-     11 001011 L           28 011100 c           45 101101 t           62 111110 +
-     12 001100 M           29 011101 d           46 101110 u           63 111111 /
-     13 001101 N           30 011110 e           47 101111 v
-     14 001110 O           31 011111 f           48 110000 w        (complément) =
-     15 001111 P           32 100000 g           49 110001 x
-     16 010000 Q           33 100001 h           50 110010 y
+**	If padding == 4:
+**	At the end of the loop there is still 8bits unused, so
+**	we have added 4 bits set to zero, then we can read the 12 last bits.
+**
+**	If paddding == 2:
+**	At the end of the loop there is still 16bits unused, so
+**	we have added 2 bits set to zero, then we can read the 18 last bits.
 */
-void	base64_cipher(t_base64 b64, char *entry)
+
+static void	encode_b64_end(char pad, char *out, t_base64 b64, char table[65])
 {
-	char	*output;
-	int		entry_len;
-	int		padding;
+	if (pad == 4)
+	{
+		ft_putchar_fd(table[out[0] >> 2], b64.out);
+		ft_putchar_fd(table[((out[0] & 0x03) << 4) | out[1] >> 4], b64.out);
+		ft_putstr_fd("==", b64.out);
+	}
+	if (pad == 2)
+	{
+		ft_putchar_fd(table[out[0] >> 2], b64.out);
+		ft_putchar_fd(table[((out[0] & 0x03) << 4) | out[1] >> 4], b64.out);
+		ft_putchar_fd(table[((out[1] & 0xf) << 2) | out[2] >> 6], b64.out);
+		ft_putchar_fd('=', b64.out);
+	}
+}
+
+/*
+**	Parse entry by block of 3 char because : (3 * 8 bits = 24 bits)
+**	Read all the 24 bits by step of 6 bits.
+**	Use the value of this 6 bits for each step, as index
+**	in the base64_table / base64_url_table.
+**	This give us the cipher for the current block of 3 char.
+**	At the end read the last 12 bits or 18bits and put some '='.
+**
+**	Example with the entry "cou"
+**	Block of 3 octet, split into 4 field of 6 bits :
+**
+**	0b011000|11		'c'
+**	0b0110|1111		'o'
+**	0b01|110101		'u'
+**
+**	A block of 6 bits give us a number, use it in the base64 table:
+**
+**	00|011000	24	'Y'
+**	00|110110	54	'2'
+**	00|111101	61	'9'
+**	00|110101	53	'1'
+*/
+
+static void	encode_b64(char *entry, char padding, t_base64 b64, char table[65])
+{
+	char			*end;
+	char			*out;
+	unsigned char	buf[3];
+
+	out = entry;
+	end = entry + ft_strlen(entry);
+	while ((end - out) >= 3)
+	{
+		buf[0] = (unsigned char)out[0];
+		buf[1] = (unsigned char)out[1];
+		buf[2] = (unsigned char)out[2];
+		ft_putchar_fd(table[buf[0] >> 2], b64.out);
+		ft_putchar_fd(table[((buf[0] & 0x03) << 4) | buf[1] >> 4], b64.out);
+		ft_putchar_fd(table[((buf[1] & 0xf) << 2) | buf[2] >> 6], b64.out);
+		ft_putchar_fd(table[((buf[2] & 0x3f))], b64.out);
+		out += 3;
+	}
+	encode_b64_end(padding, out, b64, table);
+	ft_putchar_fd('\n', b64.out);
+}
+
+/*
+**	Return true if all character in the entry, are present in the base64 table.
+**	Return false otherwise.
+*/
+
+static t_bool	is_valid_ciphering(t_bool is_base64_url, char *entry)
+{
+	int			i;
+	int			len;
+	const char	*table;
+
+	if (entry == NULL)
+		return (false);
+	i = -1;
+	len = (int)ft_strlen(entry);
+	table = (is_base64_url == true) ? g_base64_url_table : g_base64_table;
+	if (table == NULL)
+		return false;
+	while (++i < len)
+	{
+		if (!ft_isalnum((int)entry[i]))
+		{
+			if (entry[i] == '=' || entry[i] == ' ' || entry[i] == '\n')
+				continue;
+			ft_putendl("Invalid character in input stream.");
+			return (true);
+		}
+	}
+	return (true);
+}
+
+/*
+**	Parse entry by block of 4 char because we are in decode mode:
+**	In base64, a ciphered char is coded on 6 bits.
+**	If we parse the entry by block of 4 ciphered char we have: 4 * 6 = 24 bits.
+**	Then we have to concat this bits and split it into 3 bytes: 3 * 8 = 24 bits.
+**	Finally we have our 3 deciphered char.
+**
+**	The deciphering works with a decode table.
+**	This decode table was built with the encode table using this tricks:
+**	decode_table[encode_table[i]] = i;
+**
+**	Example with i = 0 : where  encode_table[0] = 'A'
+**	decode_table[ 'A' ] = 0;
+**
+**	The tricks is to use ascii value of 'A' as index to store the value of 'A'.
+*/
+
+static void	decode_b64(char *entry, t_base64 b64, int b64_decode[255])
+{
+	size_t			i;
+	size_t			len;
+	t_decode_block	block;
+
+	if (!is_valid_ciphering(b64.b64_url, entry))
+		return ;
+	i = 0;
+	len = ft_strlen(entry);
+	ft_memset(&block, 0, sizeof(block));
+	while (i < len)
+	{
+		ft_strncat(block.char_array, &entry[i], 1);
+		if (ft_strlen(block.char_array) >= 4)
+		{
+			block.i_0 = b64_decode[(int)block.char_array[0]];
+			block.i_1 = b64_decode[(int)block.char_array[1]];
+			block.i_2 = b64_decode[(int)block.char_array[2]];
+			block.i_3 = b64_decode[(int)block.char_array[3]];
+			ft_putchar_fd((char)((block.i_0 << 2) | block.i_1 >> 4), b64.out);
+			ft_putchar_fd((char)((block.i_1 << 4) | block.i_2 >> 2), b64.out);
+			ft_putchar_fd((char)((block.i_2 << 6) | block.i_3), b64.out);
+			ft_memset(block.char_array, 0, 4);
+		}
+		i++;
+	}
+}
+
+void		base64_cipher(t_base64 b64, char *entry)
+{
+	char			padding;
+	char			table[65];
+	int				b64_decode[255];
+	int				j;
 
 	if (!entry)
 		return ;
-
-	// If file input and entry are both present,
-	// determine which data will be ciphered.
-	ft_putendl_fd(entry, b64.out_fd);
-
-	entry_len = ft_strlen(entry);
-	if ((padding = (entry_len * 8) % 24) == 8)
-		padding = 4;
-	else if (padding == 16)
-		padding = 2;
-	else
-		padding = 0;
-
-	ft_putnbrendl(entry_len);
-	int out_len = ( ( (entry_len * 8) + padding) / 6);
-	ft_putnbrendl(out_len);
-
-	if (!(output = ft_strnew(out_len)))
-		return ;
-
-	ft_strncpy(output, entry, entry_len);
-
-	ft_print_memory(output, out_len);
-
-	int i = 0;
-	t_block block_reader;
-	ft_putendl("============");
-	while (i < out_len)
+	(b64.b64_url == true) ? ft_strncpy(table, g_base64_url_table, 65)
+		: ft_strncpy(table, g_base64_table, 65);
+	if (b64.cipher_mode == CIPHER_ENCODE)
 	{
-		ft_memcpy(&block_reader.block, &output[0], 3);
-		// block_reader.block_1 = (unsigned char)output[i];
-		// block_reader.block_2 = (unsigned char)output[i + 1];
-		// block_reader.block_3 = (unsigned char)output[i + 2];
-
-		unsigned char test;
-		ft_memcpy(&test, &output[0], 1);
-		ft_putnbrendl(test >> 2);
-		ft_putnbrendl(test & CODE_MASK);
-		ft_putnbrendl(test);
-		ft_putendl("============");
-
-		ft_putnbrendl(block_reader.code_a);
-		ft_putnbrendl(block_reader.code_b);
-		ft_putnbrendl(block_reader.code_c);
-		ft_putnbrendl(block_reader.code_d);
-
-		ft_putendl("============");
-
-		break;
+		if ((padding = (ft_strlen(entry) * 8) % 24) == 8)
+			padding = 4;
+		else
+			padding = (padding == 16) ? (2) : (0);
+		encode_b64(entry, padding, b64, table);
 	}
-	ft_strdel(&output);
+	else if (b64.cipher_mode == CIPHER_DECODE)
+	{
+		j = -1;
+		ft_memset(b64_decode, 0, sizeof(b64_decode));
+		while (++j < (int)sizeof(table))
+			b64_decode[(int)table[j]] = j;
+		decode_b64(entry, b64, b64_decode);
+	}
 }
