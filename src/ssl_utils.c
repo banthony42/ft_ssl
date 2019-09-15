@@ -6,11 +6,33 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 19:54:21 by banthony          #+#    #+#             */
-/*   Updated: 2019/07/19 11:51:32 by abara            ###   ########.fr       */
+/*   Updated: 2019/09/15 12:07:40 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
+
+int open_file(const char *file, int flags, char *error)
+{
+	int fd;
+
+	if ((fd = open(file, flags, S_IRWXU)) < 0)
+		ft_putendl(error);
+	return fd;
+}
+
+/*
+**	Iteration on t_list while function return true.
+*/
+void		ft_lstiter_while_true(t_list *lst, void *data, t_list_condition condition)
+{
+	while (lst != NULL)
+	{
+		if (condition(lst, data) == false)
+			break;
+		lst = lst->next;
+	}
+}
 
 void		free_cmd_opt(void *opt, size_t opt_size)
 {

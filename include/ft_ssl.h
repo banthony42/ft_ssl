@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/09/13 11:57:52 by abara            ###   ########.fr       */
+/*   Updated: 2019/09/15 12:08:00 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,8 @@ typedef struct	s_cmd
 	t_cmd_usage	usage;
 }				t_cmd;
 
+typedef t_bool	(*t_list_condition)(t_list *elem, void *data);
+
 /*
 **	General
 */
@@ -190,6 +192,8 @@ typedef struct	s_cmd
 unsigned char	*read_cat(int fd, size_t *size);
 unsigned char	*read_file(char *path, size_t *size);
 int				find_key(char **av, int ac, char *key);
+int 			open_file(const char *file, int flags, char *error);
+void			ft_lstiter_while_true(t_list *lst, void *data, t_list_condition condition);
 void			free_cmd_opt(void *opt, size_t opt_size);
 void			encode64_lendian(size_t size, char *octet);
 void			encode64_bendian(size_t size, char *octet);

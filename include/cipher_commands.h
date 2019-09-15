@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 12:40:36 by abara             #+#    #+#             */
-/*   Updated: 2019/09/13 11:07:05 by abara            ###   ########.fr       */
+/*   Updated: 2019/09/15 18:32:27 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CIPHER_COMMANDS_H
 
 # include "ft_ssl.h"
+# include <pwd.h>
 
 /*
 **	Definit si un algorithme de chiffrage doit decoder ou encoder.
@@ -70,10 +71,34 @@ void				base64_cipher(t_base64 b64, char *entry);
 **	************************ DES FAMILY ************************
 */
 
-# define DES_OPTS "-a;-d;-e"
+# define DES_OPTS "-d;-e;-a"
+
+# define DES_B64_MASK 1 << 2
+
 # define DES_HEXAKEY_KEY "-k"
 # define DES_PASS_KEY "-p"
 # define DES_SALT_KEY "-s"
 # define DES_INIT_VECTOR_KEY "-v"
+
+# define SALT_LENGTH 16
+
+typedef enum		e_des_mode
+{
+	ECB,
+	CBC,
+	PCBC,
+}					t_des_mode;
+
+typedef struct		s_des
+{
+	t_cipher_mode	cipher_mode;
+	t_des_mode		des_mode;
+	char			*hexa_key;
+	char			*passwd;
+	char			salt[SALT_LENGTH];
+	char			*i_vector;
+	int				in;
+	int				out;
+}					t_des;
 
 #endif

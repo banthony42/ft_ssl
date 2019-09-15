@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 13:06:48 by abara             #+#    #+#             */
-/*   Updated: 2019/09/13 12:01:20 by abara            ###   ########.fr       */
+/*   Updated: 2019/09/15 12:07:27 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,28 +48,6 @@ static int			base64_end(t_base64 b64, t_cmd_opt *opt, int error, char *mess)
 	return (error);
 }
 
-/*
-**	Iteration on t_list while function return true.
-*/
-static void	ft_lstiter_with(t_list *lst, void *data, t_bool (*f)(t_list *elem, void *data))
-{
-	while (lst != NULL)
-	{
-		if (f(lst, data) == false)
-			break;
-		lst = lst->next;
-	}
-}
-
-static int open_file(const char *file, int flags, char *error)
-{
-	int fd;
-
-	if ((fd = open(file, flags, S_IRWXU)) < 0)
-		ft_putendl(error);
-	return fd;
-}
-
 static t_bool		define_input(t_list *flag_input, void *base64_data)
 {
 	t_base64	*b64;
@@ -94,16 +72,16 @@ static t_bool		define_output(t_list *flag_input, void *base64_data)
 	t_opt_arg	*flag;
 
 	if (!flag_input || !base64_data)
-		return false;
+		return (false);
 	b64 = (t_base64*)base64_data;
 	flag = (t_opt_arg*)flag_input->content;
 	if (!flag->key || !flag->values || b64->in < 0)
-		return false;
+		return (false);
 	if (!ft_strcmp(flag->key, CIPHER_OUTPUT_FILE_KEY))
 		b64->out = open_file(flag->values, O_CREAT | O_EXCL | O_RDWR, "File already exist");
 	if (b64->out < 0)
-		return false;
-	return true;
+		return (false);
+	return (true);
 }
 
 int			cmd_base64(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
@@ -123,8 +101,8 @@ int			cmd_base64(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 	{
 		if (opt->end > 0 && (ac - 1) > opt->end)
 			return base64_end(base64, opt, CMD_ERROR, "base64 command take only one argument.");
-		ft_lstiter_with(opt->flag_with_input, &base64, define_input);
-		ft_lstiter_with(opt->flag_with_input, &base64, define_output);
+		ft_lstiter_while_true(opt->flag_with_input, &base64, define_input);
+		ft_lstiter_while_true(opt->flag_with_input, &base64, define_output);
 	}
 	if (base64.in < 0 || base64.out < 0)
 		return base64_end(base64, opt, CMD_ERROR, NULL);
