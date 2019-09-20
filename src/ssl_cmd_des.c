@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 13:14:26 by abara             #+#    #+#             */
-/*   Updated: 2019/09/20 11:46:33 by banthony         ###   ########.fr       */
+/*   Updated: 2019/09/20 19:44:41 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,55 @@
 **
 */
 
+static int g_keyp[56]=
+	{   57,49,41,33,25,17,9,
+		1,58,50,42,34,26,18,
+		10,2,59,51,43,35,27,
+		19,11,3,60,52,44,36,
+		63,55,47,39,31,23,15,
+		7,62,54,46,38,30,22,
+		14,6,61,53,45,37,29,
+		21,13,5,28,20,12,4
+};
+
+// 11111111111
+// 11111011111
+// -----------
+// 00000100000
+//
+
+static uint64_t permute(uint64_t data, int *matrix, int size)
+{
+	int i;
+	uint64_t permuted_data;
+	char bit_value;
+
+	ft_putendl("==== DATA ====");
+	ft_print_memory(&data, sizeof(uint64_t));
+	permuted_data = 0;
+	i = -1;
+	while (++i < size)
+	{
+		bit_value = data & (1UL << (matrix[i] - 1));
+		if (bit_value != 0)
+			permuted_data &= ~(1UL << i);
+		else
+			permuted_data |= (1UL << i);
+	}
+	ft_putendl("==== PERMUTED DATA ====");
+	ft_print_memory(&permuted_data, sizeof(uint64_t));
+	printf("INITIAL:%llu" "VALUE:%llu" "\n", (unsigned long long) data,
+		   (unsigned long long)permuted_data);
+	return (permuted_data);
+}
+
 static void des_cipher(t_des des, t_cmd_type cmd, char *entry)
 {
 	(void)des;
+	(void)cmd;
 	ft_putstrcol("\nENTRY:", SH_RED);
 	ft_putendl(entry);
+	permute(9, g_keyp, 56);
 }
 
 int			usage_des(char *exe, char *cmd_name)
@@ -180,21 +224,22 @@ static t_bool	create_key(t_des *des)
 	ft_putstr("iv =\t");
 	ft_putendl(des->i_vector);
 	ft_strdel(&entry);
+	ft_strdel(&result);
 	return (true);
 }
 
 // Use getpassphrase instead. (getpass not secure)
 static t_bool	get_pass(t_des *des)
 {
-	char	user_passwd[_PASSWORD_LEN];
-	char	check_passwd[_PASSWORD_LEN];
+	char	user_passwd[PASSWORD_MAX];
+	char	check_passwd[PASSWORD_MAX];
 
 	if (!des->passwd)
 	{
-		ft_memset(user_passwd, 0, _PASSWORD_LEN);
-		ft_memset(check_passwd, 0, _PASSWORD_LEN);
-		ft_strncpy(user_passwd, getpass("Enter decryption password:"), _PASSWORD_LEN);
-		ft_strncpy(check_passwd, getpass("Verifying - Enter decryption password:"), _PASSWORD_LEN);
+		ft_memset(user_passwd, 0, PASSWORD_MAX);
+		ft_memset(check_passwd, 0, PASSWORD_MAX);
+		ft_strncpy(user_passwd, getpass("Enter decryption password:"), PASSWORD_MAX);
+		ft_strncpy(check_passwd, getpass("Verifying - Enter decryption password:"), PASSWORD_MAX);
 		if (ft_strcmp(user_passwd, check_passwd))
 		{
 			ft_putendl("Verify failure\nbad password read");
@@ -218,6 +263,12 @@ static int			des_end(t_des des, t_cmd_opt *opt, int error, char *mess)
 		ft_close(des.in);
 	if (des.out != STDOUT_FILENO && des.out > 0)
 		ft_close(des.out);
+	if (des.hexa_key != NULL)
+		ft_strdel(&des.hexa_key);
+	if (des.passwd != NULL)
+		ft_strdel(&des.passwd);
+	if (des.i_vector != NULL)
+		ft_strdel(&des.i_vector);
 	return (error);
 }
 
@@ -245,10 +296,10 @@ int			cmd_des(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 	{
 		if (!(entry = (char*)read_cat(des.in, &size)))
 			return des_end(des, opt, CMD_ERROR, "Can't read input.");
-		des_cipher(des, entry);
+		des_cipher(des, cmd, entry);
 		ft_strdel(&entry);
 		return des_end(des, opt, CMD_SUCCESS, NULL);
 	}
-	des_cipher(des, av[opt->end]);
+	des_cipher(des, cmd, av[opt->end]);
 	return des_end(des, opt, CMD_SUCCESS, NULL);
 }

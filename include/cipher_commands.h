@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 12:40:36 by abara             #+#    #+#             */
-/*   Updated: 2019/09/20 13:00:06 by banthony         ###   ########.fr       */
+/*   Updated: 2019/09/20 17:34:04 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 
 # include "ft_ssl.h"
 # include <pwd.h>
+
+# ifdef __linux__
+# include <limits.h>
+# include <stdint.h>
+# define PASSWORD_MAX _SC_PASS_MAX
+
+# elif __APPLE__
+# define PASSWORD_MAX _PASSWORD_LEN
+
+# endif
 
 /*
 **	Definit si un algorithme de chiffrage doit decoder ou encoder.
@@ -104,13 +114,3 @@ typedef struct		s_des
 }					t_des;
 
 #endif
-
-
-
-
-
-
-
-
-
-
