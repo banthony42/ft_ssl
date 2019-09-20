@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 12:40:36 by abara             #+#    #+#             */
-/*   Updated: 2019/09/15 18:32:27 by banthony         ###   ########.fr       */
+/*   Updated: 2019/09/20 13:00:06 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,9 @@ typedef enum		e_des_mode
 typedef struct		s_des
 {
 	t_cipher_mode	cipher_mode;
-	t_des_mode		des_mode;
+	t_des_mode		des_mode;	// unused ?
+	t_bool			use_b64;
+	char			padd[4];
 	char			*hexa_key;
 	char			*passwd;
 	char			salt[SALT_LENGTH];
@@ -102,3 +104,13 @@ typedef struct		s_des
 }					t_des;
 
 #endif
+
+
+
+
+
+
+
+
+
+

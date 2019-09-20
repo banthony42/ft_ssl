@@ -6,7 +6,7 @@
 /*   By: abara <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 16:20:23 by abara             #+#    #+#             */
-/*   Updated: 2019/09/13 11:58:48 by abara            ###   ########.fr       */
+/*   Updated: 2019/09/20 11:23:41 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,6 +184,68 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 		},
 		.opts_arg_len = 6,
 	},
+	[DES_ECB] = {
+		.cmd = DES_ECB,
+		.opts = DES_OPTS,
+		.opts_len = sizeof(DES_OPTS) -1,
+		.opts_with_arg = true,
+		.opts_arg[0] = {
+			.key = CIPHER_INPUT_FILE_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[1] = {
+			.key = CIPHER_OUTPUT_FILE_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[2] = {
+			.key = DES_HEXAKEY_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[3] = {
+			.key = DES_PASS_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[4] = {
+			.key = DES_SALT_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[5] = {
+			.key = DES_INIT_VECTOR_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg_len = 6,
+	},
+	[DES_CBC] = {
+		.cmd = DES_CBC,
+		.opts = DES_OPTS,
+		.opts_len = sizeof(DES_OPTS) -1,
+		.opts_with_arg = true,
+		.opts_arg[0] = {
+			.key = CIPHER_INPUT_FILE_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[1] = {
+			.key = CIPHER_OUTPUT_FILE_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[2] = {
+			.key = DES_HEXAKEY_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[3] = {
+			.key = DES_PASS_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[4] = {
+			.key = DES_SALT_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[5] = {
+			.key = DES_INIT_VECTOR_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg_len = 6,
+	},
 	[TEST] = {
 		.cmd = TEST,
 		.opts = TEST_OPTS,
@@ -276,6 +338,18 @@ static const t_cmd g_ssl_cmd[NB_CMD] = {
 	[DES] = {
 		.name = "des",
 		.len = sizeof("des") - 1,
+		.func = cmd_des,
+		.usage = usage_des,
+	},
+	[DES_ECB] = {
+		.name = "des-ecb",
+		.len = sizeof("des-ecb") - 1,
+		.func = cmd_des,
+		.usage = usage_des,
+	},
+	[DES_CBC] = {
+		.name = "des-cbc",
+		.len = sizeof("des-cbc") - 1,
 		.func = cmd_des,
 		.usage = usage_des,
 	},

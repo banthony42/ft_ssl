@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/09/15 12:08:00 by banthony         ###   ########.fr       */
+/*   Updated: 2019/09/20 11:18:52 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,8 @@ typedef enum	e_cmd_type
 	BASE64,
 	BASE64_URL,
 	DES,
+	DES_ECB,
+	DES_CBC,
 	MAN,
 	TEST,
 	NB_CMD,

@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 13:14:26 by abara             #+#    #+#             */
-/*   Updated: 2019/09/15 19:11:11 by banthony         ###   ########.fr       */
+/*   Updated: 2019/09/20 11:46:33 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,13 @@
 **	4 - If iv is missing (-v), create it using 8 last bytes if md5(password + salt)
 **
 */
+
+static void des_cipher(t_des des, t_cmd_type cmd, char *entry)
+{
+	(void)des;
+	ft_putstrcol("\nENTRY:", SH_RED);
+	ft_putendl(entry);
+}
 
 int			usage_des(char *exe, char *cmd_name)
 {
@@ -166,11 +173,11 @@ static t_bool	create_key(t_des *des)
 	ft_print_memory(result, 32);
 	if (!des->i_vector)
 		des->i_vector = ft_strsub(result, 24, 32);
-	ft_putstr("salt=");
+	ft_putstr("\nsalt =\t");
 	ft_putendl(des->salt);
-	ft_putstr("key=");
+	ft_putstr("key =\t");
 	ft_putendl(des->hexa_key);
-	ft_putstr("iv=");
+	ft_putstr("iv =\t");
 	ft_putendl(des->i_vector);
 	ft_strdel(&entry);
 	return (true);
@@ -201,21 +208,47 @@ static t_bool	get_pass(t_des *des)
 	return (true);
 }
 
+static int			des_end(t_des des, t_cmd_opt *opt, int error, char *mess)
+{
+	if (mess)
+		ft_putendl(mess);
+	if (opt)
+		ft_lstdel(&opt->flag_with_input, free_cmd_opt);
+	if (des.in != STDIN_FILENO && des.in > 0)
+		ft_close(des.in);
+	if (des.out != STDOUT_FILENO && des.out > 0)
+		ft_close(des.out);
+	return (error);
+}
+
 int			cmd_des(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 {
 	t_des	des;
+	size_t	size;
+	char	*entry;
 
-	(void)cmd;
 	(void)ac;
-	(void)av;
+	entry = NULL;
 	ft_memset(&des, 0, sizeof(des));
 	des.out = STDOUT_FILENO;
+	if (opt && opt->opts_flag & CIPHER_DECODE_MASK)
+		des.cipher_mode = CIPHER_DECODE;
+	if (opt && opt->opts_flag & DES_B64_MASK)
+		des.use_b64 = true;
 	if (opt && opt->flag_with_input)
-	{
 		ft_lstiter_while_true(opt->flag_with_input, &des, parse_input);
-		ft_lstdel(&opt->flag_with_input, free_cmd_opt);
-	}
+	if (des.in < 0 || des.out < 0)
+		return des_end(des, opt, CMD_ERROR, NULL);
 	if (!des.hexa_key && !get_pass(&des))
 		return (CMD_ERROR);
-	return (CMD_SUCCESS);
+	if (!opt || !opt->end)
+	{
+		if (!(entry = (char*)read_cat(des.in, &size)))
+			return des_end(des, opt, CMD_ERROR, "Can't read input.");
+		des_cipher(des, entry);
+		ft_strdel(&entry);
+		return des_end(des, opt, CMD_SUCCESS, NULL);
+	}
+	des_cipher(des, av[opt->end]);
+	return des_end(des, opt, CMD_SUCCESS, NULL);
 }
