@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 12:40:36 by abara             #+#    #+#             */
-/*   Updated: 2019/09/20 17:34:04 by abara            ###   ########.fr       */
+/*   Updated: 2019/10/11 15:32:14 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,7 @@ typedef struct		s_des
 	int				in;
 	int				out;
 }					t_des;
+
+void            apply_sbox(uint64_t ext, uint32_t *sbox);
 
 #endif

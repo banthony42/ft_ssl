@@ -21,11 +21,11 @@
 
 MD5_META="openssl md5,./ft_ssl md5"
 MD4_META="openssl md4,./ft_ssl md4"
-SHA256_META="openssl sha -sha256,./ft_ssl sha256"
-SHA1_META="openssl sha -sha1,./ft_ssl sha1"
-SHA224_META="openssl sha -sha224,./ft_ssl sha224"
-SHA384_META="openssl sha -sha384,./ft_ssl sha384"
-SHA512_META="openssl sha -sha512,./ft_ssl sha512"
+SHA256_META="openssl sha256,./ft_ssl sha256"
+SHA1_META="openssl sha1,./ft_ssl sha1"
+SHA224_META="openssl sha224,./ft_ssl sha224"
+SHA384_META="openssl sha384,./ft_ssl sha384"
+SHA512_META="openssl sha512,./ft_ssl sha512"
 SHA512_224_META="shasum -a 512_224,./ft_ssl sha512_224"
 SHA512_256_META="shasum -a 512_256,./ft_ssl sha512_256"
 
@@ -35,8 +35,8 @@ BASE64_URL="base64 | tr '+/' '-_', tr -- '-_' '+/' | base64 -D,./ft_ssl base64_u
 
 # FIXME you can change this if you don't handle such features
 
-HASH_META="${MD5_META};${MD4_META};${SHA256_META};${SHA1_META};${SHA224_META};${SHA384_META};${SHA512_META};${SHA512_224_META};${SHA512_256_META};"
-MODES_META="des-ecb;des-cbc;des-cfb;des-ofb;"
+HASH_META="${MD5_META};${SHA256_META};${SHA224_META};${SHA384_META};${SHA512_META};${SHA512_224_META};${SHA512_256_META};"
+MODES_META="des-ecb;" ##"des-cbc;des-cfb;des-ofb;"
 BASE64_META="${BASE64};${BASE64_URL};"
 
 # FIXME you can change the default values of nb_keys and nb_ivs
@@ -220,6 +220,12 @@ _check_des()
 	else
 		diff ${ENC_OUT_REAL} ${ENC_OUT_MINE}
 		diff ${DEC_OUT_REAL} ${DEC_OUT_MINE}
+		echo "==========COMMANDS==========="
+		echo "$3"
+		echo "$5"
+		echo "==========ON THIS CONTENT==========="
+		echo "$1"
+		echo "====================="
 		compt_reset
 		printf "Failed on : %s\\n" "${INPUT}"
 		exit 1

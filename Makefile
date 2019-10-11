@@ -6,7 +6,7 @@
 #    By: banthony <banthony@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/08 12:54:17 by banthony          #+#    #+#              #
-#    Updated: 2019/09/13 10:33:43 by abara            ###   ########.fr        #
+#    Updated: 2019/10/11 15:31:46 by banthony         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -41,6 +41,8 @@ SRC_FILE += sha_digest_64.c
 SRC_FILE += sha_function_32.c
 SRC_FILE += sha_function_64.c
 SRC_FILE += base64_cipher.c
+
+SRC_FILE += apply_sbox.c
 
 SRC = $(SRC_FILE:%c=$(PATH_SRC)%c)
 INCLUDE = $(HEADER_FILE:%h=$(PATH_HEAD)%h)
