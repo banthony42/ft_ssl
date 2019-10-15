@@ -1,6 +1,7 @@
 #Custom
 libft
 .DS_Store
+.vscode
 
 # Prerequisites
 *.d

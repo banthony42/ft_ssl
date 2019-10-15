@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 12:40:36 by abara             #+#    #+#             */
-/*   Updated: 2019/10/11 15:32:14 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/15 10:36:41 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 # define PASSWORD_MAX _PASSWORD_LEN
 
 # endif
+
+
+# define FIRST_BIT_64   0x8000000000000000
 
 /*
 **	Definit si un algorithme de chiffrage doit decoder ou encoder.

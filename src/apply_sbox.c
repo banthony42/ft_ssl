@@ -6,13 +6,11 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 15:48:10 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/11 15:48:24 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/15 10:36:31 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cipher_commands.h"
-
-# define FIRST_BIT_64   0x8000000000000000
 
 static const uint8_t g_sbox[8][4][16] = {{
 		{0xE, 0x4, 0xD, 0x1, 0x2, 0xF, 0xB, 0x8,
