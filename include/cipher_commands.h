@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 12:40:36 by abara             #+#    #+#             */
-/*   Updated: 2019/10/15 10:36:41 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/16 15:49:11 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,11 @@ typedef struct		s_des
 	int				out;
 }					t_des;
 
+// bit permutation
+uint64_t		permute(uint64_t data, const uint8_t *matrix, size_t size);
+
 void            apply_sbox(uint64_t ext, uint32_t *sbox);
+t_bool			get_pass(t_des *des);
+void			des_subkey_generation(uint64_t key, uint64_t (*subkey)[16]);
 
 #endif
