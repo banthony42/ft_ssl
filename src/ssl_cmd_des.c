@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 13:14:26 by abara             #+#    #+#             */
-/*   Updated: 2019/10/15 16:53:50 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/16 14:07:17 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -254,7 +254,7 @@ static void encryption_round(uint32_t *l_block, uint32_t *r_block, uint64_t subk
 	i = -1;
 	while (++i < 16)
 	{
-		ft_putendl("========= SLICE ==========");
+//		ft_putendl("========= SLICE ==========");
 //		ft_print_memory(l_block, sizeof(uint32_t));
 //		ft_print_memory(r_block, sizeof(uint32_t));
 
@@ -263,8 +263,8 @@ static void encryption_round(uint32_t *l_block, uint32_t *r_block, uint64_t subk
 		uint64_t right = *r_block;
 		uint64_t tmp = permute(right << 32, expansion, 48);
 		tmp = tmp >> 16;
-		ft_putendlcol(SH_GREEN, "=========RIGHT PERMUTE==========");
-		ft_print_memory(&tmp, sizeof(uint64_t));
+//		ft_putendlcol(SH_GREEN, "=========RIGHT PERMUTE==========");
+//		ft_print_memory(&tmp, sizeof(uint64_t));
 
 		// XOR the result with the sub key corresponding to this round number
 		xored_data = tmp ^ (subkey[i] >> 16);
@@ -280,7 +280,7 @@ static void encryption_round(uint32_t *l_block, uint32_t *r_block, uint64_t subk
 		*l_block = *r_block;
 		*r_block = sbox_result;
 
-		ft_putendlcol(SH_GREEN, "=============================");
+//		ft_putendlcol(SH_GREEN, "=============================");
 	}
 }
 
@@ -311,17 +311,16 @@ static void des_encrypt(uint8_t *plain_text, uint64_t subkey[16])
 	ft_memset(block, 0, 9);
 	ft_memcpy(block, plain_text, 8);
 	data  = convert_8_to_64((uint8_t*)block);
-
-//	if (!data)
-//		return ;
+//	ft_memcpy(&data, plain_text, 8);
+//	data = swap_uint64(data);
 
 	// Initial permutation
-	ft_putendlcol(SH_YELLOW, "INITIAL PERMUTATION");
-	ft_putendl("==== BEFORE ====");
-	ft_print_memory(&data, sizeof(uint64_t));
+//	ft_putendlcol(SH_YELLOW, "INITIAL PERMUTATION");
+//	ft_putendl("==== BEFORE ====");
+//	ft_print_memory(&data, sizeof(uint64_t));
 	data = permute(data, initial_perm, 64);
-	ft_putendl("==== AFTER ====");
-	ft_print_memory(&data, sizeof(uint64_t));
+//	ft_putendl("==== AFTER ====");
+//	ft_print_memory(&data, sizeof(uint64_t));
 
 	// Block splitting
 	uint32_t l_block = data >> 32;
@@ -347,8 +346,9 @@ static void des_encrypt(uint8_t *plain_text, uint64_t subkey[16])
 //	ft_putendlcol(SH_YELLOW, "FINAL PERMUTATION");
 	data = permute(data, final_perm, 64);
 
-	ft_putendlcol(SH_YELLOW, "=========END OF BLOCK==========");
-	ft_print_memory(&data, sizeof(uint64_t));
+//	ft_putendlcol(SH_YELLOW, "=========END OF BLOCK==========");
+//	ft_print_memory(&data, sizeof(uint64_t));
+	data = swap_uint64(data);
 	ft_memcpy(plain_text, &data, 8);
 //	ft_putendlcol(SH_BLUE, "====== end for this block ======\n");
 }
@@ -375,22 +375,6 @@ static const int shift_table[16]=
 	64,
 };*/
 
-static const int key_right[28] =
-{
-	0, 1, 2, 3, 4, 5, 6, 7,
-	8, 9, 10, 11, 12, 13, 14,
-	15, 16, 17, 18, 19, 20, 21,
-	22, 23, 24, 25, 26, 27,
-};
-
-static const int key_left[28] =
-{
-	28, 29, 30, 31, 32, 33, 34, 35,
-	36, 37, 38, 39, 40, 41, 42,
-	43, 44, 45, 46, 47, 48, 49,
-	50, 51, 52, 53, 54, 55,
-};
-
 # define FIRST_BIT_32   0x80000000
 
 static void        rotate_left_28(uint32_t *ptr, int shift)
@@ -413,20 +397,10 @@ static void des_subkey_generation(uint64_t key, uint64_t (*subkey)[16])
 	uint32_t	r_block = 0;
 	uint64_t	block_cat = 0;
 
-	(void)key_right;
-	(void)key_left;
-	(void)key_comp;
-	(void)g_keyp;
-
-//	ft_putendlcol(SH_GREEN, "SUB KEY DEBUG");
-//	ft_print_memory(&key, sizeof(uint64_t));
-
 	uint64_t keys = key >> 8;
 
 	r_block = (((1u << 28) - 1)) & keys;
 	l_block = ( (((1u << 28) - 1)) & (keys >> 28));
-//	ft_print_memory(&r_block, sizeof(uint32_t));
-//	ft_print_memory(&l_block, sizeof(uint32_t));
 
 	i = -1;
 	while (++i < 16)
@@ -434,23 +408,14 @@ static void des_subkey_generation(uint64_t key, uint64_t (*subkey)[16])
 		rotate_left_28(&l_block, shift_table[i]);
 		rotate_left_28(&r_block, shift_table[i]);
 
-//		ft_putendl("===SUBKEY ROTATE:====");
-//		ft_print_memory(&r_block, sizeof(uint32_t));
-//		ft_print_memory(&l_block, sizeof(uint32_t));
-
 		block_cat = ( (((1u << 28) - 1)) & r_block);
 		block_cat |= ( (((1u << 28) - 1)) & (uint64_t)l_block) << 28;
 		block_cat = block_cat << 8;
-//		ft_putendl("===CONCAT:");
-//		ft_print_memory(&block_cat, sizeof(uint64_t));
 
 		uint64_t tmpkey = permute(block_cat, key_comp, 48);
 		(*subkey)[i] = tmpkey;
-//		ft_putendl("===PERMUTE:");
-//		ft_print_memory(&tmpkey, sizeof(uint64_t));
+
 	}
-	(void)key;
-	(void)subkey;
 }
 
 static const char g_convert[16] = {
@@ -458,7 +423,7 @@ static const char g_convert[16] = {
 	0x8, 0x9, 0xA, 0xB, 0xC, 0xD, 0xE, 0xF
 };
 
-static void                convert_des(char *str, uint64_t *key)
+static void                hexastring_to_uint64(char *str, uint64_t *key)
 {
 	char            c;
 	size_t            i;
@@ -491,28 +456,21 @@ static void des_cipher(t_des des, t_cmd_type cmd, char *entry)
 	size_t		len;
 	uint8_t		*cipher;
 
-	convert_des(des.hexa_key, &key);
-//	key = 0x133457799BBCDFF1;
+	hexastring_to_uint64(des.hexa_key, &key);
 
-
-//	print_bits(key, 64);
-//	printf("%llx", key);
-
-	// Building cipher variable
+	// Building cipher variable & padding
 	len = ft_strlen(entry);
 	padd = 8 - (len % 8);
 	cipher = (uint8_t*)ft_memalloc(len + padd);
-	ft_memset(cipher, 0, len);
 	ft_memcpy(cipher, entry, len);
-//	printf("ENTRY:%s - ENTRY_LEN:%zu\nDATA:%s - PADD:%zu - DATA_LEN:%zu\n\n",
-//		   entry, len, cipher, padd, len + padd);
+	ft_memset(cipher + len, (int)padd, padd);
+//	ft_putendlcol(SH_YELLOW, "====ENTRY:====");
+//	ft_putnbrendl((int)len);
+//	ft_putnbrendl((int)padd);
+//	ft_print_memory(cipher, len + padd);
 
 	// Key permutation, keep 56 bits
-	ft_print_memory(&key, sizeof(uint64_t));
-	ft_putendlcol(SH_YELLOW, "\nKEY PERMUTATION");
 	key = permute(key, g_keyp, 56);
-	ft_print_memory(&key, sizeof(uint64_t));
-//	print_bits(key, 16);
 
 	// Sub key computing
 	uint64_t subkey[16];
@@ -521,19 +479,14 @@ static void des_cipher(t_des des, t_cmd_type cmd, char *entry)
 	size_t i;
 	i = 0;
 	len += padd;
-//	ft_putendlcol(SH_YELLOW, "\n====== ENCRYPT ROUTINE ======\n");
 	while (i < len)
 	{
 		des_encrypt(&cipher[i], subkey);
 		i += 8;
 	}
 
-//	ft_putendlcol(SH_YELLOW, "====== ENCRYPTION DONE ======");
-//	ft_putstrcol(SH_GREEN, "RESULT:");
-	write(1, "Salted__", 8);
-	write(1, des.salt, 8);
 	write(1, cipher, len);
-//	write(1, "\n", 1);
+
 	// Free
 	ft_memdel((void**)&cipher);
 }
@@ -635,15 +588,8 @@ static t_bool	create_key(t_des *des)
 		return (false);
 	}
 	des->hexa_key = ft_strsub(result, 0, 8);
-//	ft_print_memory(result, 32);
 	if (!des->i_vector)
 		des->i_vector = ft_strsub(result, 24, 32);
-//	ft_putstr("\nsalt =\t");
-//	ft_putendl(des->salt);
-//	ft_putstr("key =\t");
-//	ft_putendl(des->hexa_key);
-//	ft_putstr("iv =\t");
-//	ft_putendl(des->i_vector);
 	ft_strdel(&entry);
 	ft_strdel(&result);
 	return (true);
