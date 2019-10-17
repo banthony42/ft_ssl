@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 13:14:26 by abara             #+#    #+#             */
-/*   Updated: 2019/10/16 18:56:31 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/17 13:31:46 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,26 +191,37 @@ static void decryption_round(uint32_t *l_block, uint32_t *r_block, uint64_t subk
 	i = 15;
 	while (i >= 0)
 	{
+		right = *r_block;
 		exp = permute(right << 32, expansion, 48);
 		exp = exp >> 16;
-        ft_putendl("=== exp ===");
-		ft_print_memory(&exp, sizeof(uint64_t));
+        //ft_putendl("=== exp ===");
+		//ft_print_memory(&exp, sizeof(uint64_t));
 		xored_data = exp ^ (subkey[i] >> 16);
 
-        ft_putendl("=== subkey[i] ===");
-		ft_print_memory(&subkey[i], sizeof(uint64_t));
+        //ft_putendl("=== subkey[i] ===");
+		//ft_print_memory(&subkey[i], sizeof(uint64_t));
 
-        ft_putendl("=== xored ===");
-		ft_print_memory(&xored_data, sizeof(uint64_t));
+//        ft_putendl("=== xored ===");
+		//	ft_print_memory(&xored_data, sizeof(uint64_t));
 		tmp_left = *r_block;
 
 		// xored_data and above are correct
 		// compare value of sbox result and left block
 
 		apply_sbox(xored_data, &sbox_result);
+
+		uint64_t t = sbox_result;
+		t = t << 32;
+		sbox_result = permute(t, per, 32) >> 32;
+
+//        ft_putendl("=== sbox ===");
+//		ft_print_memory(&sbox_result, sizeof(uint32_t));
+//        ft_putendl("=== left ===");
+//		ft_print_memory(l_block, sizeof(uint32_t));
+
 		*r_block = *l_block ^ sbox_result;
-        ft_putendl("=== sbox ===");
-		ft_print_memory(r_block, sizeof(uint32_t));
+//        ft_putendl("=== xored sbox ===");
+//		ft_print_memory(r_block, sizeof(uint32_t));
 		*l_block = tmp_left;
 		i--;
 	}
@@ -244,13 +255,13 @@ static void des_core(char *plain_text, uint64_t subkey[16], uint8_t *result, t_c
 	data  = convert_8_to_64((uint8_t*)block);
 
 	// Initial permutation
-	ft_putendlcol(SH_YELLOW, "BLOCK BEGIN");
-	ft_print_memory(&block, sizeof(uint64_t));
+//	ft_putendlcol(SH_YELLOW, "BLOCK BEGIN");
+//	ft_print_memory(&block, sizeof(uint64_t));
 
 	data = permute(data, initial_perm, 64);
 
-    ft_putendl("=== init permute block ===");
-	ft_print_memory(&data, sizeof(uint64_t));
+//    ft_putendl("=== init permute block ===");
+//	ft_print_memory(&data, sizeof(uint64_t));
 
 	// Block splitting
 	uint32_t l_block = data >> 32;
@@ -348,15 +359,23 @@ static void des_ecb_decode(t_des des, char *entry)
 	des_subkey_generation(key, &subkey);
 
 	len = ft_strlen(entry);
+	if (len % 8){
+		ft_putstr_fd("error3", STDERR_FILENO);
+		exit(EXIT_FAILURE);
+	}
 	decipher = (uint8_t*)ft_memalloc(len);
 	size_t i;
 	i = 0;
+//	ft_putstr("|");
+//	ft_putstr(entry);
+//	ft_putstr("|\n");
 	while (i < len)
 	{
 		des_core(&entry[i], subkey, &decipher[i], CIPHER_DECODE);
 		i += 8;
 	}
 	write(1, decipher, len);
+	ft_putchar('\n');
 	ft_memdel((void**)&decipher);
 }
 
