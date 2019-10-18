@@ -6,7 +6,7 @@
 /*   By: abara <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 16:20:23 by abara             #+#    #+#             */
-/*   Updated: 2019/09/20 11:23:41 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/18 15:59:17 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 	[BASE64] = {
 		.cmd = BASE64,
 		.opts = CIPHER_OPTION_MODE,
-		.opts_len = sizeof(CIPHER_OPTION_MODE) -1,
+		.opts_len = sizeof(CIPHER_OPTION_MODE) - 1,
 		.opts_with_arg = true,
 		.opts_arg[0] = {
 			.key = CIPHER_INPUT_FILE_KEY,
@@ -141,7 +141,7 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 	[BASE64_URL] = {
 		.cmd = BASE64_URL,
 		.opts = CIPHER_OPTION_MODE,
-		.opts_len = sizeof(CIPHER_OPTION_MODE) -1,
+		.opts_len = sizeof(CIPHER_OPTION_MODE) - 1,
 		.opts_with_arg = true,
 		.opts_arg[0] = {
 			.key = CIPHER_INPUT_FILE_KEY,
@@ -156,7 +156,7 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 	[DES] = {
 		.cmd = DES,
 		.opts = DES_OPTS,
-		.opts_len = sizeof(DES_OPTS) -1,
+		.opts_len = sizeof(DES_OPTS) - 1,
 		.opts_with_arg = true,
 		.opts_arg[0] = {
 			.key = CIPHER_INPUT_FILE_KEY,
@@ -187,7 +187,7 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 	[DES_ECB] = {
 		.cmd = DES_ECB,
 		.opts = DES_OPTS,
-		.opts_len = sizeof(DES_OPTS) -1,
+		.opts_len = sizeof(DES_OPTS) - 1,
 		.opts_with_arg = true,
 		.opts_arg[0] = {
 			.key = CIPHER_INPUT_FILE_KEY,
@@ -218,7 +218,7 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 	[DES_CBC] = {
 		.cmd = DES_CBC,
 		.opts = DES_OPTS,
-		.opts_len = sizeof(DES_OPTS) -1,
+		.opts_len = sizeof(DES_OPTS) - 1,
 		.opts_with_arg = true,
 		.opts_arg[0] = {
 			.key = CIPHER_INPUT_FILE_KEY,
@@ -375,10 +375,22 @@ static const t_cmd g_ssl_cmd[NB_CMD] = {
 **	Dans le cas ou STDIN est lu, il sera trop tard pour passer des options.
 */
 
-int		ssl_cmd_dispatcher(int ac, char **av, t_cmd_type cmd)
+static int	parse_exec_command(int ac, char **av, t_cmd_type cmd, t_cmd_opt opt)
+{
+	int error;
+
+	error = ssl_cmd_parser(ac, av, g_ssl_cmd_parse[cmd], &opt);
+	if (error == CMD_USAGE || error == PARSING_OPT_ERROR)
+		error = g_ssl_cmd[cmd].usage(av[0], g_ssl_cmd[cmd].name);
+	else if (error == PARSING_SUCCESS)
+		error = g_ssl_cmd[cmd].func(ac, av, cmd, &opt);
+	ft_lstdel(&opt.flag_with_input, free_cmd_opt);
+	return (error);
+}
+
+int			ssl_cmd_dispatcher(int ac, char **av, t_cmd_type cmd)
 {
 	size_t		entry_cmd_len;
-	int			error;
 	t_cmd_opt	cmd_opt;
 
 	entry_cmd_len = ft_strlen(av[1]);
@@ -389,18 +401,7 @@ int		ssl_cmd_dispatcher(int ac, char **av, t_cmd_type cmd)
 		{
 			cmd_opt.cmd = cmd;
 			if (ac > 2)
-			{
-				error = ssl_cmd_parser(ac, av, g_ssl_cmd_parse[cmd], &cmd_opt);
-				if (error == CMD_USAGE || error == PARSING_OPT_ERROR) {
-					ft_lstdel(&cmd_opt.flag_with_input, free_cmd_opt);
-					return (g_ssl_cmd[cmd].usage(av[0], g_ssl_cmd[cmd].name));
-				}
-				if (error != PARSING_SUCCESS) {
-					ft_lstdel(&cmd_opt.flag_with_input, free_cmd_opt);
-					return (error);
-				}
-				return (g_ssl_cmd[cmd].func(ac, av, cmd, &cmd_opt));
-			}
+				return (parse_exec_command(ac, av, cmd, cmd_opt));
 			else
 				return (g_ssl_cmd[cmd].func(ac, av, cmd, NULL));
 		}
@@ -408,7 +409,7 @@ int		ssl_cmd_dispatcher(int ac, char **av, t_cmd_type cmd)
 	return (CMD_MISMATCH);
 }
 
-char	*ssl_get_cmd_name(t_cmd_type cmd, t_bool toupper)
+char		*ssl_get_cmd_name(t_cmd_type cmd, t_bool toupper)
 {
 	char	*name;
 	size_t	i;
@@ -429,7 +430,7 @@ char	*ssl_get_cmd_name(t_cmd_type cmd, t_bool toupper)
 	return (g_ssl_cmd[cmd].name);
 }
 
-void	sha_512_224_last_hash(char (*footprint)[512 + 1], uint64_t hash)
+void		sha_512_224_last_hash(char (*footprint)[512 + 1], uint64_t hash)
 {
 	uint32_t	reg32;
 	uint64_t	swapped_hash;

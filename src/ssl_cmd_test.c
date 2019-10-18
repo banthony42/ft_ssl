@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 18:35:46 by banthony          #+#    #+#             */
-/*   Updated: 2019/07/19 17:57:16 by abara            ###   ########.fr       */
+/*   Updated: 2019/10/18 16:37:05 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static void	display_param_options(t_cmd_opt *opts)
 		ft_putendlcol(SH_PINK, "VALUEX");
 }
 
-static void display_flag_with_input(t_list *opt_elem)
+static void	display_flag_with_input(t_list *opt_elem)
 {
 	t_opt_arg *flag_with_input;
 
@@ -96,7 +96,7 @@ int			cmd_test(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts)
 {
 	char	*entry;
 	size_t	size;
-	int i;
+	int		i;
 
 	(void)cmd;
 	if (!opts)

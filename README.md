@@ -24,3 +24,9 @@ dec-cbc	(wip)<br>
 
 #### Test the parser:
 test<br>
+
+
+#### Ressources:
+https://www.geeksforgeeks.org/data-encryption-standard-des-set-1/
+https://www.commentcamarche.net/contents/204-introduction-au-chiffrement-avec-des
+Travmatth/ft_ssl give us more sources

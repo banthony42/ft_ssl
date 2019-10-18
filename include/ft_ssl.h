@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/09/20 11:18:52 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/18 16:48:36 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include "man.h"
+
+# define NO_FILE_DIR "No such file or directory"
+# define EXIST "File already exist"
 
 /*
 **	Nombre de bit maximum a lire avec read
@@ -80,6 +83,7 @@ typedef enum	e_cmd_status
 	CMD_MISMATCH = -1,
 	CMD_USAGE = -2,
 	CMD_ERROR = -3,
+	PARSING_CONTINUE = -9,
 	PARSING_SUCCESS = -10,
 	PARSING_FAILURE = -11,
 	PARSING_NOTAN_OPT = -12,
@@ -205,6 +209,7 @@ uint64_t		swap_uint64(uint64_t val);
 uint32_t		rotate_left(uint32_t value, uint32_t shift);
 uint32_t		rotate_right(uint32_t value, uint32_t shift);
 uint64_t		rotate_r_64(uint64_t value, uint64_t shift);
+size_t			ft_strchrcount(const char *src, int c);
 
 /*
 **	Fonction ssl
@@ -214,6 +219,8 @@ char			*ssl_get_cmd_name(t_cmd_type cmd, t_bool toupper);
 int				ssl_cmd_dispatcher(int ac, char **av, t_cmd_type cmd);
 int				ssl_cmd_parser(int ac, char **av, t_parsing_param param
 									, t_cmd_opt *opt);
+int				ssl_find_key_value(char *entry, char **values,
+						   t_opt_arg opt_arg, t_cmd_opt *opt);
 
 /*
 **	Commandes

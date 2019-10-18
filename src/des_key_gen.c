@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 15:38:03 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/16 15:49:37 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/18 13:45:58 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void des_subkey_generation(uint64_t key, uint64_t (*subkey)[16])
 		block_cat |= ( (((1u << 28) - 1)) & (uint64_t)l_block) << 28;
 		block_cat = block_cat << 8;
 
-		uint64_t tmpkey = permute(block_cat, key_comp, 48);
+		uint64_t tmpkey = bits_permutation(block_cat, key_comp, 48);
 		(*subkey)[i] = tmpkey;
 
 	}

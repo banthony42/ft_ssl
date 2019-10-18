@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 12:40:36 by abara             #+#    #+#             */
-/*   Updated: 2019/10/16 15:49:11 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/18 15:27:49 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,17 @@ typedef struct		s_des
 	int				out;
 }					t_des;
 
+void des_ecb_encode(t_des des, char *entry, size_t size, uint64_t subkey[16]);
+void des_ecb_decode(t_des des, char *entry, size_t size, uint64_t subkey[16]);
+void des_cbc_encode(t_des des, char *entry, size_t size, uint64_t subkey[16]);
+void des_cbc_decode(t_des des, char *entry, size_t size, uint64_t subkey[16]);
+
+size_t	get_padding_to_remove(uint8_t *decipher, size_t len);
+void		hexastring_to_uint64(char *str, uint64_t *key);
+void des_core(char *plain_text, uint64_t subkey[16], uint8_t *result, t_cipher_mode mode);
+
 // bit permutation
-uint64_t		permute(uint64_t data, const uint8_t *matrix, size_t size);
+uint64_t		bits_permutation(uint64_t data, const uint8_t *matrix, size_t size);
 
 void            apply_sbox(uint64_t ext, uint32_t *sbox);
 t_bool			get_pass(t_des *des);

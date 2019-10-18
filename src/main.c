@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:03:01 by banthony          #+#    #+#             */
-/*   Updated: 2019/09/06 15:21:46 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/18 16:39:55 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 static void	usage(char **argv)
 {
-	// Use this line to see the entire command.
-//	ft_putendl("=== <DEBUG> ===");
-//	 ft_printtab(argv, ft_putstr, "|");
-//	 ft_putendl("=== < END > ====");
-
 	ft_putstr("usage:");
 	ft_putstr(argv[0]);
 	ft_putendl(" command [command opts] [command args]\n");
