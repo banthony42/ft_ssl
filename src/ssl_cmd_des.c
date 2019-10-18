@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 13:14:26 by abara             #+#    #+#             */
-/*   Updated: 2019/10/17 13:31:46 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/18 13:24:44 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,17 +151,10 @@ static void encryption_round(uint32_t *l_block, uint32_t *r_block, uint64_t subk
 	i = -1;
 	while (++i < 16)
 	{
-//		ft_putendl("========= SLICE ==========");
-//		ft_print_memory(l_block, sizeof(uint32_t));
-//		ft_print_memory(r_block, sizeof(uint32_t));
-
 		// Right block Expansion to 48 bits
-//		ft_putendlcol(SH_YELLOW, "RIGHT BLOCK EXPANSION");
 		uint64_t right = *r_block;
 		uint64_t exp = permute(right << 32, expansion, 48);
 		exp = exp >> 16;
-//		ft_putendlcol(SH_GREEN, "=========RIGHT PERMUTE==========");
-//		ft_print_memory(&exp, sizeof(uint64_t));
 
 		// XOR the result with the sub key corresponding to this round number
 		xored_data = exp ^ (subkey[i] >> 16);
@@ -194,19 +187,9 @@ static void decryption_round(uint32_t *l_block, uint32_t *r_block, uint64_t subk
 		right = *r_block;
 		exp = permute(right << 32, expansion, 48);
 		exp = exp >> 16;
-        //ft_putendl("=== exp ===");
-		//ft_print_memory(&exp, sizeof(uint64_t));
 		xored_data = exp ^ (subkey[i] >> 16);
 
-        //ft_putendl("=== subkey[i] ===");
-		//ft_print_memory(&subkey[i], sizeof(uint64_t));
-
-//        ft_putendl("=== xored ===");
-		//	ft_print_memory(&xored_data, sizeof(uint64_t));
 		tmp_left = *r_block;
-
-		// xored_data and above are correct
-		// compare value of sbox result and left block
 
 		apply_sbox(xored_data, &sbox_result);
 
@@ -214,14 +197,7 @@ static void decryption_round(uint32_t *l_block, uint32_t *r_block, uint64_t subk
 		t = t << 32;
 		sbox_result = permute(t, per, 32) >> 32;
 
-//        ft_putendl("=== sbox ===");
-//		ft_print_memory(&sbox_result, sizeof(uint32_t));
-//        ft_putendl("=== left ===");
-//		ft_print_memory(l_block, sizeof(uint32_t));
-
 		*r_block = *l_block ^ sbox_result;
-//        ft_putendl("=== xored sbox ===");
-//		ft_print_memory(r_block, sizeof(uint32_t));
 		*l_block = tmp_left;
 		i--;
 	}
@@ -314,7 +290,7 @@ static void                hexastring_to_uint64(char *str, uint64_t *key)
 	}
 }
 
-static void des_ecb_encode(t_des des, char *entry)
+static void des_ecb_encode(t_des des, char *entry, size_t size)
 {
 	uint64_t	key;
 	size_t		padd;
@@ -327,7 +303,7 @@ static void des_ecb_encode(t_des des, char *entry)
 	key = permute(key, g_keyp, 56);
 	des_subkey_generation(key, &subkey);
 
-	len = ft_strlen(entry);
+	len = (size == 0) ? ft_strlen(entry) : size;
 	padd = 8 - (len % 8);
 	padded_input = (char*)ft_memalloc(len + padd);
 	cipher = (uint8_t*)ft_memalloc(len + padd);
@@ -347,7 +323,29 @@ static void des_ecb_encode(t_des des, char *entry)
 	ft_memdel((void**)&padded_input);
 }
 
-static void des_ecb_decode(t_des des, char *entry)
+static size_t	get_padding_to_remove(uint8_t *decipher, size_t len)
+{
+	uint8_t	last_value;
+	uint8_t *ptr;
+	size_t	padding_size;
+
+	ptr = decipher + len;
+	padding_size = *(ptr - 1);
+	last_value = 0;
+	while (padding_size)
+	{
+		if (last_value != 0 && last_value != *(ptr - padding_size))
+		{
+			ft_putendl("error end padding check");
+			exit(EXIT_FAILURE);
+		}
+		len--;
+		padding_size--;
+	}
+	return (len);
+}
+
+static void des_ecb_decode(t_des des, char *entry, size_t size)
 {
 	uint64_t	key;
 	size_t		len;
@@ -358,7 +356,7 @@ static void des_ecb_decode(t_des des, char *entry)
 	key = permute(key, g_keyp, 56);
 	des_subkey_generation(key, &subkey);
 
-	len = ft_strlen(entry);
+	len = (size == 0) ? ft_strlen(entry) : size;
 	if (len % 8){
 		ft_putstr_fd("error3", STDERR_FILENO);
 		exit(EXIT_FAILURE);
@@ -366,41 +364,40 @@ static void des_ecb_decode(t_des des, char *entry)
 	decipher = (uint8_t*)ft_memalloc(len);
 	size_t i;
 	i = 0;
-//	ft_putstr("|");
-//	ft_putstr(entry);
-//	ft_putstr("|\n");
 	while (i < len)
 	{
 		des_core(&entry[i], subkey, &decipher[i], CIPHER_DECODE);
 		i += 8;
 	}
+	len = get_padding_to_remove(decipher, len);
 	write(1, decipher, len);
-	ft_putchar('\n');
 	ft_memdel((void**)&decipher);
 }
 
-static void des_cbc_encode(t_des des, char *entry)
+static void des_cbc_encode(t_des des, char *entry, size_t size)
 {
+	(void)size;
 	(void)des;
 	(void)entry;
 }
 
-static void des_cbc_decode(t_des des, char *entry)
+static void des_cbc_decode(t_des des, char *entry, size_t size)
 {
+	(void)size;
 	(void)des;
 	(void)entry;
 }
 
-static void des_cipher(t_des des, t_cmd_type cmd, char *entry)
+static void des_cipher(t_des des, t_cmd_type cmd, char *entry, size_t size)
 {
 	if (cmd == DES_ECB && des.cipher_mode == CIPHER_ENCODE)
-		des_ecb_encode(des, entry);
+		des_ecb_encode(des, entry, size);
 	else if (cmd == DES_CBC && des.cipher_mode == CIPHER_ENCODE)
-		des_cbc_encode(des, entry);
+		des_cbc_encode(des, entry, size);
 	else if (cmd == DES_ECB && des.cipher_mode == CIPHER_DECODE)
-		des_ecb_decode(des, entry);
+		des_ecb_decode(des, entry, size);
 	else if (cmd == DES_CBC && des.cipher_mode == CIPHER_DECODE)
-		des_cbc_decode(des, entry);
+		des_cbc_decode(des, entry, size);
 }
 
 int			usage_des(char *exe, char *cmd_name)
@@ -480,10 +477,10 @@ int			cmd_des(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 	{
 		if (!(entry = (char*)read_cat(des.in, &size)))
 			return des_end(des, opt, CMD_ERROR, "Can't read input.");
-		des_cipher(des, cmd, entry);
+		des_cipher(des, cmd, entry, size);
 		ft_strdel(&entry);
 		return des_end(des, opt, CMD_SUCCESS, NULL);
 	}
-	des_cipher(des, cmd, av[opt->end]);
+	des_cipher(des, cmd, av[opt->end], 0);
 	return des_end(des, opt, CMD_SUCCESS, NULL);
 }

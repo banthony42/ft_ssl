@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 19:54:21 by banthony          #+#    #+#             */
-/*   Updated: 2019/09/15 12:07:40 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/18 12:13:20 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ unsigned char	*read_cat(int fd, size_t *size)
 			break ;
 		buf[ret] = '\0';
 		ft_memjoin_replace((void**)&file, buf, size, (size_t)ret + 1);
+		ft_memset(buf, 0, MAXBYTE);
 	}
 	return (file);
 }

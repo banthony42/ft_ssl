@@ -218,8 +218,16 @@ _check_des()
 	if diff ${ENC_OUT_REAL} ${ENC_OUT_MINE} > /dev/null 2>&1 && diff ${DEC_OUT_REAL} ${DEC_OUT_MINE} > /dev/null 2>&1; then
 		compt_OK
 	else
-		diff ${ENC_OUT_REAL} ${ENC_OUT_MINE}
-		diff ${DEC_OUT_REAL} ${DEC_OUT_MINE}
+		cat -e ${ENC_OUT_REAL}
+		echo "___________________________"
+#		cat -e ${ENC_OUT_MINE}
+#		echo "========================"
+#		cat -e ${DES_OUT_REAL}
+#		echo "___________________________"
+#		cat -e ${DEC_OUT_MINE}
+#		echo "========================"
+#		diff ${ENC_OUT_REAL} ${ENC_OUT_MINE}
+#		diff ${DEC_OUT_REAL} ${DEC_OUT_MINE}
 		echo "==========COMMANDS==========="
 		echo "$3"
 		echo "$5"
