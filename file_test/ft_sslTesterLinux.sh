@@ -36,7 +36,7 @@ BASE64_URL="base64 | tr '+/' '-_', tr -- '-_' '+/' | base64 -d,./ft_ssl base64_u
 # FIXME you can change this if you don't handle such features
 
 HASH_META="${MD5_META};${MD4_META};${SHA256_META};${SHA1_META};${SHA224_META};${SHA384_META};${SHA512_META};${SHA512_224_META};${SHA512_256_META};"
-MODES_META="des-ecb;des-cbc;des-cfb;des-ofb;"
+MODES_META="des-ecb;" #"des-cbc;des-cfb;des-ofb;"
 BASE64_META="${BASE64};${BASE64_URL};"
 
 # FIXME you can change the default values of nb_keys and nb_ivs
@@ -218,6 +218,13 @@ _check_des()
 	if diff ${ENC_OUT_REAL} ${ENC_OUT_MINE} > /dev/null 2>&1 && diff ${DEC_OUT_REAL} ${DEC_OUT_MINE} > /dev/null 2>&1; then
 		compt_OK
 	else
+		echo "=======INPUT========="
+		cat ${INPUT} > chintok2
+		echo "=======OUT========="
+		cat ${DEC_OUT_REAL}
+		echo "=======MINE========="
+		cat ${DEC_OUT_MINE}
+		echo "================"
 		diff ${ENC_OUT_REAL} ${ENC_OUT_MINE}
 		diff ${DEC_OUT_REAL} ${DEC_OUT_MINE}
 		compt_reset

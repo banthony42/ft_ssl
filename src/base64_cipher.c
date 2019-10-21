@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 14:21:32 by abara             #+#    #+#             */
-/*   Updated: 2019/10/11 17:05:13 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/21 21:08:10 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static const char g_base64_table[65] =
 "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
 static const char g_base64_url_table[65] =
-"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+	"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
 
 /*
 **	If padding == 4:
@@ -115,7 +115,7 @@ static t_bool	is_valid_ciphering(t_bool is_base64_url, char *entry)
 		{
 			if (entry[i] == '=' || entry[i] == ' ' || entry[i] == '\n')
 				continue;
-			ft_putendl("Invalid character in input stream.");
+			//			ft_putendl("Invalid character in input stream.");
 			return (true);
 		}
 	}
@@ -139,11 +139,19 @@ static t_bool	is_valid_ciphering(t_bool is_base64_url, char *entry)
 **	The tricks is to use ascii value of 'A' as index to store the value of 'A'.
 */
 
+static int	b64decode(int value, int b64_decode[255])
+{
+	if (value == (int)'=')
+		return (0);
+	return (b64_decode[value]);
+}
+
 static void	decode_b64(char *entry, t_base64 b64, int b64_decode[255])
 {
 	size_t			i;
 	size_t			len;
 	t_decode_block	block;
+	uint8_t out[3] = {0};
 
 	if (!is_valid_ciphering(b64.b64_url, entry))
 		return ;
@@ -155,14 +163,25 @@ static void	decode_b64(char *entry, t_base64 b64, int b64_decode[255])
 		ft_strncat(block.char_array, &entry[i], 1);
 		if (ft_strlen(block.char_array) >= 4)
 		{
-			block.i_0 = b64_decode[(int)block.char_array[0]];
-			block.i_1 = b64_decode[(int)block.char_array[1]];
-			block.i_2 = b64_decode[(int)block.char_array[2]];
-			block.i_3 = b64_decode[(int)block.char_array[3]];
-			ft_putchar_fd((char)((block.i_0 << 2) | block.i_1 >> 4), b64.out);
-			ft_putchar_fd((char)((block.i_1 << 4) | block.i_2 >> 2), b64.out);
-			ft_putchar_fd((char)((block.i_2 << 6) | block.i_3), b64.out);
+			block.i_0 = b64decode((int)block.char_array[0], b64_decode);
+			block.i_1 = b64decode((int)block.char_array[1], b64_decode);
+			block.i_2 = b64decode((int)block.char_array[2], b64_decode);
+			block.i_3 = b64decode((int)block.char_array[3], b64_decode);
+			out[0] = (uint8_t)((block.i_0 << 2) | block.i_1 >> 4);
+			ft_putchar_fd(out[0], b64.out);
+			if (block.i_2) {
+				out[1] = (uint8_t)((block.i_1 << 4) | block.i_2 >> 2);
+				ft_putchar_fd(out[1], b64.out);
+			}
+			// probleme vient de ce if pour le fichier chine
+			if (block.i_3 && block.i_2 ) {
+				out[2] = (uint8_t)((block.i_2 << 6) | block.i_3);
+				ft_putchar_fd(out[2], b64.out);
+			}
+			ft_putendl("===");
+			ft_print_memory(out, 3);
 			ft_memset(block.char_array, 0, 4);
+			ft_memset(out, 0, 3);
 		}
 		i++;
 	}
