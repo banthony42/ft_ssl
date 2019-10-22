@@ -6,14 +6,14 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 14:21:32 by abara             #+#    #+#             */
-/*   Updated: 2019/10/21 21:08:10 by abara            ###   ########.fr       */
+/*   Updated: 2019/10/22 12:39:27 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cipher_commands.h"
 
 static const char g_base64_table[65] =
-"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+	"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
 static const char g_base64_url_table[65] =
 	"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
@@ -113,9 +113,9 @@ static t_bool	is_valid_ciphering(t_bool is_base64_url, char *entry)
 	{
 		if (!ft_isalnum((int)entry[i]))
 		{
-			if (entry[i] == '=' || entry[i] == ' ' || entry[i] == '\n')
+			if (entry[i] == '=' || entry[i] == ' ' || entry[i] == '\n' || entry[i] == '\t')
 				continue;
-			//			ft_putendl("Invalid character in input stream.");
+			//		ft_putendl("Invalid character in input stream.");
 			return (true);
 		}
 	}
@@ -168,18 +168,21 @@ static void	decode_b64(char *entry, t_base64 b64, int b64_decode[255])
 			block.i_2 = b64decode((int)block.char_array[2], b64_decode);
 			block.i_3 = b64decode((int)block.char_array[3], b64_decode);
 			out[0] = (uint8_t)((block.i_0 << 2) | block.i_1 >> 4);
-			ft_putchar_fd(out[0], b64.out);
-			if (block.i_2) {
-				out[1] = (uint8_t)((block.i_1 << 4) | block.i_2 >> 2);
-				ft_putchar_fd(out[1], b64.out);
-			}
+			if (out[0])
+				ft_putchar_fd((char)out[0], b64.out);
+//			if (block.i_2) {
+			out[1] = (uint8_t)((block.i_1 << 4) | block.i_2 >> 2);
+			if (out[1])
+				ft_putchar_fd((char)out[1], b64.out);
+//			}
 			// probleme vient de ce if pour le fichier chine
-			if (block.i_3 && block.i_2 ) {
-				out[2] = (uint8_t)((block.i_2 << 6) | block.i_3);
-				ft_putchar_fd(out[2], b64.out);
-			}
-			ft_putendl("===");
-			ft_print_memory(out, 3);
+//			if (block.i_2 && block.i_3) {
+			out[2] = (uint8_t)((block.i_2 << 6) | block.i_3);
+			if (out[2])
+				ft_putchar_fd((char)out[2], b64.out);
+//			}
+//			ft_putendl("===");
+//			ft_print_memory(out, 3);
 			ft_memset(block.char_array, 0, 4);
 			ft_memset(out, 0, 3);
 		}

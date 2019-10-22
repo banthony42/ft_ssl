@@ -219,7 +219,7 @@ _check_des()
 		compt_OK
 	else
 		cat -e ${ENC_OUT_REAL}
-		echo "___________________________"
+#		echo "___________________________"
 #		cat -e ${ENC_OUT_MINE}
 #		echo "========================"
 #		cat -e ${DES_OUT_REAL}
@@ -228,7 +228,7 @@ _check_des()
 #		echo "========================"
 #		diff ${ENC_OUT_REAL} ${ENC_OUT_MINE}
 #		diff ${DEC_OUT_REAL} ${DEC_OUT_MINE}
-		echo "==========COMMANDS==========="
+		echo "|==========COMMANDS===========|"
 		echo "$3"
 		echo "$5"
 		echo "==========ON THIS CONTENT==========="

@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 13:06:48 by abara             #+#    #+#             */
-/*   Updated: 2019/09/20 11:11:40 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/22 12:43:45 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,9 @@ int			cmd_base64(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 	char		*entry;
 	size_t		size;
 
-
-	base64.b64_url = (cmd == BASE64_URL) ? true : false;
 	entry = NULL;
 	ft_memset(&base64, 0, sizeof(base64));
+	base64.b64_url = (cmd == BASE64_URL) ? true : false;
 	base64.out = STDOUT_FILENO;
 	if (opt && opt->opts_flag & CIPHER_DECODE_MASK)
 		base64.cipher_mode = CIPHER_DECODE;
