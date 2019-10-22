@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 12:40:36 by abara             #+#    #+#             */
-/*   Updated: 2019/10/18 15:27:49 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/22 16:10:56 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ typedef struct		s_base64
 	t_bool			b64_url;
 	int				in;
 	int				out;
+	char			*result;
+	size_t			result_len;
 }					t_base64;
 
 typedef struct		s_decode_block
@@ -78,7 +80,7 @@ typedef struct		s_decode_block
 	int				i_3;
 }					t_decode_block;
 
-void				base64_cipher(t_base64 b64, char *entry);
+void				base64_cipher(t_base64 *b64, char *entry, size_t elen);
 
 /*
 **	************************ DES FAMILY ************************
@@ -112,14 +114,16 @@ typedef struct		s_des
 	char			*passwd;
 	char			salt[SALT_LENGTH];
 	char			*i_vector;
+	uint8_t			*result;
+	size_t			result_len;
 	int				in;
 	int				out;
 }					t_des;
 
-void des_ecb_encode(t_des des, char *entry, size_t size, uint64_t subkey[16]);
-void des_ecb_decode(t_des des, char *entry, size_t size, uint64_t subkey[16]);
-void des_cbc_encode(t_des des, char *entry, size_t size, uint64_t subkey[16]);
-void des_cbc_decode(t_des des, char *entry, size_t size, uint64_t subkey[16]);
+void des_ecb_encode(t_des *des, char *entry, size_t size, uint64_t subkey[16]);
+void des_ecb_decode(t_des *des, char *entry, size_t size, uint64_t subkey[16]);
+void des_cbc_encode(t_des *des, char *entry, size_t size, uint64_t subkey[16]);
+void des_cbc_decode(t_des *des, char *entry, size_t size, uint64_t subkey[16]);
 
 size_t	get_padding_to_remove(uint8_t *decipher, size_t len);
 void		hexastring_to_uint64(char *str, uint64_t *key);
@@ -133,3 +137,10 @@ t_bool			get_pass(t_des *des);
 void			des_subkey_generation(uint64_t key, uint64_t (*subkey)[16]);
 
 #endif
+
+
+
+
+
+
+

@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 13:14:26 by abara             #+#    #+#             */
-/*   Updated: 2019/10/18 16:50:01 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/22 19:22:43 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,18 +79,41 @@ static void		des_cipher(t_des des, t_cmd_type cmd, char *entry, size_t size)
 {
 	uint64_t	subkey[16];
 	uint64_t	key;
+	t_base64	b64;
 
+	ft_memset(&b64, 0, sizeof(b64));
+	b64.out = -1;
+	b64.in = des.in;
+	b64.cipher_mode = des.cipher_mode;
 	hexastring_to_uint64(des.hexa_key, &key);
 	key = bits_permutation(key, g_keyp, 56);
 	des_subkey_generation(key, &subkey);
 	if (cmd == DES_ECB && des.cipher_mode == CIPHER_ENCODE)
-		des_ecb_encode(des, entry, size, subkey);
+	{
+		des_ecb_encode(&des, entry, size, subkey);
+		if (des.use_b64) {
+			b64.out = des.out;
+			base64_cipher(&b64, (char*)des.result, des.result_len);
+		}
+		else
+			write(des.out, des.result, des.result_len);
+	}
 	else if (cmd == DES_CBC && des.cipher_mode == CIPHER_ENCODE)
-		des_cbc_encode(des, entry, size, subkey);
+		des_cbc_encode(&des, entry, size, subkey);
 	else if (cmd == DES_ECB && des.cipher_mode == CIPHER_DECODE)
-		des_ecb_decode(des, entry, size, subkey);
+	{
+		if (des.use_b64) {
+			base64_cipher(&b64, entry, size);
+			des_ecb_decode(&des, b64.result, b64.result_len, subkey);
+			write(des.out, des.result, des.result_len);
+		}
+		else {
+			des_ecb_decode(&des, entry, size, subkey);
+			write(des.out, des.result, des.result_len);
+		}
+	}
 	else if (cmd == DES_CBC && des.cipher_mode == CIPHER_DECODE)
-		des_cbc_decode(des, entry, size, subkey);
+		des_cbc_decode(&des, entry, size, subkey);
 }
 
 int				usage_des(char *exe, char *cmd_name)

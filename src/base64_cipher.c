@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 14:21:32 by abara             #+#    #+#             */
-/*   Updated: 2019/10/22 12:39:27 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/22 19:34:52 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,20 @@ static const char g_base64_url_table[65] =
 **	we have added 2 bits set to zero, then we can read the 18 last bits.
 */
 
-static void	encode_b64_end(char pad, char *out, t_base64 b64, char table[65])
+static void	encode_b64_end(char pad, uint8_t *out, t_base64 *b64, char table[65])
 {
 	if (pad == 4)
 	{
-		ft_putchar_fd(table[out[0] >> 2], b64.out);
-		ft_putchar_fd(table[((out[0] & 0x03) << 4) | out[1] >> 4], b64.out);
-		ft_putstr_fd("==", b64.out);
+		ft_putchar_fd(table[out[0] >> 2], b64->out);
+		ft_putchar_fd(table[((out[0] & 0x03) << 4) | out[1] >> 4], b64->out);
+		ft_putstr_fd("==", b64->out);
 	}
-	if (pad == 2)
+	else if (pad == 2)
 	{
-		ft_putchar_fd(table[out[0] >> 2], b64.out);
-		ft_putchar_fd(table[((out[0] & 0x03) << 4) | out[1] >> 4], b64.out);
-		ft_putchar_fd(table[((out[1] & 0xf) << 2) | out[2] >> 6], b64.out);
-		ft_putchar_fd('=', b64.out);
+		ft_putchar_fd(table[out[0] >> 2], b64->out);
+		ft_putchar_fd(table[((out[0] & 0x03) << 4) | out[1] >> 4], b64->out);
+		ft_putchar_fd(table[((out[1] & 0xf) << 2) | out[2] >> 6], b64->out);
+		ft_putchar_fd('=', b64->out);
 	}
 }
 
@@ -68,27 +68,31 @@ static void	encode_b64_end(char pad, char *out, t_base64 b64, char table[65])
 **	00|110101	53	'1'
 */
 
-static void	encode_b64(char *entry, char padding, t_base64 b64, char table[65])
+static void	encode_b64(char *entry, char padding, t_base64 *b64, char table[65], size_t elen)
 {
-	char			*end;
-	char			*out;
-	unsigned char	buf[3];
+	uint8_t			*end;
+	uint8_t			*out;
+	uint8_t			buf[3];
+	size_t			len;
 
-	out = entry;
-	end = entry + ft_strlen(entry);
+	len = elen;
+	out = (uint8_t*)entry;
+	end = (uint8_t*)(entry + len);
 	while ((end - out) >= 3)
 	{
-		buf[0] = (unsigned char)out[0];
-		buf[1] = (unsigned char)out[1];
-		buf[2] = (unsigned char)out[2];
-		ft_putchar_fd(table[buf[0] >> 2], b64.out);
-		ft_putchar_fd(table[((buf[0] & 0x03) << 4) | buf[1] >> 4], b64.out);
-		ft_putchar_fd(table[((buf[1] & 0xf) << 2) | buf[2] >> 6], b64.out);
-		ft_putchar_fd(table[((buf[2] & 0x3f))], b64.out);
+		buf[0] = (uint8_t)out[0];
+		buf[1] = (uint8_t)out[1];
+		buf[2] = (uint8_t)out[2];
+		ft_putchar_fd(table[buf[0] >> 2], b64->out);
+		ft_putchar_fd(table[((buf[0] & 0x03) << 4) | buf[1] >> 4], b64->out);
+		ft_putchar_fd(table[((buf[1] & 0xf) << 2) | buf[2] >> 6], b64->out);
+		ft_putchar_fd(table[((buf[2] & 0x3f))], b64->out);
 		out += 3;
 	}
-	encode_b64_end(padding, out, b64, table);
-	ft_putchar_fd('\n', b64.out);
+	ft_memset(buf, 0, 3);
+	ft_memcpy(buf, out, (size_t)(end - out));
+	encode_b64_end(padding, buf, b64, table);
+	ft_putchar_fd('\n', b64->out);
 }
 
 /*
@@ -96,29 +100,35 @@ static void	encode_b64(char *entry, char padding, t_base64 b64, char table[65])
 **	Return false otherwise.
 */
 
-static t_bool	is_valid_ciphering(t_bool is_base64_url, char *entry)
+static t_bool	is_valid_ciphering(char *entry, int len, size_t *result_len)
 {
 	int			i;
-	int			len;
-	const char	*table;
+	size_t		ignore;
+	size_t		equal;
 
 	if (entry == NULL)
 		return (false);
 	i = -1;
-	len = (int)ft_strlen(entry);
-	table = (is_base64_url == true) ? g_base64_url_table : g_base64_table;
-	if (table == NULL)
-		return false;
+	ignore =  0;
+	equal = 0;
 	while (++i < len)
-	{
 		if (!ft_isalnum((int)entry[i]))
 		{
-			if (entry[i] == '=' || entry[i] == ' ' || entry[i] == '\n' || entry[i] == '\t')
+			if (entry[i] == ' ' || entry[i] == '\n' || entry[i] == '\t')
+			{
+				ignore++;
 				continue;
-			//		ft_putendl("Invalid character in input stream.");
-			return (true);
+			}
+			if (entry[i] != '+' || entry[i] != '/')
+				continue;
+			ft_putendl("Invalid character in input stream.");
+			return (false);  // normally its false here ?
 		}
-	}
+	i = -1;
+	while (++i < len)
+		if (entry[i] == '=')
+			equal++;
+	*result_len = (((size_t)len - ignore) / 4 * 3) - equal;
 	return (true);
 }
 
@@ -146,17 +156,18 @@ static int	b64decode(int value, int b64_decode[255])
 	return (b64_decode[value]);
 }
 
-static void	decode_b64(char *entry, t_base64 b64, int b64_decode[255])
+static void	decode_b64(char *entry, t_base64 *b64, int b64_decode[255], size_t elen)
 {
 	size_t			i;
 	size_t			len;
 	t_decode_block	block;
 	uint8_t out[3] = {0};
 
-	if (!is_valid_ciphering(b64.b64_url, entry))
-		return ;
 	i = 0;
-	len = ft_strlen(entry);
+	len = elen;
+	if (!is_valid_ciphering(entry, (int)len, &b64->result_len))
+		return ;
+	b64->result = ft_strnew(len + 4);
 	ft_memset(&block, 0, sizeof(block));
 	while (i < len)
 	{
@@ -169,20 +180,28 @@ static void	decode_b64(char *entry, t_base64 b64, int b64_decode[255])
 			block.i_3 = b64decode((int)block.char_array[3], b64_decode);
 			out[0] = (uint8_t)((block.i_0 << 2) | block.i_1 >> 4);
 			if (out[0])
-				ft_putchar_fd((char)out[0], b64.out);
-//			if (block.i_2) {
+			{
+				if (b64->out < 0)
+					ft_strncat(b64->result, (char*)&out[0], 1);
+				else
+					ft_putchar_fd((char)out[0], b64->out);
+			}
 			out[1] = (uint8_t)((block.i_1 << 4) | block.i_2 >> 2);
 			if (out[1])
-				ft_putchar_fd((char)out[1], b64.out);
-//			}
-			// probleme vient de ce if pour le fichier chine
-//			if (block.i_2 && block.i_3) {
+			{
+				if (b64->out < 0)
+					ft_strncat(b64->result, (char*)&out[1], 1);
+				else
+					ft_putchar_fd((char)out[1], b64->out);
+			}
 			out[2] = (uint8_t)((block.i_2 << 6) | block.i_3);
 			if (out[2])
-				ft_putchar_fd((char)out[2], b64.out);
-//			}
-//			ft_putendl("===");
-//			ft_print_memory(out, 3);
+			{
+				if (b64->out < 0)
+					ft_strncat(b64->result, (char*)&out[2], 1);
+				else
+					ft_putchar_fd((char)out[2], b64->out);
+			}
 			ft_memset(block.char_array, 0, 4);
 			ft_memset(out, 0, 3);
 		}
@@ -190,7 +209,7 @@ static void	decode_b64(char *entry, t_base64 b64, int b64_decode[255])
 	}
 }
 
-void		base64_cipher(t_base64 b64, char *entry)
+void		base64_cipher(t_base64 *b64, char *entry, size_t len)
 {
 	char			padding;
 	char			table[65];
@@ -199,22 +218,22 @@ void		base64_cipher(t_base64 b64, char *entry)
 
 	if (!entry)
 		return ;
-	(b64.b64_url == true) ? ft_strncpy(table, g_base64_url_table, 65)
+	(b64->b64_url == true) ? ft_strncpy(table, g_base64_url_table, 65)
 		: ft_strncpy(table, g_base64_table, 65);
-	if (b64.cipher_mode == CIPHER_ENCODE)
+	if (b64->cipher_mode == CIPHER_ENCODE)
 	{
-		if ((padding = (ft_strlen(entry) * 8) % 24) == 8)
+		if ((padding = (len * 8) % 24) == 8)
 			padding = 4;
 		else
 			padding = (padding == 16) ? (2) : (0);
-		encode_b64(entry, padding, b64, table);
+		encode_b64(entry, padding, b64, table, len);
 	}
-	else if (b64.cipher_mode == CIPHER_DECODE)
+	else if (b64->cipher_mode == CIPHER_DECODE)
 	{
 		j = -1;
 		ft_memset(b64_decode, 0, sizeof(b64_decode));
 		while (++j < (int)sizeof(table))
 			b64_decode[(int)table[j]] = j;
-		decode_b64(entry, b64, b64_decode);
+		decode_b64(entry, b64, b64_decode, len);
 	}
 }

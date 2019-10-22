@@ -87,7 +87,7 @@ build_commands()
 	echo "${MODES_META}" | while read -r -d';' MODE; do
 		echo "${KEYS}" | while read -r -d';' KEY; do
 			if [ "${MODE}" = "des-ecb" ]; then
-				echo "openssl ${MODE} -K ${KEY},openssl ${MODE} -d -K ${KEY},./ft_ssl ${MODE} -k ${KEY},./ft_ssl ${MODE} -d -k ${KEY},0;" >> tmp.txt
+				echo "openssl ${MODE} -a -K ${KEY},openssl ${MODE} -a -d -K ${KEY},./ft_ssl ${MODE} -a -k ${KEY},./ft_ssl ${MODE} -a -d -k ${KEY},0;" >> tmp.txt
 			else
 				echo "${IVS}" | while read -r -d';' IV; do
 					echo "openssl ${MODE} -K ${KEY} -iv ${IV},openssl ${MODE} -d -K ${KEY} -iv ${IV},./ft_ssl ${MODE} -k ${KEY} -v ${IV},./ft_ssl ${MODE} -d -k ${KEY} -v ${IV},0;" >> tmp.txt
@@ -203,6 +203,7 @@ _check_des()
 	DEC_OUT_REAL="dec_real.out"
 	DEC_OUT_MINE="dec_mine.out"
 
+#	cat ${INPUT}
 	eval "cat ${INPUT} | ${REAL_ENC}" > ${ENC_OUT_REAL}
 	eval "cat ${INPUT} | ${MINE_ENC}" > ${ENC_OUT_MINE}
 	if [ "${DELETE_SP}" = "1" ]; then
@@ -218,7 +219,7 @@ _check_des()
 	if diff ${ENC_OUT_REAL} ${ENC_OUT_MINE} > /dev/null 2>&1 && diff ${DEC_OUT_REAL} ${DEC_OUT_MINE} > /dev/null 2>&1; then
 		compt_OK
 	else
-		cat -e ${ENC_OUT_REAL}
+#		cat -e ${ENC_OUT_REAL}
 #		echo "___________________________"
 #		cat -e ${ENC_OUT_MINE}
 #		echo "========================"
