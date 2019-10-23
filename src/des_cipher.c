@@ -6,13 +6,31 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 14:59:41 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/22 15:54:55 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/23 16:54:48 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
 #include "cipher_commands.h"
 #include "message_digest.h"
+
+static size_t		salt_handler(t_des *des, uint8_t *entry, size_t size)
+{
+	uint8_t *tmp;
+	uint64_t salt;
+
+	tmp = des->result;
+	des->result = (uint8_t*)ft_memalloc(des->result_len + 16);
+	ft_memcpy(des->result, "Salted__", 8);
+	hexastring_to_uint64(des->salt, &salt);
+	ft_memcpy(des->result + 8, &salt, 8);
+	ft_memcpy(des->result + 16, tmp, des->result_len);
+	des->result_len += 16;
+	ft_memdel((void**)&tmp);
+	(void)entry;
+	(void)size;
+	return (0);
+}
 
 void	des_ecb_encode(t_des *des, char *entry, size_t size, uint64_t subkey[16])
 {
@@ -34,6 +52,8 @@ void	des_ecb_encode(t_des *des, char *entry, size_t size, uint64_t subkey[16])
 		i += 8;
 	}
 	ft_memdel((void**)&padded_input);
+	if (des->passwd != NULL)
+		salt_handler(des, NULL, 0);
 }
 
 void	des_ecb_decode(t_des *des, char *entry, size_t size, uint64_t subkey[16])
@@ -71,9 +91,3 @@ void	des_cbc_decode(t_des *des, char *entry, size_t size, uint64_t subkey[16])
 	(void)des;
 	(void)entry;
 }
-
-
-
-
-
-

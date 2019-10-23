@@ -6,13 +6,11 @@
      By: banthony <banthony@student.42.fr>          +#+  +:+       +#+
                                                   +#+#+#+#+#+   +#+
      Created: 2019/10/22 19:39:49 by banthony          #+#    #+#
-     Updated: 2019/10/22 19:47:45 by banthony         ###   ########.fr         
+     Updated: 2019/10/23 17:21:52 by abara            ###   ########.fr         
 
 ********************************************************************************
 
 * [BASE64]	Debug with bad user entry (mostly in decode mode)
-* [DES]	Print Salted__XXXXXXXX when password is used (openssl like)
-* [DES]	In decode check if Salted__ is present, remove it if it is.
 
 * [DES]	Rework sbox step
 * [NORM] Refacto and code cleaning

@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 13:14:26 by abara             #+#    #+#             */
-/*   Updated: 2019/10/22 19:22:43 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/23 16:30:55 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,45 +75,49 @@ static const uint8_t	g_keyp[56] =
 	21, 13, 5, 28, 20, 12, 4
 };
 
-static void		des_cipher(t_des des, t_cmd_type cmd, char *entry, size_t size)
+static void		des_cipher(t_des *des, t_cmd_type cmd, char *entry, size_t size)
 {
 	uint64_t	subkey[16];
 	uint64_t	key;
 	t_base64	b64;
 
+	if (!des->hexa_key && !get_pass(des, entry, &size))
+		return ;
 	ft_memset(&b64, 0, sizeof(b64));
 	b64.out = -1;
-	b64.in = des.in;
-	b64.cipher_mode = des.cipher_mode;
-	hexastring_to_uint64(des.hexa_key, &key);
+	b64.in = des->in;
+	b64.cipher_mode = des->cipher_mode;
+	hexastring_to_uint64(des->hexa_key, &key);
 	key = bits_permutation(key, g_keyp, 56);
 	des_subkey_generation(key, &subkey);
-	if (cmd == DES_ECB && des.cipher_mode == CIPHER_ENCODE)
+	if (cmd == DES_ECB && des->cipher_mode == CIPHER_ENCODE)
 	{
-		des_ecb_encode(&des, entry, size, subkey);
-		if (des.use_b64) {
-			b64.out = des.out;
-			base64_cipher(&b64, (char*)des.result, des.result_len);
+		des_ecb_encode(des, entry, size, subkey);
+		if (des->use_b64) {
+			b64.out = des->out;
+			base64_cipher(&b64, (char*)des->result, des->result_len);
 		}
 		else
-			write(des.out, des.result, des.result_len);
+			write(des->out, des->result, des->result_len);
 	}
-	else if (cmd == DES_CBC && des.cipher_mode == CIPHER_ENCODE)
-		des_cbc_encode(&des, entry, size, subkey);
-	else if (cmd == DES_ECB && des.cipher_mode == CIPHER_DECODE)
+	else if (cmd == DES_CBC && des->cipher_mode == CIPHER_ENCODE)
+		des_cbc_encode(des, entry, size, subkey);
+	else if (cmd == DES_ECB && des->cipher_mode == CIPHER_DECODE)
 	{
-		if (des.use_b64) {
+		if (des->use_b64) {
 			base64_cipher(&b64, entry, size);
-			des_ecb_decode(&des, b64.result, b64.result_len, subkey);
-			write(des.out, des.result, des.result_len);
+			des_ecb_decode(des, b64.result, b64.result_len, subkey);
+			ft_strdel(&b64.result);
+			write(des->out, des->result, des->result_len);
 		}
 		else {
-			des_ecb_decode(&des, entry, size, subkey);
-			write(des.out, des.result, des.result_len);
+			des_ecb_decode(des, entry, size, subkey);
+			write(des->out, des->result, des->result_len);
 		}
 	}
-	else if (cmd == DES_CBC && des.cipher_mode == CIPHER_DECODE)
-		des_cbc_decode(&des, entry, size, subkey);
+	else if (cmd == DES_CBC && des->cipher_mode == CIPHER_DECODE)
+		des_cbc_decode(des, entry, size, subkey);
+	ft_memdel((void**)&des->result);
 }
 
 int				usage_des(char *exe, char *cmd_name)
@@ -143,13 +147,13 @@ static t_bool	parse_input(t_list *elem, void *data)
 	else if (!ft_strcmp(flag->key, CIPHER_OUTPUT_FILE_KEY))
 		des->out = open_file(flag->values, O_CREAT | O_EXCL | O_RDWR, EXIST);
 	else if (!ft_strcmp(flag->key, DES_HEXAKEY_KEY))
-		des->hexa_key = flag->values;
+		des->hexa_key = ft_strdup(flag->values);
 	else if (!ft_strcmp(flag->key, DES_PASS_KEY))
-		des->passwd = flag->values;
+		des->passwd = ft_strdup(flag->values);
 	else if (!ft_strcmp(flag->key, DES_SALT_KEY))
 		ft_strncpy(des->salt, flag->values, SALT_LENGTH);
 	else if (!ft_strcmp(flag->key, DES_INIT_VECTOR_KEY))
-		des->i_vector = flag->values;
+		des->i_vector = ft_strdup(flag->values);
 	if (des->in < 0 || des->out < 0)
 		return (false);
 	return (true);
@@ -165,8 +169,12 @@ static int		des_end(t_des des, t_cmd_opt *opt, int error, char *mess)
 		ft_close(des.in);
 	if (des.out != STDOUT_FILENO && des.out > 0)
 		ft_close(des.out);
+	if (des.i_vector != NULL)
+		ft_memdel((void**)&des.i_vector);
+	if (des.hexa_key != NULL)
+		ft_memdel((void**)&des.hexa_key);
 	if (des.passwd != NULL)
-		ft_strdel(&des.passwd);
+		ft_memdel((void**)&des.passwd);
 	return (error);
 }
 
@@ -188,16 +196,14 @@ int				cmd_des(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 		ft_lstiter_while_true(opt->flag_with_input, &des, parse_input);
 	if (des.in < 0 || des.out < 0)
 		return (des_end(des, opt, CMD_ERROR, NULL));
-	if (!des.hexa_key && !get_pass(&des))
-		return (CMD_ERROR);
 	if (!opt || !opt->end)
 	{
 		if (!(entry = (char*)read_cat(des.in, &size)))
 			return (des_end(des, opt, CMD_ERROR, "Can't read input."));
-		des_cipher(des, cmd, entry, size);
+		des_cipher(&des, cmd, entry, size);
 		ft_strdel(&entry);
 		return (des_end(des, opt, CMD_SUCCESS, NULL));
 	}
-	des_cipher(des, cmd, av[opt->end], 0);
+	des_cipher(&des, cmd, av[opt->end], 0);
 	return (des_end(des, opt, CMD_SUCCESS, NULL));
 }

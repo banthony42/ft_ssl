@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 12:40:36 by abara             #+#    #+#             */
-/*   Updated: 2019/10/22 16:10:56 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/23 16:15:07 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,14 +133,7 @@ void des_core(char *plain_text, uint64_t subkey[16], uint8_t *result, t_cipher_m
 uint64_t		bits_permutation(uint64_t data, const uint8_t *matrix, size_t size);
 
 void            apply_sbox(uint64_t ext, uint32_t *sbox);
-t_bool			get_pass(t_des *des);
+t_bool			get_pass(t_des *des, char *entry, size_t *size);
 void			des_subkey_generation(uint64_t key, uint64_t (*subkey)[16]);
 
 #endif
-
-
-
-
-
-
-

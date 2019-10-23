@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 14:21:32 by abara             #+#    #+#             */
-/*   Updated: 2019/10/22 19:34:52 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/23 12:14:35 by abara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ static void	encode_b64(char *entry, char padding, t_base64 *b64, char table[65],
 **	Return false otherwise.
 */
 
-static t_bool	is_valid_ciphering(char *entry, int len, size_t *result_len)
+static t_bool	is_valid_ciphering(char *entry, int len, size_t *result_len, t_bool isb64_url)
 {
 	int			i;
 	size_t		ignore;
@@ -119,10 +119,14 @@ static t_bool	is_valid_ciphering(char *entry, int len, size_t *result_len)
 				ignore++;
 				continue;
 			}
-			if (entry[i] != '+' || entry[i] != '/')
+			if (isb64_url && (entry[i] == '-' || entry[i] == '_'))
 				continue;
-			ft_putendl("Invalid character in input stream.");
-			return (false);  // normally its false here ?
+			if (!isb64_url && (entry[i] == '+' || entry[i] == '/'))
+				continue;
+			if (entry[i] == '=')
+				continue ;
+			ft_putchar('\n');
+			return (false);
 		}
 	i = -1;
 	while (++i < len)
@@ -165,13 +169,15 @@ static void	decode_b64(char *entry, t_base64 *b64, int b64_decode[255], size_t e
 
 	i = 0;
 	len = elen;
-	if (!is_valid_ciphering(entry, (int)len, &b64->result_len))
+	if (!is_valid_ciphering(entry, (int)len, &b64->result_len, b64->b64_url))
 		return ;
-	b64->result = ft_strnew(len + 4);
+	if (b64->out < 0)
+		b64->result = ft_strnew(len + 4);
 	ft_memset(&block, 0, sizeof(block));
 	while (i < len)
 	{
-		ft_strncat(block.char_array, &entry[i], 1);
+		if (entry[i] != '\n')
+			ft_strncat(block.char_array, &entry[i], 1);
 		if (ft_strlen(block.char_array) >= 4)
 		{
 			block.i_0 = b64decode((int)block.char_array[0], b64_decode);
