@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   man.h                                              :+:      :+:    :+:   */
+/*   ft_ssl_man.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:39:22 by banthony          #+#    #+#             */
-/*   Updated: 2019/09/06 16:41:11 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/24 16:25:42 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		MAN_H
-# define	MAN_H
+#ifndef FT_SSL_MAN_H
+# define FT_SSL_MAN_H
 
-#include <ncurses.h>
+# include <ncurses.h>
 
 # define BORDER_COLOR 1
 

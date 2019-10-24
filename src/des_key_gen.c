@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 15:38:03 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/23 17:13:45 by abara            ###   ########.fr       */
+/*   Updated: 2019/10/24 15:15:56 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "cipher_commands.h"
 #include "message_digest.h"
 
-static const uint8_t shift_table[16]=
+static const uint8_t g_shift_table[16] =
 {
 	1, 1, 2, 2,
 	2, 2, 2, 2,
@@ -22,21 +22,19 @@ static const uint8_t shift_table[16]=
 	2, 2, 2, 1
 };
 
-// SubKey compression Table
-static const  uint8_t key_comp[48]=
-{    14,17,11,24,1,5,
-	  3,28,15,6,21,10,
-	  23,19,12,4,26,8,
-	  16,7,27,20,13,2,
-	  41,52,31,37,47,55,
-	  30,40,51,45,33,48,
-	  44,49,39,56,34,53,
-	  46,42,50,36,29,32
+static const uint8_t g_key_comp[48] =
+{
+	14, 17, 11, 24, 1, 5,
+	3, 28, 15, 6, 21, 10,
+	23, 19, 12, 4, 26, 8,
+	16, 7, 27, 20, 13, 2,
+	41, 52, 31, 37, 47, 55,
+	30, 40, 51, 45, 33, 48,
+	44, 49, 39, 56, 34, 53,
+	46, 42, 50, 36, 29, 32
 };
 
-# define FIRST_BIT_32   0x80000000
-
-static void        rotate_left_28(uint32_t *ptr, int shift)
+static void		rotate_left_28(uint32_t *ptr, int shift)
 {
 	int i;
 
@@ -49,31 +47,27 @@ static void        rotate_left_28(uint32_t *ptr, int shift)
 	}
 }
 
-void des_subkey_generation(uint64_t key, uint64_t (*subkey)[16])
+void			des_subkey_generation(uint64_t key, uint64_t (*subkey)[16])
 {
 	int			i;
-	uint32_t	l_block = 0;
-	uint32_t	r_block = 0;
-	uint64_t	block_cat = 0;
+	uint32_t	l_block;
+	uint32_t	r_block;
+	uint64_t	block_cat;
+	uint64_t	keys;
 
-	uint64_t keys = key >> 8;
-
+	keys = key >> 8;
 	r_block = (((1u << 28) - 1)) & keys;
-	l_block = ( (((1u << 28) - 1)) & (keys >> 28));
-
+	l_block = ((((1u << 28) - 1)) & (keys >> 28));
 	i = -1;
 	while (++i < 16)
 	{
-		rotate_left_28(&l_block, shift_table[i]);
-		rotate_left_28(&r_block, shift_table[i]);
-
-		block_cat = ( (((1u << 28) - 1)) & r_block);
-		block_cat |= ( (((1u << 28) - 1)) & (uint64_t)l_block) << 28;
+		rotate_left_28(&l_block, g_shift_table[i]);
+		rotate_left_28(&r_block, g_shift_table[i]);
+		block_cat = ((((1u << 28) - 1)) & r_block);
+		block_cat |= ((((1u << 28) - 1)) & (uint64_t)l_block) << 28;
 		block_cat = block_cat << 8;
-
-		uint64_t tmpkey = bits_permutation(block_cat, key_comp, 48);
-		(*subkey)[i] = tmpkey;
-
+		block_cat = bits_permutation(block_cat, g_key_comp, 48);
+		(*subkey)[i] = block_cat;
 	}
 }
 
@@ -84,7 +78,7 @@ static t_bool	ft_ishexa(char *str)
 	i = 0;
 	if (!str || ft_strlen(str) == 0)
 		return (false);
-	while(str[i])
+	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
 			if (ft_toupper(str[i]) < 'A' || ft_toupper(str[i]) > 'F')
@@ -96,9 +90,9 @@ static t_bool	ft_ishexa(char *str)
 
 static t_bool	create_key(t_des *des)
 {
-	char	*result;
-	char	*entry;
-	size_t	entry_len;
+	char		*result;
+	char		*entry;
+	size_t		entry_len;
 	uint64_t	salt;
 
 	hexastring_to_uint64(des->salt, &salt);
@@ -134,18 +128,18 @@ static t_bool	create_salt(t_des *des)
 	index = 0;
 	ft_memset(generated_salt, 0, SALT_LENGTH);
 	buffer[1] = '\0';
-	while(read(fd, buffer, 1))
+	while (read(fd, buffer, 1))
 	{
 		if (ft_ishexa(buffer))
 			generated_salt[index++] = buffer[0];
 		if (index >= SALT_LENGTH)
-			break;
+			break ;
 	}
 	ft_strncpy(des->salt, generated_salt, SALT_LENGTH);
 	return (true);
 }
 
-static void extract_salt(t_des *des, char *entry, size_t *size)
+static void		extract_salt(t_des *des, char *entry, size_t *size)
 {
 	uint64_t	salt;
 	char		*salt_str;
@@ -153,7 +147,7 @@ static void extract_salt(t_des *des, char *entry, size_t *size)
 
 	if (!ft_strncmp("Salted__", entry, 8))
 	{
-		salt = *((uint64_t*)(entry + 8));
+		salt = *((uint64_t*)(void*)(entry + 8));
 		salt_str = ft_itoa_base_uint64(salt, 16);
 		if ((salt_len = ft_strlen(salt_str)) != 16)
 			ft_memset(des->salt, '0', SALT_LENGTH);
@@ -164,8 +158,11 @@ static void extract_salt(t_des *des, char *entry, size_t *size)
 	}
 }
 
-// Use getpassphrase instead. (getpass not secure)
-t_bool	get_pass(t_des *des, char *entry, size_t *size)
+/*
+**	Use getpassphrase instead. (getpass not secure)
+*/
+
+t_bool			get_pass(t_des *des, char *entry, size_t *size)
 {
 	char	user_passwd[PASSWORD_MAX];
 	char	check_passwd[PASSWORD_MAX];
@@ -176,8 +173,8 @@ t_bool	get_pass(t_des *des, char *entry, size_t *size)
 	{
 		ft_memset(user_passwd, 0, PASSWORD_MAX);
 		ft_memset(check_passwd, 0, PASSWORD_MAX);
-		ft_strncpy(user_passwd, getpass("Enter decryption password:"), PASSWORD_MAX);
-		ft_strncpy(check_passwd, getpass("Verifying - Enter decryption password:"), PASSWORD_MAX);
+		ft_strncpy(user_passwd, getpass(ENTER_PASS), PASSWORD_MAX);
+		ft_strncpy(check_passwd, getpass(CHECK_PASS), PASSWORD_MAX);
 		if (ft_strcmp(user_passwd, check_passwd))
 		{
 			ft_putendl("Verify failure\nbad password read");

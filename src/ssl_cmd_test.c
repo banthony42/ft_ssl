@@ -6,13 +6,13 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 18:35:46 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/18 16:37:05 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/24 15:27:37 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
 
-int			usage_test(char *exe, char *cmd_name)
+int				usage_test(char *exe, char *cmd_name)
 {
 	ft_putstr(exe);
 	ft_putstr(" ");
@@ -24,7 +24,7 @@ int			usage_test(char *exe, char *cmd_name)
 	return (CMD_SUCCESS);
 }
 
-static void	decimal_to_binary(int n)
+static void		decimal_to_binary(int n)
 {
 	int		c;
 	int		count;
@@ -45,7 +45,7 @@ static void	decimal_to_binary(int n)
 	ft_putendl(result);
 }
 
-static void	display_options(t_cmd_opt *opts)
+static void		display_options(t_cmd_opt *opts)
 {
 	ft_putendl("-------------- Options Simple --------------");
 	ft_print_memory(&opts->opts_flag, sizeof(uint32_t));
@@ -62,7 +62,7 @@ static void	display_options(t_cmd_opt *opts)
 		ft_putendlcol(SH_PINK, "HELP");
 }
 
-static void	display_param_options(t_cmd_opt *opts)
+static void		display_param_options(t_cmd_opt *opts)
 {
 	ft_putendl("----------- Options Parametrable -----------");
 	ft_print_memory(&opts->opts_pflag, sizeof(uint32_t));
@@ -81,7 +81,7 @@ static void	display_param_options(t_cmd_opt *opts)
 		ft_putendlcol(SH_PINK, "VALUEX");
 }
 
-static void	display_flag_with_input(t_list *opt_elem)
+static void		display_flag_with_input(t_list *opt_elem)
 {
 	t_opt_arg *flag_with_input;
 
@@ -92,11 +92,35 @@ static void	display_flag_with_input(t_list *opt_elem)
 	ft_putendl(flag_with_input->values);
 }
 
-int			cmd_test(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts)
+static t_bool	display_cmd_composition(int ac, char **av, t_cmd_opt *opts)
+{
+	int i;
+
+	ft_putendl("-------------- Arg for command -------------");
+	ft_putstrcol(SH_YELLOW, "args:");
+	if (!opts->end)
+	{
+		ft_putendlcol(SH_YELLOW, " none");
+		ft_lstdel(&opts->flag_with_input, free_cmd_opt);
+		return (true);
+	}
+	i = -1;
+	while (++i < ac)
+	{
+		if (i >= opts->end)
+			ft_putstrcol(SH_GREEN, av[i]);
+		else
+			ft_putstrcol(SH_YELLOW, av[i]);
+		ft_putchar('|');
+	}
+	ft_putchar('\n');
+	return (false);
+}
+
+int				cmd_test(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts)
 {
 	char	*entry;
 	size_t	size;
-	int		i;
 
 	(void)cmd;
 	if (!opts)
@@ -115,24 +139,8 @@ int			cmd_test(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opts)
 	display_options(opts);
 	display_param_options(opts);
 	ft_lstiter(opts->flag_with_input, display_flag_with_input);
-	ft_putendl("-------------- Arg for command -------------");
-	ft_putstrcol(SH_YELLOW, "args:");
-	if (!opts->end)
-	{
-		ft_putendlcol(SH_YELLOW, " none");
-		ft_lstdel(&opts->flag_with_input, free_cmd_opt);
+	if (display_cmd_composition(ac, av, opts))
 		return (CMD_SUCCESS);
-	}
-	i = -1;
-	while (++i < ac)
-	{
-		if (i >= opts->end)
-			ft_putstrcol(SH_GREEN, av[i]);
-		else
-			ft_putstrcol(SH_YELLOW, av[i]);
-		ft_putchar('|');
-	}
-	ft_putchar('\n');
 	ft_lstdel(&opts->flag_with_input, free_cmd_opt);
 	return (CMD_SUCCESS);
 }

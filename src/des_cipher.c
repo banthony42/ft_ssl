@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 14:59:41 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/23 16:54:48 by abara            ###   ########.fr       */
+/*   Updated: 2019/10/24 15:20:39 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #include "cipher_commands.h"
 #include "message_digest.h"
 
-static size_t		salt_handler(t_des *des, uint8_t *entry, size_t size)
+static size_t	salt_handler(t_des *des, uint8_t *entry, size_t size)
 {
-	uint8_t *tmp;
-	uint64_t salt;
+	uint8_t		*tmp;
+	uint64_t	salt;
 
 	tmp = des->result;
 	des->result = (uint8_t*)ft_memalloc(des->result_len + 16);
@@ -32,7 +32,8 @@ static size_t		salt_handler(t_des *des, uint8_t *entry, size_t size)
 	return (0);
 }
 
-void	des_ecb_encode(t_des *des, char *entry, size_t size, uint64_t subkey[16])
+void			des_ecb_encode(t_des *des, char *entry, size_t size,
+								uint64_t subkey[16])
 {
 	size_t		padd;
 	char		*padded_input;
@@ -56,7 +57,8 @@ void	des_ecb_encode(t_des *des, char *entry, size_t size, uint64_t subkey[16])
 		salt_handler(des, NULL, 0);
 }
 
-void	des_ecb_decode(t_des *des, char *entry, size_t size, uint64_t subkey[16])
+void			des_ecb_decode(t_des *des, char *entry, size_t size,
+								uint64_t subkey[16])
 {
 	size_t		i;
 
@@ -76,7 +78,8 @@ void	des_ecb_decode(t_des *des, char *entry, size_t size, uint64_t subkey[16])
 	des->result_len = get_padding_to_remove(des->result, des->result_len);
 }
 
-void	des_cbc_encode(t_des *des, char *entry, size_t size, uint64_t subkey[16])
+void			des_cbc_encode(t_des *des, char *entry, size_t size,
+								uint64_t subkey[16])
 {
 	(void)subkey;
 	(void)size;
@@ -84,7 +87,8 @@ void	des_cbc_encode(t_des *des, char *entry, size_t size, uint64_t subkey[16])
 	(void)entry;
 }
 
-void	des_cbc_decode(t_des *des, char *entry, size_t size, uint64_t subkey[16])
+void			des_cbc_decode(t_des *des, char *entry, size_t size,
+								uint64_t subkey[16])
 {
 	(void)subkey;
 	(void)size;

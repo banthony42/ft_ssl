@@ -87,7 +87,7 @@ build_commands()
 	echo "${MODES_META}" | while read -r -d';' MODE; do
 		echo "${KEYS}" | while read -r -d';' KEY; do
 			if [ "${MODE}" = "des-ecb" ]; then
-				echo "openssl ${MODE} -a -K ${KEY},openssl ${MODE} -a -d -K ${KEY},./ft_ssl ${MODE} -a -k ${KEY},./ft_ssl ${MODE} -a -d -k ${KEY},0;" >> tmp.txt
+				echo "openssl ${MODE} -K ${KEY},openssl ${MODE} -d -K ${KEY},./ft_ssl ${MODE} -k ${KEY},./ft_ssl ${MODE} -d -k ${KEY},0;" >> tmp.txt
 			else
 				echo "${IVS}" | while read -r -d';' IV; do
 					echo "openssl ${MODE} -K ${KEY} -iv ${IV},openssl ${MODE} -d -K ${KEY} -iv ${IV},./ft_ssl ${MODE} -k ${KEY} -v ${IV},./ft_ssl ${MODE} -d -k ${KEY} -v ${IV},0;" >> tmp.txt

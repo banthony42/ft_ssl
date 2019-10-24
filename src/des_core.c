@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 15:05:17 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/18 15:24:55 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/24 16:20:14 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ static void	encryption_round(uint32_t *left, uint32_t *right,
 	{
 		exp = bits_permutation((uint64_t)(*right) << 32, g_expp, 48) >> 16;
 		xored_data = exp ^ (subkey[i] >> 16);
-		apply_sbox(xored_data, &sbox_result);
+		des_substitution(xored_data, &sbox_result);
 		sbox_result = bits_permutation(((uint64_t)sbox_result << 32),
 										g_end_roundp, 32) >> 32;
 		sbox_result ^= *left;
@@ -125,7 +125,7 @@ static void	decryption_round(uint32_t *left, uint32_t *right,
 		tmp_left = *right;
 		exp = bits_permutation((uint64_t)(*right) << 32, g_expp, 48) >> 16;
 		xored_data = exp ^ (subkey[i] >> 16);
-		apply_sbox(xored_data, &sbox_result);
+		des_substitution(xored_data, &sbox_result);
 		sbox_result = bits_permutation(((uint64_t)sbox_result << 32),
 										g_end_roundp, 32) >> 32;
 		*right = *left ^ sbox_result;

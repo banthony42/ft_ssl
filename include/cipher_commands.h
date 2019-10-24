@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 12:40:36 by abara             #+#    #+#             */
-/*   Updated: 2019/10/23 16:15:07 by abara            ###   ########.fr       */
+/*   Updated: 2019/10/24 16:40:06 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,15 @@
 # include <pwd.h>
 
 # ifdef __linux__
-# include <limits.h>
-# include <stdint.h>
-# define PASSWORD_MAX _SC_PASS_MAX
+#  include <limits.h>
+#  include <stdint.h>
+#  define PASSWORD_MAX _SC_PASS_MAX
 
 # elif __APPLE__
-# define PASSWORD_MAX _PASSWORD_LEN
-
+#  define PASSWORD_MAX _PASSWORD_LEN
 # endif
 
-
+# define FIRST_BIT_32   0x80000000
 # define FIRST_BIT_64   0x8000000000000000
 
 /*
@@ -52,6 +51,9 @@ typedef enum		e_cipher_mode
 **	************************ BASE64 ************************
 */
 
+# define B64_INPUT_ERROR "base64 command take only one argument."
+# define B64_USE_RESULT_AS_OUT -1
+
 /*
 **	base64 command only use default ciphering options.
 */
@@ -69,6 +71,8 @@ typedef struct		s_base64
 	int				out;
 	char			*result;
 	size_t			result_len;
+	char			table[65];
+	char			padd[7];
 }					t_base64;
 
 typedef struct		s_decode_block
@@ -85,6 +89,9 @@ void				base64_cipher(t_base64 *b64, char *entry, size_t elen);
 /*
 **	************************ DES FAMILY ************************
 */
+
+# define ENTER_PASS "Enter decryption password:"
+# define CHECK_PASS "Verifying - " ENTER_PASS
 
 # define DES_OPTS "-d;-e;-a"
 
@@ -107,9 +114,7 @@ typedef enum		e_des_mode
 typedef struct		s_des
 {
 	t_cipher_mode	cipher_mode;
-	t_des_mode		des_mode;	// unused ?
 	t_bool			use_b64;
-	char			padd[4];
 	char			*hexa_key;
 	char			*passwd;
 	char			salt[SALT_LENGTH];
@@ -120,20 +125,38 @@ typedef struct		s_des
 	int				out;
 }					t_des;
 
-void des_ecb_encode(t_des *des, char *entry, size_t size, uint64_t subkey[16]);
-void des_ecb_decode(t_des *des, char *entry, size_t size, uint64_t subkey[16]);
-void des_cbc_encode(t_des *des, char *entry, size_t size, uint64_t subkey[16]);
-void des_cbc_decode(t_des *des, char *entry, size_t size, uint64_t subkey[16]);
+/*
+**	DES
+*/
 
-size_t	get_padding_to_remove(uint8_t *decipher, size_t len);
-void		hexastring_to_uint64(char *str, uint64_t *key);
-void des_core(char *plain_text, uint64_t subkey[16], uint8_t *result, t_cipher_mode mode);
+void				des_ecb_encode_treatment(t_des *des, t_cmd_type cmd,
+											char *entry, size_t size);
+void				des_ecb_decode_treatment(t_des *des, t_cmd_type cmd,
+											char *entry, size_t size);
+void				des_cbc_encode_treatment(t_des *des, t_cmd_type cmd,
+											char *entry, size_t size);
+void				des_cbc_decode_treatment(t_des *des, t_cmd_type cmd,
+											char *entry, size_t size);
+void				des_ecb_encode(t_des *des, char *entry, size_t size,
+									uint64_t subkey[16]);
+void				des_ecb_decode(t_des *des, char *entry, size_t size,
+									uint64_t subkey[16]);
+void				des_cbc_encode(t_des *des, char *entry, size_t size,
+									uint64_t subkey[16]);
+void				des_cbc_decode(t_des *des, char *entry, size_t size,
+									uint64_t subkey[16]);
+void				des_core(char *plain_text, uint64_t subkey[16],
+									uint8_t *result, t_cipher_mode mode);
+/*
+**	DES utils
+*/
 
-// bit permutation
-uint64_t		bits_permutation(uint64_t data, const uint8_t *matrix, size_t size);
-
-void            apply_sbox(uint64_t ext, uint32_t *sbox);
-t_bool			get_pass(t_des *des, char *entry, size_t *size);
-void			des_subkey_generation(uint64_t key, uint64_t (*subkey)[16]);
+size_t				get_padding_to_remove(uint8_t *decipher, size_t len);
+void				hexastring_to_uint64(char *str, uint64_t *key);
+uint64_t			bits_permutation(uint64_t data, const uint8_t *matrix,
+									size_t size);
+void				des_substitution(uint64_t input_data, uint32_t *out);
+t_bool				get_pass(t_des *des, char *entry, size_t *size);
+void				des_subkey_generation(uint64_t key, uint64_t (*subkey)[16]);
 
 #endif

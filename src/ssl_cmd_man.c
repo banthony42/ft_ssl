@@ -6,7 +6,7 @@
 /*   By: abara <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 15:39:25 by abara             #+#    #+#             */
-/*   Updated: 2019/09/06 17:00:50 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/24 13:20:57 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	draw_border(t_vector2 screen)
 	while (++i < max)
 	{
 		mvaddch(0, i, '-');
-		mvaddch(screen.y -1, i, '-');
+		mvaddch(screen.y - 1, i, '-');
 	}
 	attroff(COLOR_PAIR(BORDER_COLOR));
 }
@@ -67,13 +67,14 @@ static void	get_screen(t_vector2 *screen_size)
 
 int			cmd_man(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 {
+	int			in;
+	t_vector2	screen_size;
+	char		*msg;
+
+	msg = " PRESS 'q' TO QUIT";
 	if (ac != 3)
 		usage_man("ft_ssl", "man");
-
 	init_curses();
-	int in;
-	t_vector2 screen_size;
-	char *msg = " PRESS 'q' TO QUIT";
 	while ((in = getch()) != 'q')
 	{
 		get_screen(&screen_size);
@@ -87,11 +88,8 @@ int			cmd_man(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 		attroff(COLOR_PAIR(BORDER_COLOR));
 		refresh();
 	}
-
 	endwin();
-	(void)ac;
-	(void)av;
-	(void)cmd;
-	(void)opt;
+	if (!av | (cmd == MAN) | !opt)
+		;
 	return (CMD_SUCCESS);
 }

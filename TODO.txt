@@ -16,3 +16,5 @@
 * [NORM] Refacto and code cleaning
 
 * [DES]	Add other ciphering mode
+* Test & not working command :
+echo bonjour | ./ft_ssl des-ecb -a -p d  | ./ft_ssl des-ecb -a -d -p d

@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/18 16:48:36 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/24 16:34:33 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdint.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include "man.h"
+# include "ft_ssl_man.h"
 
 # define NO_FILE_DIR "No such file or directory"
 # define EXIST "File already exist"
@@ -52,7 +52,8 @@
 **
 **	Il est aussi possible de prendre une entree utilisateur:
 **	-[OptionName] [StringFromUser]
-**	Pour cela il suffit d'utiliser OPT_FROM_USER dans le champ value des parametre de parsing.
+**	Pour cela il suffit d'utiliser OPT_FROM_USER
+**	dans le champ value des parametres de parsing.
 */
 
 # define OPT_FROM_USER "??"
@@ -198,8 +199,9 @@ typedef t_bool	(*t_list_condition)(t_list *elem, void *data);
 unsigned char	*read_cat(int fd, size_t *size);
 unsigned char	*read_file(char *path, size_t *size);
 int				find_key(char **av, int ac, char *key);
-int 			open_file(const char *file, int flags, char *error);
-void			ft_lstiter_while_true(t_list *lst, void *data, t_list_condition condition);
+int				open_file(const char *file, int flags, char *error);
+void			ft_lstiter_while_true(t_list *lst, void *data,
+										t_list_condition condition);
 void			free_cmd_opt(void *opt, size_t opt_size);
 void			encode64_lendian(size_t size, char *octet);
 void			encode64_bendian(size_t size, char *octet);
@@ -217,10 +219,10 @@ size_t			ft_strchrcount(const char *src, int c);
 
 char			*ssl_get_cmd_name(t_cmd_type cmd, t_bool toupper);
 int				ssl_cmd_dispatcher(int ac, char **av, t_cmd_type cmd);
-int				ssl_cmd_parser(int ac, char **av, t_parsing_param param
-									, t_cmd_opt *opt);
+int				ssl_cmd_parser(int ac, char **av, t_parsing_param param,
+								t_cmd_opt *opt);
 int				ssl_find_key_value(char *entry, char **values,
-						   t_opt_arg opt_arg, t_cmd_opt *opt);
+								t_opt_arg opt_arg, t_cmd_opt *opt);
 
 /*
 **	Commandes

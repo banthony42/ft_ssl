@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 18:44:23 by banthony          #+#    #+#             */
-/*   Updated: 2019/07/26 09:29:49 by abara            ###   ########.fr       */
+/*   Updated: 2019/10/24 12:58:44 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ static void	hash_stdin(t_cmd_opt *opt, char *entry, size_t size)
 **	au moment ou md5 / sha ont ete code.
 **	C'est pourquoi ces deux commande gere ce cas dans leur implementations.
 */
+
 int			cmd_md5(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 {
 	char	*entry;
