@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 15:05:17 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/24 16:20:14 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/25 17:08:44 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,15 +134,12 @@ static void	decryption_round(uint32_t *left, uint32_t *right,
 	}
 }
 
-void		des_core(char *plain_text, uint64_t subkey[16], uint8_t *result,
+void		des_core(uint64_t data, uint64_t subkey[16], uint8_t *result,
 						t_cipher_mode mode)
 {
-	uint64_t	data;
 	uint32_t	right;
 	uint32_t	left;
 
-	ft_memcpy(&data, plain_text, 8);
-	data = swap_uint64(data);
 	data = bits_permutation(data, g_initp, 64);
 	left = data >> 32;
 	right = data & 0xFFFFFFFF;

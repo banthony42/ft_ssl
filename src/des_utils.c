@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 15:03:59 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/23 16:42:19 by abara            ###   ########.fr       */
+/*   Updated: 2019/10/25 11:55:40 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,12 @@ size_t	get_padding_to_remove(uint8_t *decipher, size_t len)
 	last_value = 0;
 	while (padding_size)
 	{
-		if (last_value != 0 && last_value != *(ptr - padding_size))
+		if (last_value && last_value != *(ptr - padding_size))
 		{
 			ft_putendl("error end padding check");
 			exit(EXIT_FAILURE);
 		}
+		last_value = *(ptr - padding_size);
 		len--;
 		padding_size--;
 	}

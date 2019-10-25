@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 12:40:36 by abara             #+#    #+#             */
-/*   Updated: 2019/10/24 16:40:06 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/25 15:10:21 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,14 @@ void				des_cbc_encode_treatment(t_des *des, t_cmd_type cmd,
 											char *entry, size_t size);
 void				des_cbc_decode_treatment(t_des *des, t_cmd_type cmd,
 											char *entry, size_t size);
+void				des_ofb_encode_treatment(t_des *des, t_cmd_type cmd,
+											char *entry, size_t size);
+void				des_ofb_decode_treatment(t_des *des, t_cmd_type cmd,
+											char *entry, size_t size);
+void				des_cfb_encode_treatment(t_des *des, t_cmd_type cmd,
+											char *entry, size_t size);
+void				des_cfb_decode_treatment(t_des *des, t_cmd_type cmd,
+											char *entry, size_t size);
 void				des_ecb_encode(t_des *des, char *entry, size_t size,
 									uint64_t subkey[16]);
 void				des_ecb_decode(t_des *des, char *entry, size_t size,
@@ -145,7 +153,11 @@ void				des_cbc_encode(t_des *des, char *entry, size_t size,
 									uint64_t subkey[16]);
 void				des_cbc_decode(t_des *des, char *entry, size_t size,
 									uint64_t subkey[16]);
-void				des_core(char *plain_text, uint64_t subkey[16],
+void				des_ofb_cipher(t_des *des, char *entry, size_t size,
+									uint64_t subkey[16]);
+void				des_cfb_cipher(t_des *des, char *entry, size_t size,
+									uint64_t subkey[16]);
+void				des_core(uint64_t data, uint64_t subkey[16],
 									uint8_t *result, t_cipher_mode mode);
 /*
 **	DES utils
