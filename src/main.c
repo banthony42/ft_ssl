@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:03:01 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/18 16:39:55 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/28 16:34:25 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ static void	usage(char **argv)
 	ft_putendl("md5\nsha224\nsha256\nsha384\nsha512");
 	ft_putendl("sha512_224\nsha512_256\n");
 	ft_putendl("Cipher commmands:");
-	ft_putendl("base64\t(wip)\ndes\t(wip)\ndes-ecb\t(wip)\ndec-cbc\t(wip)");
+	ft_putendl("base64\t\nbase64_url\t\ndes\t\ndes-ecb\t\ndec-cbc\t\n"
+				"des-ofb\t\ndes-cfb\t\ndes3\t\n");
 	ft_putendl("\nTest the parser:");
 	ft_putendl("test");
 }

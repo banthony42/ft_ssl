@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 13:14:26 by abara             #+#    #+#             */
-/*   Updated: 2019/10/25 15:08:59 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/28 14:15:07 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,10 @@ static void		des_cipher(t_des *des, t_cmd_type cmd, char *entry, size_t size)
 		des_cfb_decode_treatment(des, cmd, entry, size);
 	else if (cmd == DES_CFB && des->cipher_mode == CIPHER_ENCODE)
 		des_cfb_encode_treatment(des, cmd, entry, size);
+	else if (cmd == DES_3 && des->cipher_mode == CIPHER_DECODE)
+		des3_decode_treatment(des, cmd, entry, size);
+	else if (cmd == DES_3 && des->cipher_mode == CIPHER_ENCODE)
+		des3_encode_treatment(des, cmd, entry, size);
 	ft_memdel((void**)&des->result);
 }
 

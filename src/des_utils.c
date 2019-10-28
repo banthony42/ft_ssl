@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 15:03:59 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/25 11:55:40 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/28 16:47:14 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,23 +44,29 @@ void	hexastring_to_uint64(char *str, uint64_t *key)
 
 size_t	get_padding_to_remove(uint8_t *decipher, size_t len)
 {
-	uint8_t	last_value;
-	uint8_t *ptr;
-	size_t	padding_size;
+	uint8_t		*ptr;
+	size_t		i;
+	uint32_t	value;
+	uint32_t	last_value;
+	uint32_t	padd_len;
 
-	ptr = decipher + len;
-	padding_size = *(ptr - 1);
+	ptr = (unsigned char*)decipher + len;
+	padd_len = 0;
 	last_value = 0;
-	while (padding_size)
+	i = *(ptr - 1);
+	while (i && i < len)
 	{
-		if (last_value && last_value != *(ptr - padding_size))
+		value = *(ptr - i);
+		if (last_value && value != last_value)
 		{
-			ft_putendl("error end padding check");
-			exit(EXIT_FAILURE);
+			if (last_value != padd_len)
+				ft_exit("padding corruption detected.", EXIT_FAILURE);
+			else
+				break ;
 		}
-		last_value = *(ptr - padding_size);
-		len--;
-		padding_size--;
+		last_value = value;
+		padd_len++;
+		i--;
 	}
-	return (len);
+	return (len - padd_len);
 }

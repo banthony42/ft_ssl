@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 15:57:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/25 15:09:56 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/28 16:55:13 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,5 +223,79 @@ void	des_cfb_decode_treatment(t_des *des, t_cmd_type cmd, char *entry,
 	}
 	else
 		des_cfb_cipher(des, entry, size, subkey);
+	write(des->out, des->result, des->result_len);
+}
+
+static void	generate_keys(uint64_t key, uint64_t (*subkey)[16])
+{
+	key = bits_permutation(key, g_keyp, 56);
+	des_subkey_generation(key, subkey);
+}
+
+static void	des3_generate_keys(char *str_key, uint64_t (*subkey1)[16],
+							uint64_t (*subkey2)[16], uint64_t (*subkey3)[16])
+{
+	uint64_t	key;
+	char		*big_key;
+
+	big_key = ft_strnew(255);
+	ft_strncpy(big_key, str_key, ft_strlen(str_key));
+	key = 0;
+	hexastring_to_uint64(big_key, &key);
+	generate_keys(key, subkey1);
+	key = 0;
+	hexastring_to_uint64(big_key + 16, &key);
+	generate_keys(key, subkey2);
+	key = 0;
+	hexastring_to_uint64(big_key + 32, &key);
+	generate_keys(key, subkey3);
+	ft_strdel(&big_key);
+}
+
+void	des3_encode_treatment(t_des *des, t_cmd_type cmd, char *entry,
+									size_t size)
+{
+	t_base64	b64;
+	uint64_t	subkey[16];
+	uint64_t	subkey2[16];
+	uint64_t	subkey3[16];
+
+	(void)cmd;
+	des3_generate_keys(des->hexa_key, &subkey, &subkey2, &subkey3);
+	des3_encode(des, entry, size, subkey, subkey2, subkey3);
+	if (des->use_b64)
+	{
+		ft_memset(&b64, 0, sizeof(b64));
+		b64.out = des->out;
+		b64.in = des->in;
+		b64.cipher_mode = des->cipher_mode;
+		base64_cipher(&b64, (char*)des->result, des->result_len);
+	}
+	else
+		write(des->out, des->result, des->result_len);
+}
+
+void	des3_decode_treatment(t_des *des, t_cmd_type cmd, char *entry,
+									size_t size)
+{
+	t_base64	b64;
+	uint64_t	subkey[16];
+	uint64_t	subkey2[16];
+	uint64_t	subkey3[16];
+
+	(void)cmd;
+	des3_generate_keys(des->hexa_key, &subkey, &subkey2, &subkey3);
+	if (des->use_b64)
+	{
+		ft_memset(&b64, 0, sizeof(b64));
+		b64.out = B64_USE_RESULT_AS_OUT;
+		b64.in = des->in;
+		b64.cipher_mode = des->cipher_mode;
+		base64_cipher(&b64, entry, size);
+		des3_decode(des, b64.result, b64.result_len, subkey, subkey2, subkey3);
+		ft_strdel(&b64.result);
+	}
+	else
+		des3_decode(des, entry, size, subkey, subkey2, subkey3);
 	write(des->out, des->result, des->result_len);
 }

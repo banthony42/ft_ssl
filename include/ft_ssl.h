@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/25 15:07:50 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/28 14:12:52 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ typedef enum	e_cmd_type
 	DES_CBC,
 	DES_OFB,
 	DES_CFB,
+	DES_3,
 	MAN,
 	TEST,
 	NB_CMD,

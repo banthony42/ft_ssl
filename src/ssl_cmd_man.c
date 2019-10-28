@@ -6,7 +6,7 @@
 /*   By: abara <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 15:39:25 by abara             #+#    #+#             */
-/*   Updated: 2019/10/24 13:20:57 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/28 16:31:23 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int			cmd_man(int ac, char **av, t_cmd_type cmd, t_cmd_opt *opt)
 	t_vector2	screen_size;
 	char		*msg;
 
-	msg = " PRESS 'q' TO QUIT";
+	msg = ": Press 'q' to quit";
 	if (ac != 3)
 		usage_man("ft_ssl", "man");
 	init_curses();

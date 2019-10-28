@@ -6,7 +6,7 @@
 /*   By: abara <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 16:20:23 by abara             #+#    #+#             */
-/*   Updated: 2019/10/25 15:08:38 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/28 14:14:02 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -308,6 +308,37 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 		},
 		.opts_arg_len = 6,
 	},
+	[DES_3] = {
+		.cmd = DES_3,
+		.opts = DES_OPTS,
+		.opts_len = sizeof(DES_OPTS) - 1,
+		.opts_with_arg = true,
+		.opts_arg[0] = {
+			.key = CIPHER_INPUT_FILE_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[1] = {
+			.key = CIPHER_OUTPUT_FILE_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[2] = {
+			.key = DES_HEXAKEY_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[3] = {
+			.key = DES_PASS_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[4] = {
+			.key = DES_SALT_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg[5] = {
+			.key = DES_INIT_VECTOR_KEY,
+			.values = OPT_FROM_USER,
+		},
+		.opts_arg_len = 6,
+	},
 	[TEST] = {
 		.cmd = TEST,
 		.opts = TEST_OPTS,
@@ -424,6 +455,12 @@ static const t_cmd g_ssl_cmd[NB_CMD] = {
 	[DES_CFB] = {
 		.name = "des-cfb",
 		.len = sizeof("des-cfb") - 1,
+		.func = cmd_des,
+		.usage = usage_des,
+	},
+	[DES_3] = {
+		.name = "des3",
+		.len = sizeof("des3") - 1,
 		.func = cmd_des,
 		.usage = usage_des,
 	},
