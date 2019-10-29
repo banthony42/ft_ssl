@@ -16,10 +16,14 @@ sha512_224<br>
 sha512_256<br>
 
 #### Cipher commmands:
-base64	(wip)<br>
-des	(wip)<br>
-des-ecb	(wip)<br>
-dec-cbc	(wip)<br>
+base64<br>
+base64_url<br>
+des<br>
+des-ecb<br>
+des-cbc<br>
+des-ofb<br>
+des-cfb<br>
+des3<br>
 <br>
 
 #### Test the parser:
