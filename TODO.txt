@@ -6,11 +6,11 @@
      By: banthony <banthony@student.42.fr>          +#+  +:+       +#+
                                                   +#+#+#+#+#+   +#+
      Created: 2019/10/22 19:39:49 by banthony          #+#    #+#
-     Updated: 2019/10/29 15:10:19 by banthony         ###   ########.fr         
+     Updated: 2019/10/29 16:38:05 by banthony         ###   ########.fr         
 
 ********************************************************************************
 
 * [B64 - DES]	Debug with bad user entry (mostly in decode mode)
 
 * Test & not working command :
-	echo bonjour | ./ft_ssl des-ecb -a -p d  | ./ft_ssl des-ecb -a -d -p d
+	|||	echo bonjour | ./ft_ssl des-ecb -a -p d  | ./ft_ssl des-ecb -a -d -p d ||| (voir getpass)

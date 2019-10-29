@@ -6,7 +6,7 @@
 /*   By: abara <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 16:20:23 by abara             #+#    #+#             */
-/*   Updated: 2019/10/28 14:14:02 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/29 15:20:56 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -358,14 +358,6 @@ static const t_parsing_param g_ssl_cmd_parse[NB_CMD] = {
 		},
 		.opts_arg_len = 3,
 	},
-	[MAN] = {
-		.cmd = TEST,
-		.opts = "",
-		.opts_len = 0,
-		.opts_with_arg = false,
-		.opts_arg = {{NULL, NULL}},
-		.opts_arg_len = 0,
-	}
 };
 
 /*
@@ -470,12 +462,6 @@ static const t_cmd g_ssl_cmd[NB_CMD] = {
 		.func = cmd_test,
 		.usage = usage_test,
 	},
-	[MAN] = {
-		.name = "man",
-		.len = sizeof("man") - 1,
-		.func = cmd_man,
-		.usage = usage_man,
-	}
 };
 
 /*

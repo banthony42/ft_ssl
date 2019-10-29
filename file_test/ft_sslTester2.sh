@@ -36,7 +36,7 @@ BASE64_URL="base64 | tr '+/' '-_', tr -- '-_' '+/' | base64 -D,./ft_ssl base64_u
 # FIXME you can change this if you don't handle such features
 
 HASH_META="${MD5_META};${SHA256_META};${SHA224_META};${SHA384_META};${SHA512_META};${SHA512_224_META};${SHA512_256_META};"
-MODES_META="des-ecb;des3;des-cfb;des-ofb;des-cbc;"
+MODES_META="des-ofb;des3;des-cfb;des-ecb;des-cbc;"
 BASE64_META="${BASE64};${BASE64_URL};"
 
 # FIXME you can change the default values of nb_keys and nb_ivs
@@ -87,10 +87,10 @@ build_commands()
 	echo "${MODES_META}" | while read -r -d';' MODE; do
 		echo "${KEYS}" | while read -r -d';' KEY; do
 			if [ "${MODE}" = "des-ecb" ]; then
-				echo "openssl ${MODE} -K ${KEY},openssl ${MODE} -d -K ${KEY},./ft_ssl ${MODE} -k ${KEY},./ft_ssl ${MODE} -d -k ${KEY},0;" >> tmp.txt
+				echo "openssl ${MODE} -a -K ${KEY},openssl ${MODE} -d -a -K ${KEY},./ft_ssl ${MODE} -a -k ${KEY},./ft_ssl ${MODE} -d -a -k ${KEY},0;" >> tmp.txt
 			else
 				echo "${IVS}" | while read -r -d';' IV; do
-					echo "openssl ${MODE} -K ${KEY} -iv ${IV},openssl ${MODE} -d -K ${KEY} -iv ${IV},./ft_ssl ${MODE} -k ${KEY} -v ${IV},./ft_ssl ${MODE} -d -k ${KEY} -v ${IV},0;" >> tmp.txt
+					echo "openssl ${MODE} -a -K ${KEY} -iv ${IV},openssl ${MODE} -d -a -K ${KEY} -iv ${IV},./ft_ssl ${MODE} -a -k ${KEY} -v ${IV},./ft_ssl ${MODE} -d -a -k ${KEY} -v ${IV},0;" >> tmp.txt
 				done
 			fi
 		done
@@ -219,16 +219,6 @@ _check_des()
 	if diff ${ENC_OUT_REAL} ${ENC_OUT_MINE} > /dev/null 2>&1 && diff ${DEC_OUT_REAL} ${DEC_OUT_MINE} > /dev/null 2>&1; then
 		compt_OK
 	else
-#		cat -e ${ENC_OUT_REAL}
-#		echo "___________________________"
-#		cat -e ${ENC_OUT_MINE}
-#		echo "========================"
-#		cat -e ${DES_OUT_REAL}
-#		echo "___________________________"
-#		cat -e ${DEC_OUT_MINE}
-#		echo "========================"
-#		diff ${ENC_OUT_REAL} ${ENC_OUT_MINE}
-#		diff ${DEC_OUT_REAL} ${DEC_OUT_MINE}
 		echo "|==========COMMANDS===========|"
 		echo "$3"
 		echo "$5"

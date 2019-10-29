@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/29 15:00:37 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/29 16:51:00 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <stdint.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include "ft_ssl_man.h"
 
 # define NO_FILE_DIR "No such file or directory"
 # define EXIST "File already exist"
@@ -116,7 +115,6 @@ typedef enum	e_cmd_type
 	DES_OFB,
 	DES_CFB,
 	DES_3,
-	MAN,
 	TEST,
 	NB_CMD,
 }				t_cmd_type;
