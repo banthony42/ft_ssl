@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/28 14:12:52 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/29 15:00:37 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -248,5 +248,12 @@ int				usage_base64(char *exe, char *cmd_name);
 int				usage_des(char *exe, char *cmd_name);
 int				usage_man(char *exe, char *cmd_name);
 int				usage_test(char *exe, char *cmd_name);
+
+/*
+**	Commande test
+*/
+
+void			display_options(t_cmd_opt *opts);
+void			display_param_options(t_cmd_opt *opts);
 
 #endif

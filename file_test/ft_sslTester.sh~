@@ -36,7 +36,7 @@ BASE64_URL="base64 | tr '+/' '-_', tr -- '-_' '+/' | base64 -D,./ft_ssl base64_u
 # FIXME you can change this if you don't handle such features
 
 HASH_META="${MD5_META};${SHA256_META};${SHA224_META};${SHA384_META};${SHA512_META};${SHA512_224_META};${SHA512_256_META};"
-MODES_META="des-ofb;des3;des-cfb;des-ecb;des-cbc;"
+MODES_META="des-ecb;des3;des-cfb;des-ofb;des-cbc;"
 BASE64_META="${BASE64};${BASE64_URL};"
 
 # FIXME you can change the default values of nb_keys and nb_ivs

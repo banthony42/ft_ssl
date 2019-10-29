@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 15:03:59 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/28 16:47:14 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/29 14:30:04 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,55 @@ void	hexastring_to_uint64(char *str, uint64_t *key)
 		*key = (*key << 4) | (uint64_t)c;
 		i++;
 	}
+}
+
+size_t	salt_handler(t_des *des, uint8_t *entry, size_t size)
+{
+	uint8_t		*tmp;
+	uint64_t	salt;
+
+	tmp = des->result;
+	des->result = (uint8_t*)ft_memalloc(des->result_len + 16);
+	ft_memcpy(des->result, "Salted__", 8);
+	hexastring_to_uint64(des->salt, &salt);
+	ft_memcpy(des->result + 8, &salt, 8);
+	ft_memcpy(des->result + 16, tmp, des->result_len);
+	des->result_len += 16;
+	ft_memdel((void**)&tmp);
+	(void)entry;
+	(void)size;
+	return (0);
+}
+
+void	des_padd(t_des *des, char *entry, size_t size, uint8_t **padded)
+{
+	size_t padding;
+
+	*padded = NULL;
+	if (!des || !entry || !padded)
+		ft_exit("Fatal error while padding.", EXIT_FAILURE);
+	des->result_len = (size == 0) ? ft_strlen(entry) : size;
+	padding = 8 - (des->result_len % 8);
+	*padded = (uint8_t*)ft_memalloc(des->result_len + padding);
+	des->result = (uint8_t*)ft_memalloc(des->result_len + padding);
+	ft_memcpy(*padded, entry, des->result_len);
+	ft_memset(*padded + des->result_len, (int)padding, padding);
+	des->result_len += padding;
+}
+
+void	des_padd_without_scheme(t_des *des, char *entry, size_t size,
+											uint8_t **padded)
+{
+	size_t padding;
+
+	if (!des || !entry || !padded)
+		ft_exit("Fatal error while padding.", EXIT_FAILURE);
+	*padded = NULL;
+	des->result_len = (size == 0) ? ft_strlen(entry) : size;
+	padding = 8 - (des->result_len % 8);
+	*padded = (uint8_t*)ft_memalloc(des->result_len + padding);
+	des->result = (uint8_t*)ft_memalloc(des->result_len + padding);
+	ft_memcpy(*padded, entry, des->result_len);
 }
 
 size_t	get_padding_to_remove(uint8_t *decipher, size_t len)

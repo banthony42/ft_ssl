@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 13:06:48 by abara             #+#    #+#             */
-/*   Updated: 2019/10/24 13:19:36 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/29 14:26:40 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,15 +72,6 @@ static t_bool		define_output(t_list *flag_input, void *base64_data)
 	if (b64->out < 0)
 		return (false);
 	return (true);
-}
-
-static void			init_b64(t_base64 *b64, t_cmd_type cmd, t_cmd_opt *opt)
-{
-	ft_memset(b64, 0, sizeof(t_base64));
-	b64->b64_url = (cmd == BASE64_URL) ? true : false;
-	b64->out = STDOUT_FILENO;
-	if (opt && opt->opts_flag & CIPHER_DECODE_MASK)
-		b64->cipher_mode = CIPHER_DECODE;
 }
 
 int					cmd_base64(int ac, char **av, t_cmd_type cmd,

@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 14:21:32 by abara             #+#    #+#             */
-/*   Updated: 2019/10/24 15:03:18 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/29 14:22:46 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,51 +99,6 @@ static void		encode_b64(char *entry, char padding, t_base64 *b64, size_t len)
 }
 
 /*
-**	Return true if all character in the entry, are present in the base64 table.
-**	Return false otherwise.
-*/
-
-static size_t	get_final_lenght(size_t ignore, int len, char *entry)
-{
-	int		i;
-	size_t	equal;
-
-	equal = 0;
-	i = -1;
-	while (++i < len)
-		if (entry[i] == '=')
-			equal++;
-	return ((((size_t)len - ignore) / 4 * 3) - equal);
-}
-
-static t_bool	is_valid_ciphering(char *entry, int len,
-									size_t *result_len, t_bool isb64_url)
-{
-	int			i;
-	size_t		ignore;
-	char		*avoid;
-
-	if (!entry || !result_len)
-		return (false);
-	avoid = (isb64_url == true) ? "-_=" : "+/=";
-	i = -1;
-	ignore = 0;
-	while (++i < len)
-		if (!ft_isalnum((int)entry[i]) && !ft_strchr(avoid, (int)entry[i]))
-		{
-			if (entry[i] == ' ' || entry[i] == '\n' || entry[i] == '\t')
-			{
-				ignore++;
-				continue;
-			}
-			ft_putchar('\n');
-			return (false);
-		}
-	*result_len = get_final_lenght(ignore, len, entry);
-	return (true);
-}
-
-/*
 **	Parse entry by block of 4 char because we are in decode mode:
 **	In base64, a ciphered char is coded on 6 bits.
 **	If we parse the entry by block of 4 ciphered char we have: 4 * 6 = 24 bits.
@@ -159,13 +114,6 @@ static t_bool	is_valid_ciphering(char *entry, int len,
 **
 **	The tricks is to use ascii value of 'A' as index to store the value of 'A'.
 */
-
-static int		b64decode(int value, int b64_decode[255])
-{
-	if (value == (int)'=')
-		return (0);
-	return (b64_decode[value]);
-}
 
 static void		decode_b64_core(t_base64 *b64, t_decode_block block)
 {

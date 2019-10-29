@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 12:40:36 by abara             #+#    #+#             */
-/*   Updated: 2019/10/28 15:04:03 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/29 15:04:03 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,19 @@ typedef struct		s_decode_block
 	int				i_3;
 }					t_decode_block;
 
+typedef struct		s_des3_subkey
+{
+	uint64_t		s1[16];
+	uint64_t		s2[16];
+	uint64_t		s3[16];
+}					t_des3_subkey;
+
 void				base64_cipher(t_base64 *b64, char *entry, size_t elen);
+void				init_b64(t_base64 *b64, t_cmd_type cmd, t_cmd_opt *opt);
+int					b64decode(int value, int b64_decode[255]);
+size_t				get_final_lenght(size_t ignore, int len, char *entry);
+t_bool				is_valid_ciphering(char *entry, int len,
+										size_t *result_len, t_bool isb64_url);
 
 /*
 **	************************ DES FAMILY ************************
@@ -130,53 +142,61 @@ typedef struct		s_des
 */
 
 void				des_ecb_encode_treatment(t_des *des, t_cmd_type cmd,
-											char *entry, size_t size);
+										char *entry, size_t size);
 void				des_ecb_decode_treatment(t_des *des, t_cmd_type cmd,
-											char *entry, size_t size);
+										char *entry, size_t size);
 void				des_cbc_encode_treatment(t_des *des, t_cmd_type cmd,
-											char *entry, size_t size);
+										char *entry, size_t size);
 void				des_cbc_decode_treatment(t_des *des, t_cmd_type cmd,
-											char *entry, size_t size);
+										char *entry, size_t size);
 void				des_ofb_encode_treatment(t_des *des, t_cmd_type cmd,
-											char *entry, size_t size);
+										char *entry, size_t size);
 void				des_ofb_decode_treatment(t_des *des, t_cmd_type cmd,
-											char *entry, size_t size);
+										char *entry, size_t size);
 void				des_cfb_encode_treatment(t_des *des, t_cmd_type cmd,
-											char *entry, size_t size);
+										char *entry, size_t size);
 void				des_cfb_decode_treatment(t_des *des, t_cmd_type cmd,
-											char *entry, size_t size);
+										char *entry, size_t size);
 void				des3_encode_treatment(t_des *des, t_cmd_type cmd,
-											char *entry, size_t size);
+										char *entry, size_t size);
 void				des3_decode_treatment(t_des *des, t_cmd_type cmd,
-											char *entry, size_t size);
+										char *entry, size_t size);
 void				des_ecb_encode(t_des *des, char *entry, size_t size,
-									uint64_t subkey[16]);
+										uint64_t subkey[16]);
 void				des_ecb_decode(t_des *des, char *entry, size_t size,
-									uint64_t subkey[16]);
+										uint64_t subkey[16]);
 void				des_cbc_encode(t_des *des, char *entry, size_t size,
-									uint64_t subkey[16]);
+										uint64_t subkey[16]);
 void				des_cbc_decode(t_des *des, char *entry, size_t size,
-									uint64_t subkey[16]);
+										uint64_t subkey[16]);
 void				des_ofb_cipher(t_des *des, char *entry, size_t size,
-									uint64_t subkey[16]);
+										uint64_t subkey[16]);
 void				des_cfb_cipher(t_des *des, char *entry, size_t size,
-									uint64_t subkey[16]);
+										uint64_t subkey[16]);
 void				des3_encode(t_des *des, char *entry, size_t size,
-								   uint64_t subkey[16], uint64_t subkey2[16], uint64_t subkey3[16]);
+										t_des3_subkey subkey);
 void				des3_decode(t_des *des, char *entry, size_t size,
-								   uint64_t subkey[16], uint64_t subkey2[16], uint64_t subkey3[16]);
+										t_des3_subkey subkey);
 void				des_core(uint64_t data, uint64_t subkey[16],
-									uint8_t *result, t_cipher_mode mode);
+										uint8_t *result, t_cipher_mode mode);
+
 /*
-**	DES utils
+**	DES utils & other
 */
 
-size_t				get_padding_to_remove(uint8_t *decipher, size_t len);
-void				hexastring_to_uint64(char *str, uint64_t *key);
 uint64_t			bits_permutation(uint64_t data, const uint8_t *matrix,
-									size_t size);
+										size_t size);
+void				des_padd_without_scheme(t_des *des, char *entry,
+										size_t size, uint8_t **padded);
+void				des_padd(t_des *des, char *entry, size_t size,
+										uint8_t **padded);
+size_t				get_padding_to_remove(uint8_t *decipher, size_t len);
+size_t				salt_handler(t_des *des, uint8_t *entry, size_t size);
+void				hexastring_to_uint64(char *str, uint64_t *key);
 void				des_substitution(uint64_t input_data, uint32_t *out);
 t_bool				get_pass(t_des *des, char *entry, size_t *size);
 void				des_subkey_generation(uint64_t key, uint64_t (*subkey)[16]);
+void				generate_keys(uint64_t key, uint64_t (*subkey)[16]);
+void				des3_generate_keys(char *str_key, t_des3_subkey *subkey);
 
 #endif

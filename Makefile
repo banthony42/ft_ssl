@@ -6,7 +6,7 @@
 #    By: banthony <banthony@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/08 12:54:17 by banthony          #+#    #+#              #
-#    Updated: 2019/10/24 16:18:23 by banthony         ###   ########.fr        #
+#    Updated: 2019/10/29 15:05:46 by banthony         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -41,14 +41,20 @@ SRC_FILE += sha_digest_64.c
 SRC_FILE += sha_function_32.c
 SRC_FILE += sha_function_64.c
 SRC_FILE += base64_cipher.c
+SRC_FILE += base64_utils.c
 SRC_FILE += des_key_gen.c
+SRC_FILE += des_subkey_gen.c
 SRC_FILE += des_cipher.c
+SRC_FILE += des3_ofb_cfb.c
 SRC_FILE += des_cipher_treatment.c
+SRC_FILE += des_ofb_cfb_treatment.c
+SRC_FILE += des3_cipher_treatment.c
 SRC_FILE += des_core.c
 SRC_FILE += des_substitution.c
 SRC_FILE += des_utils.c
 SRC_FILE += encode.c
 SRC_FILE += verbose.c
+SRC_FILE += test_parser.c
 
 SRC = $(SRC_FILE:%c=$(PATH_SRC)%c)
 INCLUDE = $(HEADER_FILE:%h=$(PATH_HEAD)%h)
