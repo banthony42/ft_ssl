@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 15:57:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/29 14:56:03 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/30 10:44:12 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	des_cbc_decode_treatment(t_des *des, t_cmd_type cmd, char *entry,
 		b64.in = des->in;
 		b64.cipher_mode = des->cipher_mode;
 		base64_cipher(&b64, entry, size);
-		des_ecb_decode(des, b64.result, b64.result_len, subkey);
+		des_cbc_decode(des, b64.result, b64.result_len, subkey);
 		ft_strdel(&b64.result);
 	}
 	else
