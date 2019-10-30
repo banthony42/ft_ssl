@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 15:05:17 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/28 14:45:32 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/30 13:35:01 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 /*
 **	Initial permutation
 */
-static const uint8_t	g_initp[64] =
-{
+static const uint8_t	g_initp[64] = {
 	58, 50, 42, 34, 26, 18, 10, 2,
 	60, 52, 44, 36, 28, 20, 12, 4,
 	62, 54, 46, 38, 30, 22, 14, 6,
@@ -32,8 +31,7 @@ static const uint8_t	g_initp[64] =
 /*
 **	Expansion table
 */
-static const uint8_t	g_expp[48] =
-{
+static const uint8_t	g_expp[48] = {
 	32, 1, 2, 3, 4, 5, 4, 5,
 	6, 7, 8, 9, 8, 9, 10, 11,
 	12, 13, 12, 13, 14, 15, 16, 17,
@@ -45,8 +43,7 @@ static const uint8_t	g_expp[48] =
 /*
 **	End round permutation
 */
-static const uint8_t	g_end_roundp[32] =
-{
+static const uint8_t	g_end_roundp[32] = {
 	16, 7, 20, 21,
 	29, 12, 28, 17,
 	1, 15, 23, 26,
@@ -60,8 +57,7 @@ static const uint8_t	g_end_roundp[32] =
 /*
 **	Final permutation
 */
-static const uint8_t	g_finalp[64] =
-{
+static const uint8_t	g_finalp[64] = {
 	40, 8, 48, 16, 56, 24, 64, 32,
 	39, 7, 47, 15, 55, 23, 63, 31,
 	38, 6, 46, 14, 54, 22, 62, 30,

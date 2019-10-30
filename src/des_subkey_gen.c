@@ -6,22 +6,20 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 14:46:29 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/30 11:47:15 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/30 13:34:44 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cipher_commands.h"
 
-static const uint8_t g_shift_table[16] =
-{
+static const uint8_t g_shift_table[16] = {
 	1, 1, 2, 2,
 	2, 2, 2, 2,
 	1, 2, 2, 2,
 	2, 2, 2, 1
 };
 
-static const uint8_t g_key_comp[48] =
-{
+static const uint8_t g_key_comp[48] = {
 	14, 17, 11, 24, 1, 5,
 	3, 28, 15, 6, 21, 10,
 	23, 19, 12, 4, 26, 8,
@@ -32,8 +30,7 @@ static const uint8_t g_key_comp[48] =
 	46, 42, 50, 36, 29, 32
 };
 
-static const uint8_t	g_keyp[56] =
-{
+static const uint8_t	g_keyp[56] = {
 	57, 49, 41, 33, 25, 17, 9,
 	1, 58, 50, 42, 34, 26, 18,
 	10, 2, 59, 51, 43, 35, 27,

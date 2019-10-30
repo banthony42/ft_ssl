@@ -6,15 +6,14 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 15:03:59 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/29 14:30:04 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/30 13:36:20 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
 #include "cipher_commands.h"
 
-static const char	g_convert[16] =
-{
+static const char	g_convert[16] = {
 	0x0, 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7,
 	0x8, 0x9, 0xA, 0xB, 0xC, 0xD, 0xE, 0xF
 };
