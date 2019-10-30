@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 19:54:21 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/18 15:42:17 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/30 12:00:03 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,21 @@ int			find_key(char **av, int ac, char *key)
 			return (i);
 	}
 	return (-1);
+}
+
+t_bool		ft_ishexa(char *str)
+{
+	int i;
+
+	i = 0;
+	if (!str || ft_strlen(str) == 0)
+		return (false);
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			if (ft_toupper(str[i]) < 'A' || ft_toupper(str[i]) > 'F')
+				return (false);
+		i++;
+	}
+	return (true);
 }

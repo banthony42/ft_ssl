@@ -6,30 +6,13 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 15:38:03 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/29 14:46:00 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/30 12:03:59 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
 #include "cipher_commands.h"
 #include "message_digest.h"
-
-static t_bool	ft_ishexa(char *str)
-{
-	int i;
-
-	i = 0;
-	if (!str || ft_strlen(str) == 0)
-		return (false);
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			if (ft_toupper(str[i]) < 'A' || ft_toupper(str[i]) > 'F')
-				return (false);
-		i++;
-	}
-	return (true);
-}
 
 static t_bool	create_key(t_des *des)
 {
@@ -101,29 +84,49 @@ static void		extract_salt(t_des *des, char *entry, size_t *size)
 	}
 }
 
-/*
-**	Use getpassphrase instead. (getpass not secure)
-*/
+static t_bool	ft_readpasssphrase(char (*passwd)[PASSWORD_MAX], int flags)
+{
+	char	check_passwd[PASSWORD_MAX];
+	t_bool	status;
+
+	status = true;
+	if (!passwd)
+		return (false);
+	ft_memset(check_passwd, 0, PASSWORD_MAX);
+	if (readpassphrase(ENTER_PASS, *passwd, PASSWORD_MAX, flags) == NULL)
+		return (false);
+	if (!ft_strlen(*passwd))
+		return (false);
+	if (readpassphrase(CHECK_PASS, check_passwd, PASSWORD_MAX, flags) == NULL)
+	{
+		ft_memset(*passwd, 0, PASSWORD_MAX);
+		status = false;
+	}
+	if (status && ft_strncmp(*passwd, check_passwd, PASSWORD_MAX))
+	{
+		ft_putendl("Verify failure");
+		status = false;
+	}
+	ft_memset(check_passwd, 0, PASSWORD_MAX);
+	return (status);
+}
 
 t_bool			get_pass(t_des *des, char *entry, size_t *size)
 {
 	char	user_passwd[PASSWORD_MAX];
-	char	check_passwd[PASSWORD_MAX];
 
 	if (des->cipher_mode == CIPHER_DECODE)
 		extract_salt(des, entry, size);
 	if (!des->passwd)
 	{
 		ft_memset(user_passwd, 0, PASSWORD_MAX);
-		ft_memset(check_passwd, 0, PASSWORD_MAX);
-		ft_strncpy(user_passwd, getpass(ENTER_PASS), PASSWORD_MAX);
-		ft_strncpy(check_passwd, getpass(CHECK_PASS), PASSWORD_MAX);
-		if (ft_strcmp(user_passwd, check_passwd))
+		if (!ft_readpasssphrase(&user_passwd, RPP_REQUIRE_TTY))
 		{
-			ft_putendl("Verify failure\nbad password read");
+			ft_putendl("bad password read");
 			return (false);
 		}
 		des->passwd = ft_strdup(user_passwd);
+		ft_memset(user_passwd, 0, PASSWORD_MAX);
 	}
 	if (!ft_strlen(des->salt))
 		create_salt(des);

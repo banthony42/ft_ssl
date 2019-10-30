@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:02:57 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/29 16:51:00 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/30 12:00:25 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,6 +213,7 @@ uint32_t		rotate_left(uint32_t value, uint32_t shift);
 uint32_t		rotate_right(uint32_t value, uint32_t shift);
 uint64_t		rotate_r_64(uint64_t value, uint64_t shift);
 size_t			ft_strchrcount(const char *src, int c);
+t_bool			ft_ishexa(char *str);
 
 /*
 **	Fonction ssl

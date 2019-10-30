@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 13:14:26 by abara             #+#    #+#             */
-/*   Updated: 2019/10/28 14:15:07 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/30 12:03:33 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,31 +63,31 @@
 **		md5(password + salt)
 */
 
-static void		des_cipher(t_des *des, t_cmd_type cmd, char *entry, size_t size)
+static void		des_cipher(t_des *ds, t_cmd_type cmd, char *entry, size_t size)
 {
-	if (!des->hexa_key && !get_pass(des, entry, &size))
+	if (!ds->hexa_key && !get_pass(ds, entry, &size))
 		return ;
-	if (cmd == DES_ECB && des->cipher_mode == CIPHER_ENCODE)
-		des_ecb_encode_treatment(des, cmd, entry, size);
-	else if (cmd == DES_ECB && des->cipher_mode == CIPHER_DECODE)
-		des_ecb_decode_treatment(des, cmd, entry, size);
-	else if (cmd == DES_CBC && des->cipher_mode == CIPHER_DECODE)
-		des_cbc_decode_treatment(des, cmd, entry, size);
-	else if (cmd == DES_CBC && des->cipher_mode == CIPHER_ENCODE)
-		des_cbc_encode_treatment(des, cmd, entry, size);
-	else if (cmd == DES_OFB && des->cipher_mode == CIPHER_DECODE)
-		des_ofb_decode_treatment(des, cmd, entry, size);
-	else if (cmd == DES_OFB && des->cipher_mode == CIPHER_ENCODE)
-		des_ofb_encode_treatment(des, cmd, entry, size);
-	else if (cmd == DES_CFB && des->cipher_mode == CIPHER_DECODE)
-		des_cfb_decode_treatment(des, cmd, entry, size);
-	else if (cmd == DES_CFB && des->cipher_mode == CIPHER_ENCODE)
-		des_cfb_encode_treatment(des, cmd, entry, size);
-	else if (cmd == DES_3 && des->cipher_mode == CIPHER_DECODE)
-		des3_decode_treatment(des, cmd, entry, size);
-	else if (cmd == DES_3 && des->cipher_mode == CIPHER_ENCODE)
-		des3_encode_treatment(des, cmd, entry, size);
-	ft_memdel((void**)&des->result);
+	if (cmd == DES_ECB && ds->cipher_mode == CIPHER_ENCODE)
+		des_ecb_encode_treatment(ds, cmd, entry, size);
+	else if (cmd == DES_ECB && ds->cipher_mode == CIPHER_DECODE)
+		des_ecb_decode_treatment(ds, cmd, entry, size);
+	else if ((cmd == DES_CBC || cmd == DES) && ds->cipher_mode == CIPHER_DECODE)
+		des_cbc_decode_treatment(ds, cmd, entry, size);
+	else if ((cmd == DES_CBC || cmd == DES) && ds->cipher_mode == CIPHER_ENCODE)
+		des_cbc_encode_treatment(ds, cmd, entry, size);
+	else if (cmd == DES_OFB && ds->cipher_mode == CIPHER_DECODE)
+		des_ofb_decode_treatment(ds, cmd, entry, size);
+	else if (cmd == DES_OFB && ds->cipher_mode == CIPHER_ENCODE)
+		des_ofb_encode_treatment(ds, cmd, entry, size);
+	else if (cmd == DES_CFB && ds->cipher_mode == CIPHER_DECODE)
+		des_cfb_decode_treatment(ds, cmd, entry, size);
+	else if (cmd == DES_CFB && ds->cipher_mode == CIPHER_ENCODE)
+		des_cfb_encode_treatment(ds, cmd, entry, size);
+	else if (cmd == DES_3 && ds->cipher_mode == CIPHER_DECODE)
+		des3_decode_treatment(ds, cmd, entry, size);
+	else if (cmd == DES_3 && ds->cipher_mode == CIPHER_ENCODE)
+		des3_encode_treatment(ds, cmd, entry, size);
+	ft_memdel((void**)&ds->result);
 }
 
 int				usage_des(char *exe, char *cmd_name)

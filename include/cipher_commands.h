@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 12:40:36 by abara             #+#    #+#             */
-/*   Updated: 2019/10/29 15:04:03 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/30 11:14:50 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "ft_ssl.h"
 # include <pwd.h>
+# include <readpassphrase.h>
 
 # ifdef __linux__
 #  include <limits.h>
