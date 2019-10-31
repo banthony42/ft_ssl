@@ -6,7 +6,7 @@
 /*   By: abara <banthony@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 13:06:48 by abara             #+#    #+#             */
-/*   Updated: 2019/10/29 14:26:40 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/31 14:53:37 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int					cmd_base64(int ac, char **av, t_cmd_type cmd,
 	{
 		if (!(entry = (char*)read_cat(base64.in, &size)))
 			return (base64_end(base64, opt, CMD_ERROR, "Can't read input."));
-		base64_cipher(&base64, entry, ft_strlen(entry));
+		base64_cipher(&base64, entry, size);
 		ft_strdel(&entry);
 		return (base64_end(base64, opt, CMD_SUCCESS, NULL));
 	}

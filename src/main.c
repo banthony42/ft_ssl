@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 13:03:01 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/30 12:01:36 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/31 16:29:52 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ static void	usage(char **argv)
 	ft_putstr("usage:");
 	ft_putstr(argv[0]);
 	ft_putendl(" command [command opts] [command args]\n");
-	ft_putendl("Standard commands:");
-	ft_putendl("man [command]\t(wip)");
 	ft_putendl("\nMessage Digest commands:");
 	ft_putendl("md5\nsha224\nsha256\nsha384\nsha512");
 	ft_putendl("sha512_224\nsha512_256\n");

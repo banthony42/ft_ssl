@@ -1,0 +1,4 @@
+echo "$(curl 'https://www.peereboom.us/assl/assl/html/openssl.html')"  > original.html
+echo "password" > password_file
+openssl des-ecb -p -in original.html -out ciphertext.html -pass  "pass:$(cat password_file)"
+./ft_ssl des-ecb -d -i ciphertext.html -o decrypted.html -p "$(cat password_file)" -s [USE_OPENSSL_SALT]

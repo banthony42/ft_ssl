@@ -6,7 +6,7 @@
 /*   By: banthony <banthony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 15:38:03 by banthony          #+#    #+#             */
-/*   Updated: 2019/10/30 12:03:59 by banthony         ###   ########.fr       */
+/*   Updated: 2019/10/31 16:30:21 by banthony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static t_bool	create_key(t_des *des)
 	uint64_t	salt;
 
 	hexastring_to_uint64(des->salt, &salt);
+	salt = swap_uint64(salt);
 	entry_len = ft_strlen(des->passwd) + 8;
 	entry = (char*)ft_memalloc(entry_len);
 	ft_memset(entry, 0, entry_len);
@@ -34,7 +35,7 @@ static t_bool	create_key(t_des *des)
 		ft_memdel((void**)&entry);
 		return (false);
 	}
-	des->hexa_key = ft_strsub(result, 0, 8);
+	des->hexa_key = ft_strsub(result, 0, 16);
 	if (!des->i_vector)
 		des->i_vector = ft_strsub(result, 24, 32);
 	ft_memdel((void**)&entry);
@@ -74,6 +75,7 @@ static void		extract_salt(t_des *des, char *entry, size_t *size)
 	if (!ft_strncmp("Salted__", entry, 8))
 	{
 		salt = *((uint64_t*)(void*)(entry + 8));
+		salt = swap_uint64(salt);
 		salt_str = ft_itoa_base_uint64(salt, 16);
 		if ((salt_len = ft_strlen(salt_str)) != 16)
 			ft_memset(des->salt, '0', SALT_LENGTH);
